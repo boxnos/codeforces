@@ -1,0 +1,12 @@
+# inputCopy
+8
+# outputCopy
+YES
+# inputCopy
+7
+# outputCopy
+NO
+# inputCopy
+2
+# outputCopy
+NO
