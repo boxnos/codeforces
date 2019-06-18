@@ -1,5 +1,4 @@
 SHELL = /bin/bash
-#FLAGS = -std=c++14 -Wall -Wextra
 FLAGS = -std=c++14 -Wall -Wextra -pedantic -Wfloat-equal -Wlogical-op -Wredundant-decls -Wconversion -Wcast-qual -Wcast-align -Wuseless-cast
 CXXFLAGS = $(FLAGS) -O2
 target = main
