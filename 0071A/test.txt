@@ -1,0 +1,24 @@
+# inputCopy
+4
+word
+localization
+internationalization
+pneumonoultramicroscopicsilicovolcanoconiosis
+# outputCopy
+word
+l10n
+i18n
+p43s
+# input
+5
+abcdefgh
+abcdefghi
+abcdefghij
+abcdefghijk
+abcdefghijklm
+# Jury's answer
+abcdefgh
+abcdefghi
+abcdefghij
+a9k
+a11m
