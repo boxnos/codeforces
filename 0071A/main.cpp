@@ -4,8 +4,12 @@
 #include <string>
 using namespace std;
 
-const auto gcu = getchar;
-const auto pcu = putchar;
+#define _gp(l) const auto gcu{getchar##l}; const auto pcu{putchar##l}
+#ifdef __linux
+_gp(_unlocked);
+#else
+_gp();
+#endif
 #define _DEF(r, n, ...) inline r n(__VA_ARGS__) noexcept
 #define _T template <typename T>
 #define _HT template <typename H,typename... T>
