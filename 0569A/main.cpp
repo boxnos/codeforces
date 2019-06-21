@@ -43,10 +43,8 @@ struct range{
 		it& operator++(){v+=s;return *this;} }; it begin() {return {b, s};} it end() {return {e, s};}};
 
 int main() {
-	int n {in()}, r = {1};
-	for (int i = 0; i < n; i++)
-		r += i * 4;
-	outl(r);
+	int n {in()};
+	outl(1 + 4 * n * (n - 1) / 2);
 }
 
 /* vim: set ts=4 noet: */
