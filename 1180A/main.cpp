@@ -44,7 +44,7 @@ struct range{
 
 int main() {
 	int n {in()};
-	outl(1 + 4 * n * (n - 1) / 2);
+	outl(1 + 2 * n * (n - 1));
 }
 
 /* vim: set ts=4 noet: */
