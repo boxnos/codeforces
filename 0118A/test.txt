@@ -1,0 +1,12 @@
+# inputCopy
+tour
+# outputCopy
+.t.r
+# inputCopy
+Codeforces
+# outputCopy
+.c.d.f.r.c.s
+# inputCopy
+aBAcAba
+# outputCopy
+.b.c.b
