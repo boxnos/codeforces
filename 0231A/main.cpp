@@ -44,12 +44,8 @@ struct range{
 
 int main() {
 	int c {};
-	for (int n {in()}; n; n--) {
-		int t {};
-		for (int i {}; i < 3; i++)
-			t += in();
-		c += t >= 2;
-	}
+	for (int n {in()}; n; n--)
+		c += in() + in() + in() >= 2;
 	outl(c);
 }
 
