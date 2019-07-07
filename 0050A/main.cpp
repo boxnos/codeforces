@@ -39,8 +39,7 @@ struct range{int e,b{0},s{1};range(int _b,int _e,int _s):e(_e),b(_b),s(_s){}rang
 	it begin(){return{b, s};}it end(){return{e,s};}};
 
 int main() {
-	int m {in()}, n {in()};
-	outl(m / 2 * n + (m & 1) * n / 2);
+	outl(in() * in() / 2);
 }
 
 /* vim: set ts=4 noet: */
