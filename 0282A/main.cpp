@@ -44,11 +44,7 @@ int main() {
 	string s;
 	for (int n {in()}; n ; n--) {
 		scan(s);
-		for (char c: s)
-			if (c != 'X') {
-				x += c == '+' ? 1 : -1;
-				break;
-			}
+		x += ',' - s[1];
 	}
 	outl(x);
 }
