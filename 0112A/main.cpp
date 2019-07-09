@@ -47,7 +47,7 @@ int stringicmp(string a, string b) {
 		if (c != d)
 			return c > d ? 1 : -1;
 	}
-	return i == end(a) ? j == end(b) ? 0 : 1 : -1;
+	return i == end(a) ? j != end(b) : -1;
 }
 
 int main() {
