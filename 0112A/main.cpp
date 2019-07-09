@@ -40,14 +40,19 @@ struct range{int e,b{0},s{1};range(int _b,int _e,int _s):e(_e),b(_b),s(_s){}rang
 	struct it{int v,s;it(int _v,int _s):v(_v),s(_s){}operator int()const{return v;}operator int&(){return v;}int operator*()const{return v;}it& operator++(){v+=s;return *this;}};
 	it begin(){return{b, s};}it end(){return{e,s};}};
 
+int stringicmp(string a, string b) {
+	for (auto i {begin(a)}, j {begin(b)}; i != end(a) && j != end(b); i++, j++) {
+		char c = tolower(*i), d = tolower(*j);
+		if (c != d)
+			return c > d ? 1 : -1;
+	}
+	return 0;
+}
+
 int main() {
-	auto lo {[](string &s) {
-		transform(begin(s), end(s), begin(s), [](char c) {return tolower(c);});}};
 	string a, b;
 	scan(a, b);
-	lo(a);
-	lo(b);
-	outl(a < b ? -1 : a > b);
+	outl(stringicmp(a, b));
 }
 
 /* vim: set ts=4 noet: */
