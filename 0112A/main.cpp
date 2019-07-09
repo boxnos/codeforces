@@ -41,12 +41,13 @@ struct range{int e,b{0},s{1};range(int _b,int _e,int _s):e(_e),b(_b),s(_s){}rang
 	it begin(){return{b, s};}it end(){return{e,s};}};
 
 int stringicmp(string a, string b) {
-	for (auto i {begin(a)}, j {begin(b)}; i != end(a) && j != end(b); i++, j++) {
+	auto i {begin(a)}, j {begin(b)};
+	for (; i != end(a) && j != end(b); i++, j++) {
 		char c = tolower(*i), d = tolower(*j);
 		if (c != d)
 			return c > d ? 1 : -1;
 	}
-	return 0;
+	return i == end(a) ? j == end(b) ? 0 : 1 : -1;
 }
 
 int main() {
