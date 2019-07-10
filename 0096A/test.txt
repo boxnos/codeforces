@@ -1,0 +1,16 @@
+# inputCopy
+001001
+# outputCopy
+NO
+# inputCopy
+1000000001
+# outputCopy
+YES
+# a
+00100110111111101
+# a
+YES
+# b
+11110111011101
+# b
+NO
