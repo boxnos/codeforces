@@ -1,0 +1,8 @@
+# inputCopy
+ApPLe
+# outputCopy
+ApPLe
+# inputCopy
+konjac
+# outputCopy
+Konjac
