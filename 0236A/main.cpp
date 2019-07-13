@@ -41,12 +41,10 @@ struct range{int e,b{0},s{1};range(int _b,int _e,int _s):e(_e),b(_b),s(_s){}rang
 
 int main() {
 	array<char, 26> a {};
-	for (int c; (c = gcu()) != '\n';)
-		a[c - 'a']++;
 	int r {};
-	for (int i: a)
-		if (i)
-			r++;
+	for (int c; (c = gcu()) != '\n';)
+		if (!a[c - 'a'])
+			a[c - 'a']++, r++;
 	outl(r & 1 ? "IGNORE HIM!" : "CHAT WITH HER!");
 }
 
