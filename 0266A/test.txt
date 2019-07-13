@@ -1,0 +1,15 @@
+# inputCopy
+3
+RRG
+# outputCopy
+1
+# inputCopy
+5
+RRRRR
+# outputCopy
+4
+# inputCopy
+4
+BRBG
+# outputCopy
+0
