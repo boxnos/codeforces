@@ -13,3 +13,8 @@ abcdefg
 AbCdEfF
 # outputCopy
 1
+# my
+abc
+abcd
+# my
+1
