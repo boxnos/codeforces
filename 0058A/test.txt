@@ -1,0 +1,8 @@
+# inputCopy
+ahhellllloou
+# outputCopy
+YES
+# inputCopy
+hlelo
+# outputCopy
+NO
