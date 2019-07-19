@@ -17,8 +17,8 @@ _T _DEF(T,in,int c){T n=0;int m=1;while(isspace(c)){c=gcu();}if(c=='-')m=-1,c=gc
 	do{n=10*n+(c-'0'),c=gcu();}while(c>='0'&&c<='9');return m*n;}
 _DEF(int,in,){return in<int>(gcu());}
 #define _SCAN(...) _DEF(bool,scan,__VA_ARGS__)
-_T _SCAN(T &n){int c=gcu();return c==EOF?false:(n=in<T>(c),true);}
-_DEF(bool, scan, int &c){c=gcu();gcu();return c!=EOF;}
+_T _SCAN(T &n){int c=gcu();return c==EOF?n=0,false:n=in<T>(c),true;}
+_SCAN(char &c){c=gcu();gcu();return c!=EOF;}
 #ifdef _GLIBCXX_STRING
 _SCAN(string &s){int c;s="";
 	for(;;){c=gcu();if(c=='\n'||c==' ')return true;else if(c==EOF)return false;s+=(char)c;}}
