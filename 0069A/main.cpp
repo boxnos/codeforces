@@ -48,7 +48,7 @@ int main() {
 	valarray<int> a {0, 0, 0};
 	while (n--)
 		a += {in(), in(), in()};
-	outl(count(begin(a), end(a), 0) == 3 ? "YES" : "NO");
+	outl(none_of(begin(a), end(a), [](int a) {return a;}) ? "YES" : "NO");
 }
 
 /* vim: set ts=4 noet: */
