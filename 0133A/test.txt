@@ -1,0 +1,12 @@
+# inputCopy
+Hi!
+# outputCopy
+YES
+# inputCopy
+Codeforces
+# outputCopy
+NO
+# test
+a+b=C
+# hoge
+YES
