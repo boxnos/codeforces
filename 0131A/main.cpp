@@ -47,11 +47,10 @@ struct range{
 int main() {
 	string s;
 	scan(s);
-	if (all_of(begin(s) + 1, end(s), [](char c) {return isupper(c);})) {
-		s[0] = isupper(s[0]) ? tolower(s[0]) : toupper(s[0]);
-		for_each(begin(s) + 1, end(s), [](char &c) {c = tolower(c);});
-	}
-	outl(s);
+	int f {all_of(begin(s) + 1, end(s), [](char c) {return isupper(c);}) << 5};
+	for (char c: s)
+		out((char) (c ^ f));
+	outl();
 }
 
 /* vim: set ts=4 noet: */
