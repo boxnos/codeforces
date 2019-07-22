@@ -1,0 +1,20 @@
+# inputCopy
+cAPS
+# outputCopy
+Caps
+# inputCopy
+Lock
+# outputCopy
+Lock
+# 
+hELLO
+# 
+Hello
+# 
+HTTP
+# 
+http
+# 
+z
+# 
+Z
