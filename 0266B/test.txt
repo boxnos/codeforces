@@ -1,0 +1,20 @@
+# input
+6 1
+BBBGBB
+# output
+BBGBBB
+# inputCopy
+5 1
+BGGBG
+# outputCopy
+GBGGB
+# inputCopy
+5 2
+BGGBG
+# outputCopy
+GGBGB
+# inputCopy
+4 1
+GGGB
+# outputCopy
+GGGB
