@@ -1,7 +1,7 @@
 #include <cstdio>
 #include <cctype>
 #include <utility>
-#include <bitset>
+#include <string>
 using namespace std;
 
 #define _gp(l) const auto gcu{getchar##l}; const auto pcu{putchar##l}
@@ -44,19 +44,16 @@ struct range{
 		it& operator++(){v+=s;return *this;} }; it begin() {return {b, s};} it end() {return {e, s};}};
 
 int main() {
-	bitset<51> q, r;
 	int n {in()}, t {in()};
-	for (int i: range(n))
-		q[i] = gcu() == 'G';
+	string s;
+	scan(s);
 	while (t--)
 		for (int i {n - 1}; i > 0; i--)
-			if (q[i] && !q[i - 1]) {
-				q[i--] = 0;
-				q[i] = 1;
+			if (s[i] == 'G' && s[i - 1] == 'B') {
+				s[i--] = 'B';
+				s[i] = 'G';
 			}
-	for (int i: range(n))
-		out(q[i] ? 'G' : 'B');
-	outl();
+	outl(s);
 }
 
 /* vim: set ts=4 noet: */
