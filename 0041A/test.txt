@@ -1,0 +1,15 @@
+# inputCopy
+code
+edoc
+# outputCopy
+YES
+# inputCopy
+abb
+aba
+# outputCopy
+NO
+# inputCopy
+code
+code
+# outputCopy
+NO
