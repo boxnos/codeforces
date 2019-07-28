@@ -43,8 +43,7 @@ struct range{
 		it& operator++(){v+=s;return *this;} }; it begin() {return {b, s};} it end() {return {e, s};}};
 
 int main() {
-	int n {in()};
-	outl(n / 5 + !!(n % 5));
+	outl((in() + 4) / 5);
 }
 
 /* vim: set ts=4 noet: */
