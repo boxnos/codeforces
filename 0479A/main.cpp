@@ -45,7 +45,7 @@ struct range{
 
 int main() {
 	int a {in()}, b {in()}, c {in()};
-	outl(max({a + b + c, a * b + c, a + b * c, (a + b) * c, a * (b + c), a * b * c}));
+	outl(max({a + b + c, (a + b) * c, a * (b + c), a * b * c}));
 }
 
 /* vim: set ts=4 noet: */
