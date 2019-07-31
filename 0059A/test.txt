@@ -1,0 +1,12 @@
+# inputCopy
+HoUse
+# outputCopy
+house
+# inputCopy
+ViP
+# outputCopy
+VIP
+# inputCopy
+maTRIx
+# outputCopy
+matrix
