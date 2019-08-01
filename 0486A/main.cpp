@@ -14,6 +14,7 @@ _gp();
 #define _HT template <typename H,typename... T>
 _T _DEF(T,in,int c){T n=0;int m=1;while(isspace(c)){c=gcu();}if(c=='-')m=-1,c=gcu();
 	do{n=10*n+(c-'0'),c=gcu();}while(c>='0'&&c<='9');return m*n;}
+_T _DEF(T,in,){return in<T>(gcu());}
 _DEF(int,in,){return in<int>(gcu());}
 #define _SCAN(...) _DEF(bool,scan,__VA_ARGS__)
 _T _SCAN(T &n){int c=gcu();return c==EOF?n=0,false:(n=in<T>(c),true);}
@@ -43,8 +44,7 @@ struct range{
 		it& operator++(){v+=s;return *this;} }; it begin() {return {b, s};} it end() {return {e, s};}};
 
 int main() {
-	long long n;
-	scan(n);
+	long long n {in<long long>()};
 	outl((n + 1) / 2 * (n & 1 ? -1 : 1));
 }
 
