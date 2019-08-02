@@ -1,0 +1,15 @@
+# inputCopy
+6
+ADAAAA
+# outputCopy
+Anton
+# inputCopy
+7
+DDDAADA
+# outputCopy
+Danik
+# inputCopy
+6
+DADADA
+# outputCopy
+Friendship
