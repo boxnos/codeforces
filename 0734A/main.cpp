@@ -1,6 +1,7 @@
 #include <cstdio>
 #include <cctype>
 #include <utility>
+#include <cmath>
 using namespace std;
 
 #define _gp(l) const auto gcu{getchar##l}; const auto pcu{putchar##l}
@@ -44,17 +45,11 @@ struct range{
 		it& operator++(){v+=s;return *this;} }; it begin() {return {b, s};} it end() {return {e, s};}};
 
 int main() {
-	int n {in()}, h = n / 2, a {}, d {};
-	for (int i {}; i < n; i++) {
-		if (gcu() == 'A')
-			a++;
-		else
-			d++;
-		if (a > h || d > h) {
-			outl(a > d ? "Anton" : "Danik");
+	for (int n {in()}, a {}; n--;)
+		if (abs(a += gcu() == 'A' ? 1 : -1) > n) {
+			outl(a > 0 ? "Anton" : "Danik");
 			return 0;
 		}
-	}
 	outl("Friendship");
 }
 
