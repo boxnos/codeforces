@@ -1,0 +1,15 @@
+# inputCopy
+2 4
+ABCD
+ABCE
+1 2 3 4
+# outputCopy
+16
+# inputCopy
+3 3
+ABC
+BCD
+CDE
+5 4 12
+# outputCopy
+21
