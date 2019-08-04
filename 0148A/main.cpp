@@ -2,7 +2,7 @@
 #include <cctype>
 #include <utility>
 #include <array>
-#include <vector>
+#include <functional>
 #include <algorithm>
 using namespace std;
 
@@ -46,16 +46,21 @@ struct range{
 	struct it { int v, s; it (int _v, int _s) : v(_v), s(_s) {} operator int()const{return v;} operator int&(){return v;} int operator*()const{return v;}
 		it& operator++(){v+=s;return *this;} }; it begin() {return {b, s};} it end() {return {e, s};}};
 
+int lcm(int a, int b) {
+	return a * b / __gcd(a, b);
+}
+
 int main() {
 	array<int, 4> a;
 	for (int &i: a)
 		i = in();
 	int d = in();
-	vector<bool> s(d + 1);
-	for (int i: a)
-		for (int j = i; j <= d; j += i)
-			s[j] = true;
-	outl(count(begin(s) + 1, end(s), true));
+	function<int(int, int, int)> combi = [&](int i, int b, int l) {
+		if (i == 4)
+			return b ? d / l * (b & 1 ? 1 : -1) : 0;
+		return combi(i + 1, b, l) + combi(i + 1, b + 1, lcm(l, a[i]));
+	};
+	outl(combi(0, 0, 1));
 }
 
 /* vim: set ts=4 noet: */
