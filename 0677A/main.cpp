@@ -16,6 +16,7 @@ _T _DEF(T,in,int c){T n=0;int m=1;while(isspace(c)){c=gcu();}if(c=='-')m=-1,c=gc
 	do{n=10*n+(c-'0'),c=gcu();}while(c>='0'&&c<='9');return m*n;}
 _T _DEF(T,in,){return in<T>(gcu());}
 _DEF(int,in,){return in<int>(gcu());}
+struct _IN{inline operator int(){return in();}}IN;
 #define _SCAN(...) _DEF(bool,scan,__VA_ARGS__)
 _T _SCAN(T &n){int c=gcu();return c==EOF?n=0,false:(n=in<T>(c),true);}
 _SCAN(char &c){c=gcu();gcu();return c!=EOF;}
@@ -44,7 +45,7 @@ struct range{
 		it& operator++(){v+=s;return *this;} }; it begin() {return {b, s};} it end() {return {e, s};}};
 
 int main() {
-	int n {in()}, h {in()}, w {};
+	int n(IN), h(IN), w {};
 	while (n--)
 		w += 1 + (in() > h);
 	outl(w);
