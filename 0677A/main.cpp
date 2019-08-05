@@ -45,9 +45,9 @@ struct range{
 		it& operator++(){v+=s;return *this;} }; it begin() {return {b, s};} it end() {return {e, s};}};
 
 int main() {
-	int n(IN), h(IN), w {};
+	int n(IN), h(IN), w {n};
 	while (n--)
-		w += 1 + (in() > h);
+		w += in() > h;
 	outl(w);
 }
 
