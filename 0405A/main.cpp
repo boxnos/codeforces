@@ -1,8 +1,7 @@
 #include <cstdio>
 #include <cctype>
 #include <utility>
-#include <vector>
-#include <algorithm>
+#include <cmath>
 using namespace std;
 
 #define _gp(l) const auto gcu{getchar##l}; const auto pcu{putchar##l}
@@ -47,13 +46,8 @@ struct range{
 		it& operator++(){v+=s;return *this;} }; it begin() {return {b, s};} it end() {return {e, s};}};
 
 int main() {
-	vector<int> a(in());
-	for (int &i: a)
-		i = in();
-	sort(begin(a), end(a));
-	for (int i: a)
-		out(i, ' ');
-	outl();
+	double a = in(), b = in();
+	outl((int) (log(b / a) / log(3. / 2)) + 1);
 }
 
 /* vim: set ts=4 noet: */
