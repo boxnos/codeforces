@@ -1,0 +1,12 @@
+# inputCopy
+4
+3 1 2 3
+2 2 4
+# outputCopy
+I become the guy.
+# inputCopy
+4
+3 1 2 3
+2 2 3
+# outputCopy
+Oh, my keyboard!
