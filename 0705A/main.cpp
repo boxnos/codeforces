@@ -46,9 +46,9 @@ struct range{
 		it& operator++(){v+=s;return *this;} }; it begin() {return {b, s};} it end() {return {e, s};}};
 
 int main() {
-	for (int i: range((int)in))
-		out(i ? "that " : "", "I ", i % 2 ? "love " : "hate ");
-	outl("it");
+	int n(in);
+	for (int i: range(1, n + 1))
+		out(i % 2 ? "I hate " : "I love ", i < n ? "that " : "it\n");
 }
 
 /* vim: set ts=4 noet: */
