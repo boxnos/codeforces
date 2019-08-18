@@ -1,0 +1,12 @@
+# inputCopy
+1
+# outputCopy
+I hate it
+# inputCopy
+2
+# outputCopy
+I hate that I love it
+# inputCopy
+3
+# outputCopy
+I hate that I love that I hate it
