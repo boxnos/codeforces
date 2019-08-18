@@ -46,7 +46,7 @@ struct range{
 		it& operator++(){v+=s;return *this;} }; it begin() {return {b, s};} it end() {return {e, s};}};
 
 int main() {
-	for (int n(in), i {}; i < n; i++)
+	for (int i: range((int)in))
 		out(i ? "that " : "", "I ", i % 2 ? "love " : "hate ");
 	outl("it");
 }
