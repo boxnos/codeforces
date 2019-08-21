@@ -1,7 +1,7 @@
 #include <cstdio>
 #include <utility>
 #include <cctype>
-#include <unordered_map>
+#include <unordered_set>
 using namespace std;
 
 #define _gp(l) const auto gcu{getchar##l}; const auto pcu{putchar##l}
@@ -47,10 +47,10 @@ struct range{
 		it& operator++(){v+=s;return *this;} }; it begin() {return {b, s};} it end() {return {e, s};}};
 
 int main() {
-	unordered_map<char, int> m;
+	unordered_set<char> m;
 	for (int c; (c = gcu()) != EOF;)
 		if (islower(c))
-			m[c]++;
+			m.insert(c);
 	outl((int) m.size());
 }
 
