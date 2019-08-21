@@ -1,0 +1,12 @@
+# inputCopy
+{a, b, c}
+# outputCopy
+3
+# inputCopy
+{b, a, b, a}
+# outputCopy
+2
+# inputCopy
+{}
+# outputCopy
+0
