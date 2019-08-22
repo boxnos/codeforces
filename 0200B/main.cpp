@@ -43,7 +43,7 @@ struct range{
 	int e,b=0,s=1; range(int _b,int _e,int _s):e(_e),b(_b),s(_s){} range(int _b,int _e): e(_e), b(_b){} range(int _e):e(_e){}
 	struct it { int v, s; it (int _v, int _s) : v(_v), s(_s) {} operator int()const{return v;} operator int&(){return v;} int operator*()const{return v;}
 		it& operator++(){v+=s;return *this;} }; it begin() {return {b, s};} it end() {return {e, s};}};
-#define times(i, n) for (int i {}; i < (n); i++)
+#define times(i, n) for (int i {}, i##_e = (n); i < i##_e; i++)
 
 int main() {
 	int n {in}, a {};
