@@ -51,18 +51,12 @@ _T _OUT(T n){static char b[20];char *p=b;T m=n<0?pcu('-'),-1:1;
 #define times(i,n) for(int i=n;i;i--)
 
 int main() {
-	int n {in};
-	for (int k {in}; k > 0;) {
-		if (n % 10) {
-			int d = min(n % 10, k);
-			n -= d;
-			k -= d;
-		} else {
-			n /= 10;
-			k--;
-		}
+	struct P {int n, k;} p {in, in};
+	while (p.k) {
+		int d = min(p.n % 10, p.k);
+		p = d ? P{p.n - d, p.k - d} : P{p.n / 10, p.k - 1};
 	}
-	outl(n);
+	outl(p.n);
 }
 
 /* vim: set ts=4 noet: */
