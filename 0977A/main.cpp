@@ -1,5 +1,6 @@
 #include <cstdio>
 #include <utility>
+#include <algorithm>
 using namespace std;
 
 #define _gp(l) const auto gcu{getchar##l}; const auto pcu{putchar##l}
@@ -51,8 +52,16 @@ _T _OUT(T n){static char b[20];char *p=b;T m=n<0?pcu('-'),-1:1;
 
 int main() {
 	int n {in};
-	times(i, in)
-		n = n % 10 ? n - 1 : n / 10;
+	for (int k {in}; k > 0;) {
+		if (n % 10) {
+			int d = min(n % 10, k);
+			n -= d;
+			k -= d;
+		} else {
+			n /= 10;
+			k--;
+		}
+	}
 	outl(n);
 }
 
