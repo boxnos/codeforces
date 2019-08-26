@@ -1,0 +1,10 @@
+# inputCopy
+12
+toosmallword
+# outputCopy
+NO
+# inputCopy
+35
+TheQuickBrownFoxJumpsOverTheLazyDog
+# outputCopy
+YES
