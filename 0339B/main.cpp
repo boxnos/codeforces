@@ -53,8 +53,7 @@ int main() {
 	long long n {in}, c {}, x {};
 	times(i, in) {
 		int a {(int)in - 1};
-		c += (a >= x ? 0 : n) + a - x;
-		x = a;
+		c += (a >= x ? 0 : n) + a - exchange(x, a);
 	}
 	outl(c);
 }
