@@ -49,24 +49,12 @@ _T _OUT(T n){static char b[20];char *p=b;T m=n<0?pcu('-'),-1:1;
 			it& operator++(){v+=s;return *this;} }; it begin(){return {b,s};} it end(){return {e,s};}};
 #define times(i,n) for(int i=n;i;i--)
 
-bool is_composite(int n) {
-	if (n <= 3)
-		return false;
-	else if (!(n % 2))
-		return true;
-	for (int i = 3; i * i <= n; i += 2)
-		if (!(n % i))
-			return true;
-	return false;
-}
-
 int main() {
 	int n {in};
-	for (int i: range(4, (n + 1) / 2))
-		if (is_composite(i) && is_composite(n - i)) {
-			outl(i, ' ', n - i);
-			break;
-		}
+	if (n % 2)
+		outl(n - 9, ' ', 9);
+	else
+		outl(n - 8, ' ', 8);
 }
 
 /* vim: set ts=4 noet: */
