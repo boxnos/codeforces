@@ -1,0 +1,11 @@
+# inputCopy
+2 2
+1 99
+100 0
+# outputCopy
+YES
+# inputCopy
+10 1
+100 100
+# outputCopy
+NO
