@@ -1,0 +1,10 @@
+# inputCopy
+7 15
+15 5 3 7 9 14 0
+# outputCopy
+2.5000000000
+# inputCopy
+2 5
+2 5
+# outputCopy
+2.0000000000
