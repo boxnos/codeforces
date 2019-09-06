@@ -10,6 +10,7 @@ using namespace std;
 #else
 #define gcu _getchar_nolock
 #define pcu _putchar_nolock
+#define _CRT_DISABLE_PERFCRIT_LOCKS
 #endif
 #define _DEF(r, n, ...) inline r n(__VA_ARGS__) noexcept
 #define _T template <typename T>
