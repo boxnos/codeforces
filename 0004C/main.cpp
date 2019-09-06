@@ -56,11 +56,11 @@ int main() {
 	unordered_map<string, int> m;
 	times(i, in) {
 		string s = in;
-		if (m.count(s))
-			outl(s, m[s]);
+		int r = m[s]++;
+		if (r)
+			outl(s, r);
 		else
 			outl("OK");
-		m[s]++;
 	}
 }
 
