@@ -1,0 +1,26 @@
+# inputCopy
+4
+abacaba
+acaba
+abacaba
+acab
+# outputCopy
+OK
+OK
+abacaba1
+OK
+# inputCopy
+6
+first
+first
+second
+second
+third
+third
+# outputCopy
+OK
+first1
+OK
+second1
+OK
+third1
