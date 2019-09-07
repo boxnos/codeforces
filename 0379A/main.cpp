@@ -3,13 +3,13 @@
 using namespace std;
 
 #ifdef __linux
-#define gcu getchar_unlocked
-#define pcu putchar_unlocked
+#define _U(s) s##_unlocked
 #else
-#define gcu _getchar_nolock
-#define pcu _putchar_nolock
+#define _U(s) _##s##_nolock
 #define _CRT_DISABLE_PERFCRIT_LOCKS
 #endif
+#define gcu _U(getchar)
+#define pcu _U(putchar)
 #define _DEF(r, n, ...) inline r n(__VA_ARGS__) noexcept
 #define _T template <typename T>
 #define _HT template <typename H,typename... T>
