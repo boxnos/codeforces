@@ -1,0 +1,10 @@
+# inputCopy
+3
+0 0 1
+# outputCopy
+HARD
+# inputCopy
+1
+0
+# outputCopy
+EASY
