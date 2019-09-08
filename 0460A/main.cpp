@@ -50,15 +50,8 @@ _T _OUT(T n){static char b[20];char *p=b;T m=n<0?pcu('-'),-1:1;
 #define times(i,n) for(int i=n;i;i--)
 
 int main() {
-	for (int n {in}, m {in}, i {1};; i++) {
-		n--;
-		if (!(i % m))
-			n++;
-		else if (!n) {
-			outl(i);
-			break;
-		}
-	}
+	int n {in}, m {in};
+	outl(n + (n - 1) / (m - 1));
 }
 
 /* vim: set ts=4 noet: */
