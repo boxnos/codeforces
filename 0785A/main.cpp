@@ -1,7 +1,6 @@
 #include <cstdio>
 #include <utility>
 #include <cctype>
-#include <string>
 using namespace std;
 
 #ifdef __linux
@@ -57,9 +56,10 @@ struct range{
 int main() {
 	int a {};
 	times(i, in) {
-		string s = in;
-		char c {s[0]};
+		int c {gcu()};
 		a += c <= 'I' ? c == 'I' ? 20 : c == 'C' ? 6 : 12 : c == 'O' ? 8 : 4;
+		while ((c = gcu()) != '\n')
+			;
 	}
 	outl(a);
 }
