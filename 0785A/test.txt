@@ -1,0 +1,15 @@
+# inputCopy
+4
+Icosahedron
+Cube
+Tetrahedron
+Dodecahedron
+# outputCopy
+42
+# inputCopy
+3
+Dodecahedron
+Octahedron
+Octahedron
+# outputCopy
+28
