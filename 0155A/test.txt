@@ -1,0 +1,10 @@
+# inputCopy
+5
+100 50 200 150 200
+# outputCopy
+2
+# inputCopy
+10
+4664 6496 5814 7010 5762 5736 6944 4850 3698 7242
+# outputCopy
+4
