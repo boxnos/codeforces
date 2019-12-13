@@ -1,0 +1,12 @@
+# inputCopy
+7 1 4
+# outputCopy
+6
+# inputCopy
+30 20 10
+# outputCopy
+20
+# hoge
+1 4 100
+# out
+99
