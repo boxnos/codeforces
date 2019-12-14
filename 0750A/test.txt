@@ -10,3 +10,7 @@
 7 1
 # outputCopy
 7
+# Input
+10 136
+# Answer
+5

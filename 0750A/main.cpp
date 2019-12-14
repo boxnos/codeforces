@@ -58,7 +58,7 @@ struct range{
 
 int main() {
 	int n {in}, k {in};
-	outl(min((int) (-1 + sqrt(1 + 8 * (240 - k) / 5)) / 2, n));
+	outl(min((int) (sqrt(385 -  8 * k / 5) - 1) / 2, n));
 }
 
 /* vim: set ts=4 noet: */
