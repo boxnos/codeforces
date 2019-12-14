@@ -2,6 +2,7 @@
 #include <utility>
 #include <cctype>
 #include <algorithm>
+#include <cmath>
 using namespace std;
 
 #ifdef __linux
@@ -56,10 +57,8 @@ struct range{
 #define times(i,n) for(int i=n;i;i--)
 
 int main() {
-	int n {in}, x {(240 - (int) in )/ 5}, i {1};
-	for (int s {i}; s <= x; i++, s += i)
-		;
-	outl(min(i - 1, n));
+	int n {in}, k {in};
+	outl(min((int) (-1 + sqrt(1 + 8 * (240 - k) / 5)) / 2, n));
 }
 
 /* vim: set ts=4 noet: */
