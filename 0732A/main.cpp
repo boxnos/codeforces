@@ -56,11 +56,13 @@ struct range{
 
 int main() {
 	int k {in}, r {in};
-	for (int i {1}, t {k % 10}; ;i++, t = (t + k) % 10)
+	for (int i {1};; i++) {
+		int t {i * k % 10};
 		if (t == 0 || t == r) {
 			outl(i);
 			return 0;
 		}
+	}
 }
 
 /* vim: set ts=4 noet: */
