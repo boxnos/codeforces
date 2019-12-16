@@ -1,0 +1,12 @@
+# inputCopy
+6 2 1 2
+# outputCopy
+6
+# inputCopy
+5 2 2 3
+# outputCopy
+8
+# Input
+10 3 5 1
+# Answer
+4
