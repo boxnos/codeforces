@@ -1,6 +1,8 @@
 #include <cstdio>
 #include <utility>
 #include <cctype>
+#include <tuple>
+#include <algorithm>
 using namespace std;
 
 #ifdef __linux
@@ -54,15 +56,35 @@ struct range{
 		_I it& operator++(){v+=s;return *this;} }; it begin(){return {b,s};} it end(){return {e,s};}};
 #define times(i,n) for(int i=n;i;i--)
 
-int main() {
-	int k {in}, r {in};
-	for (int i {1};; i++) {
-		int t {i * k % 10};
-		if (t == 0 || t == r) {
-			outl(i);
-			return 0;
-		}
+int extgcd(int a, int b, int & x, int & y) {
+    if (a == 0) {
+        x = 0;
+        y = 1;
+        return b;
+    }
+    int x1, y1;
+    int d = extgcd(b % a, a, x1, y1);
+    x = y1 - (b / a) * x1;
+    y = x1;
+    return d;
+}
+
+int mod_inv(int a, int m, int b) {
+	int x, y;
+	int g = extgcd(a, m, x, y);
+	if (g != 1) {
+		for (int i {1};; i++)
+			if (a * i % m == b)
+				return i;
+	} else {
+		x = (x % m + m) % m;
+		return x * b / g % m;
 	}
+}
+
+int main() {
+	int k {in}, r {in}, t {k % 10};
+	outl(r % __gcd(t, 10) ? 10 / __gcd(t, 10) : mod_inv(k, 10, r));
 }
 
 /* vim: set ts=4 noet: */

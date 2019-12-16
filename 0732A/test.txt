@@ -22,3 +22,11 @@
 546 4
 # Output
 4
+# Input
+228 9
+# Answer
+5
+# Input
+4 2
+# Answer
+3
