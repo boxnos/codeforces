@@ -76,15 +76,13 @@ int mod_inv(int a, int m, int b) {
 		for (int i {1};; i++)
 			if (a * i % m == b)
 				return i;
-	} else {
-		x = (x % m + m) % m;
-		return x * b / g % m;
-	}
+	} else
+		return (x % m + m) * b % m;
 }
 
 int main() {
-	int k {in}, r {in}, t {k % 10};
-	outl(r % __gcd(t, 10) ? 10 / __gcd(t, 10) : mod_inv(k, 10, r));
+	int k {in}, r {in}, t {k % 10}, g {__gcd(t, 10)};
+	outl(r % g ? 10 / g : mod_inv(k, 10, r));
 }
 
 /* vim: set ts=4 noet: */
