@@ -10,3 +10,15 @@
 15 2
 # outputCopy
 2
+# Input
+1000 3
+# Answer
+1
+# Input
+105 6
+# Answer
+2
+# Input
+546 4
+# Output
+4
