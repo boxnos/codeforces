@@ -1,0 +1,28 @@
+# inputCopy
+2230
+# outputCopy
+2230
+# inputCopy
+-10
+# outputCopy
+0
+# inputCopy
+-100003
+# outputCopy
+-10000
+# Input
+544883178
+# Answer
+544883178
+# Input
+-847251738
+# Answer
+-84725173
+# Input
+423654797
+# Answer
+423654797
+# Input
+-623563697
+# Answer
+-62356367
