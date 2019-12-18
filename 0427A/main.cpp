@@ -56,16 +56,9 @@ struct range{
 
 int main() {
 	int r {}, p {};
-	times(i,in) {
-		int c {in};
-		if (c < 0) {
-			if (p <= 0)
-				r++;
-			else
-				p--;
-		} else
-			p += c;
-	}
+	times(i,in)
+		if ((p += (int) in) < 0)
+			r++, p++;
 	outl(r);
 }
 
