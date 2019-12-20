@@ -1,0 +1,12 @@
+# inputCopy
+1
+# outputCopy
+Sheldon
+# inputCopy
+6
+# outputCopy
+Sheldon
+# inputCopy
+1802
+# outputCopy
+Penny
