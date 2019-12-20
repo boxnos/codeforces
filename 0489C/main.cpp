@@ -57,24 +57,18 @@ struct range{
 
 int main() {
 	int m {in}, s {in};
-	if (m == 1 && s == 0)
-		outl("0 0");
-	else if (s <= 0 || s > m * 9)
+	if ((s == 0 && m != 1) || s > m * 9)
 		outl("-1 -1");
 	else {
 		string h(m, '0'), l(m, '0');
-		int t {s};
-		for (int i: range(m)) {
-			int u = min(9, t);
-			h[i] += u;
-			t -= u;
-		}
-		t = s - 1;
-		l[0] += 1;
-		for (int i: range(m - 1, -1, -1)) {
-			int u = min(9, t);
-			l[i] += u;
-			t -= u;
+		if (s) {
+			l[0] += 1;
+			for (int i: range(m)) {
+				int t = min(9, s);
+				l[m - i - 1] += max(0, min(9, s - 1));
+				h[i] += t;
+				s -= t;
+			}
 		}
 		outl(l, ' ', h);
 	}
