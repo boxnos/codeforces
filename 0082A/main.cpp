@@ -2,6 +2,7 @@
 #include <utility>
 #include <cctype>
 #include <string>
+#include <vector>
 using namespace std;
 
 #ifdef __linux
@@ -56,11 +57,10 @@ struct range{
 #define times(i,n) for(int i=n;i;i--)
 
 int main() {
-	string p[] = {"Sheldon", "Leonard", "Penny", "Rajesh", "Howard"};
-	int n {(int) in + 4};
-	for (;n >= 10; n /= 2)
+	int n {(int) in - 1};
+	for (;n > 4; n = (n - 5) >> 1)
 		;
-	outl(p[n - 5]);
+	outl(vector<string>{"Sheldon", "Leonard", "Penny", "Rajesh", "Howard"}[n]);
 }
 
 /* vim: set ts=4 noet: */
