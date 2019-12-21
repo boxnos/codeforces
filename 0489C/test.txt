@@ -10,6 +10,10 @@
 3 0
 # outputCopy
 -1 -1
+# inputCopy
+4 2
+# outputCopy
+1001 2000
 # tes
 1 0
 # ou
