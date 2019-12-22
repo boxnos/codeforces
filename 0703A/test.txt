@@ -1,0 +1,20 @@
+# inputCopy
+3
+3 5
+2 1
+4 2
+# outputCopy
+Mishka
+# inputCopy
+2
+6 1
+1 6
+# outputCopy
+Friendship is magic!^^
+# inputCopy
+3
+1 5
+3 3
+2 2
+# outputCopy
+Chris
