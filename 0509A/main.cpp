@@ -54,22 +54,13 @@ struct range{
 		_I it& operator++(){v+=s;return *this;} }; it begin(){return {b,s};} it end(){return {e,s};}};
 #define times(i,n) for(int i=n;i;i--)
 
-struct T {
-	int t[11][11];
-	constexpr T () : t {} {
-		for (int i {}; i < 11; i++)
-			t[i][0] = t[0][i] = 1;
-		for (int i {1}; i < 11; i++)
-			for (int j {1}; j < 11; j++)
-				t[i][j] = t[i - 1][j] + t[i][j - 1];
-	}
-};
-
 int main() {
-	constexpr T t;
-	int n {in};
-	n--;
-	outl(t.t[n][n]);
+	long long q {in} , p {--q * 2}, a {1};
+	for (;p > q; p--)
+		a *= p;
+	for (;q; q--)
+		a /= q;
+	outl(a);
 }
 
 /* vim: set ts=4 noet: */
