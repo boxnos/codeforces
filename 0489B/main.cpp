@@ -70,13 +70,13 @@ int main() {
 	V N = input(), M = input();
 	int j {}, r {};
 	for (int i: range(N.size()))
-		for (size_t k = j; k < M.size() && M[k] <= N[i] + 1; k++)
+		for (size_t k = j; k < M.size() && M[k] <= N[i] + 1; k++) {
+			j = k + 1;
 			if (abs(N[i] - M[k]) <= 1) {
 				r++;
-				j = k + 1;
 				break;
-			} else if (M[k] < N[i] - 1)
-				j = k + 1;
+			}
+		}
 	outl(r);
 }
 
