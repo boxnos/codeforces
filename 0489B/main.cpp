@@ -68,15 +68,12 @@ int main() {
 		return N;
 	};
 	V N = input(), M = input();
-	int j {}, r {};
-	for (int i: range(N.size()))
-		for (size_t k = j; k < M.size() && M[k] <= N[i] + 1; k++) {
-			j = k + 1;
-			if (abs(N[i] - M[k]) <= 1) {
-				r++;
-				break;
-			}
-		}
+	int r {};
+	for (size_t i {}, j {}; i < N.size() && j < M.size();)
+		if (abs(N[i] - M[j]) <= 1)
+			i++, j++, r++;
+		else
+			(N[i] < M[j] ? i : j)++;
 	outl(r);
 }
 
