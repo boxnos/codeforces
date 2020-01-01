@@ -1,0 +1,8 @@
+# inputCopy
+3 2
+# outputCopy
+200
+# tes
+2 10
+# tes
+10
