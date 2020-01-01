@@ -55,30 +55,12 @@ struct range{
 		_I it& operator++(){v+=s;return *this;} }; it begin(){return {b,s};} it end(){return {e,s};}};
 #define times(i,n) for(int i=n;i;i--)
 
-struct Q {
-	int n, r;
-};
-
 int main() {
-	int n {in}, m {in};
-	bool v[100000] {};
-	queue<Q> q;
-	q.push({n, 0});
-	for (;;) {
-		Q t = q.front();
-		q.pop();
-		if (t.n == m) {
-			outl(t.r);
-			break;
-		}
-		if (v[t.n])
-			continue;
-		v[t.n] = true;
-		if (t.n < m)
-			q.push({t.n * 2, t.r + 1});
-		if (t.n > 0)
-			q.push({t.n - 1, t.r + 1});
-	}
+	int n {in}, m {in}, r {};
+	for (;n < m; m /= 2, r++)
+		if (m % 2)
+			m++, r++;
+	outl((n - m) + r);
 }
 
 /* vim: set ts=4 noet: */
