@@ -1,0 +1,9 @@
+# inputCopy
+3
+30
+60
+90
+# outputCopy
+NO
+YES
+YES
