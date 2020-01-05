@@ -1,8 +1,6 @@
 #include <cstdio>
 #include <utility>
 #include <cctype>
-#include <vector>
-#include <algorithm>
 using namespace std;
 
 #ifdef __linux
@@ -56,29 +54,17 @@ struct range{
 		_I it& operator++(){v+=s;return *this;} }; it begin(){return {b,s};} it end(){return {e,s};}};
 #define times(i,n) for(int i=n;i;i--)
 
-using V = vector<int>;
-V read (int n) {
-	V v(n);
-	for (int &i: v)
-		i = in;
-	sort(begin(v), end(v));
-	return v;
-}
-
-void cmp(V &a, V &b) {
-	for (int i: range(b.size()))
-		if (a[i] != b[i]) {
-			outl(a[i]);
-			return;
-		}
-	outl(a[b.size()]);
+int read (int n) {
+	int s {};
+	times(i, n)
+		s += (int)in;
+	return s;
 }
 
 int main() {
-	int n {in};
-	vector<int> a{read(n)}, b{read(n - 1)}, c{read(n - 2)};
-	cmp(a, b);
-	cmp(b, c);
+	int n {in}, a {read(n)}, b {read(n - 1)}, c {read(n - 2)};
+	outl(a - b);
+	outl(b - c);
 }
 
 /* vim: set ts=4 noet: */
