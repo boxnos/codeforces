@@ -1,0 +1,12 @@
+# inputCopy
+125
+# outputCopy
+3
+# inputCopy
+43
+# outputCopy
+5
+# inputCopy
+1000000000
+# outputCopy
+10000000
