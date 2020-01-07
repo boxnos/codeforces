@@ -1,6 +1,7 @@
 #include <cstdio>
 #include <utility>
 #include <cctype>
+#include <cmath>
 using namespace std;
 
 #ifdef __linux
@@ -56,9 +57,10 @@ struct range{
 
 int main() {
 	int n {in}, x {in}, r {};
-	for (int i: range(1, n + 1))
-		if (!(x % i) && x / i <= n)
-			r++;
+	for (int i: range(1, sqrt(x) + 1)) {
+		if (!(x % i))
+			r += i * i == x ? i <= n : (x / i <= n) * 2;
+	}
 	outl(r);
 }
 
