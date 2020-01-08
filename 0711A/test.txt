@@ -1,0 +1,38 @@
+# inputCopy
+6
+OO|OX
+XO|XX
+OX|OO
+XX|OX
+OO|OO
+OO|XX
+# outputCopy
+YES
+++|OX
+XO|XX
+OX|OO
+XX|OX
+OO|OO
+OO|XX
+# inputCopy
+4
+XO|OX
+XO|XX
+OX|OX
+XX|OX
+# outputCopy
+NO
+# inputCopy
+5
+XX|XX
+XX|XX
+XO|OX
+XO|OO
+OX|XO
+# outputCopy
+YES
+XX|XX
+XX|XX
+XO|OX
+XO|++
+OX|XO
