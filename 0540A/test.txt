@@ -1,0 +1,6 @@
+# inputCopy
+5
+82195
+64723
+# outputCopy
+13
