@@ -2,7 +2,7 @@
 #include <utility>
 #include <cctype>
 #include <string>
-#include <algorithm>
+#include <cstring>
 using namespace std;
 
 #ifdef __linux
@@ -57,11 +57,21 @@ struct range{
 		_I it& operator++(){v+=s;return *this;} }; it begin(){return {b,s};} it end(){return {e,s};}};
 #define times(i,n) for(int i=n;i;i--)
 
+struct K {
+	int k[256];
+	char s[31] {"qwertyuiopasdfghjkl;zxcvbnm,./"};
+	constexpr K() : k {} {
+		for (size_t i {}; i < 31; i++)
+			k[(int) s[i]] = i;
+	}
+};
+
 int main() {
 	int p {(char)in == 'L' ? 1 : -1};
-	string k {"qwertyuiopasdfghjkl;zxcvbnm,./"}, s = in;
+	constexpr K k;
+	string s = in;
 	for (char c: s)
-		out(*(find(begin(k), end(k), c) + p));
+		out(k.s[k.k[(int) c] + p]);
 	outl();
 }
 
