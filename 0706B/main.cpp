@@ -2,7 +2,6 @@
 #include <utility>
 #include <cctype>
 #include <vector>
-#include <algorithm>
 using namespace std;
 
 #ifdef __linux
@@ -59,12 +58,14 @@ struct range{
 
 int main() {
 	int n {in};
-	vector<int> x(n);
-	for (int &i: x)
-		i = in;
-	sort(begin(x), end(x));
-	times(i, {in})
-		outl(upper_bound(begin(x), end(x), (int) in) - begin(x));
+	vector<int> c(100001);
+	times (i, n)
+		c[in]++;
+	for (int i: range(1, c.size()))
+		c[i] += c[i - 1];
+	int q {in};
+	times (i, q)
+		outl(c[min(100000, (int) in)]);
 }
 
 /* vim: set ts=4 noet: */
