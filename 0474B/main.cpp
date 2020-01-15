@@ -59,11 +59,12 @@ struct range{
 
 int main() {
 	int n {in};
-	vector<int> a(n + 1);
+	vector<int> a(1);
 	for (int i: range(1, n + 1))
-		a[i] += (int) in + a[i - 1];
+		times(j, in)
+			a.push_back(i);
 	times (i, in)
-		outl(lower_bound(begin(a), end(a), (int) in) - begin(a));
+		outl(a[(int) in]);
 }
 
 /* vim: set ts=4 noet: */
