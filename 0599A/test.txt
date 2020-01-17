@@ -1,0 +1,12 @@
+# inputCopy
+10 20 30
+# outputCopy
+60
+# inputCopy
+1 1 5
+# outputCopy
+4
+# Input
+100 33 34
+# Answer
+134
