@@ -57,10 +57,8 @@ struct range{
 #define times(i,n) for(int i=n;i;i--)
 
 int main() {
-	int n {in}, r {};
-	for (int i: range(1, n + 1))
-		r += i * (n - i);
-	outl(r + n);
+	long long n {in};
+	outl(n * (n * n + 5) / 6);
 }
 
 /* vim: set ts=4 noet: */
