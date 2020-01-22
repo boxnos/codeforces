@@ -58,16 +58,13 @@ struct range{
 #define times(i,n) for(int i=n;i;i--)
 
 int main() {
-	int n {in};
-	vector<pair<int, int>> v(n);
-	for (auto &i: v)
-		i = {in, in};
-	sort(begin(v), end(v));
-	for (int i: range(1, n))
-		if (v[i - 1].second > v[i].second) {
+	times(i, in) {
+		int a {in}, b {in};
+		if (b > a) {
 			outl("Happy Alex");
 			return 0;
 		}
+	}
 	outl("Poor Alex");
 }
 
