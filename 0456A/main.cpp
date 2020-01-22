@@ -60,7 +60,7 @@ struct range{
 int main() {
 	times(i, in) {
 		int a {in}, b {in};
-		if (b > a) {
+		if (b != a) {
 			outl("Happy Alex");
 			return 0;
 		}
