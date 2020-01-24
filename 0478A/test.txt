@@ -1,0 +1,12 @@
+# inputCopy
+2 5 4 0 4
+# outputCopy
+3
+# inputCopy
+4 5 9 2 1
+# outputCopy
+-1
+# input
+0 0 0 0 0
+# out
+-1
