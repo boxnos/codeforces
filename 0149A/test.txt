@@ -1,0 +1,20 @@
+# inputCopy
+5
+1 1 1 1 2 2 3 2 2 1 1 1
+# outputCopy
+2
+# inputCopy
+0
+0 0 0 0 0 0 0 1 1 2 3 0
+# outputCopy
+0
+# inputCopy
+11
+1 1 4 1 1 5 1 1 4 1 1 1
+# outputCopy
+3
+# x
+3
+0 0 0 0 0 0 0 1 1 2 3 0
+# outputCopy
+1
