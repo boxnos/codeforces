@@ -1,0 +1,12 @@
+# inputCopy
+zeus
+# outputCopy
+18
+# inputCopy
+map
+# outputCopy
+35
+# inputCopy
+ares
+# outputCopy
+34
