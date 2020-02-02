@@ -2,7 +2,6 @@
 #include <utility>
 #include <cctype>
 #include <string>
-#include <algorithm>
 using namespace std;
 
 #ifdef __linux
@@ -62,11 +61,9 @@ int main() {
 	int r {};
 	char t {'a'};
 	for (char c: s) {
-		char u {t};
+		int u {abs(t - c)};
+		r += min(u, 26 - u);
 		t = c;
-		if (c > u)
-			swap(c, u);
-		r += min(u - c, c - 'a' + 'z' - u + 1);
 	}
 	outl(r);
 }
