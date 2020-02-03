@@ -58,8 +58,8 @@ struct range{
 
 int main() {
 	times (i, in) {
-		int a {in}, b {in}, c {in}, n {in}, m {a + b + c};
-		outl((max({a, b, c}) * 3 - m) > n || (m + n) % 3 ? "NO" : "YES");
+		int a {in}, b {in}, c {in}, m {(int) in - max({a, b, c}) * 3 + a + b + c};
+		outl(m < 0 || m % 3 ? "NO" : "YES");
 	}
 }
 
