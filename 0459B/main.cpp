@@ -58,20 +58,20 @@ struct range{
 #define times(i,n) for(int i=n;i;i--)
 
 int main() {
-	long long mi {LONG_MAX}, ma {0}, mic {}, mac {};
+	long long M {0}, m {LONG_MAX}, C {}, c {};
 	times (i, in) {
 		int b {in};
-		if (b < mi)
-			mi = b, mic = 1;
-		else if (mi == b)
-			mic++;
-		if (b > ma)
-			ma = b, mac = 1;
-		else if (ma == b)
-			mac++;
+		if (b < m)
+			m = b, c = 1;
+		else if (m == b)
+			c++;
+		if (b > M)
+			M = b, C = 1;
+		else if (M == b)
+			C++;
 	}
-	long long d {ma - mi};
-	outl(d, ' ', d ? mic * mac : mic * (mic - 1) / 2);
+	long long d {M - m};
+	outl(d, ' ', d ? C * c : c * (c - 1) / 2);
 }
 
 /* vim: set ts=4 noet: */
