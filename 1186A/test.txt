@@ -1,0 +1,12 @@
+# inputCopy
+5 8 6
+# outputCopy
+Yes
+# inputCopy
+3 9 3
+# outputCopy
+Yes
+# inputCopy
+8 5 20
+# outputCopy
+No
