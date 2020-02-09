@@ -60,14 +60,15 @@ struct range{
 int main() {
 	int n {in}, k {in}, m {INT_MAX}, j {};
 	vector<int> d(n + 1);
-	for (int i: range(1, n + 1))
+	for (int i: range(1, n + 1)) {
 		d[i] = (int) in + d[i - 1];
-	for (int i: range(n + 1 - k)) {
-		int t = d[i + k] - d[i];
-		if (m > t)
-			m = t, j = i;
+		if (i >= k) {
+			int t = d[i] - d[i - k];
+			if (m > t)
+				m = t, j = i;
+		}
 	}
-	outl(j + 1);
+	outl(j - k + 1);
 }
 
 /* vim: set ts=4 noet: */
