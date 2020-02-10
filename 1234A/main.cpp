@@ -60,7 +60,7 @@ int main() {
 		int n {in}, A {};
 		times (j, n)
 			A += (int) in;
-		outl(A / n + !!(A % n));
+		outl((A + n - 1) / n);
 	}
 }
 
