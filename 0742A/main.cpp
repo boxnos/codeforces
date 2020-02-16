@@ -56,8 +56,8 @@ struct range{
 #define times(i,n) for(int i=n;i;i--)
 
 int main() {
-	int d[4] {6, 8, 4, 2}, n {in};
-	outl(n ? d[n % 4] : 1);
+	int n {in};
+	outl(n ? (int[]){6, 8, 4, 2}[n % 4] : 1);
 }
 
 /* vim: set ts=4 noet: */
