@@ -1,0 +1,5 @@
+# inputCopy
+4
+LRLR
+# outputCopy
+5
