@@ -1,0 +1,15 @@
+# inputCopy
+6
+baabbb
+# outputCopy
+bab
+# inputCopy
+10
+ooopppssss
+# outputCopy
+oops
+# inputCopy
+1
+z
+# outputCopy
+z
