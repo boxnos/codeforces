@@ -9,11 +9,12 @@ dl = 1
 
 test: in_0 $(target)
 	time $(make) $(addprefix test-,$(shell ls -v in*))
+	wc $(target).cpp
 
 test-in%:
 	cat in$(call rm_prefix,$@)
 	time ./$(target) < in$(call rm_prefix,$@) | ~/bin/cat-police | nl -w4 -s': ' | diff -u <(nl -w4 -s': ' out$(call rm_prefix,$@)) - | sed 's/\([0-9]\+\):\([0-9]\+\):\([0-9]\+\)/\1-\2-\3/g'; exit $${PIPESTATUS[3]}
-#	./$(target) < in$(call rm_prefix,$@) | ruby -e 'e=0;f=ARGV.map {|n|n=="-" ? STDIN : open(n)};while l=f[0].gets;m=f[1].gets;if(l.to_f-m.to_f).abs>=0.000001;puts"< #{l}> #{m}";e=1;end;end;exit e' - out$(call rm_prefix,$@)
+#	./$(target) < in$(call rm_prefix,$@) | ruby -e 'e=0;f=ARGV.map {|n|n=="-" ? STDIN : open(n)};while l=f[0].gets;m=f[1].gets;if(l.to_f-m.to_f).abs>=0.00001;puts"< #{l}> #{m}";e=1;end;end;exit e' - out$(call rm_prefix,$@)
 
 in_0 : test.txt
 	make clean
