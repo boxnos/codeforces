@@ -62,15 +62,11 @@ int main() {
 	vector<int> a(n);
 	for (int &i: a)
 		i = in;
-	auto f = [&](int i) {
+	for (int i: range(max(0, n - 1))) {
 		int t {max(0, k - a[i] - a[i + 1])};
 		w += t;
-		return t;
-	};
-	for (int i: range(max(0, n - 2)))
-		a[i + 1] += f(i);
-	if (n > 1)
-		a[n - 2] += f(n - 2);
+		a[i + 1] += t;
+	}
 	outl(w);
 	outl(a);
 }
