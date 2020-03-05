@@ -1,0 +1,8 @@
+# inputCopy
+2 2 1 2
+# outputCopy
+Second
+# inputCopy
+2 1 1 1
+# outputCopy
+First
