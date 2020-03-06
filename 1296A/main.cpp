@@ -56,12 +56,11 @@ struct range{
 #define times(i,n) for(int i=n;i;i--)
 
 int main() {
-	times (i, in) {
-		int n {in}, o {};
-		times (j, n)
-			if ((int) in % 2)
-				o++;
-		outl(o % 2 || (o && (n - o)) ? "YES" : "NO");
+	times (t, in) {
+		int s {in}, i {s};
+		for (; i >= 10; i = i / 10 + i % 10)
+			s += i / 10;
+		outl(s);
 	}
 }
 
