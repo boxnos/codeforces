@@ -1,0 +1,8 @@
+# inputCopy
+QAQAQYSYIOIWIN
+# outputCopy
+4
+# inputCopy
+QAQQQZZYNOIWIN
+# outputCopy
+3
