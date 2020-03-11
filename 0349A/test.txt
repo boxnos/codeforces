@@ -1,0 +1,15 @@
+# inputCopy
+4
+25 25 50 50
+# outputCopy
+YES
+# inputCopy
+2
+25 100
+# outputCopy
+NO
+# inputCopy
+4
+50 50 25 25
+# outputCopy
+NO
