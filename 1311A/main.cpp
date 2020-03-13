@@ -59,7 +59,7 @@ struct range{
 int main() {
 	times (i, in) {
 		int a {in}, b {in};
-		outl(a > b ? (a - b) % 2 + 1: a != b ? 0 : 2 - (b - a) % 2);
+		outl(a > b ? (a - b) % 2 + 1: a == b ? 0 : 2 - (b - a) % 2);
 	}
 }
 
