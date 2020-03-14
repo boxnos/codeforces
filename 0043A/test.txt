@@ -1,0 +1,14 @@
+# inputCopy
+1
+ABC
+# outputCopy
+ABC
+# inputCopy
+5
+A
+ABA
+ABA
+A
+A
+# outputCopy
+A
