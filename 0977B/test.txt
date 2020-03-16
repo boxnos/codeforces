@@ -1,0 +1,15 @@
+# inputCopy
+7
+ABACABA
+# outputCopy
+AB
+# inputCopy
+5
+ZZZAA
+# outputCopy
+ZZ
+# tes
+11
+GGRRAATTZZZ
+# ou
+ZZ
