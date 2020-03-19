@@ -1,0 +1,10 @@
+# inputCopy
+4
+ezor
+# outputCopy
+0 
+# inputCopy
+10
+nznooeeoer
+# outputCopy
+1 1 0 
