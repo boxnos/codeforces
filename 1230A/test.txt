@@ -1,0 +1,12 @@
+# inputCopy
+1 7 11 5
+# outputCopy
+YES
+# inputCopy
+7 3 2 5
+# outputCopy
+NO
+# in
+3 14 36 53
+# Answer
+YES
