@@ -2,8 +2,6 @@
 #include <utility>
 #include <cctype>
 #include <vector>
-#include <algorithm>
-#include <climits>
 using namespace std;
 
 #ifdef __linux
@@ -61,16 +59,10 @@ struct range{
 
 int main() {
 	times (t, in) {
-		int n {in}, m {INT_MAX};
-		vector<int> A(n);
-		for (int &a: A)
-			m = min(m, a = in);
-		outl([&] {
-			for (int a: A)
-				if ((a - m) % 2)
-					return "NO";
-			return "YES";
-		}());
+		int n {in}, r {};
+		times (i, n)
+			r += (int) in % 2;
+		outl(r && (r - n) ? "NO" : "YES");
 	}
 }
 
