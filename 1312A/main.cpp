@@ -55,11 +55,11 @@ struct range{
 		_I it& operator++(){v+=s;return *this;} }; it begin(){return {b,s};} it end(){return {e,s};}};
 #define times(i,n) for(int i=n;i;i--)
 
+#define OP(a, b, op) ({int A {a}, B {b}, C {A op B}; C;})
 
 int main() {
 	times (t, in) {
-		int n {in}, m {in};
-		outl(n % m ? "NO" : "YES");
+		outl(OP(in, in, %) ? "NO" : "YES");
 	}
 }
 
