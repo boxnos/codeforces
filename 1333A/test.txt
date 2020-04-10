@@ -1,0 +1,11 @@
+# inputCopy
+2
+3 2
+3 3
+# outputCopy
+WB
+BB
+BB
+WBB
+BBB
+BBB
