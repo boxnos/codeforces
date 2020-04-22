@@ -1,7 +1,6 @@
 #include <cstdio>
 #include <utility>
 #include <cctype>
-#include <array>
 using namespace std;
 
 #ifdef __linux
@@ -58,21 +57,12 @@ struct range{
 
 int main() {
 	times (t, in) {
-		array<array<int, 9>, 9> a;
-		for (auto &i: a) {
-			for (int &j: i)
-				j = gcu() - '0';
-			gcu();
-		}
-		for (int i: range(3))
-			for (int j: range(3)) {
-				int x {j * 3 + i}, y {i * 3 + j};
-				a[y][x] = a[y][x] % 9 + 1;
+		times (i, 9) {
+			times (j, 9) {
+				char c = gcu();
+				out(c == '1' ? '2' : c);
 			}
-		for (auto i: a) {
-			for (int j: i)
-				out(j);
-			outl();
+			gcu(), outl();;
 		}
 	}
 }
