@@ -57,8 +57,8 @@ struct range{
 
 int main() {
 	times (t, in) {
-		int n {in}, m {in};
-		outl((n == 1 || m == 1) || (n == 2 && m == 2) ? "YES" : "NO");
+		long long n {in}, m {in};
+		outl(0 < n * m - n - m ? "NO" : "YES");
 	}
 }
 
