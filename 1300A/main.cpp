@@ -60,11 +60,9 @@ int main() {
 		int n {in}, s {}, c {};
 		times(i, n) {
 			int a {in};
-			if (!a)
-				c++, a++;
-			s += a;
+			s += !a ? c++, 1 : a;
 		}
-		outl(s ? c : c + 1);
+		outl(c + !s);
 	}
 }
 
