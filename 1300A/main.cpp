@@ -58,10 +58,8 @@ struct range{
 int main() {
 	times (t, in) {
 		int n {in}, s {}, c {};
-		times(i, n) {
-			int a {in};
-			s += !a ? c++, 1 : a;
-		}
+		times(i, n)
+			s += (int) in ?: (c++, 1);
 		outl(c + !s);
 	}
 }
