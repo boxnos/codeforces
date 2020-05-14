@@ -57,8 +57,8 @@ struct range{
 
 int main() {
 	times (t, in) {
-		int n {in}, k {in}, d {n % 2 ?: k % 2 + 1};
-		if ((!(n % 2) || k % 2) && n >= d * k) {
+		int n {in}, k {in}, d {!(n % 2) + k % 2};
+		if (d && n >= d * k) {
 			outl("YES");
 			times (i, k - 1)
 				out(d, ' ');
