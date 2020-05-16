@@ -1,0 +1,20 @@
+# inputCopy
+1
+# outputCopy
+19
+# inputCopy
+2
+# outputCopy
+28
+# tes
+10
+# out
+109
+# tes
+20
+# out
+208
+# tes
+30
+# out
+316
