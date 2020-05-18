@@ -58,8 +58,8 @@ struct range{
 
 int main() {
 	times (t, in) {
-		long long n {in}, m {in};
-		outl(min(n - 1, 2LL) * m);
+		int n {in}, m {in};
+		outl(min(n - 1, 2) * m);
 	}
 }
 
