@@ -1,0 +1,16 @@
+# inputCopy
+9 3
+# outputCopy
+1
+# inputCopy
+14 28
+# outputCopy
+1
+# inputCopy
+4 20
+# outputCopy
+0
+# in
+3 3
+# out
+0
