@@ -48,12 +48,13 @@ _OUTL(){out('\n');}
 #endif
 _HT _OUT(H &&h, T... t){out(h);out(t...);}
 template <typename... T> _OUTL(T... t){out(t...);outl();}
-#define dbg(...) fprintf(stderr,__VA_ARGS__)
 struct range{
 	int e,b=0,s=1;range(int b,int e,int s):e(e),b(b),s(s){} range(int b,int e): e(e), b(b){} range(int e):e(e){}
 	struct it{int v,s; it(int v,int s):v(v),s(s){} operator int()const{return v;} _I operator int&(){return v;}int operator*()const{return v;}
 		_I it& operator++(){v+=s;return *this;} }; it begin(){return {b,s};} it end(){return {e,s};}};
 #define times(i,n) for(int i=n;i;i--)
+#define dbg(...) fprintf(stderr,__VA_ARGS__)
+#define tee(s,v) ({dbg(s,v);v;})
 
 int main() {
 	times (t, in) {
