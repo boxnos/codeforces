@@ -58,24 +58,18 @@ struct range{
 #define tee(s,v) ({dbg(s,v);v;})
 
 int main() {
-	long long n {in}, acc {}, r {}, z {};
-	vector<long long> a(n);
+	long long n {in}, acc {}, bcc {}, r {};
+	vector<long long> a(n), b(n);
 	for (auto &i: a)
 		i = acc += (int) in;
-	if (!acc) {
+	if (!(acc % 3)) {
 		for (int i: range(n - 1))
-			if (!a[i])
-				z++;
-	} else if (!(acc % 3)) {
-		int bcc {};
-		vector<int> b(n);
-		for (int i: range(n))
 			b[i] = bcc += a[i] * 3 == acc * 2;
-		for (int i: range(n - 1))
+		for (int i: range(n - 2))
 			if (a[i] * 3 == acc)
 				r += bcc - b[i];
 	}
-	outl(r + z * (z - 1) / 2);
+	outl(r);
 }
 
 /* vim: set ts=4 noet: */
