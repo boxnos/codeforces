@@ -60,15 +60,15 @@ struct range{
 
 int main() {
 	times (t, in) {
-		int n {in}, r {};
+		int n {in}, r {1};
 		vector<int> a(n);
 		for (int &i: a)
 			i = in;
 		sort(begin(a), end(a));
 		for (int i: range(n))
 			if (a[i] <= i + 1)
-				r = i + 1;
-		outl(r + 1);
+				r = i + 2;
+		outl(r);
 	}
 }
 
