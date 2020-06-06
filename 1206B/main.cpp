@@ -60,7 +60,8 @@ int main() {
 	long long n {in}, r {}, s {1};
 	times (i, n) {
 		int a {in};
-		r += (a > 0 ? a: a ? s *= -1, -a: (s = 0, 2)) - 1;
+		s *= (a > 0) - (a < 0);
+		r += (a > 0 ? a: a ? -a : 2) - 1;
 	}
 	outl(r + (s == -1) * 2);
 }
