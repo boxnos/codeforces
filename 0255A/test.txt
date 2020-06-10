@@ -1,0 +1,15 @@
+# inputCopy
+2
+2 8
+# outputCopy
+biceps
+# inputCopy
+3
+5 1 10
+# outputCopy
+back
+# inputCopy
+7
+3 3 2 7 9 6 8
+# outputCopy
+chest
