@@ -61,7 +61,7 @@ int main() {
 		int n {in}, k {in};
 		outl([&] {
 			int i {1};
-			for (; i * i <= n; i++)
+			for (; i * i < n; i++)
 				if (!(n % i) && n / i <= k)
 					return i;
 			for (; i > 0; i--)
