@@ -1,0 +1,11 @@
+# inputCopy
+4
+abbaac
+ac
+bccddaaf
+zzzzzzzzzz
+# outputCopy
+abac
+ac
+bcdaf
+zzzzzz
