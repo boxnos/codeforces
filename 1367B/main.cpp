@@ -60,7 +60,7 @@ int main() {
 	times (t, in) {
 		int n {in}, p[2] {};
 		for (int i: range(n))
-			p[i % 2] += (i ^ (int) in) % 2;
+			p[i % 2] += i + (int) in & 1;
 		outl(p[0] == p[1] ? p[0] : -1);
 	}
 }
