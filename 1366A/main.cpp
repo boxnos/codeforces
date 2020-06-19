@@ -59,11 +59,8 @@ struct range{
 
 int main() {
 	times (t, in) {
-		int a {in}, b {in}, r;
-		if (a < b)
-			swap(a, b);
-		r = min(a - b, b);
-		outl(r + (b - r) / 3 * 2 + (b - r) % 3 / 2);
+		int a {in}, b {in};
+		outl(min({a, b, (a + b) / 3}));
 	}
 }
 
