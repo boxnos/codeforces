@@ -1,0 +1,12 @@
+# inputCopy
+.-.--
+# outputCopy
+012
+# inputCopy
+--.
+# outputCopy
+20
+# inputCopy
+-..-.--
+# outputCopy
+1012
