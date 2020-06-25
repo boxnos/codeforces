@@ -1,6 +1,7 @@
 #include <cstdio>
 #include <utility>
 #include <cctype>
+#include <functional>
 using namespace std;
 
 #ifdef __linux
@@ -58,17 +59,19 @@ struct range{
 
 int main() {
 	times (t, in) {
-		int n {in}, at {}, a {}, b {};
-		times (i, n) {
-			int t {in};
-			a |= t < exchange(at, t);
-		}
-		int bt {in};
-		times (i, n - 1) {
-			int t {in};
-			b |= t != exchange(bt, t);
-		}
-		outl(b || !a ? "Yes" : "No");
+		int n {in};
+		auto F = [&] (auto f) {
+			bool b {};
+		   	int t {in};
+			times (i, n - 1) {
+				int a {in};
+				b |= f(a, t);
+				t = a;
+			}
+			return b;
+		};
+		bool a = F(less<int>());
+		outl(F(not_equal_to<int>()) || !a ? "Yes" : "No");
 	}
 }
 
