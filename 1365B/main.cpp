@@ -61,8 +61,7 @@ int main() {
 	times (t, in) {
 		int n {in};
 		auto F = [&] (auto f) {
-			bool b {};
-		   	int t {in};
+		   	int b {}, t {in};
 			times (i, n - 1) {
 				int a {in};
 				b |= f(a, t);
