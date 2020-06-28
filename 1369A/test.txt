@@ -1,0 +1,11 @@
+# inputCopy
+4
+3
+4
+12
+1000000000
+# outputCopy
+NO
+YES
+YES
+YES
