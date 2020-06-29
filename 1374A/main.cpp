@@ -59,7 +59,7 @@ struct range{
 int main() {
 	times (t, in) {
 		int x {in}, y {in}, n {in};
-		outl((n - y) / x * x + y);
+		outl(n - (n - y) % x);
 	}
 }
 
