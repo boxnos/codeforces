@@ -56,13 +56,14 @@ struct range{
 #define dbg(...) fprintf(stderr,__VA_ARGS__)
 #define tee(s,v) ({dbg(s,v);v;})
 
+using I = int [];
+
 int main() {
 	times (t, in) {
 		int n {in}, r {};
-		for (int i: {6, 3})
-			for (;n > 1 && !(n % i); n /= i)
-				r += 3 - i / 3;
-		outl(n > 1 ? -1 : r);
+		for (;n % 3 < 1; n /= 6 - n % 6)
+			r += n % 2 + 1;
+		outl(I{r, -1}[n > 1]);
 	}
 }
 
