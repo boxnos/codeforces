@@ -62,12 +62,7 @@ int main() {
 	times (t, in) {
 		int r {}, p {};
 		times (i, in)
-			if (gcu() == '(')
-				p++;
-			else if (p > 0)
-				p--;
-			else
-				r++;
+			p += gcu() == '(' ?: p == 0 ? r++, 0 : -1;
 		gcu();
 		outl(r);
 	}
