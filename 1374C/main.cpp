@@ -62,7 +62,7 @@ int main() {
 	times (t, in) {
 		int r {}, p {};
 		times (i, in)
-			p += gcu() == '(' ?: p == 0 ? !++r : -1;
+			p += 41 - gcu() ?: p == 0 ? !++r : -1;
 		gcu();
 		outl(r);
 	}
