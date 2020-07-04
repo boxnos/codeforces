@@ -1,0 +1,29 @@
+# inputCopy
+3
+BBW
+# outputCopy
+1
+2 
+# inputCopy
+5
+BWBWB
+# outputCopy
+3
+1 1 1 
+# inputCopy
+4
+WWWW
+# outputCopy
+0
+# inputCopy
+4
+BBBB
+# outputCopy
+1
+4 
+# inputCopy
+13
+WBBBBWWBWBBBW
+# outputCopy
+3
+4 1 3 
