@@ -64,7 +64,7 @@ int main() {
 		for (; s[i] == '0' && i < n; i++)
 			out(0);
 		for (; i < n; i++)
-			z += s[i] - '1' ? (zf = 1, -z) : 1;
+			z += s[i] - '0' ?: (zf = 1, -z);
 		if (zf)
 			out(0);
 		times (j, z)
