@@ -62,18 +62,13 @@ int main() {
 	(int) in;
 	int t {};
 	vector<int> v;
-	string s = in;
-	s += 'W';
-	for (char c: s)
-		if (c == 'B')
+	for (char c: (const string &) in + 'W')
+		if (c - 'W')
 			t++;
 		else if (t)
 			v.push_back(exchange(t, 0));
 	outl(v.size());
-	for (int i: v)
-		out(i, ' ');
-	if (v.size())
-		outl();
+	outl(v);
 }
 
 /* vim: set ts=4 noet: */
