@@ -66,7 +66,7 @@ int main() {
 		for (int &i: a)
 			i = in;
 		for (auto i {rbegin(a)}; i != rend(a); i++)
-			r += m < *i ?: !(m = *i);
+			r += m < *i || !(m = *i);
 		outl(r);
 	}
 }
