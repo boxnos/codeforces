@@ -71,9 +71,7 @@ int main() {
 				c += p = pt, m++;
 				return i > j;
 			};
-			if (f(a, i, 1))
-				break;
-			if (f(b, j, -1))
+			if (f(a, i, 1) || f(b, j, -1))
 				break;
 		}
 		outl(m, ' ', a, ' ', b);
