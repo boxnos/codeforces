@@ -4,6 +4,7 @@
 #include <vector>
 #include <string>
 #include <functional>
+#include <unordered_set>
 using namespace std;
 
 #ifdef __linux
@@ -61,14 +62,16 @@ struct range{
 
 int main() {
 	string s = in;
+	unordered_set<int> m;
 	function<int(int, int, int)> f = [&](size_t i, int d, int a) {
-		if (i == s.size() || d > 2)
+		if (i == s.size() || d > 2 || m.count(a))
 			return -1;
 		for (int j: range(i, s.size())) {
 			int t = a * 10 + s[j] - '0';
 			if (!(t % 8) || (t = f(j + 1, d + 1, t)) != -1)
 				return t;
 		}
+		m.insert(a);
 		return -1;
 	};
 	int r {f(0, 0, 0)};
