@@ -62,17 +62,17 @@ int main() {
 	string s = in;
 	vector<vector<int>> m(s.size(), vector<int>(8, -1));
 	auto pos = [&](int i) {return (s[i] - '0') % 8;};
-	m[0][pos(0)] = 8;
+	m[0][pos(0)] = 0;
 	for (int i: range(1, s.size())) {
 		for (int j: range(8))
 			if (m[i - 1][j] > -1)
 				m[i][(j * 10 + pos(i)) % 8] = m[i][j] = j;
-		m[i][pos(i)] = 8;
+		m[i][pos(i)] = 0;
 	}
 	for (int i: range(s.size())) {
 		if (m[i][0] > -1) {
 			string b;
-			for(int r {}; m[i][r] < 8;r = m[i][r], i--)
+			for(int r {}; m[i][r] > 0;r = m[i][r], i--)
 				if (m[i][r] != r)
 					b = s[i] + b;
 			b = s[i] + b;
