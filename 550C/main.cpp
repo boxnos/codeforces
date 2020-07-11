@@ -62,21 +62,19 @@ struct range{
 
 int main() {
 	string s = in;
-	unordered_set<int> m;
-	function<int(int, int, int)> f = [&](size_t i, int d, int a) {
-		if (i == s.size() || d > 2 || m.count(a))
-			return -1;
-		for (int j: range(i, s.size())) {
+	vector<bool> m(1000);
+	function<int(int, int, int)> f = [&](int i, int d, int a) {
+		for (size_t j: range(i, s.size())) {
 			int t = a * 10 + s[j] - '0';
-			if (!(t % 8) || (t = f(j + 1, d + 1, t)) != -1)
+			if (!(t % 8) || (!m[t] && d < 2 && j < s.size() && (t = f(j + 1, d + 1, t)) > -1))
 				return t;
 		}
-		m.insert(a);
+		m[a] = true;
 		return -1;
 	};
 	int r {f(0, 0, 0)};
 	if (r != -1)
-		outl("YES", '\n', r);
+		outl("YES\n", r);
 	else
 		outl("NO");
 }
