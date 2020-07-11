@@ -1,0 +1,14 @@
+# inputCopy
+3454
+# outputCopy
+YES
+344
+# inputCopy
+10
+# outputCopy
+YES
+0
+# inputCopy
+111111
+# outputCopy
+NO
