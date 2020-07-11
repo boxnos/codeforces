@@ -3,8 +3,6 @@
 #include <cctype>
 #include <vector>
 #include <string>
-#include <functional>
-#include <unordered_set>
 using namespace std;
 
 #ifdef __linux
@@ -62,21 +60,28 @@ struct range{
 
 int main() {
 	string s = in;
-	vector<bool> m(1000);
-	function<int(int, int, int)> f = [&](int i, int d, int a) {
-		for (size_t j: range(i, s.size())) {
-			int t = a * 10 + s[j] - '0';
-			if (!(t % 8) || (!m[t] && d < 2 && j < s.size() && (t = f(j + 1, d + 1, t)) > -1))
-				return t;
+	vector<vector<int>> m(s.size(), vector<int>(8, -1));
+	auto pos = [&](int i) {return (s[i] - '0') % 8;};
+	m[0][pos(0)] = 8;
+	for (int i: range(1, s.size())) {
+		for (int j: range(8))
+			if (m[i - 1][j] > -1)
+				m[i][(j * 10 + pos(i)) % 8] = m[i][j] = j;
+		m[i][pos(i)] = 8;
+	}
+	for (int i: range(s.size())) {
+		if (m[i][0] > -1) {
+			string b;
+			for(int r {}; m[i][r] < 8;r = m[i][r], i--)
+				if (m[i][r] != r)
+					b = s[i] + b;
+			b = s[i] + b;
+			outl("YES");
+			outl(b);
+			return 0;
 		}
-		m[a] = true;
-		return -1;
-	};
-	int r {f(0, 0, 0)};
-	if (r != -1)
-		outl("YES\n", r);
-	else
-		outl("NO");
+	}
+	outl("NO");
 }
 
 /* vim: set ts=4 noet: */
