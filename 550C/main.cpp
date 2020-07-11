@@ -72,7 +72,7 @@ int main() {
 	for (int i: range(s.size())) {
 		if (m[i][0] > -1) {
 			string b;
-			for(int r {}; m[i][r] > 0;r = m[i][r], i--)
+			for(int r {}; m[i][r]; r = m[i--][r])
 				if (m[i][r] != r)
 					b = s[i] + b;
 			b = s[i] + b;
