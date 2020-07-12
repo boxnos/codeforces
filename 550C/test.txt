@@ -12,3 +12,8 @@ YES
 111111
 # outputCopy
 NO
+# in
+8996988892
+# out
+YES
+8

@@ -3,6 +3,7 @@
 #include <cctype>
 #include <vector>
 #include <string>
+#include <deque>
 using namespace std;
 
 #ifdef __linux
@@ -58,30 +59,39 @@ struct range{
 #define dbg(...) fprintf(stderr,__VA_ARGS__)
 #define tee(s,v) ({dbg(s,v);v;})
 
+_T using V = vector<T>;
+
 int main() {
 	string s = in;
-	vector<vector<int>> m(s.size(), vector<int>(8, -1));
+	int j {-1};
+	V<V<int>> m(s.size(), V<int>(8, -1));
 	auto pos = [&](int i) {return (s[i] - '0') % 8;};
 	m[0][pos(0)] = 0;
-	for (int i: range(1, s.size())) {
-		for (int j: range(8))
-			if (m[i - 1][j] > -1)
-				m[i][(j * 10 + pos(i)) % 8] = m[i][j] = j;
-		m[i][pos(i)] = 0;
-	}
-	for (int i: range(s.size())) {
-		if (m[i][0] > -1) {
-			string b;
-			for(int r {}; m[i][r]; r = m[i--][r])
-				if (m[i][r] != r)
-					b = s[i] + b;
-			b = s[i] + b;
-			outl("YES");
-			outl(b);
-			return 0;
+	if (pos(0)) {
+		for (int i: range(1, s.size())) {
+			for (int j: range(8))
+				if (m[i - 1][j] > -1)
+					m[i][(j * 10 + pos(i)) % 8] = m[i][j] = j;
+			m[i][pos(i)] = 0;
+			if (m[i][0] > -1) {
+				j = i;
+				break;
+			}
 		}
-	}
-	outl("NO");
+	} else
+		j = 0;
+	if (j > -1) {
+		deque<char> b;
+		for(int r {}; m[j][r]; r = m[j--][r])
+			if (m[j][r] != r)
+				b.push_front(s[j]);
+		outl("YES");
+		out(s[j]);
+		for (char c: b)
+			out(c);
+		outl();
+	} else
+		outl("NO");
 }
 
 /* vim: set ts=4 noet: */
