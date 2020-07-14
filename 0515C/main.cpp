@@ -2,7 +2,6 @@
 #include <utility>
 #include <cctype>
 #include <algorithm>
-#include <vector>
 #include <array>
 #include <string>
 using namespace std;
@@ -60,15 +59,12 @@ struct range{
 #define dbg(...) fprintf(stderr,__VA_ARGS__)
 #define tee(s,v) ({dbg(s,v);v;})
 
-using V = vector<int>;
-
 int main() {
 	(int) in;
 	string s = in, u;
-	array<V, 10> t {V{}, V{}, V{2}, V{3}, V{3, 2, 2}, V{5}, V{5, 3}, V{7}, V{7, 2, 2, 2}, V{7, 2, 3, 3}};
+	array<string, 10> t {"", "", "2", "3", "322", "5", "53", "7", "7222", "7233"};
 	for (char c: s)
-		for (int i: t[c - '0'])
-			u += i + '0';
+		u += t[c - '0'];
 	sort(rbegin(u), rend(u));
 	outl(u);
 }
