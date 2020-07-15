@@ -59,14 +59,14 @@ struct range{
 #define tee(s,v) ({dbg(s,v);v;})
 
 int main() {
-	int n {in}, m {in}, h {};
+	int n {in}, m {in};
 	vector<int> s(m + 1), r;
 	times (i, n) {
 		int l {in}, r {in};
 		s[l - 1]++, s[r]--;
 	}
 	for (int i: range(m))
-		if (!(h += s[i]))
+		if (!(s[i + 1] += s[i], s[i]))
 			r.push_back(i + 1);
 	outl(r.size());
 	outl(r);
