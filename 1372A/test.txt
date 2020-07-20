@@ -1,0 +1,7 @@
+# inputCopy
+2
+5
+4
+# outputCopy
+1 5 3 77 12
+384 384 44 44
