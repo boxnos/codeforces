@@ -60,7 +60,7 @@ struct range{
 int main() {
 	times (t, in) {
 		long long n {in}, r {in}, s {min(r, n)};
-		outl((1 + s) * s / 2 - (n <= r ? s - 1: 0));
+		outl(s * (s - 1) / 2 + (n > r ? s : 1));
 	}
 }
 
