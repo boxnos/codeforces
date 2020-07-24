@@ -60,12 +60,14 @@ struct range{
 
 int main() {
 	times (t, in) {
-		int k {in}, m {}, c {}, i {};
+		int k {in}, m {}, c {};
 		string s = in;
-		for (;i < k && s[i] == 'P'; i++)
-			;
-		for (;i < k; i++)
-			m = max(m, c += s[i] == 'P' ?: -c);
+		do {
+			if (s[--k] == 'P')
+				c++;
+			else
+				m = max(m, exchange(c, 0));
+		} while (k);
 		outl(m);
 	}
 }
