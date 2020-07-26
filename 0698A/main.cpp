@@ -57,8 +57,8 @@ struct range{
 #define tee(s,v) ({dbg(s,v);v;})
 
 int main() {
-	int n {in}, s {in}, r {!s};
-	times (i, n - 1)
+	int n {in}, s {3}, r {};
+	times (i, n)
 		r += !(s = (3 - s % 3) & (int) in);
 	outl(r);
 }
