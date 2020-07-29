@@ -1,0 +1,10 @@
+# inputCopy
+abcd
+defgh
+# outputCopy
+5
+# inputCopy
+a
+a
+# outputCopy
+-1
