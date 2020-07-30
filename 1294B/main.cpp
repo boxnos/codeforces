@@ -62,6 +62,7 @@ struct range{
 using P = pair<int, int>;
 
 int main() {
+	auto st = [](int &a, int &b, char c) {return string(a - exchange(b, a), c);};
 	times (t, in) {
 		int n {in};
 		P c;
@@ -74,10 +75,7 @@ int main() {
 			 for (P i: p) {
 				if (c.first > i.first || c.second > i.second)
 					 return (string) "NO";
-				for (; c.first < i.first; c.first++)
-					s += 'R';
-				for (; c.second < i.second; c.second++)
-					s += 'U';
+				s += st(i.first, c.first, 'R') + st(i.second, c.second, 'U');
 			 }
 			 return "YES\n" + s;
 		}());
