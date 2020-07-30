@@ -62,7 +62,7 @@ struct range{
 using P = pair<int, int>;
 
 int main() {
-	auto st = [](int &a, int &b, char c) {return string(a - exchange(b, a), c);};
+	auto st = [](int a, int &b, char c) {return string(a - exchange(b, a), c);};
 	times (t, in) {
 		int n {in};
 		P c;
