@@ -65,10 +65,12 @@ int main() {
 			int a {in};
 			(a % 2 ? o : e).push_back(i + 1);
 		}
-		for (int i {}; i < (int) o.size() - 1 && i / 2 < n - 1; i += 2)
-			outl(o[i], ' ', o[i + 1]);
-		for (int i {}; (int) o.size() / 2 + i / 2 < n - 1; i += 2)
-			outl(e[i], ' ', e[i + 1]);
+		auto f = [&](auto o, int u) {
+			for (int i {}; i < (int) o.size() - 1 && u + i / 2 < n - 1; i += 2)
+				outl(o[i], ' ', o[i + 1]);
+		};
+		f(o, 0);
+		f(e, o.size() / 2);
 	}
 }
 
