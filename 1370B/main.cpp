@@ -67,7 +67,7 @@ int main() {
 		}
 		for (int i {}; i < (int) o.size() - 1 && i / 2 < n - 1; i += 2)
 			outl(o[i], ' ', o[i + 1]);
-		for (int i {}; i < (int) e.size() - 1 && (int) o.size() / 2 + i / 2 < n - 1; i += 2)
+		for (int i {}; (int) o.size() / 2 + i / 2 < n - 1; i += 2)
 			outl(e[i], ' ', e[i + 1]);
 	}
 }
