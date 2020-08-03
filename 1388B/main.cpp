@@ -59,8 +59,8 @@ struct range{
 int main() {
 	times (t, in) {
 		int n {in};
-		for(int i: range(1, n + 1))
-			out("98"[(n - i) * 4 < n]);
+		times(i, n)
+			out("98"[(i - 1) * 4 < n]);
 		outl();
 	}
 }
