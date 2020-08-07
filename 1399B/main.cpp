@@ -69,10 +69,8 @@ int main() {
 		vector<int> a(n), b(n);
 		input(a, A);
 		input(b, B);
-		for (int i: range(n)) {
-			auto da {a[i] - A}, db {b[i] - B};
-			r += da + db - min(da, db);
-		}
+		for (int i: range(n))
+			r += max(a[i] - A, b[i] - B);
 		outl(r);
 	}
 }
