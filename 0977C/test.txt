@@ -1,0 +1,20 @@
+# inputCopy
+7 4
+3 7 5 1 10 3 20
+# outputCopy
+5
+# inputCopy
+7 2
+3 7 5 1 10 3 20
+# outputCopy
+-1
+# inputCopy
+7 0
+3 7 5 1 10 3 20
+# out
+-1
+# inputCopy
+7 0
+3 7 5 2 10 3 20
+# out
+1
