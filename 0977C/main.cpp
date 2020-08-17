@@ -63,8 +63,9 @@ int main() {
 	vector<int> a(n);
 	for (int &i: a)
 		i = in;
+	a.push_back(1);
 	sort(begin(a), end(a));
-	outl(!k && a[0] > 1 ? 1 : k && (k == n || a[k - 1] != a[k]) ? a[k - 1] : -1);
+	outl(k == n || a[k] != a[k + 1] ? a[k] : -1);
 }
 
 /* vim: set ts=4 noet: */
