@@ -1,0 +1,12 @@
+# inputCopy
+1
+# outputCopy
+1.000000000000
+# inputCopy
+2
+# outputCopy
+1.500000000000
+# in
+100000
+# Output
+12.09014612986
