@@ -63,9 +63,9 @@ int main() {
 	vector<int> a(n);
 	for (int &i: a)
 		i = in;
-	auto cmp = [&](int x) {return x > k;};
-	auto f = find_if(begin(a), end(a), cmp);
-	outl(f == end(a) ? n : (f - begin(a)) + (find_if(rbegin(a), rend(a), cmp) - rbegin(a)));
+	auto f = [&](auto b, auto e) {return find_if(b, e, [&](int x) {return x > k;}) - b;};
+	int x = f(begin(a), end(a));
+	outl(x == n ? n : x + f(rbegin(a), rend(a)));
 }
 
 /* vim: set ts=4 noet: */
