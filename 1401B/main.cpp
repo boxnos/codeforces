@@ -57,21 +57,11 @@ struct range{
 #define dbg(...) fprintf(stderr,__VA_ARGS__)
 #define tee(s,v) ({dbg(s,v);v;})
 
-int f (int &a, int &b) {
-	int t = min(a, b);
-	a -= t;
-	b -= t;
-	return t;
-}
 
 int main() {
 	times (t, in) {
-		int a0 {in}, a1 {in}, a2 {in}, b0 {in}, b1 {in}, b2 {in}, r {};
-		r += f(a2, b1) * 2;
-		f(a2, b2);
-		f(a0, b2);
-		r += f(a1, b2) * -2;
-		outl(r);
+		int a0 {in}, a1 {in}, a2 {in}, b0 {in}, b1 {in}, b2 {in}, m {min(a2, b1)};
+		outl(m * 2 + (b2 - min(a0 + a2 - m, b2)) * -2);
 	}
 }
 
