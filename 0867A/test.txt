@@ -1,0 +1,20 @@
+# inputCopy
+4
+FSSF
+# outputCopy
+NO
+# inputCopy
+2
+SF
+# outputCopy
+YES
+# inputCopy
+10
+FFFFFFFFFF
+# outputCopy
+NO
+# inputCopy
+10
+SSFFSFFSFF
+# outputCopy
+YES
