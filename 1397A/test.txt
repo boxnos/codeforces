@@ -1,0 +1,24 @@
+# inputCopy
+4
+2
+caa
+cbb
+3
+cba
+cba
+cbb
+4
+ccab
+cbac
+bca
+acbcc
+4
+acb
+caf
+c
+cbafc
+# outputCopy
+YES
+NO
+YES
+NO
