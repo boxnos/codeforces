@@ -57,10 +57,13 @@ struct range{
 #define dbg(...) fprintf(stderr,__VA_ARGS__)
 #define tee(s,v) ({dbg(s,v);v;})
 
+using ll = long long;
+
 int main() {
 	times (t, in) {
-		long long a {in}, b {in}, x {in}, y {in}, n {in}, p = min(n, a - x), q = min(n, b - y);
-		outl(min((a - p) * (b - min(b - y, n - p)), (a - min(a - x, n - q)) * (b - q)));
+		ll a {in}, b {in}, x {in}, y {in}, n {in};
+		auto f = [&](ll a, ll b, ll x, ll y) {return max(a - n, x) * max(y, min(b, a - x + b - n));};
+		outl(min(f(a, b, x, y), f(b, a, y, x)));
 	}
 }
 
