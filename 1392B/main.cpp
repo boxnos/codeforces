@@ -66,9 +66,8 @@ using ll = long long;
 
 int main() {
 	times (t, in) {
-		int n {in};
+		int n {in}, h {INT_MIN}, l {INT_MAX}, a[n];
 		ll k {in};
-		int h {INT_MIN}, l {INT_MAX}, a[n];
 		for (int &i: a) {
 			i = in;
 			h = max(h, i);
