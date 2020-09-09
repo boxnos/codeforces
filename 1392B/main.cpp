@@ -4,6 +4,7 @@
 #include <vector>
 #include <algorithm>
 #include <climits>
+#include <functional>
 using namespace std;
 
 #ifdef __linux
@@ -60,6 +61,7 @@ struct range{
 #define tee(s,v) ({dbg(s,v);v;})
 
 using ll = long long;
+#define mkf(s) static_cast<function<void(ll&)> >([&](ll &i) {i = s;})
 
 int main() {
 	times (t, in) {
@@ -70,8 +72,9 @@ int main() {
 			h = max(h, i);
 			l = min(l, i);
 		}
+		auto f = k % 2 ? mkf(h - i) : mkf(i - l);
 		for (ll &i: a)
-			i = k % 2 ? h - i : i - l;
+			f(i);
 		outl(a);
 	}
 }
