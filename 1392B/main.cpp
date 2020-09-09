@@ -61,21 +61,24 @@ struct range{
 #define tee(s,v) ({dbg(s,v);v;})
 
 using ll = long long;
-#define mkf(s) static_cast<function<void(ll&)> >([&](ll &i) {i = s;})
+#define mkf(s) static_cast<function<void(int&)> >([&](int &i) {i = s;})
 
 int main() {
 	times (t, in) {
-		ll n {in}, k {in}, h {LLONG_MIN}, l {LLONG_MAX};
-		vector<ll> a(n);
-		for (ll &i: a) {
+		int n {in};
+		ll k {in};
+		int h {INT_MIN}, l {INT_MAX}, a[n];
+		for (int &i: a) {
 			i = in;
 			h = max(h, i);
 			l = min(l, i);
 		}
 		auto f = k % 2 ? mkf(h - i) : mkf(i - l);
-		for (ll &i: a)
+		for (int &i: a)
 			f(i);
-		outl(a);
+		for (int &i: a)
+			out(&i == &a[0]?"":" ", i);
+		outl();
 	}
 }
 
