@@ -1,3 +1,4 @@
+#pragma GCC optimize(2,3,"Ofast")
 #include <cstdio>
 #include <utility>
 #include <cctype>
