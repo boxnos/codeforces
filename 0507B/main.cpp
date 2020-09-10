@@ -58,13 +58,13 @@ struct range{
 #define dbg(...) fprintf(stderr,__VA_ARGS__)
 #define tee(s,v) ({dbg(s,v);v;})
 
-double dbl(double a) {
+using ll = long long;
+ll dbl(ll a) {
 	return a * a;
 }
 
 int main() {
-	double r, x, y, xd, yd;
-	scanf("%lf %lf %lf %lf %lf", &r, &x, &y, &xd, &yd);
+	ll r {in}, x {in}, y {in}, xd {in}, yd {in};
 	outl((int) ceil(sqrt(dbl(xd - x) + dbl(yd - y)) / 2 / r));
 }
 
