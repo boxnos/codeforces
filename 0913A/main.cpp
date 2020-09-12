@@ -60,7 +60,7 @@ struct range{
 
 int main() {
 	int n {in}, m {in};
-	outl(m % (1 << min(n, 31)));
+	outl(m % (1 << min(n, 30)));
 }
 
 /* vim: set ts=4 noet: */
