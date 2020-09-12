@@ -1,0 +1,15 @@
+# inputCopy
+4
+42
+# outputCopy
+10
+# inputCopy
+1
+58
+# outputCopy
+0
+# inputCopy
+98765432
+23456789
+# outputCopy
+23456789
