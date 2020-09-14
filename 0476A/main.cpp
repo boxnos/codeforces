@@ -59,8 +59,8 @@ struct range{
 #define tee(s,v) ({dbg(s,v);v;})
 
 int main() {
-	int n {in}, m {in}, r {(n / 2 + n % 2 + m - 1) / m * m};
-	outl(r > n ? -1 : r);
+	int n {in}, m {in};
+	outl(n > m ? (n + 2 * m - 1) / 2 / m * m : -1);
 }
 
 /* vim: set ts=4 noet: */
