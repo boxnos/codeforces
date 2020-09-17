@@ -1,0 +1,10 @@
+# inputCopy
+8
+LLRL1RL1
+# outputCopy
+1010000011
+# inputCopy
+9
+L0L0LLRR9
+# outputCopy
+1100000010
