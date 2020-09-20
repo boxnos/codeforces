@@ -59,19 +59,17 @@ struct range{
 #define dbg(...) fprintf(stderr,__VA_ARGS__)
 #define tee(s,v) ({dbg(s,v);v;})
 
+
 int main() {
+	auto pos = [](auto i) {return find(begin(i), end(i), false) - begin(i);};
 	times (t, in) {
-		int n {in}, A {-1}, B {-1};
-		vector<int> a(n);
-		for (int &i: a)
-			i = in;
-		sort(begin(a), end(a));
-		for (int i: a)
-			if (i == A + 1)
-				A = i;
-			else if (i == B + 1)
-				B = i;
-		outl(A + B + 2);
+		int n {in};
+		vector<bool> A(102), B(102);
+		times (i, n) {
+			int a {in};
+			(!A[a] ? A : B)[a] = true;
+		}
+		outl(pos(A) + pos(B));
 	}
 }
 
