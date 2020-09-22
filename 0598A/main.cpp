@@ -61,7 +61,7 @@ struct range{
 int main() {
 	times (t, in) {
 		long long n {in};
-		outl((1 + n) * n / 2 - 2 * ((1 << (64 - __builtin_clzl(n))) - 1));
+		outl((1 + n) * n / 2 - 2 * ((1 << 64 - __builtin_clzl(n)) - 1));
 	}
 }
 
