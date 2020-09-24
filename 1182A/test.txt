@@ -1,0 +1,12 @@
+# inputCopy
+4
+# outputCopy
+4
+# inputCopy
+1
+# outputCopy
+0
+# Output
+36
+# Answer
+262144
