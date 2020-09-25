@@ -1,0 +1,20 @@
+# inputCopy
+ABA
+# outputCopy
+NO
+# inputCopy
+BACFAB
+# outputCopy
+YES
+# inputCopy
+AXBYBXA
+# outputCopy
+NO
+# in
+ABBA
+# out
+YES
+# in
+CBBABDDBBADAC
+# out
+YES
