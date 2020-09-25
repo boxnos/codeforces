@@ -64,8 +64,13 @@ int main() {
 	int t [][5] = {{1, 1, 0, 4, 1}, {3, 2, 3, 3, 0}};
 	int f {}, a {}, b {}, d {};
 	for (char c: s) {
-		f = c == 'A' ? t[0][f] ?: (a--, d++, 0): c == 'B' ? t[1][f] ?: (b--, d++, 0): 0;
-		if (f == 2)
+		f = c > 'B' ? 0 : t['B' - c][f];
+		if (!f) {
+			if (c == 'A')
+				b--, d++;
+			else if (c == 'B')
+				a--, d++;
+		} else if (f == 2)
 			a++;
 		else if (f == 4)
 			b++;
