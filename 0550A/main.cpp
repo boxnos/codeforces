@@ -61,19 +61,14 @@ struct range{
 
 int main() {
 	string s = in;
+	int t [][5] = {{1, 1, 0, 4, 1}, {3, 2, 3, 3, 0}};
 	int f {}, a {}, b {}, d {};
 	for (char c: s) {
-		switch (c) {
-		case 'A' :
-			f = f && f != 5 && f != 1 ? f == 2 ? (a--, d++, 0) : f == 4 ? (b++, 5) : 0 : 1;
-			break;
-		case 'B' :
-			f = f && f != 2 && f != 4 ? f == 5 ? (b--, d++, 0) : f == 1 ? (a++, 2) : 0 : 4;
-			break;
-		default:
-			f = 0;
-			break;
-		}
+		f = c == 'A' ? t[0][f] ?: (a--, d++, 0): c == 'B' ? t[1][f] ?: (b--, d++, 0): 0;
+		if (f == 2)
+			a++;
+		else if (f == 4)
+			b++;
 		if ((a && b) || ((a || b) && d) || d > 1) {
 			outl("YES");
 			return 0;
