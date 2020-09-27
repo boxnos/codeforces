@@ -2,6 +2,7 @@
 #include <cstdio>
 #include <utility>
 #include <cctype>
+#include <algorithm>
 using namespace std;
 
 #ifdef __linux
@@ -66,13 +67,9 @@ int main() {
 				s = d / i;
 				break;
 			}
-		for (int i {x}; i <= y; i += s, n--)
-			out(i, ' ');
-		for (int i {x - s}; n && i > 0; i -= s, n--)
-			out(i, ' ');
-		for (int i {y + s}; n; i += s, n--)
-			out(i, ' ');
-		outl();
+		 for (int i {max((x - 1) % s + 1, x - s * (n - d / s - 1))}; n; i += s, n--)
+			 out(i, ' ');
+		 outl();
 	}
 }
 
