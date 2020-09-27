@@ -62,7 +62,7 @@ struct range{
 int main() {
 	times (t, in) {
 		int n {in}, x {in}, y {in}, d {y - x}, s {d};
-		for (int i: range(n - 1, 1, -1))
+		for (int i: range(min(n - 1, d), 1, -1))
 			if (!(d % i)) {
 				s = d / i;
 				break;
