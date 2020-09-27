@@ -62,14 +62,15 @@ struct range{
 int main() {
 	times (t, in) {
 		int n {in}, x {in}, y {in}, d {y - x}, s {d};
-		for (int i: range(min(n - 1, d), 1, -1))
+		for (int i {1}; i <= n - 1 && i * i <= d; i++)
 			if (!(d % i)) {
-				s = d / i;
-				break;
+				s = min(s, d / i);
+				if (d / i <= n - 1)
+					s = min(s, i);
 			}
-		 for (int i {max((x - 1) % s + 1, x - s * (n - d / s - 1))}; n; i += s, n--)
-			 out(i, ' ');
-		 outl();
+		for (int i {max((x - 1) % s + 1, x - s * (n - d / s - 1))}; n; i += s, n--)
+			out(i, ' ');
+		outl();
 	}
 }
 
