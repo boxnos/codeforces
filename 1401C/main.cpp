@@ -64,13 +64,20 @@ struct range{
 int main() {
 	times (t, in) {
 		int n {in}, l {INT_MAX};
-		vector<int> a(n), b(n);
+		vector<int> a(n), b, c;
+		for (int &i: a)
+			l = min(l, i = in);
 		for (int i: range(n))
-			l = min(l, a[i] = b[i] = in);
+			if (!(a[i] % l)) {
+				b.push_back(a[i]);
+				c.push_back(i);
+			}
 		sort(begin(b), end(b));
+		for (int i: range(size(c)))
+			a[c[i]] = b[i];
 		outl([&]{
-			for (int i: range(n))
-				if (a[i] != b[i] && a[i] % l)
+			 for (int i: range(n - 1))
+				if (a[i] > a[i + 1])
 					return "NO";
 			return "YES";}());
 	}
