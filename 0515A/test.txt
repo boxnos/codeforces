@@ -1,0 +1,20 @@
+# inputCopy
+5 5 11
+# outputCopy
+No
+# inputCopy
+10 15 25
+# outputCopy
+Yes
+# inputCopy
+0 5 1
+# outputCopy
+No
+# inputCopy
+0 0 2
+# outputCopy
+Yes
+# tes
+-453961301 271150176 725111473
+# out
+No
