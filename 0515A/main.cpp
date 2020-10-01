@@ -60,8 +60,8 @@ struct range{
 
 
 int main() {
-	int a {in}, b {in}, s {in}, t {s - abs(a) - abs(b)};
-	outl(t >= 0 && !(t % 2) ? "Yes" : "No");
+	int a {in}, b {in}, s {in};
+	outl((s - abs(a) - abs(b)) & (1 << 31 | 1) ? "No" : "Yes");
 }
 
 /* vim: set ts=4 noet: */
