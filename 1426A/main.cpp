@@ -61,7 +61,7 @@ struct range{
 int main() {
 	times (t, in) {
 		int n {in}, x {in};
-		outl(n > 2 ? (n - 3 + x * 2) / x : 1);
+		outl(n > 2 ? (n - 3) / x + 2 : 1);
 	}
 }
 
