@@ -50,17 +50,19 @@ _OUTL(){out('\n');}
 #endif
 _HT _OUT(H &&h, T... t){out(h);out(t...);}
 template <typename... T> _OUTL(T... t){out(t...);outl();}
+template <typename T=int>
 struct range{
-	int e,b=0,s=1;range(int b,int e,int s):e(e),b(b),s(s){} range(int b,int e): e(e), b(b){} range(int e):e(e){}
-	struct it{int v,s; it(int v,int s):v(v),s(s){} operator int()const{return v;} _I operator int&(){return v;}int operator*()const{return v;}
+	T e,b=0,s=1;range(T b,T e,T s):e(e),b(b),s(s){} range(T b,T e): e(e), b(b){} range(T e):e(e){}
+	struct it{T v,s; it(T v,T s):v(v),s(s){} operator T()const{return v;} _I operator T&(){return v;}T operator*()const{return v;}
 		_I it& operator++(){v+=s;return *this;} }; it begin(){return {b,s};} it end(){return {e,s};}};
+#define Range(b, ...) [[maybe_unused]] auto b: range((int) __VA_ARGS__)
 #define times(i,n) for(int i=n;i;i--)
 #define dbg(...) fprintf(stderr,__VA_ARGS__)
 #define tee(s,v) ({dbg(s,v);v;})
 
 
 int main() {
-	times (t, in) {
+	for (Range(t, in)) {
 		int n {in}, f {-1};
 		vector<int> a(n), r;
 		for (int &i: a)
