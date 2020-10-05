@@ -66,7 +66,7 @@ int main() {
 		for (int &i: a)
 			i = in;
 		for (int i: a)
-			f = f < 0 ? i : f < 2 && f != i ? 2 : (r.push_back(i), r.push_back(i), -1);
+			f = f < 0 ? i : f + i == 1 ? 2 : (r.push_back(i), r.push_back(i), -1);
 		if (!(f % 2))
 			r.push_back(0);
 		outl(size(r));
