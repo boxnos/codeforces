@@ -65,17 +65,13 @@ int main() {
 		vector<int> a(n), r;
 		for (int &i: a)
 			i = in;
-		for (int i: a) {
+		for (int i: a)
 			if (f < 0)
 				f = i;
-			else if (f < 2)
-				if (f == i)
-					r.push_back(i), r.push_back(i), f = -1;
-				else
-					f = 2;
+			else if (f < 2 && f != i)
+				f = 2;
 			else
 				r.push_back(i), r.push_back(i), f = -1;
-		}
 		if (!(f % 2))
 			r.push_back(0);
 		outl(size(r));
