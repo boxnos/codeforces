@@ -60,22 +60,17 @@ struct range{
 #define dbg(...) fprintf(stderr,__VA_ARGS__)
 #define tee(s,v) ({dbg(s,v);v;})
 
-bool check(int n) {
-	int t2 {}, t3 {};
+bool is_prime(int n) {
 	for (int i {2}; i * i <= n; i++)
-		while (!(n % i)) {
-			n /= i;
-			(i == 2 ? t2 : t3)++;
-		}
-	if (n != 1)
-		(n == 2 ? t2 : t3)++;
-	return t3 > 1 || (t2 > 1 && t3);
+		if (!(n % i))
+			return false;
+	return true;
 }
 
 int main() {
 	Range(t, in) {
 		int n {in};
-		outl(n == 2 || (n != 1 && n % 2) || check(n) ? "Ashishgup" : "FastestFinger");
+		outl(n == 2 || (n != 1 && (n % 2 || ((n & (n - 1)) && !(n % 4 && is_prime(n/2))))) ? "Ashishgup" : "FastestFinger");
 	}
 }
 
