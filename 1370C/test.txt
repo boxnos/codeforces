@@ -1,0 +1,25 @@
+# inputCopy
+11
+1
+2
+3
+4
+5
+6
+8
+10
+12
+14
+18
+# outputCopy
+FastestFinger
+Ashishgup
+Ashishgup
+FastestFinger
+Ashishgup
+FastestFinger
+FastestFinger
+FastestFinger
+Ashishgup
+FastestFinger
+Ashishgup
