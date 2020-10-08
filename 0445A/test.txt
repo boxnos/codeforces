@@ -1,0 +1,28 @@
+# inputCopy
+1 1
+.
+# outputCopy
+B
+# inputCopy
+2 2
+..
+..
+# outputCopy
+BW
+WB
+# inputCopy
+3 3
+.-.
+---
+--.
+# outputCopy
+B-B
+---
+--B
+# input
+2 3
+.-.
+...
+# out
+B-B
+WBW
