@@ -63,7 +63,7 @@ int main() {
 	int n {in}, m {in};
 	Range(i, n) {
 		Range(j, m)
-			out(gcu() == '.' ? i % 2 ^ j % 2 ? 'W' : 'B' : '-');
+			out(gcu() == '.' ? (i ^ j) % 2  ? 'W' : 'B' : '-');
 		outl();
 		gcu();
 	}
