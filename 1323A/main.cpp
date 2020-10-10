@@ -62,25 +62,11 @@ struct range{
 
 int main() {
 	Range(t, in) {
-		int n {in}, o {-1};
+		int n {in};
 		vector<int> a(n);
 		for (int &i: a)
 			i = in;
-		[&] {
-			 Range (i, n)
-				if (!(a[i] % 2)) {
-					outl(1);
-					outl(i + 1);
-					return;
-				} else if (o < 0)
-					o = i;
-				else {
-					outl(2);
-					outl(o + 1, ' ', i + 1);
-					return;
-				}
-			outl(-1);
-		}();
+		outl(a[0] % 2 ? n < 2 ? "-1" : a[1] % 2 ? "2\n1 2" : "1\n2" : "1\n1");
 	}
 }
 
