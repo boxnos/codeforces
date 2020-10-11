@@ -3,7 +3,7 @@
 #include <utility>
 #include <cctype>
 #include <climits>
-#include <unordered_map>
+#include <vector>
 #include <algorithm>
 using namespace std;
 
@@ -65,27 +65,23 @@ struct range{
 int main() {
 	Range(t, in) {
 		int n {in}, l {INT_MAX}, h {}, r {};
-		unordered_map<int, int> w, x;
+		vector<int> w(102);
 		Range(i, n) {
-			int v {in};
+			int v = in;
 			w[v]++;
 			l = min(l, v);
 			h = max(h, v);
 		}
 		for (int i: range(l * 2, h * 2 + 1))
 			r = max(r, [&] () {
-				x = w;
 				int s {};
-				for (auto p: x) {
-					int a {p.first}, b {i - a};
-					if (x.count(b)) {
-						if (a * 2 != i) {
-							int m = min(p.second, x[b]);
-							x[a] -= m;
-							x[b] -= m;
-							s += m;
-						} else
-							s += p.second / 2;
+				for (int j: range(l, i)) {
+					int b {i - j};
+					if (b >= j && w[b]) {
+						if (j * 2 != i)
+							s += min(w[j], w[b]);
+						else
+							s += w[j] / 2;
 					}
 				}
 				return s;}());
