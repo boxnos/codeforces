@@ -75,13 +75,8 @@ int main() {
 		for (int i: range(l * 2, h * 2 + 1))
 			r = max(r, [&] () {
 				int s {};
-				for (int a: range(l, i)) {
-					int b {i - a};
-					if (b >= a)
-						s += a == b ? w[a] / 2 : min(w[a], w[b]);
-					else
-						break;
-				}
+				for (int a {max(l, i - h)}, b {i - a}; b >= a; a++, b--)
+					s += a == b ? w[a] / 2 : min(w[a], w[b]);
 				return s;}());
 		outl(r);
 	}
