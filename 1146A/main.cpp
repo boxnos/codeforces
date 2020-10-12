@@ -3,6 +3,7 @@
 #include <utility>
 #include <cctype>
 #include <string>
+#include <algorithm>
 using namespace std;
 
 #ifdef __linux
@@ -62,11 +63,7 @@ struct range{
 
 int main() {
 	string s = in;
-	int a {};
-	for (char c: s)
-		if (c == 'a')
-			a++;
-	outl(min((int) size(s), a * 2 - 1));
+	outl(min((int) size(s), (int) count(begin(s), end(s), 'a') * 2 - 1));
 }
 
 /* vim: set ts=4 noet: */
