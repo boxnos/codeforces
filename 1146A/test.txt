@@ -1,0 +1,8 @@
+# inputCopy
+xaxxxxa
+# outputCopy
+3
+# inputCopy
+aaabaa
+# outputCopy
+6
