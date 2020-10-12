@@ -61,9 +61,12 @@ struct range{
 #define dbg(...) fprintf(stderr,__VA_ARGS__)
 #define tee(s,v) ({dbg(s,v);v;})
 
+template <typename S=int, typename T, typename U>
+inline S min(T a, U b) {return min((S) a, (S) b);}
+
 int main() {
 	string s = in;
-	outl(min((int) size(s), (int) count(begin(s), end(s), 'a') * 2 - 1));
+	outl(min<long long>(size(s), count(begin(s), end(s), 'a') * 2 - 1));
 }
 
 /* vim: set ts=4 noet: */
