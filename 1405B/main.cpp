@@ -65,10 +65,8 @@ using LL = long long;
 int main() {
 	Range (t, in) {
 		LL  n {in}, p {};
-		Range (i, n) {
-			LL a {in};
-			p += a > 0 ? a : p ? max(-p, a): 0;
-		}
+		Range (i, n)
+			p = max(0LL, p + (LL) in);
 		outl(p);
 	}
 }
