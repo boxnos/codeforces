@@ -70,7 +70,7 @@ int main() {
 	x.push_back({INT_MAX, 0});
 	Range(i, n) {
 		auto &[f, s] = x[i];
-		(exchange(p, f) < f - s || (f + s < x[i + 1].first && (p += s))) && r++;
+		r += exchange(p, f) < f - s || (f + s < x[i + 1].first && (p += s));
 	}
 	outl(r);
 }
