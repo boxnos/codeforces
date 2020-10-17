@@ -1,0 +1,21 @@
+# inputCopy
+9
+fced
+xyz
+r
+dabcef
+az
+aa
+bad
+babc
+snmmnmkgkhhhg
+# outputCopy
+Yes
+Yes
+Yes
+Yes
+No
+No
+No
+No
+No
