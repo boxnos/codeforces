@@ -63,14 +63,15 @@ struct range{
 
 int main() {
 	Range(t, in) {
-		int n {in}, r[2] {};
+		int n {in}, m {n % 2};
+		bool r[2] {};
 		string s = in;
 		Range(i, n) {
-			r[i % 2] += (s[i] ^ i) % 2;
+			r[i % 2] |= (s[i] ^ i) % 2;
 			if (r[0] && r[1])
 				break;
 		}
-		outl((!!r[!(n % 2)] ^ n % 2) + 1);
+		outl((m ^ r[!m]) + 1);
 	}
 }
 
