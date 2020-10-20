@@ -2,8 +2,6 @@
 #include <cstdio>
 #include <utility>
 #include <cctype>
-#include <string>
-#include <cmath>
 using namespace std;
 
 #ifdef __linux
@@ -64,8 +62,8 @@ struct range{
 
 int main() {
 	Range (t, in) {
-		int a {in}, b {in}, c {in};
-		outl(abs(a + b - c) + 1);
+		long long a {in}, b {in}, c {in};
+		outl(a + b + c - 1);
 	}
 }
 
