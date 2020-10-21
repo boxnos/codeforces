@@ -64,8 +64,7 @@ int main() {
 	long long n {in}, b {in}, d {in}, w {}, r {};
 	Range (i, n) {
 		int a {in};
-		if (a <= b && (w += a) > d)
-			r++, w = 0;
+		a <= b && (w += a) > d && (w = 0, r++);
 	}
 	outl(r);
 }
