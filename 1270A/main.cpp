@@ -62,11 +62,10 @@ struct range{
 
 int main() {
 	Range (i, in) {
-		int n {in}, k1 {in}, k2 {in}, r {};
-		Range(i, k1)
-			r += n == (int) in;
-		Range(i, k2)
-			(int) in;
+		int n {in}, k1 {in}, r {};
+		(int) in;
+		Range(i, n)
+			r += n == (int) in && i < k1;
 		outl(r ? "YES" : "NO");
 	}
 }
