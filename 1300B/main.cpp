@@ -10,6 +10,7 @@ using namespace std;
 #define _U(s) s##_unlocked
 #else
 #define _U(s) _##s##_nolock
+#define _CRT_DISABLE_PERFCRIT_LOCKS
 #endif
 #define gcu _U(getchar)
 #define pcu _U(putchar)
@@ -26,7 +27,7 @@ struct _in {
 #endif
 	_OP(char){char c=gcu();gcu();return c;}
 	_OP(double){double d; scanf("%lf",&d); gcu();return d;}
-	_T _OP(T){T n{},m{1},c;if((c=gcu())=='-')m=-1,c=gcu();do{n=10*n+(c-'0'),c=gcu();}while(c>='0'&&c<='9');return m*n;}
+	_T _OP(T){T n{},m{1},c=gcu();if(c=='-')m=-1,c=gcu();do{n=10*n+(c-'0'),c=gcu();}while(c>='0'&&c<='9');return m*n;}
 	//_T _OP(T){T n{},m{1},c;while(isspace(c=gcu()));if(c=='-')m=-1,c=gcu();do{n=10*n+(c-'0'),c=gcu();}while(c>='0'&&c<='9');return m*n;}
 } in;
 #define _SCAN(...) _DEF(bool,scan,__VA_ARGS__)
