@@ -2,7 +2,7 @@
 #include <cstdio>
 #include <utility>
 #include <cctype>
-#include <vector>
+#include <iterator>
 #include <algorithm>
 using namespace std;
 
@@ -10,7 +10,6 @@ using namespace std;
 #define _U(s) s##_unlocked
 #else
 #define _U(s) _##s##_nolock
-#define _CRT_DISABLE_PERFCRIT_LOCKS
 #endif
 #define gcu _U(getchar)
 #define pcu _U(putchar)
@@ -27,7 +26,8 @@ struct _in {
 #endif
 	_OP(char){char c=gcu();gcu();return c;}
 	_OP(double){double d; scanf("%lf",&d); gcu();return d;}
-	_T _OP(T){T n{},m{1},c;while(isspace(c=gcu()));if(c=='-')m=-1,c=gcu();do{n=10*n+(c-'0'),c=gcu();}while(c>='0'&&c<='9');return m*n;}
+	_T _OP(T){T n{},m{1},c;if((c=gcu())=='-')m=-1,c=gcu();do{n=10*n+(c-'0'),c=gcu();}while(c>='0'&&c<='9');return m*n;}
+	//_T _OP(T){T n{},m{1},c;while(isspace(c=gcu()));if(c=='-')m=-1,c=gcu();do{n=10*n+(c-'0'),c=gcu();}while(c>='0'&&c<='9');return m*n;}
 } in;
 #define _SCAN(...) _DEF(bool,scan,__VA_ARGS__)
 #ifdef _S
@@ -61,14 +61,13 @@ struct range{
 #define dbg(...) fprintf(stderr,__VA_ARGS__)
 #define tee(s,v) ({dbg(s,v);v;})
 
+int a[200001];
 
 int main() {
 	Range (t, in) {
 		int n {in};
-		vector<int> a(2 * n);
-		for (int &i: a)
-			i = in;
-		nth_element(begin(a), begin(a) + n, end(a));
+		for_each(begin(a), begin(a) + n * 2, [](int &a){a = in;});
+		nth_element(begin(a), begin(a) + n, begin(a) + 2 * n);
 		outl(a[n] - *max_element(begin(a), begin(a) + n));
 	}
 }
