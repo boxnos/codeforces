@@ -1,0 +1,13 @@
+# inputCopy
+5
+R23C55
+R1C1
+R1C28
+BC23
+RC593
+# outputCopy
+BC23
+A1
+AB1
+R23C55
+R593C471
