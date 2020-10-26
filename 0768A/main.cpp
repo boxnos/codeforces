@@ -7,11 +7,11 @@
 #include <climits>
 using namespace std;
 
-#ifdef __linux
-#define _U(s) s##_unlocked
-#else
+#ifdef _WIN32
 #define _U(s) _##s##_nolock
 #define _CRT_DISABLE_PERFCRIT_LOCKS
+#else
+#define _U(s) s##_unlocked
 #endif
 #define gcu _U(getchar)
 #define pcu _U(putchar)
