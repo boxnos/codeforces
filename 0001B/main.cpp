@@ -85,7 +85,6 @@ int main() {
 			for_each(rbegin(t), rend(t), [](char c){pcu(c);});
 			outl(r);
 		} else {
-			auto i {begin(s)};
 			for (;isalpha(*i);i++)
 				c = c * 26 + *i - '@';
 			outl('R', to_int(i, end(s)), 'C', c);
