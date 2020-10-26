@@ -65,32 +65,30 @@ struct range{
 
 int main() {
 	auto to_int = [](auto &b, auto e){
-		int r {};
+		int n {};
 		for (; b != e; b++)
-			r = r * 10 + *b - '0';
-		return r;
+			n = n * 10 + *b - '0';
+		return n;
 	};
 	Range(n, in) {
 		int r {}, c {};
 		string s = in, t;
-		auto f {find(begin(s) + 1, end(s), 'C')};
-		if (s[0] == 'R' && f != end(s) && isdigit(*(f - 1))) {
-			auto i {begin(s) + 1};
-			r = to_int(i, f);
+		auto i {begin(s)}, f {find(i + 1, end(s), 'C')};
+		if (*i == 'R' && f != end(s) && isdigit(*(f - 1))) {
+			r = to_int(++i, f);
 			c = to_int(++i, end(s));
 			while (c) {
 				int x = (c - 1) % 26;
 				t.push_back(x + 'A');
 				c = (c - x) / 26;
 			}
-			reverse(begin(t), end(t));
-			outl(t, r);
+			for_each(rbegin(t), rend(t), [](char c){pcu(c);});
+			outl(r);
 		} else {
 			auto i {begin(s)};
 			for (;isalpha(*i);i++)
-				c = c * 26 + *i - 'A' + 1;
-			r = to_int(i, end(s));
-			outl('R', r, 'C', c);
+				c = c * 26 + *i - '@';
+			outl('R', to_int(i, end(s)), 'C', c);
 		}
 	}
 }
