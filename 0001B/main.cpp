@@ -77,11 +77,8 @@ int main() {
 		if (*i == 'R' && f != end(s) && isdigit(*(f - 1))) {
 			r = to_int(++i, f);
 			c = to_int(++i, end(s));
-			while (c) {
-				int x = (c - 1) % 26;
-				t.push_back(x + 'A');
-				c = (c - x) / 26;
-			}
+			for (int d; c; c = (c - d) / 26)
+				t.push_back((d = (c - 1) % 26) + 'A');
 			for_each(rbegin(t), rend(t), [](char c){pcu(c);});
 			outl(r);
 		} else {
