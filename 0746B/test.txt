@@ -1,0 +1,15 @@
+# inputCopy
+5
+logva
+# outputCopy
+volga
+# inputCopy
+2
+no
+# outputCopy
+no
+# inputCopy
+4
+abba
+# outputCopy
+baba
