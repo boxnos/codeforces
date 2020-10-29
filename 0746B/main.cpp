@@ -67,7 +67,7 @@ int main() {
 	string s = in, t(n, ' ');
 	auto c {begin(t) + (n - 1) / 2};
 	for (int i: range(n))
-		c[(i + 1) / 2 * b[exchange(o, !o)]] = s[i];
+		*(c += i * b[exchange(o, !o)]) = s[i];
 	outl(t);
 }
 
