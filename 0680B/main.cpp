@@ -68,9 +68,9 @@ int main() {
 	vector<bool> t(n);
 	for (int j: range(n))
 		c += t[j] = (int) in;
-	a--;
+	auto s {begin(t) + --a};
 	for (int i {1}; i <= a && a + i < n; i++)
-		c += (t[a - i] && t[a + i]) * 2 - t[a - i] - t[a + i];
+		c += (s[-i] && s[i]) * 2 - s[-i] - s[i];
 	outl(c);
 }
 
