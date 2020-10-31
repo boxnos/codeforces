@@ -1,0 +1,10 @@
+# inputCopy
+5
+2 4 5 1 3
+# outputCopy
+YES
+# inputCopy
+5
+5 5 5 5 1
+# outputCopy
+NO
