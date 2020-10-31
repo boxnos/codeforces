@@ -67,15 +67,10 @@ int main() {
 	for (int &i: f)
 		i = (int) in - 1;
 	outl([&] {
-		Range(i, n) {
-			int k {f[i]};
-			Range(j, 2)
-				k = f[k];
-			if (k == i)
+		Range(i, n)
+			if (f[f[f[i]]] == i)
 				return "YES";
-		}
-		return "NO";
-		}());
+		return "NO";}());
 }
 
 /* vim: set ts=4 noet: */
