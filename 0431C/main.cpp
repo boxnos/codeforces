@@ -71,7 +71,7 @@ int main() {
 	a[0] = {1, 0};
 	for (int i: range(n))
 		for (int j: range(1, k + 1))
-			a[i + j] = mod(a[i + j] + mod(j < d ? a[i] : P{0, real(a[i]) + imag(a[i])}));
+			a[i + j] = mod(a[i + j] + (j < d ? a[i] : mod({0, real(a[i]) + imag(a[i])})));
 	outl(imag(a[n]));
 }
 
