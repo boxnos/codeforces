@@ -1,0 +1,20 @@
+# inputCopy
+3 3 2
+# outputCopy
+3
+# inputCopy
+3 3 3
+# outputCopy
+1
+# inputCopy
+4 3 2
+# outputCopy
+6
+# inputCopy
+4 5 2
+# outputCopy
+7
+# Input
+50 6 3
+# Answer
+295630102
