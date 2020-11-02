@@ -4,6 +4,7 @@
 #include <cctype>
 #include <vector>
 #include <algorithm>
+#include <functional>
 using namespace std;
 
 #ifdef _WIN32
@@ -29,6 +30,10 @@ struct _in {
 	_OP(double){double d; scanf("%lf",&d); gcu();return d;}
 	_T _OP(T){T n{},m{1},c=gcu();if(c=='-')m=-1,c=gcu();do{n=10*n+(c-'0'),c=gcu();}while(c>='0'&&c<='9');return m*n;}
 	//_T _OP(T){T n{},m{1},c;while(isspace(c=gcu()));if(c=='-')m=-1,c=gcu();do{n=10*n+(c-'0'),c=gcu();}while(c>='0'&&c<='9');return m*n;}
+#ifdef _GLIBCXX_VECTOR
+	template<typename T=vector<int>>_I T read(int n) {T v(n);for(int &i:v)i=*this;return v;}
+	template<typename T=vector<int>>_I T read(int n,function<int(int)> f) {T v(n);for(int &i:v)i=f(*this);return v;}
+#endif
 } in;
 #define _SCAN(...) _DEF(bool,scan,__VA_ARGS__)
 #ifdef _S
@@ -65,9 +70,7 @@ struct range{
 int main() {
 	Range(t, in) {
 		int n {in}, m {};
-		vector<int> a(n);
-		for (int &i: a)
-			m = max(m, i = in);
+		vector<int> a {in.read(n, [&](int a){m = max(m, a); return a;})};
 		outl([&]{
 			Range(i, n)
 				if ((a[i] == m) && ((i > 0 && a[i - 1] < m) || (i < n - 1 && a[i + 1] < m)))
