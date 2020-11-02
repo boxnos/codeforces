@@ -2,9 +2,9 @@
 #include <cstdio>
 #include <utility>
 #include <cctype>
+#include <functional>
 #include <vector>
 #include <algorithm>
-#include <functional>
 using namespace std;
 
 #ifdef _WIN32
@@ -33,6 +33,7 @@ struct _in {
 #ifdef _GLIBCXX_VECTOR
 	template<typename T=vector<int>>_I T read(int n) {T v(n);for(int &i:v)i=*this;return v;}
 	template<typename T=vector<int>>_I T read(int n,function<int(int)> f) {T v(n);for(int &i:v)i=f(*this);return v;}
+	template<typename T=vector<int>>_I T read(int n,function<void(int&,int)> f) {T v(n);for(int &i:v)f(i,*this);return v;}
 #endif
 } in;
 #define _SCAN(...) _DEF(bool,scan,__VA_ARGS__)
@@ -70,7 +71,7 @@ struct range{
 int main() {
 	Range(t, in) {
 		int n {in}, m {};
-		vector<int> a {in.read(n, [&](int a){m = max(m, a); return a;})};
+		vector<int> a {in.read(n, [&](int &a, int i){m = max(m, a = i);})};
 		outl([&]{
 			Range(i, n)
 				if ((a[i] == m) && ((i > 0 && a[i - 1] < m) || (i < n - 1 && a[i + 1] < m)))
