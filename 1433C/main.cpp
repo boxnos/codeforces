@@ -31,10 +31,10 @@ struct _in {
 	_T _OP(T){T n{},m{1},c=gcu();if(c=='-')m=-1,c=gcu();do{n=10*n+(c-'0'),c=gcu();}while(c>='0'&&c<='9');return m*n;}
 	//_T _OP(T){T n{},m{1},c;while(isspace(c=gcu()));if(c=='-')m=-1,c=gcu();do{n=10*n+(c-'0'),c=gcu();}while(c>='0'&&c<='9');return m*n;}
 #ifdef _GLIBCXX_VECTOR
-#define _TI template<typename I=int,typename T=vector<I>>
+#define _TI template<typename T=vector<int>, typename I=typename T::value_type>
 	_TI _I T read(int n) {T v(n);for(I &i:v)i=*this;return v;}
-	_TI _I T read(int n,function<int(typename T::value_type)> f) {T v(n);for(I &i:v)i=f(*this);return v;}
-	_TI _I T read(I n,function<void(typename T::value_type&, typename T::value_type)> f) {T v(n);for(I &i:v)f(i,*this);return v;}
+	_TI _I T read(int n,function<int(typename T::value_type)>f){T v(n);for(I &i:v)i=f(*this);return v;}
+	_TI _I T read(int n,function<void(typename T::value_type&,typename T::value_type)>f){T v(n);for(I &i:v)f(i,*this);return v;}
 #endif
 } in;
 #define _SCAN(...) _DEF(bool,scan,__VA_ARGS__)
