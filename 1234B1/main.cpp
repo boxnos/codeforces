@@ -5,6 +5,7 @@
 #include <functional>
 #include <unordered_set>
 #include <deque>
+#include <chrono>
 using namespace std;
 
 #ifdef _WIN32
@@ -68,10 +69,25 @@ struct range{
 #define dbg(...) fprintf(stderr,__VA_ARGS__)
 #define tee(s,v) ({dbg(s,v);v;})
 
+// https://codeforces.com/blog/entry/62393
+struct custom_hash {
+    static size_t splitmix64(size_t x) {
+        // http://xorshift.di.unimi.it/splitmix64.c
+        x += 0x9e3779b97f4a7c15;
+        x = (x ^ (x >> 30)) * 0xbf58476d1ce4e5b9;
+        x = (x ^ (x >> 27)) * 0x94d049bb133111eb;
+        return x ^ (x >> 31);
+    }
+
+    size_t operator()(size_t x) const {
+        static const size_t FIXED_RANDOM = chrono::steady_clock::now().time_since_epoch().count();
+        return splitmix64(x + FIXED_RANDOM);
+    }
+};
 
 int main() {
 	int n {in}, k {in};
-	unordered_set<int> s;
+	unordered_set<int, custom_hash> s;
 	deque<int> q;
 	Range(i, n) {
 		int d {in};
