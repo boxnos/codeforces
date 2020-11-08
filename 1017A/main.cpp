@@ -69,14 +69,16 @@ struct range{
 #define tee(s,v) ({dbg(s,v);v;})
 
 int main() {
-	int n {in};
-	vector<pair<int, int>> a(n);
+	auto read = []() {
+		int a {in}, b {in}, c {in}, d {in};
+		return a + b + c + d;
+	};
+	int n {in}, s {read()}, r {1};
 	Range(i, n) {
-		int x {in}, b {in}, c {in}, d {in};
-		a[i] = {x + b + c + d, i};
+		if (read() > s)
+			r++;
 	}
-	stable_sort(begin(a), end(a), [](auto a, auto b){return a.first > b.first;});
-	outl(find_if(begin(a), end(a), [](auto a){return !a.second;}) - begin(a) + 1);
+	outl(r);
 }
 
 
