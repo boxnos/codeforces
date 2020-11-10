@@ -71,8 +71,8 @@ int mod(int n) {
 }
 
 int main() {
-	int x {in}, y {in}, n {in}, t[] {1, 1, 0, -1, -1, 0};
-	outl(mod(x * t[n % 6] +y * t[(n + 4) % 6]));
+	int x {in}, y {in}, n {in}, t[] {x - y, x, y, y - x, -x, -y};
+	outl(mod(t[n % 6]));
 }
 
 
