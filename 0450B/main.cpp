@@ -67,12 +67,12 @@ struct range{
 #define tee(s,v) ({dbg(s,v);v;})
 
 int mod(int n) {
-	return (n + (n < 0 ? 1000000007 : 0)) % 1000000007;
+	return (n + (n < 0 ? 2000000014 : 0)) % 1000000007;
 }
 
 int main() {
 	int x {in}, y {in}, n {in}, t[] {1, 1, 0, -1, -1, 0};
-	outl(mod(mod(x * t[n % 6]) + mod(y * t[(n + 4) % 6])));
+	outl(mod(x * t[n % 6] +y * t[(n + 4) % 6]));
 }
 
 
