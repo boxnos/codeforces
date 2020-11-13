@@ -1,0 +1,8 @@
+# inputCopy
+1
+# outputCopy
+10 9
+# inputCopy
+512
+# outputCopy
+4608 4096
