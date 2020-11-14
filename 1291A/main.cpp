@@ -69,10 +69,10 @@ struct range{
 
 int main() {
 	Range(t, in) {
-		int n {in}, c;
+		int n {in};
 		string r;
 		Range(i, n)
-			if ((c = gcu()) % 2 && size(r) < 2)
+			if (int c {gcu()}; c % 2 && size(r) < 2)
 				r.push_back(c);
 		outl(size(r) == 2 ? r : "-1");
 	}
