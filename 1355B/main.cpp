@@ -66,7 +66,7 @@ int main() {
 			i = in;
 		sort(begin(e), end(e));
 		for (int i: e)
-			if (++a >= i)
+			if (++a == i)
 				r++, a = 0;
 		outl(r);
 	}
