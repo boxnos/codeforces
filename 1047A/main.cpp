@@ -3,7 +3,7 @@
 #include <utility>
 #include <cctype>
 #include <functional>
-#include <string>
+#include <vector>
 using namespace std;
 
 #ifdef _WIN32
@@ -52,11 +52,13 @@ _OUT(string &s){for(char c:s)pcu(c);}
 #endif
 _T _OUT(T n){static char b[20];char *p=b;T m=n<0?pcu('-'),-1:1;
 	if(!n)*p++='0';else while(n)*p++=(char)(n%10*m+'0'),n/=10;while(p!=b)pcu(*--p);}
-_OUTL(){out('\n');}
+_T _OUT(initializer_list<T> &v){for(auto i{begin(v)};i!=end(v);i++)out(i==begin(v)?"":" "),out(*i);}
 #ifdef _GLIBCXX_VECTOR
 	_T _OUT(vector<T> &v){for(T &x:v)out(&x == &v[0]?"":" "),out(x);}
 #endif
 _HT _OUT(H &&h, T... t){out(h);out(t...);}
+_OUTL(){out('\n');}
+_T _OUTL(initializer_list<T> t){out(t);outl();}
 template <typename... T> _OUTL(T... t){out(t...);outl();}
 template <typename T=int>
 struct range{
@@ -69,7 +71,7 @@ struct range{
 
 int main() {
 	int n {in}, a {n - 2}, d {!(a % 3)};
-	outl(a - d, ' ', 1, ' ', 1 + d);
+	outl({a - d, 1, 1 + d});
 }
 
 
