@@ -64,7 +64,7 @@ int main() {
 		[&] {
 			vector<int> a;
 			for (int i {2}; i * i < n; i++)
-				if (!(n % i)) {
+				if (!(n % i))
 					n /= i;
 					b.push_back(i);
 					if (b.size() == 2) {
@@ -75,6 +75,7 @@ int main() {
 						return;
 					}
 				}
+			}
 			b = {};
 			return;
 		}();
