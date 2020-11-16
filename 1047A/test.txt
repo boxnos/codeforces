@@ -1,0 +1,8 @@
+# inputCopy
+3
+# outputCopy
+1 1 1
+# inputCopy
+233
+# outputCopy
+77 77 79
