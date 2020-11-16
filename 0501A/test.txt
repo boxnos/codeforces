@@ -1,0 +1,12 @@
+# inputCopy
+500 1000 20 30
+# outputCopy
+Vasya
+# inputCopy
+1000 1000 1 1
+# outputCopy
+Tie
+# inputCopy
+1500 1000 176 177
+# outputCopy
+Misha
