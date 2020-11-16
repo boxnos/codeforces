@@ -61,17 +61,12 @@ using ll = long long;
 
 int main() {
 	times (t, in) {
-		ll n {in}, m {(ll) in}, T {};
+		int n {in}, m {in}, T {};
 		times (i, n - 1) {
-			ll a {(ll) in};
-			if (a < m) {
-				ll u = 64 - __builtin_clzll(m - a), x = a + (1 << (u - 1));
-				m = max(m, x);
-				T = max(T, u);
-			} else
-				m = a;
+			int a {in};
+			T = max(T, (m = max(m, a)) - a);
 		}
-		outl(T);
+		outl(T ? 32 - __builtin_clz(T) : 0);
 	}
 }
 
