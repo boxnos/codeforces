@@ -58,8 +58,8 @@ _T _OUT(initializer_list<T> &v){for(auto i{begin(v)};i!=end(v);i++)out(i==begin(
 #endif
 _HT _OUT(H &&h, T... t){out(h);out(t...);}
 _OUTL(){out('\n');}
-_T _OUTL(initializer_list<T> t){out(t);outl();}
 template <typename... T> _OUTL(T... t){out(t...);outl();}
+template <typename I, typename... T> _OUTL(initializer_list<I> i, T... t){out(i);outl(t...);}
 template <typename T=int>
 struct range{
 	T e,b=0,s=1;range(T b,T e,T s):e(e),b(b),s(s){} range(T b,T e): e(e), b(b){} range(T e):e(e){}
