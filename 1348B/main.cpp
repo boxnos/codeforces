@@ -72,8 +72,7 @@ int main() {
 		for (int i: range(k)) {
 			if ((int) M.size() == k)
 				break;
-			if (!M.count(i + 1))
-				M.insert(i + 1);
+			M.insert(i + 1);
 		}
 		for (int i: M)
 			m.push_back(i);
