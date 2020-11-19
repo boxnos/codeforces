@@ -1,0 +1,16 @@
+# inputCopy
+527
+# outputCopy
+572
+# inputCopy
+4573
+# outputCopy
+3574
+# inputCopy
+1357997531
+# outputCopy
+-1
+# tes
+246891
+# ou
+246198
