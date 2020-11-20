@@ -71,12 +71,10 @@ struct range{
 #define dbg(...) fprintf(stderr,__VA_ARGS__)
 #define tee(s,v) ({dbg(s,v);v;})
 
-using V = vector<long long>;
-
 int main() {
 	Range (t, in) {
 		int n {in}, k {in};
-		V a = in.read<V>(n);
+		vector<int> a = in.read(n);
 		auto c {begin(a) + n - k - 1};
 		nth_element(begin(a), c, end(a));
 		outl(accumulate(c, end(a), 0LL));
