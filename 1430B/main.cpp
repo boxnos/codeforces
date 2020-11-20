@@ -30,6 +30,7 @@ struct _in {
 	_OP(char){char c=gcu();gcu();return c;}
 	_OP(double){double d; scanf("%lf",&d); gcu();return d;}
 	_T _OP(T){T n{},c=gcu();do{n=10*n+(c-'0'),c=gcu();}while(c>='0'&&c<='9');return n;}
+	//_T _OP(T){T n{},m{1},c=gcu();if(c=='-')m=-1,c=gcu();do{n=10*n+(c-'0'),c=gcu();}while(c>='0'&&c<='9');return m*n;}
 	//_T _OP(T){T n{},m{1},c;while(isspace(c=gcu()));if(c=='-')m=-1,c=gcu();do{n=10*n+(c-'0'),c=gcu();}while(c>='0'&&c<='9');return m*n;}
 #ifdef _GLIBCXX_VECTOR
 #define _TI template<typename T=vector<int>, typename I=typename T::value_type>
