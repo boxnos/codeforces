@@ -16,6 +16,9 @@ test-in%:
 	time ./$(target) < in$(call rm_prefix,$@) | ~/bin/cat-police | nl -w4 -s': ' | diff -u <(nl -w4 -s': ' out$(call rm_prefix,$@)) - | sed 's/\([0-9]\+\):\([0-9]\+\):\([0-9]\+\)/\1-\2-\3/g'; exit $${PIPESTATUS[3]}
 #	./$(target) < in$(call rm_prefix,$@) | ruby -e 'e=0;f=ARGV.map {|n|n=="-" ? STDIN : open(n)};while l=f[0].gets;m=f[1].gets;if(l.to_f-m.to_f).abs>=0.00001;puts"< #{l}> #{m}";e=1;end;end;exit e' - out$(call rm_prefix,$@)
 
+$(target) : $(target).cpp
+	if grep [0-9]L[^L] $<; then echo "LL error"; exit 1; else g++ $(CXXFLAGS) -o $@ $<; fi
+
 in_0 : test.txt
 	make clean
 	ruby -ne'BEGIN{b=[]};if$$_=~/^# /;b<<"";else b[-1]<<$$_;end;END{b.each.with_index{|f,i|File.write("#{i.odd? ? "out":"in"}_#{i/2}",f)}}'<$<

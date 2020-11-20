@@ -78,7 +78,7 @@ int main() {
 		vector<int> a = in.read(n);
 		auto c {begin(a) + n - k - 1};
 		nth_element(begin(a), c, end(a));
-		outl(accumulate(c, end(a), 0LL));
+		outl(accumulate(c, end(a), 0L));
 	}
 }
 
