@@ -70,11 +70,11 @@ struct range{
 #define tee(s,v) ({dbg(s,v);v;})
 
 int main() {
-	auto d {[]{return gcu() - '0';}};
 	int n {in}, k {in};
-	out(k ? (k -= d() > 1, n > 1): d());
+	auto f {[&] (int a, int b) {int d {gcu() - '0'}; return k ? (k -= d > a, b) : d;}};
+	out(f(1, n > 1));
 	Range (i, 1, n)
-		out(k ? (k -= !!d(), 0) : d());
+		out(f(0, 0));
 	outl();
 }
 
