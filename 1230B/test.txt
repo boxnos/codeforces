@@ -1,0 +1,20 @@
+# inputCopy
+5 3
+51528
+# outputCopy
+10028
+# inputCopy
+3 2
+102
+# outputCopy
+100
+# inputCopy
+1 1
+1
+# outputCopy
+0
+# test
+4 2
+1111
+# test
+1001
