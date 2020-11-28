@@ -72,9 +72,9 @@ struct range{
 int main() {
 	auto d {[]{return gcu() - '0';}};
 	int n {in}, k {in};
-	out(k ? (k += d() == 1, n > 1): d());
+	out(k ? (k -= d() > 1, n > 1): d());
 	Range (i, 1, n)
-		out(i < k ? !(k += !d()) : d());
+		out(k ? (k -= !!d(), 0) : d());
 	outl();
 }
 
