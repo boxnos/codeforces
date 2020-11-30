@@ -4,7 +4,6 @@
 #include <cctype>
 #include <functional>
 #include <vector>
-#include <algorithm>
 using namespace std;
 
 #ifdef _WIN32
@@ -74,9 +73,10 @@ struct range{
 int main() {
 	Range (T, in) {
 		int n {in}, k {in}, c, t {}, l {};
-		vector<int> a = in.read(n), p(n);
+		vector<int> a = in.read(n);
+		vector<bool> p(n);
 		for (int i: range(1, n - 1))
-			p[i] += a[i - 1] < a[i] && a[i] > a[i + 1];
+			p[i] = a[i - 1] < a[i] && a[i] > a[i + 1];
 		for (int i: range(1, k - 1))
 			t += p[i];
 		c = t;
