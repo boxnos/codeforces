@@ -71,10 +71,10 @@ struct range{
 
 int main() {
 	Range (T, in) {
-		int n {in}, d {8176 - 4 * (n - 2)};
+		int n {in};
 		for (int i: range(n)) {
 			for (int j: range(n))
-				out(i == j ? 15 : (i - j + n) % n == 1 ? d : 4, ' ');
+				out(i == j || (i - j + n) % n == 1, ' ');
 			outl();
 		}
 	}
