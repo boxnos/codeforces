@@ -75,11 +75,10 @@ struct range{
 int main() {
 	int n {in};
 	vector<int> a = in.read(n);
-	sort(rbegin(a), rend(a));
+	nth_element(begin(a), begin(a) + n / 2, end(a));
 	outl(n / 2 - !(n % 2));
-	out(a[0]);
-	for (int i: range(1, n))
-		out(' ',i % 2 ? a[i + (i != n - 1)]: a[i - 1]);
+	Range (i, n)
+		out(a[i / 2 + (i % 2 ? 0 : n / 2)], ' ');
 	outl();
 }
 
