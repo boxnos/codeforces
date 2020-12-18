@@ -1,4 +1,4 @@
-#pragma GCC optimize(2,3,"Ofast")
+#pragma GCC optimize("O3")
 #include <cstdio>
 #include <utility>
 #include <cctype>
@@ -90,8 +90,7 @@ int main() {
 	V<V<pair<int, LL>>> v(n);
 	Range (i, m) {
 		int a {(int) in - 1}, b {(int) in - 1}, w {in};
-		v[a].push_back({b, w});
-		v[b].push_back({a, w});
+		v[a].push_back({b, w}), v[b].push_back({a, w});
 	}
 	V<int> p(n), r;
 	V<LL> d(n, LLONG_MAX / 4);
