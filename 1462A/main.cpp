@@ -73,10 +73,10 @@ struct range{
 
 int main() {
 	Range (t, in) {
-		int n {in};
+		int n {in}, r {}, l {n - 1};
 		vector<int> a = in.read(n);
 		Range (i, n)
-			out(a[i % 2 ? n - 1 - i / 2: i / 2], ' ');
+			out(a[i % 2 ? l--: r++], ' ');
 		outl();
 	}
 }
