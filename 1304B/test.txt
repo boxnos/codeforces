@@ -1,0 +1,47 @@
+# inputCopy
+3 3
+tab
+one
+bat
+# outputCopy
+6
+battab
+# inputCopy
+4 2
+oo
+ox
+xo
+xx
+# outputCopy
+6
+xoooox
+# inputCopy
+3 5
+hello
+codef
+orces
+# outputCopy
+0
+
+# inputCopy
+9 4
+abab
+baba
+abcd
+bcde
+cdef
+defg
+wxyz
+zyxw
+ijji
+# outputCopy
+20
+babazyxwijjiwxyzabab
+# tes
+3 1
+a
+b
+c
+# tes
+1
+a
