@@ -74,14 +74,14 @@ struct range{
 
 int main() {
 	Range (t, in) {
-		int n {in}, i {};
+		int n {in};
 		string s = in;
-		auto f = [&] (int a) {
+		auto f = [&] (int a, int i) {
 			for (; i < 4 && s[a + i] == "2020"[i]; i++)
 				;
+			return i;
 		};
-		f(0), f (n - 4);
-		outl(i == 4 ? "YES" :"NO");
+		outl(f(n - 4, f(0, 0)) == 4 ? "YES" :"NO");
 	}
 }
 
