@@ -1,0 +1,18 @@
+# inputCopy
+7 2
+abacaba
+a b
+# outputCopy
+12
+# inputCopy
+10 3
+sadfaasdda
+f a d
+# outputCopy
+21
+# inputCopy
+7 1
+aaaaaaa
+b
+# outputCopy
+0
