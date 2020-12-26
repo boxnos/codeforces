@@ -74,7 +74,7 @@ struct range{
 int main() {
 	Range (t, in) {
 		int x {in}, y {in};
-		outl((x > 3 ?: x < 2 ? y < 2 : y < 4) ? "YES" : "NO");
+		outl(x > 3 || (x > 1) * 2 + 2 > y ? "YES" : "NO");
 	}
 }
 
