@@ -1,0 +1,20 @@
+# inputCopy
+100000000
+# outputCopy
+4
+# inputCopy
+101
+# outputCopy
+2
+# inputCopy
+10100
+# outputCopy
+3
+# in
+0
+# out
+0
+# in
+1
+# out
+0
