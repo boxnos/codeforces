@@ -72,14 +72,11 @@ struct range{
 int main() {
 	int n {in}, m {in}, x {in}, y {in};
 	x--, y--;
-	int i {x};
-	do {
-		int j = y, p;
-		do {
-			outl({i + 1, j + 1});
-		} while (p = j, (j = (j + 1) % m) != y);
-		y = p;
-	} while ((i = (i + 1) % n) != x);
+	for (int i: range(n)) {
+		for (int j: range(m))
+			outl({(i + x) % n + 1, (j + y) % m + 1});
+		y = (y + m - 1) % m;
+	}
 }
 
 
