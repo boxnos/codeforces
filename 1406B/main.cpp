@@ -80,10 +80,16 @@ int main() {
 		int n {in};
 		LL r {LLONG_MIN};
 		vector<int> a = in.read(n);
-		sort(begin(a), end(a));
+		auto f = [&](int m, int e, int s, int t){
+			auto b {begin(a)};
+			nth_element(b, b + m, b + e);
+			sort(b + s, b + t);
+		};
+		auto g = [&](int s, int e){return accumulate(begin(a) + s, begin(a) + e, 1LL, multiplies<LL>());};
+		f(n - 5, n, n - 5, n);
+		f(4, n - 5, 0, 4);
 		for (int i: range(0, 6, 2))
-			r = max(r, accumulate(begin(a), begin(a) + i, 1LL, multiplies<LL>()) *
-					accumulate(begin(a) + n - 5 + i, end(a), 1LL, multiplies<LL>()));
+			r = max(r, g(0, i) * g(n - 5 + i, n));
 		outl(r);
 	}
 }
