@@ -82,17 +82,16 @@ int main() {
 		Range (i, m)
 			p[(int) in - 1] = true;
 		outl([&] {
-			 for (int i {}, M {}; i < n;) {
-				int tm {INT_MAX}, tM {};
-				do {
-					tm = min(tm, a[i]), tM = max(tM, a[i]);
-				} while (p[i++]);
-				if (tm < M)
+			int M {}, t {};
+			Range (i, n) {
+				t = max(t, a[i]);
+				if (a[i] < M)
 					return "NO";
-				M = tM;
+				if (!p[i])
+					M = t;
 			}
 			return "YES";
-			}());
+		}());
 	}
 }
 
