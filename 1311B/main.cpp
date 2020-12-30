@@ -72,8 +72,6 @@ struct range{
 #define dbg(...) fprintf(stderr,__VA_ARGS__)
 #define tee(s,v) ({dbg(s,v);v;})
 
-using LL = long long;
-
 int main() {
 	Range (t, in) {
 		int n {in}, m {in};
