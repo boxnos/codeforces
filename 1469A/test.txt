@@ -1,0 +1,13 @@
+# inputCopy
+5
+()
+(?)
+(??)
+??()
+)?(?
+# outputCopy
+YES
+NO
+YES
+YES
+NO
