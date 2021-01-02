@@ -71,20 +71,13 @@ struct range{
 #define dbg(...) fprintf(stderr,__VA_ARGS__)
 #define tee(s,v) ({dbg(s,v);v;})
 
-_T int sgn(T v) {
-    return (T(0) < v) - (v < T(0));
-}
-
 int main() {
 	Range (t, in) {
 		int n {in};
 		vector<int> p = in.read(n), r;
-		r.push_back(p[0]);
-		int j {}, d {};
-		for (int i: range(1, n))
-			if (exchange(d, sgn(p[i - 1] - p[i])) * d < 0)
-				j = i - 1, r.push_back(p[j]);
-		r.push_back(p[n - 1]);
+		for (int i: range(n))
+			if (!i || i == n - 1 || (p[i - 1] < p[i]) - (p[i] < p[i + 1]))
+				r.push_back(p[i]);
 		outl(size(r));
 		outl(r);
 	}
