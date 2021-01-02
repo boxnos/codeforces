@@ -1,0 +1,16 @@
+# inputCopy
+abccaa
+# outputCopy
+YES
+# inputCopy
+abbcca
+# outputCopy
+NO
+# inputCopy
+abcda
+# outputCopy
+YES
+# in
+fccf
+# out
+NO
