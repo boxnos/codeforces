@@ -1,0 +1,33 @@
+# inputCopy
+4 5
+75 5
+0 100
+150 20
+75 1
+# outputCopy
+100
+# inputCopy
+5 100
+0 7
+11 32
+99 10
+46 8
+87 54
+# outputCopy
+111
+# Input
+5 1
+5 9
+2 10
+8 5
+18 12
+1 1
+# Answer
+12
+# input
+3 3
+4 15
+0 17
+9 11
+# Answer
+17
