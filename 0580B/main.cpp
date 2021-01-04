@@ -3,7 +3,7 @@
 #include <utility>
 #include <cctype>
 #include <functional>
-#include <map>
+#include <vector>
 #include <algorithm>
 using namespace std;
 
@@ -74,14 +74,19 @@ struct range{
 int main() {
 	int n {in}, d {in};
 	long long r {}, c {};
-	map<int, long long> a;
+	vector<pair<int, int>> a;
 	Range (i, n) {
 		int m {in}, s {in};
-		a[m] += s;
-		a[m + d] -= s;
+		a.push_back({m, s});
+		a.push_back({m + d, -s});
 	}
-	for (auto p: a)
-		r = max(r, c += p.second);
+	sort(begin(a), end(a), [](auto a, auto b){return a.first < b.first;});
+	for (size_t i {}; i < size(a);) {
+		do {
+			c += a[i++].second;
+		} while (i < size(a) && a[i - 1].first == a[i].first);
+		r = max(r, c);
+	}
 	outl(r);
 }
 
