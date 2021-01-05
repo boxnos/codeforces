@@ -1,0 +1,27 @@
+# inputCopy
+8
+2
+))
+12
+gl))hf))))))
+9
+gege)))))
+14
+)aa))b))))))))
+1
+)
+1
+a
+2
+)a
+3
+aa)
+# outputCopy
+Yes
+No
+Yes
+Yes
+Yes
+No
+No
+No
