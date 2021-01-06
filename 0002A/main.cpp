@@ -74,18 +74,17 @@ struct range{
 
 #define f(v) v.first
 #define s(v) v.second
+#define all(v) begin(v), end(v)
 using P = pair<string, int>;
 
 int main() {
 	int n {in};
 	unordered_map<string, int> t, u;
 	vector<P> v(n);
-	for (P &i: v) {
-		i = {in, in};
-		t[f(i)] += s(i);
-	}
-	int m = max_element(begin(t), end(t), [](P a, P b) {return s(a) < s(b);})->second;
-	outl(find_if(begin(v), end(v), [&](P i) {return t[f(i)] == m && (u[f(i)] += s(i)) >= m;})->first);
+	for (P &i: v)
+		i = {in, in}, t[f(i)] += s(i);
+	int m {max_element(all(t), [](P a, P b) {return s(a) < s(b);})->second};
+	outl(find_if(all(v), [&](P i) {return t[f(i)] == m && (u[f(i)] += s(i)) >= m;})->first);
 }
 
 
