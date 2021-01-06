@@ -72,25 +72,20 @@ struct range{
 #define dbg(...) fprintf(stderr,__VA_ARGS__)
 #define tee(s,v) ({dbg(s,v);v;})
 
+#define f(v) v.first
+#define s(v) v.second
+using P = pair<string, int>;
+
 int main() {
-	int n = in;
+	int n {in};
 	unordered_map<string, int> t, u;
-	vector<pair<string, int>> v(n);
-	string r;
-	Range (i, n) {
-		string s = in;
-		int x = in;
-		v[i] = {s, x};
-		t[s] += x;
+	vector<P> v(n);
+	for (P &i: v) {
+		i = {in, in};
+		t[f(i)] += s(i);
 	}
-	int m = max_element(begin(t), end(t), [](auto a, auto b) {return a.second < b.second;})->second;
-	for (auto i: v) {
-		u[i.first] += i.second;
-		if (t[i.first] == m && u[i.first] >= m) {
-			outl(i.first);
-			break;
-		}
-	}
+	int m = max_element(begin(t), end(t), [](P a, P b) {return s(a) < s(b);})->second;
+	outl(find_if(begin(v), end(v), [&](P i) {return t[f(i)] == m && (u[f(i)] += s(i)) >= m;})->first);
 }
 
 
