@@ -77,11 +77,10 @@ struct range{
 int main() {
 	Range (t, in) {
 		int n {in}, r {INT_MAX};
-		vector<int> a {0};
+		vector<int> a(n + 1);
 		unordered_map<int, int> m;
-		Range (i, n)
-			a.push_back(in);
-		a.push_back(0);
+		Range (i, 1, n + 1)
+			a[i] = in;
 		Range (i, 1, n + 1)
 			m[a[i]] += (a[i - 1] != a[i]) + (a[i] != a[i + 1]);
 		for (auto i: m)
