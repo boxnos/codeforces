@@ -79,12 +79,13 @@ int main() {
 		int n {in}, r {INT_MAX};
 		vector<int> a(n + 1);
 		unordered_map<int, int> m;
-		Range (i, 1, n + 1)
+		Range (i, n)
 			a[i] = in;
-		Range (i, 1, n + 1)
-			m[a[i]] += (a[i - 1] != a[i]) + (a[i] != a[i + 1]);
+		a[n] = a[n - 1];
+		Range (i, n)
+			m[a[i]] += a[i] != a[i + 1];
 		for (auto i: m)
-			r = min(r, (i.second - 2) / 2 + (a[1] != i.first) + (a[n] != i.first));
+			r = min(r, i.second + (a[0] != i.first));
 		outl(r);
 	}
 }
