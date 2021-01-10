@@ -75,9 +75,9 @@ struct range{
 int main() {
 	Range (t, in) {
 		int n {in}, r {};
-		vector<int> a = in.read(n), d(n);
+		vector<int> a = in.read(n);
 		Range (i, n - 1, -1, -1)
-			r = max(r, d[i] = a[i] + (i + a[i] < n ? d[i + a[i]] : 0));
+			r = max(r, a[i] += i + a[i] < n ? a[i + a[i]] : 0);
 		outl(r);
 	}
 }
