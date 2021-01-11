@@ -28,8 +28,8 @@ struct _in {
 #endif
 	_OP(char){char c=gcu();gcu();return c;}
 	_OP(double){double d; scanf("%lf",&d); gcu();return d;}
-	//_T _OP(T){T n{},c=gcu();do{n=10*n+(c-'0'),c=gcu();}while(c>='0'&&c<='9');return n;}
-	_T _OP(T){T n{},m{1},c=gcu();if(c=='-')m=-1,c=gcu();do{n=10*n+(c-'0'),c=gcu();}while(c>='0'&&c<='9');return m*n;}
+	_T _OP(T){T n{},c=gcu();do{n=10*n+(c-'0'),c=gcu();}while(c>='0'&&c<='9');return n;}
+	//_T _OP(T){T n{},m{1},c=gcu();if(c=='-')m=-1,c=gcu();do{n=10*n+(c-'0'),c=gcu();}while(c>='0'&&c<='9');return m*n;}
 	//_T _OP(T){T n{},m{1},c;while(isspace(c=gcu()));if(c=='-')m=-1,c=gcu();do{n=10*n+(c-'0'),c=gcu();}while(c>='0'&&c<='9');return m*n;}
 #ifdef _GLIBCXX_VECTOR
 #define _TI template<typename T=vector<int>, typename I=typename T::value_type>
@@ -76,13 +76,13 @@ using VL = vector<long long>;
 
 int main() {
 	int n {in}, m {in};
-	VL a = in.read<VL>(n), b = in.read<VL>(m), c(n + 1);
-	c[0] = 1;
-	Range(i, n)
-		c[i + 1] = a[i] + c[i];
+	VL c(n + 1);
+	Range (i, n)
+		c[i + 1] = c[i] + (LL) in;
+	VL b = in.read<VL>(m);
 	for (LL i: b) {
-		auto r = upper_bound(begin(c), end(c), i);
-		outl(r - begin(c), ' ', i - *(r - 1) + 1);
+		auto r = upper_bound(begin(c), end(c), i - 1);
+		outl(r - begin(c), ' ', i - *(r - 1));
 	}
 }
 
