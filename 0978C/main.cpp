@@ -79,10 +79,10 @@ int main() {
 	VL c(n + 1);
 	Range (i, n)
 		c[i + 1] = c[i] + (LL) in;
-	VL b = in.read<VL>(m);
-	for (LL i: b) {
-		auto r = upper_bound(begin(c), end(c), i - 1);
-		outl(r - begin(c), ' ', i - *(r - 1));
+	Range (i, m) {
+		LL b {in};
+		auto r = upper_bound(begin(c), end(c), b - 1);
+		outl(r - begin(c), ' ', b - *(r - 1));
 	}
 }
 
