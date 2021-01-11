@@ -79,10 +79,12 @@ int main() {
 	VL c(n + 1);
 	Range (i, n)
 		c[i + 1] = c[i] + (LL) in;
-	Range (i, m) {
+	int i {1};
+	Range (j, m) {
 		LL b {in};
-		auto r = upper_bound(begin(c), end(c), b - 1);
-		outl(r - begin(c), ' ', b - *(r - 1));
+		for (;c[i] < b; i++)
+			;
+		outl(i, ' ', b - c[i - 1]);
 	}
 }
 
