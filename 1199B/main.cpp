@@ -71,8 +71,8 @@ struct range{
 #define tee(s,v) ({dbg(s,v);v;})
 
 int main() {
-	double h {in}, l {in}, H {h * h}, L {l * l};
-	printf("%0.13lf\n", sqrt(H + (2 + L / H) * L) / 2 - h);
+	double h {in}, l {in};
+	printf("%0.13lf\n", (l * l / h - h) / 2);
 }
 
 
