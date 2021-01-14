@@ -1,0 +1,8 @@
+# inputCopy
+1 2
+# outputCopy
+1.5000000000000
+# inputCopy
+3 5
+# outputCopy
+2.6666666666667
