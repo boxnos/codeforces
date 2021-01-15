@@ -1,0 +1,12 @@
+# inputCopy
+ABABBBACFEYUKOTT
+# outputCopy
+4
+# inputCopy
+AAA
+# outputCopy
+1
+# inputCopy
+TTTT
+# outputCopy
+5
