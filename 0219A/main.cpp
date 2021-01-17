@@ -3,7 +3,7 @@
 #include <utility>
 #include <cctype>
 #include <functional>
-#include <map>
+#include <unordered_map>
 #include <string>
 using namespace std;
 
@@ -74,7 +74,7 @@ struct range{
 int main() {
 	int k {in};
 	string s = in, r;
-	map<char, int> m;
+	unordered_map<char, int> m;
 	for (char c: s)
 		m[c]++;
 	for (auto i: m) {
