@@ -1,0 +1,15 @@
+# inputCopy
+2
+aazz
+# outputCopy
+azaz
+# inputCopy
+3
+abcabcabz
+# outputCopy
+-1
+# in
+3
+aaabbbcccccc
+# out
+abccabccabcc
