@@ -79,8 +79,8 @@ bool contains(string::iterator b, string::iterator e, string::iterator c) {
 	return true;
 }
 
-int find_seg(string &s) {
-	for (int i: range(1, (int) size(s))) {
+string find_seg(string &s) {
+	for (int i: range(1, (int) size(s) / 2 + 1)) {
 		if (!(size(s) % i) &&
 			[&] {
 				for (int j: range(i, (int) size(s), i))
@@ -88,20 +88,17 @@ int find_seg(string &s) {
 						return false;
 				return true;
 			}())
-			return i;
+			return s.substr(0, i);
 	}
-	return size(s);
+	return s;
 }
 
 int main() {
 	Range (q, in) {
-		string s = in, t = in;
-		auto ss = find_seg(s), ts = find_seg(t);
-		if (ss == ts && contains(begin(s), begin(s) + ss, begin(t))) {
-			int st = size(s)/ss, tt = size(t)/ss;
-			Range (i, st * tt / gcd(st, tt))
-				Range (j, ss)
-					out(s[j]);
+		string s = in, t = in, ss = find_seg(s), ts = find_seg(t);
+		if (ss == ts) {
+			Range (i, size(s) * size(t) / gcd(size(s), size(t)) / size(ts))
+				out(ss);
 			outl();
 		} else
 			outl(-1);
