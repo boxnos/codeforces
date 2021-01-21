@@ -1,0 +1,15 @@
+# inputCopy
+4
+baba
+ba
+aa
+aaa
+aba
+ab
+aa
+aa
+# outputCopy
+baba
+aaaaaa
+-1
+aa
