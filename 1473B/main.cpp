@@ -72,36 +72,18 @@ struct range{
 #define dbg(...) fprintf(stderr,__VA_ARGS__)
 #define tee(s,v) ({dbg(s,v);v;})
 
-bool contains(string::iterator b, string::iterator e, string::iterator c) {
-	for (;b != e; b++, c++)
-		if (*b != *c)
-			return false;
-	return true;
-}
-
-string find_seg(string &s) {
-	for (int i: range(1, (int) size(s) / 2 + 1)) {
-		if (!(size(s) % i) &&
-			[&] {
-				for (int j: range(i, (int) size(s), i))
-					if(!contains(begin(s), begin(s) + i, begin(s) + j))
-						return false;
-				return true;
-			}())
-			return s.substr(0, i);
-	}
-	return s;
-}
-
 int main() {
+	auto f = [] (string s, int n) {
+		string t;
+		for (;n--; t += s)
+			;
+		return t;
+	};
 	Range (q, in) {
-		string s = in, t = in, ss = find_seg(s), ts = find_seg(t);
-		if (ss == ts) {
-			Range (i, size(s) * size(t) / gcd(size(s), size(t)) / size(ts))
-				out(ss);
-			outl();
-		} else
-			outl(-1);
+		string s = in, t = in;
+		int ss = size(s), ts = size(t), l = ss * ts / gcd(ss, ts);
+		string sl = f(s, l / ss), tl = f(t, l / ts);
+		outl(sl == tl ? sl : "-1");
 	}
 }
 
