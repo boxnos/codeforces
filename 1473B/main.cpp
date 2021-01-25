@@ -75,11 +75,8 @@ int main() {
 	Range (t, in) {
 		int n {in}, d {in};
 		vector<int> a = in.read(n);
-		if (find_if(begin(a), end(a), [&](int i) {return i > d;}) != end(a)) {
-			nth_element(begin(a), begin(a) + 2, end(a));
-			outl(a[0] + a[1] > d ? "NO" : "YES");
-		} else
-			outl("YES");
+		outl(find_if(begin(a), end(a), [&](int i) {return i > d;}) != end(a) &&
+			(nth_element(begin(a), begin(a) + 1, end(a)), a[0] + a[1] > d) ? "NO" : "YES");
 	}
 }
 
