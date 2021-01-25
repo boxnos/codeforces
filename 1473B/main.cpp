@@ -3,9 +3,8 @@
 #include <utility>
 #include <cctype>
 #include <functional>
-#include <string>
+#include <vector>
 #include <algorithm>
-#include <numeric>
 using namespace std;
 
 #ifdef _WIN32
@@ -73,17 +72,14 @@ struct range{
 #define tee(s,v) ({dbg(s,v);v;})
 
 int main() {
-	auto f = [] (string s, int n) {
-		string t;
-		for (;n--; t += s)
-			;
-		return t;
-	};
-	Range (q, in) {
-		string s = in, t = in;
-		int ss = size(s), ts = size(t), l = ss * ts / gcd(ss, ts);
-		string sl = f(s, l / ss), tl = f(t, l / ts);
-		outl(sl == tl ? sl : "-1");
+	Range (t, in) {
+		int n {in}, d {in};
+		vector<int> a = in.read(n);
+		if (find_if(begin(a), end(a), [&](int i) {return i > d;}) != end(a)) {
+			nth_element(begin(a), begin(a) + 2, end(a));
+			outl(a[0] + a[1] > d ? "NO" : "YES");
+		} else
+			outl("YES");
 	}
 }
 
