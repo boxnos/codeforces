@@ -71,14 +71,21 @@ struct range{
 #define dbg(...) fprintf(stderr,__VA_ARGS__)
 #define tee(s,v) ({dbg(s,v);v;})
 
+template <int T> struct D {
+   	int d[T];
+	constexpr D() : d() {
+		for (int i {1}; i < T; i++)
+			d[i] = d[i - 1] + i;
+	}
+};
+
 int main() {
-	vector<int> d(1500);
-	for (int i: range(1, 1500))
-		d[i] = d[i - 1] + i;
+	const int M {1500};
+	constexpr D<M> d;
 	Range (t, in) {
 		int x {in};
-		auto i {lower_bound(begin(d), end(d), x)};
-		outl(i - begin(d) + (*i - 1 == x));
+		auto i {lower_bound(d.d, d.d + M, x)};
+		outl(i - d.d + (*i - 1 == x));
 	}
 }
 
