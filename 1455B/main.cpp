@@ -5,6 +5,7 @@
 #include <functional>
 #include <vector>
 #include <algorithm>
+#include <array>
 using namespace std;
 
 #ifdef _WIN32
@@ -71,21 +72,17 @@ struct range{
 #define dbg(...) fprintf(stderr,__VA_ARGS__)
 #define tee(s,v) ({dbg(s,v);v;})
 
-template <int T> struct D {
-   	int d[T];
-	constexpr D() : d() {
-		for (int i {1}; i < T; i++)
-			d[i] = d[i - 1] + i;
-	}
-};
-
 int main() {
-	const int M {1500};
-	constexpr D<M> d;
+	constexpr auto d = [] {
+		array<int, 1500> a {};
+		for (size_t i {1}; i < size(a); i++)
+			a[i] = a[i - 1] + i;
+		return a;
+	}();
 	Range (t, in) {
 		int x {in};
-		auto i {lower_bound(d.d, d.d + M, x)};
-		outl(i - d.d + (*i - 1 == x));
+		auto i {lower_bound(begin(d), end(d), x)};
+		outl(i - begin(d) + (*i - 1 == x));
 	}
 }
 
