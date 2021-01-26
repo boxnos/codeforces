@@ -74,15 +74,15 @@ struct range{
 int main() {
 	Range (t, in) {
 		int n {in};
-		long long A {}, B {};
+		long long A {};
 		vector<int> a = in.read(n);
 		sort(rbegin(a), rend(a));
 		Range (i, n)
 			if (i % 2 && a[i] % 2)
-				B += a[i];
+				A -= a[i];
 			else if (!(i % 2 || a[i] % 2))
 				A += a[i];
-		outl(A > B ? "Alice" : A < B ? "Bob" : "Tie");
+		outl(A ? A > 0 ? "Alice" : "Bob" : "Tie");
 	}
 }
 
