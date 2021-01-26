@@ -4,8 +4,7 @@
 #include <cctype>
 #include <functional>
 #include <vector>
-#include <unordered_map>
-#include <unordered_set>
+#include <algorithm>
 using namespace std;
 
 #ifdef _WIN32
@@ -73,29 +72,14 @@ struct range{
 #define tee(s,v) ({dbg(s,v);v;})
 
 int main() {
-	int t {in}, m {};
-	vector<int> T(t);
-	unordered_map<int, int> r;
-	for (int &i: T) {
-		m = max(m, i = in);
-		r.insert({i, 0});
+	vector<int> d(1500);
+	for (int i: range(1, 1500))
+		d[i] = d[i - 1] + i;
+	Range (t, in) {
+		int x {in};
+		auto i {lower_bound(begin(d), end(d), x)};
+		outl(i - begin(d) + (*i - 1 == x));
 	}
-	unordered_set<int> s {0};
-	for (int i {1}; t; i++) {
-		unordered_set<int> ss;
-		auto set = [&] (int x) {
-			ss.insert(x);
-			if (r.count(x) && !r[x])
-				r[x] = i, t--;
-		};
-		for (int j: s) {
-			set(j + i);
-			set(j - 1);
-		}
-		s = ss;
-	}
-	for (int i: T)
-		outl(r[i]);
 }
 
 
