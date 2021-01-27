@@ -78,10 +78,8 @@ int main() {
 		vector<int> a = in.read(n);
 		sort(rbegin(a), rend(a));
 		Range (i, n)
-			if (i % 2 && a[i] % 2)
-				A -= a[i];
-			else if (!(i % 2 || a[i] % 2))
-				A += a[i];
+			if (i % 2 == a[i] % 2)
+				A += i % 2 ? -a[i] : a[i];
 		outl(A ? A > 0 ? "Alice" : "Bob" : "Tie");
 	}
 }
