@@ -79,7 +79,7 @@ int main() {
 		sort(rbegin(a), rend(a));
 		Range (i, n)
 			if (i % 2 == a[i] % 2)
-				A += i % 2 ? -a[i] : a[i];
+				A += a[i] * (int[]){1, -1}[i % 2];
 		outl(A ? A > 0 ? "Alice" : "Bob" : "Tie");
 	}
 }
