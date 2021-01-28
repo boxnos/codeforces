@@ -1,0 +1,19 @@
+# input
+8
+2
+3
+4
+5
+4054
+4055
+998244353
+1099511627776
+# outputCopy
+NO
+YES
+NO
+YES
+YES
+YES
+YES
+NO
