@@ -1,0 +1,23 @@
+# inputCopy
+10
+1
+4039
+4040
+4041
+4042
+4043
+8081
+8079
+4084441
+4084442
+# outputCopy
+NO
+NO
+YES
+YES
+YES
+NO
+YES
+NO
+YES
+NO
