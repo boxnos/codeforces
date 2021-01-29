@@ -69,10 +69,6 @@ struct range{
 #define dbg(...) fprintf(stderr,__VA_ARGS__)
 #define tee(s,v) ({dbg(s,v);v;})
 
-_T using V = vector<T>;
-#define F first
-#define S second
-
 int main() {
 	Range (t, in) {
 		int n {in};
