@@ -1,0 +1,15 @@
+# inputCopy
+101
+102
+# outputCopy
+YES
+# inputCopy
+105
+106
+# outputCopy
+NO
+# in
+544
+397
+# out
+YES
