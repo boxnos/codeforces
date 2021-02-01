@@ -72,7 +72,7 @@ struct range{
 int main() {
 	Range (t, in) {
 		int n {in}, k {in};
-		outl(n > k ? 1 + !!(n % k) : k / n + !!(k % n));
+		outl(n > k ? 2 - !(n % k) : k / n + !!(k % n));
 	}
 }
 
