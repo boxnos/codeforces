@@ -69,10 +69,12 @@ struct range{
 #define dbg(...) fprintf(stderr,__VA_ARGS__)
 #define tee(s,v) ({dbg(s,v);v;})
 
+
 int main() {
 	Range (t, in) {
-		int n {in}, k {in};
-		outl(n > k ? 2 - !(n % k) : k / n + !!(k % n));
+		long long n {in}, k {in};
+		auto ceil = [](auto a, auto b) {return (a + b - 1) / b;};
+		outl(ceil(ceil(n,  k) * k, n));
 	}
 }
 
