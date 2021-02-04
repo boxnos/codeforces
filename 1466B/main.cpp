@@ -74,14 +74,15 @@ _T using V = vector<T>;
 
 int main() {
 	Range (t, in) {
-		int n {in}, r {}, f {};
-		vector<int> d(n * 2 + 3);
-		Range (i, n)
-			d[in]++;
-		for (int i: range(1, (int) size(d) - 1))
-			if (d[i] || f)
-				r++, f = d[i] + f > 1;
-		outl(r);
+		int n {in}, r {}, p {}, f {};
+		Range (i, n) {
+			int a {in};
+			if (p == a)
+				f = a + 1;
+			else
+				p = a, r++, f = f == a ? a + 1 : f ? (r++, 0) : 0;
+		}
+		outl(r + !!f);
 	}
 }
 
