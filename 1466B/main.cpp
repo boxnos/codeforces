@@ -78,11 +78,9 @@ int main() {
 		vector<int> d(n * 2 + 3);
 		Range (i, n)
 			d[in]++;
-		for (int i: range(1, (int) size(d) - 1)) {
+		for (int i: range(1, (int) size(d) - 1))
 			if (d[i] || f)
-				r++;
-			f = d[i] + f > 1;
-		}
+				r++, f = d[i] + f > 1;
 		outl(r);
 	}
 }
