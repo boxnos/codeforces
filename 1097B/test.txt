@@ -1,0 +1,21 @@
+# inputCopy
+3
+10
+20
+30
+# outputCopy
+YES
+# inputCopy
+3
+10
+10
+10
+# outputCopy
+NO
+# inputCopy
+3
+120
+120
+120
+# outputCopy
+YES
