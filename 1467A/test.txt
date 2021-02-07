@@ -1,0 +1,14 @@
+# inputCopy
+2
+1
+2
+# outputCopy
+9
+98
+# test
+2
+3
+6
+# test
+989
+989012
