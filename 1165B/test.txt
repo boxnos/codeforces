@@ -1,0 +1,20 @@
+# inputCopy
+4
+3 1 4 1
+# outputCopy
+3
+# inputCopy
+3
+1 1 1
+# outputCopy
+1
+# inputCopy
+5
+1 1 1 2 2
+# outputCopy
+2
+# tes
+7
+1 1 2 2 3 5 5
+# out
+5
