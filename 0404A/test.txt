@@ -1,0 +1,32 @@
+# inputCopy
+5
+xooox
+oxoxo
+soxoo
+oxoxo
+xooox
+# outputCopy
+NO
+# inputCopy
+3
+wsw
+sws
+wsw
+# outputCopy
+YES
+# inputCopy
+3
+xpx
+pxp
+xpe
+# outputCopy
+NO
+# in
+5
+liiil
+ilili
+iilii
+ilili
+liiil
+# out
+YES
