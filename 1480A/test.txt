@@ -1,0 +1,9 @@
+# inputCopy
+3
+a
+bbbb
+az
+# outputCopy
+b
+azaz
+by
