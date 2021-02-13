@@ -70,11 +70,13 @@ struct range{
 #define dbg(...) fprintf(stderr,__VA_ARGS__)
 #define tee(s,v) ({dbg(s,v);v;})
 
+using P = pair<char, int>;
+
 int main() {
 	Range (t, in) {
 		string s = in;
 		Range (i, size(s))
-			out((char)(i % 2 ?  'z' - (s[i] == 'z') : 'a' + (s[i] == 'a')));
+			out((char)[&](P p) {return p.first + (s[i] == p.first) * p.second;} (i % 2 ? P{'z', -1} : P{'a', 1}));
 		outl();
 	}
 }
