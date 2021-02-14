@@ -1,0 +1,7 @@
+# inputCopy
+2
+3 2
+4 1
+# outputCopy
+aab
+acba
