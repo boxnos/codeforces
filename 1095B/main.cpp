@@ -3,8 +3,7 @@
 #include <utility>
 #include <cctype>
 #include <functional>
-#include <vector>
-#include <algorithm>
+#include <climits>
 using namespace std;
 
 #ifdef _WIN32
@@ -72,11 +71,20 @@ struct range{
 #define tee(s,v) ({dbg(s,v);v;})
 
 int main() {
-	int n {in};
-	vector<int> a = in.read(n);
-	partial_sort(rbegin(a), rbegin(a) + 2, rend(a), [](int a, int b) {return a > b;});
-	partial_sort(begin(a), begin(a) + 2, begin(a) + n - 2);
-	outl(a[1] - a[0] > a[n - 1] - a[n - 2] ? a[n - 1] - a[1] : a[n - 2] - a[0]);
+	int a {INT_MAX}, b {a}, y {}, z {};
+	Range (t, in) {
+		int x {in};
+		if (x <= a)
+			b = a, a = x;
+		else if (x <= b)
+			b = x;
+		if (x >= z)
+			y = z, z = x;
+		else if (x >= y)
+			y = x;
+	}
+	outl (b - a > z - y ? z - b : y - a);
 }
+
 
 /* vim: set ts=4 noet: */
