@@ -72,14 +72,15 @@ struct range{
 
 int main() {
 	Range (t, in) {
-		int n {in};
-		vector<int> a = in.read(n);
-		auto r {find_if(begin(a) + 1, end(a), [&](int x){return a[0] != x;})};
-		if (r != end(a)) {
+		int n {in}, r {}, f {in};
+		vector<bool> a(n);
+		Range (i, 1, n)
+			if (a[i] = f != (int) in)
+				r = i + 1;
+		if (r) {
 			outl("YES");
-			int s = r - begin(a) + 1;
 			Range (i, 1, n)
-				outl({a[0] != a[i] ? 1 : s, i + 1});
+				outl({a[i] ? 1 : r, i + 1});
 		} else
 			outl("NO");
 	}
