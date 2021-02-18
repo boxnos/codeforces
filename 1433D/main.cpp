@@ -3,7 +3,7 @@
 #include <utility>
 #include <cctype>
 #include <functional>
-#include <vector>
+#include <algorithm>
 using namespace std;
 
 #ifdef _WIN32
@@ -72,16 +72,14 @@ struct range{
 
 int main() {
 	Range (t, in) {
-		int n {in}, f {in};
-		vector<int> F, S;
-		Range (i, n - 1)
-			((int) in == f ? F : S).push_back(i + 2);
-		if (size(S)) {
+		int n {in};
+		vector<int> a = in.read(n);
+		auto r {find_if(begin(a) + 1, end(a), [&](int x){return a[0] != x;})};
+		if (r != end(a)) {
 			outl("YES");
-			for (int i: S)
-				outl({1, i});
-			for (int i: F)
-				outl({S[0], i});
+			int s = r - begin(a) + 1;
+			Range (i, 1, n)
+				outl({a[0] != a[i] ? 1 : s, i + 1});
 		} else
 			outl("NO");
 	}
