@@ -79,10 +79,12 @@ int main() {
 		vector<pair<int, int>> a(n);
 		for (auto &i: a)
 			i = {in, 1};
-		for (int i {}; !(a[i].first % x); i++)
-			a.push_back({a[i].first / x, a[i].second * x});
+		for (int i {}; !(a[i].first % x); i = (i + 1) % n) {
+			auto &[f, s] {a[i]};
+			r += (LL) exchange(f, f / x) * exchange(s, s * x);
+		}
 		for (auto i: a)
-			r += (LL)i.first * i.second;
+			r += (LL) i.first * i.second;
 		outl(r);
 	}
 }
