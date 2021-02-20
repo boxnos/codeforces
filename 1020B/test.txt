@@ -1,0 +1,15 @@
+# inputCopy
+3
+2 3 2
+# outputCopy
+2 2 3
+# inputCopy
+3
+1 2 3
+# outputCopy
+1 2 3
+# input
+6
+4 3 4 2 3 5
+# out
+4 2 3 4 3 3
