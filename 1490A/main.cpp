@@ -75,7 +75,8 @@ int main() {
 		int n {in}, f {in}, r {};
 		Range (i, n - 1) {
 			int a {in};
-			for (int j {min(f, a)}, e {max(f, a)}; j * 2 < e; r++, j *= 2)
+			auto [t, e] {minmax(a, f)};
+			for (int j {t}; j * 2 < e; r++, j *= 2)
 				;
 			f = a;
 		}
