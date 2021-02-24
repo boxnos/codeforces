@@ -3,7 +3,7 @@
 #include <utility>
 #include <cctype>
 #include <functional>
-#include <algorithm>
+#include <array>
 using namespace std;
 
 #ifdef _WIN32
@@ -72,14 +72,16 @@ struct range{
 
 int main() {
 	Range (t, in) {
-		int n {in}, f {in}, r {};
-		Range (i, n - 1) {
-			int a {in};
-			auto [t, e] {minmax(a, f)};
-			for (int j {t}; j * 2 < e; r++, j *= 2)
-				;
-			f = a;
-		}
+		int n {in}, r {};
+		array<int, 3> a{};
+		Range (i, n)
+			a[(int) in % 3]++;
+		Range (i, 2)
+			Range (j, 3) {
+				int t {a[j] - n / 3};
+				if (t > 0)
+					r += t, a[j] -= t, a[(j + 1) % 3] += t;
+			}
 		outl(r);
 	}
 }
