@@ -76,7 +76,7 @@ using LL = long long;
 
 bool bs(LL n, LL c, LL s, LL e) {
 	LL a = s + (e - s) / 2, b = c - a, r = (a + b) * (a * a - a * b + b * b);
-	return r == n || (s == e ? false : r < n ? bs(n, c, s, a) : bs(n, c, a + 1, e));
+	return r == n || (s != e && (r < n ? bs(n, c, s, a) : bs(n, c, a + 1, e)));
 }
 
 int main() {
