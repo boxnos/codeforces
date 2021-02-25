@@ -74,6 +74,15 @@ struct range{
 
 using LL = long long;
 
+bool bs(LL n, LL c, LL s, LL e) {
+	LL a = s + (e - s) / 2, b = c - a, r = (a + b) * (a * a - a * b + b * b);
+	if (r == n)
+		return true;
+	else if (s == e)
+		return false;
+	return r < n ? bs(n, c, s, a) : bs(n, c, a + 1, e);
+}
+
 int main() {
 	unordered_map<long long, bool> s;
 	Range (t, in) {
@@ -85,11 +94,8 @@ int main() {
 				return s[n];
 			for (LL i {2}; i * i <= n; i++)
 				if (!(n % i))
-					for (LL j {1}; j + j <= i; j++) {
-						LL k {i - j};
-						if ((j + k) * (j * j - j * k + k * k) == n)
-							return s[n] = true;
-					}
+					if (bs(n, i, 1, (i + 1) / 2))
+						return s[n] = true;
 			return s[n] = false;
 		}() ? "YES" : "NO");
 	}
