@@ -4,7 +4,7 @@
 #include <cctype>
 #include <functional>
 #include <unordered_set>
-#include <algorithm>
+#include <cmath>
 using namespace std;
 
 #ifdef _WIN32
@@ -74,25 +74,16 @@ struct range{
 
 using LL = long long;
 
-bool bs(LL n, LL c, LL s, LL e) {
-	LL a = s + (e - s) / 2, b = c - a, r = (a + b) * (a * a - a * b + b * b);
-	return r == n || (s != e && (r < n ? bs(n, c, s, a) : bs(n, c, a + 1, e)));
-}
-
 int main() {
 	unordered_map<long long, bool> s;
 	Range (t, in) {
 		outl([&] {
 			LL n {in};
-			if (n == 2)
-				return true;
-			if (s.count(n))
-				return s[n];
-			for (LL i {2}; i * i <= n; i++)
-				if (!(n % i))
-					if (bs(n, i, 1, (i + 1) / 2))
-						return s[n] = true;
-			return s[n] = false;
+			for (LL i {1}, s {1}, r; s <= (n + 1) / 2; i++, s = i * i * i) {
+				if ((r = cbrt(n - s)) > 0 && r * r * r == n - s)
+					return true;
+			}
+			return false;
 		}() ? "YES" : "NO");
 	}
 }
