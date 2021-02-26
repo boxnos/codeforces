@@ -4,6 +4,8 @@
 #include <cctype>
 #include <functional>
 #include <string>
+#include <vector>
+#include <bitset>
 using namespace std;
 
 #ifdef _WIN32
@@ -73,13 +75,21 @@ struct range{
 
 int main() {
 	Range (t, in) {
-		(int) in;
-		int q {in};
+		int n {in}, q {in};
 		string s = in;
+		vector<bool> f(n), b(n);
+		auto set = [&](auto &f, int a, int b, int c) {
+			bitset<2> F;
+			Range (i, a, b, c) {
+				bool t = s[i] - '0';
+				f[i] = F[t], F[t] = true;
+			}
+		};
+		set(f, 0, n, 1);
+		set(b, n - 1, -1, -1);
 		Range (i, q) {
 			int l {(int) in - 1}, r {(int) in - 1};
-			outl(find(begin(s), begin(s) + l, s[l]) != begin(s) + l ||
-				 find(begin(s) + r + 1, end(s), s[r]) != end(s) ? "YES" : "NO");
+			outl(f[l] || b[r] ? "YES" : "NO");
 		}
 	}
 }
