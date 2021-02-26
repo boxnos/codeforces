@@ -5,7 +5,7 @@
 #include <functional>
 #include <string>
 #include <vector>
-#include <bitset>
+#include <array>
 using namespace std;
 
 #ifdef _WIN32
@@ -79,11 +79,9 @@ int main() {
 		string s = in;
 		vector<bool> f(n), b(n);
 		auto set = [&](auto &f, int a, int b, int c) {
-			bitset<2> F;
-			Range (i, a, b, c) {
-				bool t = s[i] - '0';
-				f[i] = F[t], F[t] = true;
-			}
+			array<bool, 2> F {};
+			Range (i, a, b, c)
+				f[i] = exchange(F[s[i] - '0'], true);
 		};
 		set(f, 0, n, 1);
 		set(b, n - 1, -1, -1);
