@@ -3,7 +3,7 @@
 #include <utility>
 #include <cctype>
 #include <functional>
-#include <cmath>
+#include <array>
 using namespace std;
 
 #ifdef _WIN32
@@ -72,11 +72,17 @@ struct range{
 #define dbg(...) fprintf(stderr,__VA_ARGS__)
 #define tee(s,v) ({dbg(s,v);v;})
 
-using LL = long long;
+template <int N, typename T=int>
+array<T, N> IN() {
+	array<T, N> a;
+	for (T &i: a)
+		i = in;
+	return a;
+}
 
 int main() {
 	Range (t, in) {
-		auto [x1, y1, x2, y2] = (int []){in, in, in, in};
+		auto [x1, y1, x2, y2] = IN<4>();
 		int dx {x1 - x2}, dy {y1 - y2};
 		outl(abs(dx) + abs(dy) + (dx && dy) * 2);
 	}
