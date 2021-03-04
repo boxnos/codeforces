@@ -4,6 +4,7 @@
 #include <cctype>
 #include <functional>
 #include <array>
+
 using namespace std;
 
 #ifdef _WIN32
@@ -36,6 +37,8 @@ struct _in {
 	_TI _I T read(int n,function<int(typename T::value_type)>f){T v(n);for(I &i:v)i=f(*this);return v;}
 	_TI _I T read(int n,function<void(typename T::value_type&,typename T::value_type)>f){T v(n);for(I &i:v)f(i,*this);return v;}
 #endif
+	template <int N, typename T=int> array<T, N> read() { array<T, N> a; for (T &i: a) i = *this; return a;
+}
 } in;
 #define _SCAN(...) _DEF(bool,scan,__VA_ARGS__)
 #ifdef _S
@@ -72,17 +75,10 @@ struct range{
 #define dbg(...) fprintf(stderr,__VA_ARGS__)
 #define tee(s,v) ({dbg(s,v);v;})
 
-template <int N, typename T=int>
-array<T, N> IN() {
-	array<T, N> a;
-	for (T &i: a)
-		i = in;
-	return a;
-}
 
 int main() {
 	Range (t, in) {
-		auto [x1, y1, x2, y2] = IN<4>();
+		auto [x1, y1, x2, y2] = in.read<4>();
 		int dx {x1 - x2}, dy {y1 - y2};
 		outl(abs(dx) + abs(dy) + (dx && dy) * 2);
 	}
