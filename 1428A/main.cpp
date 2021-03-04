@@ -76,7 +76,8 @@ using LL = long long;
 
 int main() {
 	Range (t, in) {
-		int x1 {in}, y1 {in}, x2 {in}, y2 {in}, dx {x1 - x2}, dy {y1 - y2};
+		auto [x1, y1, x2, y2] = (int []){in, in, in, in};
+		int dx {x1 - x2}, dy {y1 - y2};
 		outl(abs(dx) + abs(dy) + (dx && dy) * 2);
 	}
 }
