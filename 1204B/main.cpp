@@ -77,7 +77,7 @@ struct range{
 
 int main() {
 	auto [n, l, r] = in.read<3>();
-	outl((1LL << l) - 1 + n - l, ' ', (1LL << r) - 1 + (n - r) * (1LL << (r - 1)));
+	outl((1LL << l) - 1 + n - l, ' ', (n - r + 2) * (1LL << (r - 1)) - 1);
 }
 
 
