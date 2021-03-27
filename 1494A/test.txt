@@ -1,0 +1,20 @@
+# inputCopy
+4
+AABBAC
+CACA
+BBBBAC
+ABCA
+# outputCopy
+YES
+YES
+NO
+NO
+# tes
+3
+AA
+ABCC
+AABC
+# tes
+NO
+YES
+YES
