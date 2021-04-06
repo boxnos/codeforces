@@ -51,6 +51,7 @@ _OUT(char c){pcu(c);}
 #ifdef _S
 _OUT(string &s){for(char c:s)pcu(c);}
 #endif
+_OUT(int n) {printf("%d",n);}
 _T _OUT(T n){static char b[20];char *p=b;T m=n<0?pcu('-'),-1:1;
 	if(!n)*p++='0';else while(n)*p++=(char)(n%10*m+'0'),n/=10;while(p!=b)pcu(*--p);}
 _T _OUT(initializer_list<T> &v){for(auto i{begin(v)};i!=end(v);i++)out(i==begin(v)?"":" "),out(*i);}
