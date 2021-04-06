@@ -79,9 +79,8 @@ struct range{
 using LL = long long;
 
 int main() {
-	LL n {in}, k {in};
-	const array<LL, 3> a {2, 5, 8};
-	outl(accumulate(begin(a), end(a), 0, [&](LL b, LL c) {return b + (n * c + k - 1) / k;}));
+	LL n {in}, k {in}, r {};
+	outl(({for (LL i: {2, 5, 8}) r += (n * i + k - 1) / k; r;}));
 }
 
 
