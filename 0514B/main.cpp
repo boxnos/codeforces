@@ -77,17 +77,15 @@ struct range{
 #define dbg(...) fprintf(stderr,__VA_ARGS__)
 #define tee(s,v) ({dbg(s,v);v;})
 
-using LL = long long;
-
 int main() {
 	int n {in}, x0 {in}, y0 {in};
 	set<pair<int, int>> m;
 	Range (i, n) {
-		int x {in}, y {in}, g = gcd(x -= x0, y -= y0);
-		if (x < 0)
-			x = -x, y = -y;
-		else if (x == 0)
-			y = abs(y);
+		int x {in}, y {in}, g {gcd(x -= x0, y -= y0)};
+		if (y < 0)
+			y = -y, x = -x;
+		else if (y == 0)
+			x = abs(x);
 		m.insert({x/g, y/g});
 	}
 	outl(size(m));
