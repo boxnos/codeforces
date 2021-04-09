@@ -77,7 +77,7 @@ struct range{
 #define tee(s,v) ({dbg(s,v);v;})
 
 int main() {
-	int a {in}, b {in}, c {in}, z = (int) sqrt(b * c / a);
+	int a {in}, b {in}, c {in}, z = sqrt(b * c / a);
 	outl((c + b + z * z) / z * 4);
 }
 
