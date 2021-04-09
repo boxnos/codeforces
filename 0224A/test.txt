@@ -1,0 +1,8 @@
+# inputCopy
+1 1 1
+# outputCopy
+12
+# inputCopy
+4 6 6
+# outputCopy
+28
