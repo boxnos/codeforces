@@ -1,0 +1,32 @@
+# my
+3
+b
+ba
+baa
+# out
+YES
+ab
+YES
+baa
+YES
+baaa
+# inputCopy
+6
+cbabc
+ab
+zza
+ba
+a
+nutforajaroftuna
+# outputCopy
+YES
+cbabac
+YES
+aab
+YES
+zaza
+YES
+baa
+NO
+YES
+nutforajarofatuna
