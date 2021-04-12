@@ -79,27 +79,13 @@ struct range{
 int main() {
 	Range (t, in) {
 		string s = in;
-		int r {[&] {
-			Range (i, size(s) / 2 + 1) {
-				char c {s[size(s) - i - 1]};
-				if (c != 'a')
-					return i;
-				else if (s[i] != c)
-					return i + 1;
-			}
-			return -1;
-		}()};
-		if (r == -1)
-			outl("NO");
-		else {
-			outl("YES");
-			Range (i, size(s)) {
-				if (i == r)
-					out('a');
-				out(s[i]);
-			}
-			outl();
-		}
+		int n = size(s), r {[&] {
+				Range (i, n)
+					if (s[(i % 2 ? 2 * n - i : i) / 2] != 'a')
+						return i % 2;
+				return -1;
+			}()};
+		outl(r < 0 ? "NO" : "YES\n" + (r ? 'a' + s : s + 'a'));
 	}
 }
 

@@ -5,7 +5,7 @@ ba
 baa
 # out
 YES
-ab
+ba
 YES
 baa
 YES
