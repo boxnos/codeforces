@@ -82,11 +82,10 @@ int main() {
 	Range (t, in) {
 		string a = in, b = in;
 		int al = size(a), bl = size(b), r {};
-		vector<vector<int>> d {vector<vector<int>>(al + 1, vector<int>(bl + 1))};
+		vector<int> d(bl + 1);
 		Range (i, al)
-			Range (j, bl)
-				if (a[i] == b[j])
-					r = max(r, d[i + 1][j + 1] = d[i][j] + 1);
+			Range (j, bl - 1, -1, -1)
+				r = max(r, d[j + 1] = a[i] == b[j] ? d[j] + 1 : 0);
 		outl(al + bl - 2 * r);
 	}
 }
