@@ -93,12 +93,9 @@ int main() {
 	if (x > 1)
 		a.push_back(x);
 	VL d {1};
-	for (LL i: a) {
-		VL t;
-		for (LL j: d)
-			t.push_back(j * i), t.push_back(j);
-		d = t;
-	}
+	for (LL i: a)
+		Range(j, size(d))
+			d.push_back(d[j] * i);
 	for (LL i: d)
 		if (m > max(i, n / i))
 			m = max(i, n / i);
