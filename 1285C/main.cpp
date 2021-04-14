@@ -6,7 +6,6 @@
 #include <array>
 
 #include <vector>
-#include <set>
 #include <algorithm>
 #include <climits>
 using namespace std;
@@ -80,11 +79,11 @@ struct range{
 #define tee(s,v) ({dbg(s,v);v;})
 
 using LL = long long;
-using S = set<LL>;
+using VL = vector<LL>;
 
 int main() {
 	LL n {in}, x {n} , m {LLONG_MAX};
-	vector<LL> a {};
+	VL a;
 	for (LL i {2}; i * i <= x; i++)
 		if (!(x % i)) {
 			a.push_back(1);
@@ -93,13 +92,11 @@ int main() {
 		}
 	if (x > 1)
 		a.push_back(x);
-	S d {1};
+	VL d {1};
 	for (LL i: a) {
-		S t;
-		for (LL j: d) {
-			t.insert(j * i);
-			t.insert(j);
-		}
+		VL t;
+		for (LL j: d)
+			t.push_back(j * i), t.push_back(j);
 		d = t;
 	}
 	for (LL i: d)
