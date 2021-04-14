@@ -1,0 +1,24 @@
+# my
+72
+# out
+8 9
+# inputCopy
+2
+# outputCopy
+1 2
+# inputCopy
+6
+# outputCopy
+2 3
+# inputCopy
+4
+# outputCopy
+1 4
+# inputCopy
+1
+# outputCopy
+1 1
+# tes
+4200
+# tes
+56 75
