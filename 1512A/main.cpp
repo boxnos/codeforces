@@ -76,11 +76,15 @@ struct range{
 
 int main() {
 	Range (t, in) {
-		int n {in}, a {in}, b {in}, c {in}, r {a == b ? b == c ? -1 : 2 : a == c ? 1 : (a = c, 0)};
-		Range (i, 3, n)
-			if (a != (int) in)
-				r = i;
-		outl(r + 1);
+		int n {in};
+		vector<int> a {in.read(n)};
+		outl([&] {
+			if (a[0] != a[1] && a[1] == a[2])
+				return 1;
+			Range (i, 1, n)
+				if (a[0] != a[i])
+					return i + 1;
+			}());
 	}
 }
 
