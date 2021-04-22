@@ -76,27 +76,31 @@ struct range{
 #define dbg(...) fprintf(stderr,__VA_ARGS__)
 #define tee(s,v) ({dbg(s,v);v;})
 
+using P = pair<int, int>;
+int P::*x {&P::first}, P::*y {&P::second};
+
 int main() {
 	Range (t, in) {
-		int n {in}, x1 {-1}, y1 {}, x2 {}, y2 {};
+		int n {in};
+		P a {-1, 0}, b {};
 		Range (i, n) {
 			Range (j, n)
-				if (gcu() == '*') {
-					if (x1 == -1)
-						y1 = i, x1 = j;
-					else
-						y2 = i, x2 = j;
-				}
+				if (gcu() == '*')
+					[&](auto &c) {
+						c.*y = i, c.*x = j;
+					}(a.*x == -1 ? a : b);
 			gcu();
 		}
-		if (x1 == x2)
-			x1 = (x1 + 1) % n;
-		if (y1 == y2)
-			y1 = (y1 + 1) % n;
+		auto f = [&](auto &z1, auto z2) {
+			if (z1 == z2)
+				z1 = (z1 + 1) % n;
+		};
+		f(a.*x, b.*x);
+		f(a.*y, b.*y);
 		Range (i, n) {
 			Range (j, n)
-				out((j == x1 || j == x2)
-				   	&& (i == y1 || i == y2) ? '*' : '.');
+				out((j == a.*x || j == b.*x)
+				   	&& (i == a.*y || i == b.*y) ? '*' : '.');
 			outl();
 		}
 	}
