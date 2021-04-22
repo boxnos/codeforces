@@ -86,9 +86,7 @@ int main() {
 		Range (i, n) {
 			Range (j, n)
 				if (gcu() == '*')
-					[&](auto &c) {
-						c.*y = i, c.*x = j;
-					}(a.*x == -1 ? a : b);
+					(a.*x == -1 ? a : b) = {j, i};
 			gcu();
 		}
 		auto f = [&](auto &z1, auto z2) {
