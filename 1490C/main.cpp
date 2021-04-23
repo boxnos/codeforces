@@ -1,9 +1,10 @@
-#pragma GCC optimize("O2")
+#pragma GCC optimize("O3")
 #include <cstdio>
 #include <utility>
 #include <cctype>
 #include <functional>
 #include <unordered_set>
+#include <unordered_map>
 #include <cmath>
 using namespace std;
 
@@ -75,15 +76,16 @@ struct range{
 using LL = long long;
 
 int main() {
-	unordered_map<long long, bool> s;
+	unordered_map<long long, bool> m;
 	Range (t, in) {
 		outl([&] {
 			LL n {in};
-			for (LL i {1}, s {1}, r; s <= (n + 1) / 2; i++, s = i * i * i) {
+			if (m.count(n))
+				return m[n];
+			for (LL i {1}, s {1}, r; s <= (n + 1) / 2; i++, s = i * i * i)
 				if ((r = cbrt(n - s)) > 0 && r * r * r == n - s)
-					return true;
-			}
-			return false;
+					return m[n] = true;
+			return m[n] = false;
 		}() ? "YES" : "NO");
 	}
 }
