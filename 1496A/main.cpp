@@ -80,7 +80,7 @@ int main() {
 	Range (t, in) {
 		int n {in}, k {in};
 		string s = in;
-		outl(n >= k * 2 + 1 &&
+		outl(n > k * 2 &&
 			[&] {
 			Range (i, k)
 				if (s[i] != s[n - i - 1])
