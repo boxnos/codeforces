@@ -80,18 +80,15 @@ struct range{
 
 int main() {
 	Range (t, in) {
-		int n {in}, k {in};
+		int n {in}, k {in}, r {1};
 		string s = in;
-		int i = find(begin(s), end(s), '*') - begin(s), l = i;
-		vector<int> d(n, INT_MAX/2);
-		d[i++] = 1;
-		for (;i < n; i++)
-			if (s[i] == '*') {
-				for (int j {i - 1}; j >= 0 && i - j <= k; j--)
-					d[i] = min(d[i], d[j] + 1);
-				l = i;
-			}
-		outl(d[l]);
+		for (int i = s.find_first_of('*'), j;; r++, i = j) {
+			for (j = min(n - 1, i + k); i < j && s[j] == '.'; j--)
+				;
+			if (i == j)
+				break;
+		}
+		outl(r);
 	}
 }
 
