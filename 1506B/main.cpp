@@ -82,8 +82,8 @@ int main() {
 	Range (t, in) {
 		int n {in}, k {in}, r {1};
 		string s = in;
-		for (int i = s.find_first_of('*'), j;; r++, i = j) {
-			for (j = min(n - 1, i + k); i < j && s[j] == '.'; j--)
+		for (int i = s.find_first_of('*'); int j = min(n - 1, i + k); r++, i = j) {
+			for (; i < j && s[j] == '.'; j--)
 				;
 			if (i == j)
 				break;
