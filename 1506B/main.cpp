@@ -78,24 +78,18 @@ struct range{
 #define dbg(...) fprintf(stderr,__VA_ARGS__)
 #define tee(s,v) ({dbg(s,v);v;})
 
-using M = map<int, int>;
-
 int main() {
 	Range (t, in) {
 		int n {in}, k {in};
 		string s = in;
 		int i = find(begin(s), end(s), '*') - begin(s), l = i;
-		M d {{i++, 1}};
+		vector<int> d(n, INT_MAX/2);
+		d[i++] = 1;
 		for (;i < n; i++)
 			if (s[i] == '*') {
-				M e;
-				auto f = [&] (int i, int c) {
-					e[i] = e.count(i) ? min(e[i], c) : c;
-				};
-				for (auto [j, c]: d)
-					if (i - j <= k)
-						f(i, c + 1), f(j, c);
-				d = e, l = i;
+				for (int j {i - 1}; j >= 0 && i - j <= k; j--)
+					d[i] = min(d[i], d[j] + 1);
+				l = i;
 			}
 		outl(d[l]);
 	}
