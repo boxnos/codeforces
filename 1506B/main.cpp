@@ -6,7 +6,7 @@
 #include <array>
 
 #include <string>
-#include <set>
+#include <map>
 #include <climits>
 using namespace std;
 
@@ -78,30 +78,26 @@ struct range{
 #define dbg(...) fprintf(stderr,__VA_ARGS__)
 #define tee(s,v) ({dbg(s,v);v;})
 
-using P = pair<int, int>;
-using SP = set<P>;
+using M = map<int, int>;
 
 int main() {
 	Range (t, in) {
-		int n {in}, k {in}, r {INT_MAX};
+		int n {in}, k {in};
 		string s = in;
 		int i = find(begin(s), end(s), '*') - begin(s), l = i;
-		SP d {P{i++, 1}};
+		M d {{i++, 1}};
 		for (;i < n; i++)
 			if (s[i] == '*') {
-				SP e;
-				for (auto [j, c]: d) {
-					if (i - j <= k) {
-						e.insert({i, c + 1});
-						e.insert({j, c});
-					}
-				}
+				M e;
+				auto f = [&] (int i, int c) {
+					e[i] = e.count(i) ? min(e[i], c) : c;
+				};
+				for (auto [j, c]: d)
+					if (i - j <= k)
+						f(i, c + 1), f(j, c);
 				d = e, l = i;
 			}
-		for (auto [j, c]: d)
-			if (j == l)
-				r = min(r, c);
-		outl(r);
+		outl(d[l]);
 	}
 }
 
