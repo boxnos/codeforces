@@ -6,6 +6,7 @@
 #include <array>
 
 #include <vector>
+#include <cmath>
 using namespace std;
 
 #ifdef _WIN32
@@ -82,15 +83,9 @@ int main() {
 		vector<int> a = in.read(n);
 		outl([&] {
 			 for (int i: a) {
-				unordered_map<int, int> m;
-				for (int j {2}; j * j <= i; j++)
-					for (;!(i % j);)
-						i /= j, m[j]++;
-				if (i > 1)
-					m[i]++;
-				for (auto j: m)
-					if (j.second % 2)
-						return "YES";
+				int j = sqrt(i);
+				if (i != j * j)
+					return "YES";
 			}
 			return "NO";
 			}());
