@@ -81,19 +81,14 @@ using LL = long long;
 
 int main() {
 	Range (t, in) {
-		outl([] {
-			 int r {};
-			 for (LL n {in}, d {1}; n; d *= 10) {
-				LL a {n % (d * 500)};
-				if (a % (d * 50))
-					return -1;
-				else {
-					LL b {a / (d * 50)};
-					r += b, n -= b * 2050 * d;
-				}
-			 }
-			 return r;
-		}());
+		LL n {in}, r {};
+		if (n % 2050)
+			outl(-1);
+		else  {
+			for (n /= 2050; n; n /= 10)
+				r += n % 10;
+			outl(r);
+		}
 	}
 }
 
