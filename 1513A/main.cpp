@@ -82,7 +82,7 @@ using LL = long long;
 int main() {
 	Range (t, in) {
 		int n {in}, k {in}, i {2};
-		if (k * 2 + 1 > n) {
+		if (k * 2 >= n) {
 			outl(-1);
 			continue;
 		}
