@@ -87,23 +87,15 @@ int main() {
 		Range (i, n)
 			Range (j, m)
 				v[i][j] = in;
-		auto f = [&] (int i, int b) {
-			Range (j, m) {
-				bool d = j % (m - 1);
-				if ((d && v[i][j] > b) || (!d && v[i][j] >= b))
-					return false;
-				else
-					v[i][j] = b - !d;
-			}
-			return true;
-		};
 		if ([&] {
-			for (int i: {0, n - 1})
-				if (!f(i, 3))
-					return false;
-			Range (i, 1, n - 1)
-				if (!f(i, 4))
-					return false;
+			Range (i, n)
+				Range (j, m) {
+					int d = 4 - !(i % (n - 1)) - !(j % (m - 1));
+					if (v[i][j] > d)
+						return false;
+					else
+						v[i][j] = d;
+				}
 			return true;
 		}()) {
 			outl("YES");
