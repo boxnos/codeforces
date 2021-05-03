@@ -6,7 +6,6 @@
 #include <array>
 
 #include <string>
-#include <climits>
 using namespace std;
 
 #ifdef _WIN32
@@ -79,21 +78,17 @@ struct range{
 #define dbg(...) fprintf(stderr,__VA_ARGS__)
 #define tee(s,v) ({dbg(s,v);v;})
 
-enum {inf=INT_MAX / 2};
-
 int main() {
 	Range (t, in) {
 		string s = in;
-		int z {-inf}, o {-inf};
-		Range(i, size(s)) {
-			if (s[i] == '0')
-				o = (o + 1 < i) ? i : inf;
-			else if (z + 1 < i)
-				z = i;
-			else if (z != inf)
-				o = z, z = inf;
-		}
-		outl(z < inf || o < inf ? "YES" : "NO");
+		outl([&] {
+			for (size_t i {1}, f {}; i < size(s); i++)
+				if (!f && s[i - 1] == '1' && s[i] == '1')
+					f = 1, i++;
+				else if (f && s[i - 1] == '0' && s[i] == '0')
+					return false;
+			return true;
+			}() ? "YES" : "NO");
 	}
 }
 
