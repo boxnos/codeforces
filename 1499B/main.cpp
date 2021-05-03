@@ -6,6 +6,7 @@
 #include <array>
 
 #include <string>
+#include <regex>
 using namespace std;
 
 #ifdef _WIN32
@@ -79,17 +80,9 @@ struct range{
 #define tee(s,v) ({dbg(s,v);v;})
 
 int main() {
-	Range (t, in) {
-		string s = in;
-		outl([&] {
-			for (size_t i {1}, f {}; i < size(s); i++)
-				if (!f && s[i - 1] == '1' && s[i] == '1')
-					f = 1, i++;
-				else if (f && s[i - 1] == '0' && s[i] == '0')
-					return false;
-			return true;
-			}() ? "YES" : "NO");
-	}
+	auto r {regex("11.*00")};
+	Range (t, in)
+		outl(regex_search((const string &) in, r) ? "NO" : "YES");
 }
 
 /* vim: set ts=4 noet: */
