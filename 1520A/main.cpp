@@ -5,6 +5,7 @@
 #include <functional>
 #include <array>
 
+#include <iterator>
 #include <string>
 #include <unordered_set>
 using namespace std;
@@ -79,13 +80,17 @@ struct range{
 #define dbg(...) fprintf(stderr,__VA_ARGS__)
 #define tee(s,v) ({dbg(s,v);v;})
 
+_TT inline T find_not(T b, T e, _TN iterator_traits<T>::value_type v) {
+	return find_if(b, e, [v](_TN iterator_traits<T>::value_type a){return v != a;});
+}
+
 int main() {
 	Range (t, in) {
 		(int) in;
 		string s = in;
 		unordered_set<char> m;
 		outl([&] {
-			for (auto i {begin(s)}; i != end(s); m.insert(*exchange(i, find_if(i, end(s), [&](char c) {return *i != c;}))))
+			for (auto i {begin(s)}; i != end(s); m.insert(*exchange(i, find_not(i, end(s), *i))))
 				if (m.count(*i))
 					return "NO";
 			return "YES";
