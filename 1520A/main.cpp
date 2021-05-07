@@ -81,16 +81,13 @@ struct range{
 
 int main() {
 	Range (t, in) {
-		int n {in};
+		(int) in;
 		string s = in;
 		unordered_set<char> m;
 		outl([&] {
-			for (int i {}, j; i < n; m.insert(s[i]), i = j) {
-				if (m.count(s[i]))
+			for (auto i {begin(s)}; i != end(s); m.insert(*exchange(i, find_if(i, end(s), [&](char c) {return *i != c;}))))
+				if (m.count(*i))
 					return "NO";
-				for (j = i; j < n && s[j] == s[i]; j++)
-					;
-			}
 			return "YES";
 		}());
 	}
