@@ -90,9 +90,9 @@ int main() {
 			continue;
 		}
 		outl("YES");
-		for (int i {}, a {}; i < n && a < x; i++)
-			if (x == (a += w[i])) {
-				swap(w[i], w[i + 1]);
+		for (int i {1}; i < n && x > 0; i++)
+			if (!(x -= w[i - 1])) {
+				swap(w[i - 1], w[i]);
 				break;
 			}
 		outl(w);
