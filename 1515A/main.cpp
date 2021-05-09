@@ -81,21 +81,21 @@ struct range{
 
 int main() {
 	Range (t, in) {
-		int n {in}, x {in};
-		vector<int> w = in.read(n);
-		int i {1}, s {w[0]};
-		for (;i < n; s += w[i++])  {
-			if (x == s) {
-				swap(w[i - 1], w[i]);
-				s += w[i];
+		int n {in}, x {in}, a {};
+		vector<int> w(n);
+		for (int &i: w)
+			a += (i = in);
+		if (a == x) {
+			outl("NO");
+			continue;
+		}
+		outl("YES");
+		for (int i {}, a {}; i < n && a < x; i++)
+			if (x == (a += w[i])) {
+				swap(w[i], w[i + 1]);
 				break;
 			}
-		}
-		if (s != x) {
-			outl("YES");
-			outl(w);
-		} else
-			outl("NO");
+		outl(w);
 	}
 }
 
