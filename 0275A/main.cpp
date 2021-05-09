@@ -82,14 +82,9 @@ int main() {
 	Range (i, 3) {
 		Range (j, 3) {
 			int r {a[i][j]};
-			if (i < 2)
-				r += a[i + 1][j];
-			if (i > 0)
-				r += a[i - 1][j];
-			if (j < 2)
-				r += a[i][j + 1];
-			if (j > 0)
-				r += a[i][j - 1];
+			for (int k {}, x {0}, y {1}; k < 4; k++, swap(x, y *= -1))
+				if (0 <= y + i && y + i <= 2 && 0 <= x + j && x + j <= 2)
+					r += a[i + y][j + x];
 			out(!(r % 2));
 		}
 		outl();
