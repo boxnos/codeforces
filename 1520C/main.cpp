@@ -58,7 +58,9 @@ _OUT(char c){pcu(c);}
 _OUT(string s){for(char c:s)pcu(c);}
 #endif
 //_OUT(int n) {printf("%d",n);}
-_TT _OUT(T n){static char b[20];char *p=b;if(!n)*p++='0';else while(n)*p++=(char)(n%10+'0'),n/=10;while(p!=b)pcu(*--p);}
+_TT _DEF(void,_OUTX,T n){if(n<10)pcu(n+'0');else _OUTX(n/10),pcu(n%10+'0');}
+_TT _OUT(T n){if(n<0)pcu('-'),n=-n;_OUTX(n);}
+//_TT _OUT(T n){static char b[20];char *p=b;if(!n)*p++='0';else while(n)*p++=(char)(n%10+'0'),n/=10;while(p!=b)pcu(*--p);}
 //_TT _OUT(T n){static char b[20];char *p=b;T m=n<0?pcu('-'),-1:1;if(!n)*p++='0';else while(n)*p++=(char)(n%10*m+'0'),n/=10;while(p!=b)pcu(*--p);}
 _TT _OUT(initializer_list<T> &v){for(auto i{begin(v)};i!=end(v);i++)out(i==begin(v)?"":" "),out(*i);}
 #ifdef _GLIBCXX_VECTOR
