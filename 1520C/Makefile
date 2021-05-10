@@ -33,7 +33,7 @@ debug-in%:
 	gdb ./$(target)
 
 profile:
-	$(make) -B test CXXFLAGS="$(FLAGS) -pg -g"
+	-@$(make) -B test CXXFLAGS="$(FLAGS) -pg -g"
 	gprof ./$(target) gmon.out | less
 	$(make) clean
 
