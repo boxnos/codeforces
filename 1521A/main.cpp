@@ -81,15 +81,12 @@ struct range{
 int main() {
 	Range (t, in) {
 		long long A {in}, B {in};
-		if (B == 1) {
+		if (B < 2)
 			outl("NO");
-			continue;
+		else {
+			outl("YES");
+			outl({A, A * (2 * B - 1), A * B * 2});
 		}
-		outl("YES");
-		if (B > 2)
-			outl({A, A * (B - 1), A * B});
-		else
-			outl({A, A * 3, A * 4});
 	}
 }
 
