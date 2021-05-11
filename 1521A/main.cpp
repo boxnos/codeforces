@@ -80,12 +80,12 @@ struct range{
 
 int main() {
 	Range (t, in) {
-		long long A {in}, B {in};
+		long long A {in}, B {in}, AB2 {A * B * 2};
 		if (B < 2)
 			outl("NO");
 		else {
 			outl("YES");
-			outl({A, A * (2 * B - 1), A * B * 2});
+			outl({A, AB2 - A, AB2});
 		}
 	}
 }
