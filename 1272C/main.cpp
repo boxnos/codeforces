@@ -66,7 +66,7 @@ template <typename T=int>
 struct range{
 	T e,b=0,s=1;range(T b,T e,T s):e(e),b(b),s(s){} range(T b,T e): e(e), b(b){} range(T e):e(e){}
 	struct it{T v,s; it(T v,T s):v(v),s(s){} operator T()const{return v;} _I operator T&(){return v;}T operator*()const{return v;}
-		_I it& operator++(){v+=s;return *this;} }; it begin(){return {b,s};} it end(){return {e,s};}};
+		_I it& operator++(){v+=s;return *this;}}; it begin(){return {b,s};} it end(){return {e,s};}};
 #define Range(b, ...) for([[maybe_unused]] auto b: range((int) __VA_ARGS__))
 #define dbg(...) fprintf(stderr,__VA_ARGS__)
 #define tee(s,v) ({dbg(s,v);v;})
