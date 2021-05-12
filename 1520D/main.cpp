@@ -79,16 +79,12 @@ struct range{
 #define dbg(...) fprintf(stderr,__VA_ARGS__)
 #define tee(s,v) ({dbg(s,v);v;})
 
-using LL = long long;
-
 int main() {
 	Range (t, in) {
-		LL n {in}, r {};
-		unordered_map<LL, LL> m;
-		Range (i, n)
-			m[(int) in - i]++;
-		for (auto p: m)
-			r += p.second * (p.second - 1) / 2;
+		long long r {};
+		unordered_map<int, int> m;
+		Range (i, in)
+			r += m[(int) in - i]++;
 		outl(r);
 	}
 }
