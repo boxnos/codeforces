@@ -85,15 +85,10 @@ struct almost_prime {
 		int a {};
 		for (size_t i {2}; i < size(p); i++) {
 			size_t x {i}, c {};
-			for (int j {2}; j * j <= i; j++) {
-				if (!(x % j))
-					c++;
-				for (;!(x % j); x /= j)
+			for (int j {2}; j * j <= i; j++)
+				for (c += !(x % j);!(x % j); x /= j)
 					;
-			}
-			if (x != 1)
-				c++;
-			p[i] = a += (c == 2);
+			p[i] = a += ((c += (x != 1)) == 2);
 		}
 	}
 };
