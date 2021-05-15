@@ -82,7 +82,8 @@ int main() {
 	Range (t, in) {
 		int n {in}, s {in};
 		Range (i, n - 2)
-			(int) in;
+			while (gcu() != ' ')
+				;
 		outl(s < (int) in ? "YES" : "NO");
 	}
 }
