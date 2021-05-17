@@ -5,7 +5,8 @@
 #include <functional>
 #include <array>
 
-#include <deque>
+#include <vector>
+#include <algorithm>
 using namespace std;
 
 #ifdef _WIN32
@@ -81,18 +82,12 @@ struct range{
 
 int main() {
 	int n {in}, q {in};
-	deque<int> d;
-	Range (i, n) {
-		int a {in};
-		d.push_back(a);
-	}
-
+	vector<int> d = in.read(n);
 	Range (i, q) {
 		int t {in};
 		auto r = find(begin(d), end(d), t);
 		out(r - begin(d) + 1, ' ');
-		d.push_front(*r);
-		d.erase(r);
+		rotate(begin(d), r, r + 1);
 	}
 	outl();
 }
