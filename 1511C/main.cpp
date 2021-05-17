@@ -5,8 +5,7 @@
 #include <functional>
 #include <array>
 
-#include <forward_list>
-#include <algorithm>
+#include <vector>
 using namespace std;
 
 #ifdef _WIN32
@@ -83,21 +82,19 @@ struct range{
 
 int main() {
 	int n {in}, q {in};
-	forward_list<int> d(n);
-	for (int &i: d)
-		i = in;
+	vector<int> d(51, -1);
+	Range (i, n) {
+		int a {in};
+		if (d[a] < 0)
+			d[a] = i;
+	}
 	Range (i, q) {
-		int t {in}, c {1};
-		for (auto j {d.before_begin()};; c++) {
-			auto k {next(j)};
-			if (*k == t) {
-				d.erase_after(j);
-				break;
-			}
-			j = k;
-		}
-		out(c, ' ');
-		d.push_front(t);
+		int t {in}, j {d[t]};
+		d[t] = 0;
+		Range (i, 1, 51)
+			if (t != i && d[i] < j)
+				d[i]++;
+		out(j + 1, ' ');
 	}
 	outl();
 }
