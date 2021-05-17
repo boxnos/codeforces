@@ -83,15 +83,11 @@ struct range{
 
 int main() {
 	int n {in}, q {in};
-	forward_list<int> d;
-	function<void(int)> read = [&](int n) {
-		if (!n)
-			return;
-		int a {in};
-		read(n - 1);
-		d.push_front(a);
-	};
-	read(n);
+	forward_list<int> d, x;
+	Range (i, n)
+		x.push_front(in);
+	for (int i: x)
+		d.push_front(i);
 	Range (i, q) {
 		int t {in}, c {1};
 		for (auto j {d.before_begin()};; c++) {
