@@ -5,7 +5,7 @@
 #include <functional>
 #include <array>
 
-#include <vector>
+#include <unordered_map>
 using namespace std;
 
 #ifdef _WIN32
@@ -82,19 +82,19 @@ struct range{
 
 int main() {
 	int n {in}, q {in};
-	vector<int> d(51, -1);
+	unordered_map<int, int> d;
 	Range (i, n) {
 		int a {in};
-		if (d[a] < 0)
+		if (!d.count(a))
 			d[a] = i;
 	}
 	Range (i, q) {
-		int t {in}, j {d[t]};
+		int t {in}, x {d[t]};
+		for (auto &[f, s]: d)
+			if (s < x)
+				s++;
 		d[t] = 0;
-		Range (i, 1, 51)
-			if (t != i && d[i] < j)
-				d[i]++;
-		out(j + 1, ' ');
+		out(x + 1, ' ');
 	}
 	outl();
 }
