@@ -5,7 +5,7 @@
 #include <functional>
 #include <array>
 
-#include <vector>
+#include <forward_list>
 #include <algorithm>
 using namespace std;
 
@@ -80,14 +80,30 @@ struct range{
 #define dbg(...) fprintf(stderr,__VA_ARGS__)
 #define tee(s,v) ({dbg(s,v);v;})
 
+
 int main() {
 	int n {in}, q {in};
-	vector<int> d = in.read(n);
+	forward_list<int> d;
+	function<void(int)> read = [&](int n) {
+		if (!n)
+			return;
+		int a {in};
+		read(n - 1);
+		d.push_front(a);
+	};
+	read(n);
 	Range (i, q) {
-		int t {in};
-		auto r = find(begin(d), end(d), t);
-		out(r - begin(d) + 1, ' ');
-		rotate(begin(d), r, r + 1);
+		int t {in}, c {1};
+		for (auto j {d.before_begin()};; c++) {
+			auto k {next(j)};
+			if (*k == t) {
+				d.erase_after(j);
+				break;
+			}
+			j = k;
+		}
+		out(c, ' ');
+		d.push_front(t);
 	}
 	outl();
 }
