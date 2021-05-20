@@ -81,28 +81,27 @@ struct range{
 #define dbg(...) fprintf(stderr,__VA_ARGS__)
 #define tee(s,v) ({dbg(s,v);v;})
 
+using P = pair<int, int>;
 
 int main() {
+	auto set = [](auto &o, int a, int b) {
+		o[a] = !o.count(a) ? P{b, b} : P{min(o[a].first, b), max(o[a].second, b)};
+	};
+	auto check = [](auto &o, int a, int b) {
+		return o[a].first != b && o[a].second != b;
+	};
 	int n {in}, r {};
 	unordered_map<int, vector<int>> p;
-	unordered_map<int, pair<int, int>> mx, my;
+	unordered_map<int, P> mx, my;
 	Range (t, n) {
 		int x {in}, y {in};
 		p[x].push_back(y);
-		if (!mx.count(x))
-			mx[x] = {y, y};
-		else
-			mx[x] = {min(mx[x].first, y), max(mx[x].second, y)};
-
-		if (!my.count(y))
-			my[y] = {x, x};
-		else
-			my[y] = {min(my[y].first, x), max(my[y].second, x)};
+		set(mx, x, y);
+		set(my, y, x);
 	}
 	for (auto [x, ys] : p)
 		for (int y : ys)
-			r += mx[x].first != y && mx[x].second != y &&
-				 my[y].first != x && my[y].second != x;
+			r += check(mx, x, y) && check(my, y, x);
 	outl(r);
 }
 
