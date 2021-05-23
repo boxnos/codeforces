@@ -94,20 +94,21 @@ int main() {
 	}
 	queue<P> q;
 	q.push({sx, sy});
-	for (;;) {
-		auto [x, y] = q.front();
-		q.pop();
-		if (a[y][x] != 'X')
-			continue;
-		a[y][x] = '.';
-		if (!--s)
-			break;
-		for (auto [tx, ty] : {P{1, 0}, P{0, 1}, P{-1, 0}, P{0, -1}}) {
-			tx += x, ty += y;
-			if (a[ty][tx] == 'X')
-				q.push({tx, ty});
+	a[sy][sx] = '.';
+	s--;
+	[&] {
+		for (;;) {
+			auto [x, y] = q.front();
+			q.pop();
+			for (auto [tx, ty] : {P{1, 0}, P{0, 1}, P{-1, 0}, P{0, -1}})
+				if (a[ty += y][tx += x] == 'X') {
+					a[ty][tx] = '.';
+					if (!--s)
+						return;
+					q.push({tx, ty});
+				}
 		}
-	}
+	}();
 	Range (i, 1, n + 1) {
 		Range (j, 1, m + 1)
 			out(a[i][j]);
