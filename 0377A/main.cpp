@@ -82,37 +82,36 @@ struct range{
 
 _TT using V = vector<T>;
 using P = pair<int, int>;
+#define Frame(i, o) Range (i, 1, o + 1)
 
 int main() {
 	int n {in}, m {in}, s {-(int) in}, sy {}, sx {};
 	V<V<char>> a(n + 2, V<char>(m + 2, '#'));
-	Range (i, 1, n + 1) {
-		Range (j, 1, m + 1)
+	Frame (i, n) {
+		Frame (j, m)
 			if ('.' == (a[i][j] = gcu()))
 				a[i][j] = 'X', s++, sy = i, sx = j;
 		gcu();
 	}
-	queue<P> q;
-	q.push({sx, sy});
-	a[sy][sx] = '.';
-	s--;
 	[&] {
-		if (!s)
+		queue<P> q;
+		auto push = [&] (int x, int y) {
+			q.push({x, y});
+			a[y][x] = '.';
+			return !--s;
+		};
+		if (push(sx, sy))
 			return;
 		for (;;) {
 			auto [x, y] = q.front();
 			q.pop();
 			for (auto [tx, ty] : {P{1, 0}, P{0, 1}, P{-1, 0}, P{0, -1}})
-				if (a[ty += y][tx += x] == 'X') {
-					a[ty][tx] = '.';
-					if (!--s)
-						return;
-					q.push({tx, ty});
-				}
+				if (a[ty += y][tx += x] == 'X' && push(tx, ty))
+					return;
 		}
 	}();
-	Range (i, 1, n + 1) {
-		Range (j, 1, m + 1)
+	Frame (i, n) {
+		Frame (j, m)
 			out(a[i][j]);
 		outl();
 	}
