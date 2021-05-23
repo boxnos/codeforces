@@ -98,15 +98,15 @@ int main() {
 		auto push = [&] (int x, int y) {
 			q.push({x, y});
 			a[y][x] = '.';
-			return !--s;
+			return --s;
 		};
-		if (push(sx, sy))
+		if (!push(sx, sy))
 			return;
 		for (;;) {
 			auto [x, y] = q.front();
 			q.pop();
 			for (auto [tx, ty] : {P{1, 0}, P{0, 1}, P{-1, 0}, P{0, -1}})
-				if (a[ty += y][tx += x] == 'X' && push(tx, ty))
+				if (a[ty += y][tx += x] == 'X' && !push(tx, ty))
 					return;
 		}
 	}();
