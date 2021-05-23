@@ -85,28 +85,32 @@ using P = pair<int, int>;
 
 int main() {
 	int n {in}, m {in}, s {-(int) in}, sy {}, sx {};
-	V<V<char>> a(n, V<char>(m));
-	Range (i, n) {
-		Range (j, m)
+	V<V<char>> a(n + 2, V<char>(m + 2, '#'));
+	Range (i, 1, n + 1) {
+		Range (j, 1, m + 1)
 			if ('.' == (a[i][j] = gcu()))
 				a[i][j] = 'X', s++, sy = i, sx = j;
 		gcu();
 	}
-	function<void(int, int)> f = [&](int x, int y) {
-		if (!s)
-			return;
-		s--;
+	queue<P> q;
+	q.push({sx, sy});
+	for (;;) {
+		auto [x, y] = q.front();
+		q.pop();
+		if (a[y][x] != 'X')
+			continue;
 		a[y][x] = '.';
+		if (!--s)
+			break;
 		for (auto [tx, ty] : {P{1, 0}, P{0, 1}, P{-1, 0}, P{0, -1}}) {
 			tx += x, ty += y;
-			if (0 <= tx && tx < m && 0 <= ty && ty < n && a[ty][tx] == 'X' && s)
-				f(tx, ty);
+			if (a[ty][tx] == 'X')
+				q.push({tx, ty});
 		}
-	};
-	f(sx, sy);
-	for (auto i: a) {
-		for (char j: i)
-			out(j);
+	}
+	Range (i, 1, n + 1) {
+		Range (j, 1, m + 1)
+			out(a[i][j]);
 		outl();
 	}
 }
