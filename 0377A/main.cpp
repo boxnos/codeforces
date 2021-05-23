@@ -97,6 +97,8 @@ int main() {
 	a[sy][sx] = '.';
 	s--;
 	[&] {
+		if (!s)
+			return;
 		for (;;) {
 			auto [x, y] = q.front();
 			q.pop();
