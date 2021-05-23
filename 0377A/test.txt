@@ -4,8 +4,8 @@
 ..#.
 #...
 # outputCopy
-#XX#
-..#.
+#.X#
+..#X
 #...
 # inputCopy
 5 4 5
