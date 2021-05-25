@@ -6,6 +6,7 @@
 #include <array>
 
 #include <vector>
+#include <algorithm>
 using namespace std;
 
 #ifdef _WIN32
@@ -83,12 +84,7 @@ int main() {
 	Range (t, in) {
 		int n {in};
 		vector<int> a = in.read(n);
-		outl([&] {
-			Range (i, n)
-				if (a[i] != i + 1)
-					return false;
-			return true;
-			}() ? 0 : a[0] == 1 || a.back() == n ? 1 : a[0] == n && a.back() == 1 ? 3 : 2);
+		outl(find_if(begin(a), end(a), [&](int &i) {return i != (&i - &a[0]) + 1;}) == end(a) ? 0 : a[0] == 1 || a.back() == n ? 1 : a[0] == n && a.back() == 1 ? 3 : 2);
 	}
 }
 
