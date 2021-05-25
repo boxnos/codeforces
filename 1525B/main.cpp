@@ -84,7 +84,7 @@ int main() {
 	Range (t, in) {
 		int n {in};
 		vector<int> a = in.read(n);
-		outl(find_if(begin(a), end(a), [&](int &i) {return i != (&i - &a[0]) + 1;}) == end(a) ? 0 : a[0] == 1 || a.back() == n ? 1 : a[0] == n && a.back() == 1 ? 3 : 2);
+		outl(is_sorted(begin(a), end(a)) ? 0 : a[0] == 1 || a.back() == n ? 1 : a[0] == n && a.back() == 1 ? 3 : 2);
 	}
 }
 
