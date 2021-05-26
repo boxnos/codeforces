@@ -1,0 +1,9 @@
+# inputCopy
+3
+2
+5
+17
+# outputCopy
+1
+3
+15
