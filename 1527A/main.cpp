@@ -4,6 +4,7 @@
 #include <cctype>
 #include <functional>
 #include <array>
+#include <limits>
 using namespace std;
 
 #ifdef _WIN32
@@ -79,7 +80,7 @@ struct range{
 
 int main() {
 	Range (t, in)
-		outl((1 << (31 - __builtin_clz((int) in))) - 1);
+		outl((1 << (numeric_limits<int>::digits - __builtin_clz((int) in))) - 1);
 }
 
 /* vim: set ts=4 noet: */
