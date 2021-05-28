@@ -84,11 +84,7 @@ using LL = long long;
 
 int main() {
 	LL n {in};
-	int b = [&] {
-		for (int i {1};; i++)
-			if ((LL)pow(i, 10) >= n)
-				return i;
-	}();
+	int b = pow(n, .1) + 1;
 	int p = [&] {
 		for (int i {}; i <= 10; i++)
 			if ((LL)pow(b, i) * (LL)pow(b - 1, 10 - i) >= n)
