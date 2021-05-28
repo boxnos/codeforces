@@ -80,15 +80,16 @@ struct range{
 #define dbg(...) fprintf(stderr,__VA_ARGS__)
 using LL = long long;
 #define tee(s,v) ({dbg(s,v);v;})
-int tap(int v) {return tee("%d\n", v);}
-LL tap(LL v) {return tee("%lld\n", v);}
+int tap(int v) {return tee("%d", v);}
+LL tap(LL v) {return tee("%lld", v);}
+_TT T tapl(T v){tap(v);dbg("\n");return v;}
 
 int main() {
 	LL n {in};
 	int b = pow(n, .1), p = [&] {
 		LL c = (LL)pow(b, 10);
 		for (int i {}; i < 10; i++, c = c / b * (b + 1))
-			if (c >= n)
+			if (tapl(c) >= n)
 				return i;
 		return 10;
 	}();
