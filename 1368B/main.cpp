@@ -84,15 +84,15 @@ using LL = long long;
 
 int main() {
 	LL n {in};
-	int b = pow(n, .1) + 1;
-	int p = [&] {
-		for (int i {}; i <= 10; i++)
-			if ((LL)pow(b, i) * (LL)pow(b - 1, 10 - i) >= n)
+	int b = pow(n, .1), p = [&] {
+		LL c = (LL)pow(b, 10);
+		for (int i {}; i < 10; i++, c = c / b * (b + 1))
+			if (c >= n)
 				return i;
 		return 10;
 	}();
 	Range (i, 10)
-		Range (j, i < p ? b: b - 1)
+		Range (j, i < p ? b + 1: b)
 			out("codeforces"[i]);
 	outl();
 }
