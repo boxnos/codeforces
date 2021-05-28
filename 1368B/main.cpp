@@ -85,9 +85,8 @@ using LL = long long;
 int main() {
 	LL n {in};
 	int b = [&] {
-		double b = n;
 		for (int i {1};; i++)
-			if (pow(i, 10) >= b)
+			if ((LL)pow(i, 10) >= n)
 				return i;
 	}();
 	int p = [&] {
