@@ -78,11 +78,10 @@ struct range{
 		_I it& operator++(){v+=s;return *this;}}; it begin(){return {b,s};} it end(){return {e,s};}};
 #define Range(b, ...) for([[maybe_unused]] auto b: range((int) __VA_ARGS__))
 #define dbg(...) fprintf(stderr,__VA_ARGS__)
-#define tee(s,v) ({dbg(s,v);v;})
-#define teei(v) ({tee("%d\n",v);})
-#define teell(v) ({tee("%lld\n",v);})
-
 using LL = long long;
+#define tee(s,v) ({dbg(s,v);v;})
+int tap(int v) {return tee("%d\n", v);}
+LL tap(LL v) {return tee("%lld\n", v);}
 
 int main() {
 	LL n {in};
