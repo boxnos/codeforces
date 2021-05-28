@@ -79,8 +79,8 @@ struct range{
 #define Range(b, ...) for([[maybe_unused]] auto b: range((int) __VA_ARGS__))
 #define dbg(...) fprintf(stderr,__VA_ARGS__)
 #define tee(s,v) ({dbg(s,v);v;})
-#define teei(v) ({dbg("%d\n",v);v;})
-#define teell(v) ({dbg("%lld\n",v);v;})
+#define teei(v) ({tee("%d\n",v);})
+#define teell(v) ({tee("%lld\n",v);})
 
 using LL = long long;
 
