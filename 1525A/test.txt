@@ -1,0 +1,9 @@
+# inputCopy
+3
+3
+100
+25
+# outputCopy
+100
+1
+4
