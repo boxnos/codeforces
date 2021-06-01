@@ -86,11 +86,11 @@ _TT T tapl(T v){tapp(v);dbg("\n");return v;}
 int main() {
 	Range (t, in) {
 		auto [c, m, x] = in.read<3>();
-		int r = min({c, m, x});
 		if (c < m)
 			swap(c, m);
-		int d = min(c - m, m - r);
-		outl((m - r - d) * 2 / 3 + d + r);
+		int r = min({c, m, x});
+		r += min(c - m, m - r);
+		outl((m - r) * 2 / 3 + r);
 	}
 }
 
