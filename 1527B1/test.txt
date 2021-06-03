@@ -1,0 +1,21 @@
+# inputCopy
+2
+4
+1001
+1
+0
+# outputCopy
+BOB
+BOB
+# tes
+3
+3
+000
+3
+101
+3
+010
+# tes
+ALICE
+BOB
+BOB
