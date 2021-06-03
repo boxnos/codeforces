@@ -1,0 +1,20 @@
+# inputCopy
+test
+west
+# outputCopy
+2
+# inputCopy
+codeforces
+yes
+# outputCopy
+9
+# inputCopy
+test
+yes
+# outputCopy
+7
+# inputCopy
+b
+ab
+# outputCopy
+1
