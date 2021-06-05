@@ -78,9 +78,8 @@ _T <_TN T=int> struct range{
 #define dbg(...) fprintf(stderr,__VA_ARGS__)
 using LL = long long;
 #define tee(s,v) ({dbg(s,v);v;})
-char tapp(char v) {return tee("%c", v);}
-int tapp(int v) {return tee("%d", v);}
-LL tapp(LL v) {return tee("%lld", v);}
+#define TAPP(t, s) t tapp(t v) {return tee(s, v);}
+TAPP(char, "%c") TAPP(int, "%d") TAPP(LL, "%lld")
 _TT T tapp(T v) {for (auto i: v){tapp(i);dbg(" ");}return v;}
 _TT T tapl(T v){tapp(v);dbg("\n");return v;}
 
