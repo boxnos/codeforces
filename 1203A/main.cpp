@@ -90,8 +90,8 @@ int main() {
 		vector<int> p = in.read(n);
 		outl([&] {
 			Range (i, n) {
-				int d {abs(p[i] - p[(i + 1) % n])};
-				if (d > 1 && d != n - 1)
+				int a = abs(p[i] - p[(i + 1) % n]);
+				if (min(a, n - a) > 1)
 					return "NO";
 			}
 			return "YES";}());
