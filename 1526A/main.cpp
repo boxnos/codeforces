@@ -89,7 +89,7 @@ int main() {
 		vector<int> a = in.read(n * 2);
 		sort(begin(a), end(a));
 		Range (i, n)
-			out(a[i], ' ', a[n * 2 - i - 1], ' ');
+			out(a[i], ' ', a[n + i], ' ');
 		outl();
 	}
 }
