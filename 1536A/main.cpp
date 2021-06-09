@@ -91,29 +91,13 @@ int main() {
 	Range (t, in) {
 		int n {in};
 		vector<int> b = in.read(n);
-		sort(begin(b), end(b));
-		if (b[0] < 0) {
+		if(find_if(begin(b), end(b), [](int n) {return n < 0;}) != end(b)) {
 			outl("NO");
 			continue;
 		}
-		auto g = [&](int s) {
-			int t = b[s];
-			for (int i {s + 1}; i < n; i++)
-				t = gcd(t, b[i] - b[i - 1]);
-			return t;
-		};
-		int r = b[0] > 0 ? g(0) : g(1), e = b[n - 1] / r;
-		if (e > 300 - (b[0] == 0)) {
-			outl("NO");
-			continue;
-		}
-		outl("YES");
-		if (b[0] > 0)
-			outl(e);
-		else
-			outl(e + 1), out(0, ' ');
-		Range(i, 1, e + 1)
-			out(i * r, ' ');
+		outl("YES\n101");
+		Range (i, 101)
+			out(i, ' ');
 		outl();
 	}
 }
