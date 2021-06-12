@@ -1,0 +1,16 @@
+# inputCopy
+4
+a
+zzaaz
+ccff
+cbddbb
+# outputCopy
+a
+z
+
+bc
+# my
+1
+aaaaa
+# my
+a
