@@ -1,0 +1,16 @@
+# inputCopy
+3 7 0
+# outputCopy
+-
+# inputCopy
+2 0 1
+# outputCopy
++
+# inputCopy
+1 1 0
+# outputCopy
+0
+# inputCopy
+0 0 1
+# outputCopy
+?
