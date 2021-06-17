@@ -91,14 +91,14 @@ int main() {
 	Range (i, n)
 		a[i] = {in, i};
 	sort(begin(a), end(a), [](P a, P b) {return a.first < b.first;});
-	for (P i: a)
-		dbg("{%d, %d} ", i.first, i.second);
-	dbg("\n");
 	int m {in};
+	vector<int> b = in.read(m);
 	LL p {}, v {};
-	Range (i, m) {
-		int r = lower_bound(begin(a), end(a), P{in, 0}, [](P x, P a){return x.first < a.first;})->second;
-		p += r + 1, v += n - r;
+	sort(begin(b), end(b));
+	auto i {a.begin()};
+	for (int q: b) {
+		i = find_if(i, end(a), [&](P x) {return x.first == q;});
+		p += i->second + 1, v += n - i->second;
 	}
 	outl(p, ' ', v);
 }
