@@ -83,22 +83,16 @@ TAPP(char, "%c") TAPP(int, "%d") TAPP(LL, "%lld")
 _TT T tapp(T v) {for (auto i: v){tapp(i);dbg(" ");}return v;}
 _TT T tapl(T v){tapp(v);dbg("\n");return v;}
 
-using P = pair<int, int>;
-
 int main() {
 	int n {in};
-	vector<P> a(n);
+	vector<int> a(n + 1);
 	Range (i, n)
-		a[i] = {in, i};
-	sort(begin(a), end(a), [](P a, P b) {return a.first < b.first;});
+		a[(int) in] = i;
 	int m {in};
-	vector<int> b = in.read(m);
 	LL p {}, v {};
-	sort(begin(b), end(b));
-	auto i {a.begin()};
-	for (int q: b) {
-		i = find_if(i, end(a), [&](P x) {return x.first == q;});
-		p += i->second + 1, v += n - i->second;
+	Range (i, m) {
+		int q {a[(int) in]};
+		p += q + 1, v += n - q;
 	}
 	outl(p, ' ', v);
 }
