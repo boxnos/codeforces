@@ -87,13 +87,9 @@ int main() {
 		int n {in}, l {}, g {};
 		Range (i, n) {
 			int a {in};
-			if (a == 1)
-				l = i;
-			else if (a == n)
-				g = i;
+			if (a == 1 || a == n)
+				l = i, swap(l, g);
 		}
-		if (l > g)
-			swap(l, g);
 		outl(min({n - l, g + 1, n + 1 - g + l}));
 	}
 }
