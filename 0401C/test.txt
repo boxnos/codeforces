@@ -1,0 +1,28 @@
+# inputCopy
+1 2
+# outputCopy
+101
+# inputCopy
+4 8
+# outputCopy
+110110110101
+# inputCopy
+4 10
+# outputCopy
+11011011011011
+# inputCopy
+1 5
+# outputCopy
+-1
+# in
+2 1
+# out
+010
+# in
+3 1
+# out
+-1
+# in
+2 2
+# out
+0101
