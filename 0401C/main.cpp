@@ -5,6 +5,7 @@
 #include <functional>
 #include <array>
 
+#include <string>
 using namespace std;
 
 #ifdef _WIN32
@@ -83,17 +84,19 @@ _TT T tapl(T v){tapp(v);dbg("\n");return v;}
 
 int main() {
 	int n {in}, m {in};
+	auto put {[&](const string s, const string t)
+		{return n == m ? s: (--m, t);}};
 	if (n > m + 1 || 2 * n + 2 < m)
 		outl(-1);
 	else if (n >= m) {
 		Range (i, m)
 			out("01");
-		outl(n == m ? "" : "0");
+		outl(put("", "0"));
 	} else {
 		--m;
 		Range (i, n)
-			out(n == m ? "10" : (--m, "110"));
-		outl(n == m ? "1" : "11");
+			out(put("10", "110"));
+		outl(put("1", "11"));
 	}
 }
 
