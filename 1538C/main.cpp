@@ -91,9 +91,8 @@ int main() {
 		LL s {};
 		vector<int> a = in.read(n);
 		sort(begin(a), end(a));
-		Range (i, n - 1)
-			s += partition_point(begin(a) + i + 1, end(a), [&](int x) {return a[i] + x <= r;})
-			   - partition_point(begin(a) + i + 1, end(a), [&](int x) {return a[i] + x < l;});
+		for (auto i {begin(a)}; i != end(a); i++)
+			s += upper_bound(i + 1, end(a), r - *i) - lower_bound(i + 1, end(a), l - *i);
 		outl(s);
 	}
 }
