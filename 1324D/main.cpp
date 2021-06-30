@@ -92,8 +92,14 @@ int main() {
 	for (int &i : d)
 		i -= (int) in;
 	sort(begin(d), end(d));
-	for (auto i {begin(d)}, t {end(d)}; i != end(d); ++i)
-		r += end(d) - (t = upper_bound(i + 1, max(t, i + 1), -*i));
+	for (auto i {begin(d)}, t {end(d)}; i != end(d); ++i) {
+		if (i < t)
+			for (; i + 1 < t && -*i < *(t - 1); --t)
+				;
+		else
+			t = i + 1;
+		r += end(d) - t;
+	}
 	outl(r);
 }
 
