@@ -92,8 +92,8 @@ int main() {
 	for (int &i : d)
 		i -= (int) in;
 	sort(begin(d), end(d));
-	for (auto i {begin(d)}; i != end(d);++i)
-		r += end(d) - upper_bound(i + 1, end(d), -*i);
+	for (auto i {begin(d)}, t {end(d)}; i != end(d); ++i)
+		r += end(d) - (t = upper_bound(i + 1, max(t, i + 1), -*i));
 	outl(r);
 }
 
