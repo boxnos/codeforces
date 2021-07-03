@@ -63,7 +63,7 @@ OUT_(string s){for(char c:s)pcu(c);}
 TT_ DEF_(void,OUTX_,T n){if(n<10)pcu(n+'0');else OUTX_(n/10),pcu(n%10+'0');}
 TT_ OUT_(T n){if(n<0)pcu('-'),n=-n;OUTX_(n);}
 //TT_ OUT_(T n){static char b[20];char *p=b;T m=n<0?pcu('-'),-1:1;if(!n)*p++='0';else while(n)*p++=(char)(n%10*m+'0'),n/=10;while(p!=b)pcu(*--p);}
-TT_ OUT_(initializer_list<T> &v){for(auto i{begin(v)};i!=end(v);i++)out(i==begin(v)?"":" "),out(*i);}
+TT_ OUT_(initializer_list<T> &v){for(auto i{begin(v)};i!=end(v);++i)out(i==begin(v)?"":" "),out(*i);}
 #ifdef _GLIBCXX_VECTOR
 TT_ OUT_(vector<T> &v){for(T &x:v)out(&x == &v[0]?"":" "),out(x);}
 #endif
@@ -81,7 +81,7 @@ using LL = long long;
 #define tee(s,v) ({dbg(s,v);v;})
 #define TAPP(t, s) t tapp(t v) {return tee(s, v);}
 TAPP(char, "%c") TAPP(int, "%d") TAPP(LL, "%lld")
-TT_ T tapp(T v) {for (auto i: v){tapp(i);dbg(" ");}return v;}
+TT_ T tapp(T v){for (auto i: v){tapp(i);dbg(" ");}return v;}
 TT_ T tapl(T v){tapp(v);dbg("\n");return v;}
 
 int main() {
