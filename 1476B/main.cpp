@@ -90,7 +90,7 @@ int main() {
 		LL s {in}, r {};
 		Range (i, n - 1) {
 			LL p {in};
-			r += max(0LL, (100 * p + k - 1) / k - s - r);
+			r = max(r, (100 * p + k - 1) / k - s);
 			s += p;
 		}
 		outl(r);
