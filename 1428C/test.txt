@@ -1,0 +1,9 @@
+# inputCopy
+3
+AAA
+BABA
+AABBBABBBB
+# outputCopy
+3
+2
+0
