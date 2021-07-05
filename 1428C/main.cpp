@@ -81,7 +81,9 @@ using LL = long long;
 #define tee(s,v) ({dbg(s,v);v;})
 #define TAPP(t, s) t tapp(t v) {return tee(s, v);}
 TAPP(char, "%c") TAPP(int, "%d") TAPP(LL, "%lld")
+#ifdef S_
 string tapp(string s) {return tee("%s", s.c_str());}
+#endif
 TT_ T tapp(T v){for (auto i: v){tapp(i);dbg(" ");}return v;}
 TT_ T tapl(T v){tapp(v);dbg("\n");return v;}
 
