@@ -1,0 +1,24 @@
+# inputCopy
+3
+100
+001
+# outputCopy
+2
+# inputCopy
+4
+0101
+0011
+# outputCopy
+1
+# inputCopy
+6
+010011
+001100
+# outputCopy
+3
+# tes
+8
+10001001
+01101110
+# tes
+4
