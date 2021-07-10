@@ -96,8 +96,8 @@ int main() {
 	Range (i, n)
 		b[i] = gcu() == '1';
 	gcu();
-	for (int i {}; i < n; ++i)
-		i += a[i] != b[i] && ++r && i != n - 1 && a[i] == b[i + 1] && a[i + 1] == b[i];
+	for (int i {}; i < n; i += (a[i] != b[i] && ++r && i != n - 1 && a[i] == b[i + 1] && a[i + 1] == b[i]) + 1)
+		;
 	outl(r);
 }
 
