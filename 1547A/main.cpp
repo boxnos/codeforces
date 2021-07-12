@@ -99,20 +99,11 @@ int d(P a) {
 	return abs(X(a)) + abs(Y(a));
 }
 
-bool inner(int a, int b, int c) {
-	return min(a, b) < c && c < max(a, b);
-}
-
-bool eq(int a, int b, int c) {
-	return a == b && b == c;
-}
-
 int main() {
 	Range (t, in) {
 		gcu();
 		P A {read()}, B {read()}, F {read()};
-		outl(d(A - B) + ((eq(X(A), X(B), X(F)) && inner(Y(A), Y(B), Y(F))) ||
-						 (eq(Y(A), Y(B), Y(F)) && inner(X(A), X(B), X(F))) ? 2 : 0));
+		outl(d(A - B) + ((X(A) == X(B) || Y(A) == Y(B)) && d(A - B) == d(A - F) + d(F - B) ? 2 : 0));
 	}
 }
 
