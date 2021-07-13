@@ -8,6 +8,7 @@
 #include <array>
 
 #include <numeric>
+#include <cmath>
 using namespace std;
 
 #ifdef _WIN32
@@ -91,7 +92,7 @@ int main() {
 	LL n {in}, g {in}, r {};
 	Range (i, n - 1)
 		g = gcd(g, (LL) in);
-	for (LL i {1}; i * i <= g; ++i)
+	for (LL i {1}, e = sqrt(g); i <= e; ++i)
 		if (!(g % i))
 			r += 1 + (i * i != g);
 	outl(r);
