@@ -1,0 +1,25 @@
+# inputCopy
+11
+a
+ba
+ab
+bac
+ihfcbadeg
+z
+aa
+ca
+acb
+xyz
+ddcba
+# outputCopy
+YES
+YES
+YES
+YES
+YES
+NO
+NO
+NO
+NO
+NO
+NO
