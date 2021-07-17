@@ -89,16 +89,20 @@ TT_ T tapp(T v){for (auto i: v){tapp(i);dbg(" ");}return v;}
 TT_ T tapl(T v){tapp(v);dbg("\n");return v;}
 
 int main() {
-	int n {in};
-	vector<LL> a(n + 1);
-	Range (i, n)
-		a[i + 1] = a[i] + (LL) in;
-	outl([&] {
-		Range (i, 1, n)
-			if (binary_search(begin(a) + 1, begin(a) + i + 1, a[n] - a[i]))
-				return a[n] - a[i];
-		return 0LL;
-	}());
+	int n {in}, i {-1}, j {n};
+	vector<int> a {in.read(n)};
+	LL si {}, sj {}, r {};
+	for (; i < j;)
+		if (si < sj)
+			si += a[++i];
+		else if (si > sj)
+			sj += a[--j];
+		else {
+			r = si;
+			si += a[++i];
+			sj += a[--j];
+		}
+	outl(r);
 }
 
 /* vim: set ts=4 noet: */
