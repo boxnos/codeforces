@@ -8,6 +8,7 @@
 #include <array>
 
 #include <string>
+#include <algorithm>
 using namespace std;
 
 #ifdef _WIN32
@@ -91,14 +92,7 @@ int main() {
 	Range (t, in) {
 		int n {in}, a {in}, b {in};
 		string s = in;
-		if (b >= 0)
-			outl(n * (a + b));
-		else {
-			int c {1};
-			Range(i, 1, n)
-				c += s[i - 1] != s[i];
-			outl(a * n + b * (c / 2 + 1));
-		}
+		outl(a * n + max(b * n ,((int) (unique(begin(s), end(s)) - begin(s)) / 2 + 1) * b));
 	}
 }
 
