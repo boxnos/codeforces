@@ -9,6 +9,7 @@
 
 #include <string>
 #include <algorithm>
+#include <climits>
 using namespace std;
 
 #ifdef _WIN32
@@ -90,12 +91,12 @@ TT_ T tapl(T v){tapp(v);dbg("\n");return v;}
 
 int main() {
 	Range (t, in) {
-		int n {in}, c {};
-		vector<int> a {in.read(n)}, d;
+		int n {in}, c {}, d {INT_MAX};
+		vector<int> a {in.read(n)};
 		Range (i, n) {
 			int x {(int) in - a[i]};
-			if (!size(d) || d.back() != x) {
-				d.push_back(x);
+			if (d != x) {
+				d = x;
 				if (x < 0)
 					c = -1;
 				else if (x && c >= 0)
