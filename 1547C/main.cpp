@@ -93,18 +93,18 @@ int main() {
 	Range (t, in) {
 		gcu();
 		int k {in}, n {in}, m {in};
-		V a {in.read(n)}, b {in.read(m)}, r;
+		V a {in.read(n)}, b {in.read(m)}, r(n + m);
 		outl([&] {
 			int i {}, j {};
-			Range (x, n + m) {
+			Range (l, n + m) {
 				if (i < n && !a[i])
-					r.push_back(0), ++i, ++k;
+					++i, ++k;
 				else if (j < m && !b[j])
-					r.push_back(0), ++j, ++k;
+					++j, ++k;
 				else if (i < n && a[i] <= k)
-					r.push_back(a[i]), ++i;
+					r[l] = a[i++];
 				else if (j < m && b[j] <= k)
-					r.push_back(b[j]), ++j;
+					r[l] = b[j++];
 				else
 					return V{-1};
 			}
