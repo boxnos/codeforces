@@ -9,22 +9,21 @@
 
 #include <vector>
 using namespace std;
-
-#ifdef _WIN32
-#define U_(s) _##s##_nolock
-#define _CRT_DISABLE_PERFCRIT_LOCKS
-#else
-#define U_(s) s##_unlocked
-#endif
-#define gcu U_(getchar)
-#define pcu U_(putchar)
-#define DEF_(r, n, ...) inline r n(__VA_ARGS__) noexcept
+#define I_ inline
+#define DEF_(r, n, ...) I_ r n(__VA_ARGS__) noexcept
 #define T_ template
 #define TN_ typename
 #define TT_ T_ <TN_ T>
 #define HT_ T_ <TN_ H,TN_... T>
-#define I_ inline
 #define OP_(t) I_ operator t()
+namespace io {
+	const int s=1<<10;char in[s],*i,*e,out[s],*o=out,*f=o+s-1;
+	I_ char get() {return i==e?e=(i=in)+fread(in,1,s,stdin),i==e?EOF:*i++:*i++;}
+	I_ void flush() {fwrite(out,1,o-out, stdout);o=out;}
+	I_ void put(char c) {*o++=c; if (o==f) flush();}
+	struct flush_ {~flush_(){flush();}} flush__;}
+#define gcu io::get
+#define pcu io::put
 struct in_ {
 #ifdef _GLIBCXX_STRING
 	OP_(string){string s;for(char c;c=gcu(),c!=' '&&c!='\n';)s+=c;return s;}
