@@ -9,12 +9,14 @@
 
 #include <vector>
 using namespace std;
+#define IO_
 #define I_ inline
 #define T_ template
 #define TN_ typename
 #define TT_ T_ <TN_ T>
 #define HT_ T_ <TN_ H,TN_... T>
 #define OP_(t) I_ operator t()
+#ifdef IO_
 namespace io {
 	const int s=1<<10;char in[s],*i,*e,out[s],*o=out,*f=o+s-1;
 	I_ char get(){return i==e?e=(i=in)+fread(in,1,s,stdin),i==e?EOF:*i++:*i++;}
@@ -23,15 +25,21 @@ namespace io {
 	struct flush_{~flush_(){flush();}} flush__;}
 #define gcu io::get
 #define pcu io::put
+#else
+#define gcu getchar
+#define pcu putchar
+#endif
 struct in_ {
 #ifdef _GLIBCXX_STRING
+#define S_
 	OP_(string){string s;for(char c;c=gcu(),c!=' '&&c!='\n';)s+=c;return s;}
 	//OP_(string){string s;char c;while(isspace(c = gcu()));do{s+=c;}while(c=gcu(),c!=' '&&c!='\n'&&c!=EOF);return s;}
 	I_ string read(int n,char c) {string v(n,c);for(char &i:v)i=gcu();return v;}
-#define S_
 #endif
 	OP_(char){char c=gcu();gcu();return c;}
-	//OP_(double){double d; scanf("%lf",&d); gcu();return d;}
+#ifndef IO_
+	OP_(double){double d; scanf("%lf",&d); gcu();return d;}
+#endif
 	//TT_ OP_(T){T n{},c=gcu();do{n=10*n+(c-'0'),c=gcu();}while(c>='0'&&c<='9');return n;}
 	TT_ OP_(T){T n{},m{1},c=gcu();if(c=='-')m=-1,c=gcu();do{n=10*n+(c-'0'),c=gcu();}while(c>='0'&&c<='9');return m*n;}
 	//TT_ OP_(T){T n{},m{1},c;while(isspace(c=gcu()));if(c=='-')m=-1,c=gcu();do{n=10*n+(c-'0'),c=gcu();}while(c>='0'&&c<='9');return m*n;}
