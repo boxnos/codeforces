@@ -10,7 +10,6 @@
 #include <vector>
 using namespace std;
 #define I_ inline
-#define DEF_(r, n, ...) I_ r n(__VA_ARGS__) noexcept
 #define T_ template
 #define TN_ typename
 #define TT_ T_ <TN_ T>
@@ -43,6 +42,7 @@ struct in_ {
 #endif
 	T_ <int N, TN_ T=int> array<T, N> read() {array<T, N> a;for (T &i: a)i=*this;return a;}
 } in;
+#define DEF_(r, n, ...) I_ r n(__VA_ARGS__) noexcept
 #define OUT_(...) DEF_(void,out,__VA_ARGS__)
 #define OUTL_(...) DEF_(void,outl,__VA_ARGS__)
 OUT_(bool b){pcu('0'+b);}
@@ -58,15 +58,15 @@ TT_ OUT_(initializer_list<T> &v){for(auto i{begin(v)};i!=end(v);++i)out(i==begin
 #ifdef _GLIBCXX_VECTOR
 TT_ OUT_(vector<T> &v){for(T &x:v)out(&x == &v[0]?"":" "),out(x);}
 #endif
-HT_ OUT_(H &&h, T... t){out(h);out(t...);}
+HT_ OUT_(H &&h,T... t){out(h);out(t...);}
 OUTL_(){out('\n');}
 T_ <TN_... T> OUTL_(T... t){out(t...);outl();}
-T_ <TN_ I, TN_... T> OUTL_(initializer_list<I> i, T... t){out(i);outl(t...);}
+T_ <TN_ I,TN_... T> OUTL_(initializer_list<I> i,T... t){out(i);outl(t...);}
 T_ <TN_ T=int> struct range{
 	T e,b=0,s=1;range(T b,T e,T s):e(e),b(b),s(s){} range(T b,T e): e(e), b(b){} range(T e):e(e){}
 	struct it{T v,s; it(T v,T s):v(v),s(s){} operator T()const{return v;} I_ operator T&(){return v;}T operator*()const{return v;}
 		I_ it& operator++(){v+=s;return *this;}}; it begin(){return {b,s};} it end(){return {e,s};}};
-#define Range(b, ...)for([[maybe_unused]] auto b: range((int) __VA_ARGS__))
+#define Range(b,...)for([[maybe_unused]] auto b:range((int)__VA_ARGS__))
 #define dbg(...)fprintf(stderr,__VA_ARGS__)
 using LL = long long;
 #define tee(s,v)({dbg(s,v);v;})
