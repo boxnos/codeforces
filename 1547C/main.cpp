@@ -27,10 +27,11 @@ struct in_ {
 #ifdef _GLIBCXX_STRING
 	OP_(string){string s;for(char c;c=gcu(),c!=' '&&c!='\n';)s+=c;return s;}
 	//OP_(string){string s;char c;while(isspace(c = gcu()));do{s+=c;}while(c=gcu(),c!=' '&&c!='\n'&&c!=EOF);return s;}
+	I_ string read(int n,char c) {string v(n,c);for(char &i:v)i=gcu();return v;}
 #define S_
 #endif
 	OP_(char){char c=gcu();gcu();return c;}
-	OP_(double){double d; scanf("%lf",&d); gcu();return d;}
+	//OP_(double){double d; scanf("%lf",&d); gcu();return d;}
 	//TT_ OP_(T){T n{},c=gcu();do{n=10*n+(c-'0'),c=gcu();}while(c>='0'&&c<='9');return n;}
 	TT_ OP_(T){T n{},m{1},c=gcu();if(c=='-')m=-1,c=gcu();do{n=10*n+(c-'0'),c=gcu();}while(c>='0'&&c<='9');return m*n;}
 	//TT_ OP_(T){T n{},m{1},c;while(isspace(c=gcu()));if(c=='-')m=-1,c=gcu();do{n=10*n+(c-'0'),c=gcu();}while(c>='0'&&c<='9');return m*n;}
