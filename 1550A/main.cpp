@@ -7,7 +7,7 @@
 #include <functional>
 #include <array>
 
-#include <vector>
+#include <cmath>
 using namespace std;
 #define IO_
 #define I_ inline
@@ -91,10 +91,8 @@ using V = vector<int>;
 
 int main() {
 	Range (t, in) {
-		int s {in}, r {};
-		for (int x {}; x < s; x += 1 + r++ * 2)
-			;
-		outl(r);
+		int s {in}, r = sqrt(s);
+		outl(r + (r * r != s));
 	}
 }
 
