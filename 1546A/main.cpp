@@ -87,29 +87,26 @@ string tapp(string s) {return tee("%s",s.c_str());}
 TT_ T tapp(T v){for (auto i: v){tapp(i);dbg(" ");}return v;}
 TT_ T tapl(T v){tapp(v);dbg("\n");return v;}
 
-using P = pair<int, int>;
-
 int main() {
 	Range (t, in) {
-		int n {in}, s {}, p {}, m {};
-		vector<int> a {in.read(n)};
-		vector<P> r(100);
+		int n {in}, s {};
+		vector<int> a {in.read(n)}, p, m;
 		Range (i, n) {
 			int d {(int) in - a[i]};
 			s += d;
 			if (d > 0)
 				Range (j, d)
-					r[p++].second = i + 1;
+					p.push_back(i + 1);
 			else if (d < 0)
 				Range (j, -d)
-					r[m++].first = i + 1;
+					m.push_back(i + 1);
 		}
-		if (s != 0)
+		if (s)
 			outl(-1);
 		else {
-			outl(p);
-			Range (i, p)
-				outl({r[i].first, r[i].second});
+			outl(p.size());
+			Range (i, p.size())
+				outl({m[i], p[i]});
 		}
 	}
 }
