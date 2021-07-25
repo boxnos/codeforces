@@ -1,0 +1,13 @@
+# inputCopy
+5
+kzaaa
+codeforces
+archive
+y
+xxxxxx
+# outputCopy
+2
+5
+3
+0
+1
