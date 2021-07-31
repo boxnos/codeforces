@@ -94,12 +94,9 @@ int main() {
 		vector<int> a {in.read(n)};
 		outl(n - 1);
 		auto e {min_element(begin(a), end(a))};
-		int j = *e + (e - begin(a)) + 1;
-		Range (i, n) {
+		Range (i, n)
 			if (begin(a) + i != e)
-				outl({i + 1, (int) (e - begin(a)) + 1, *e + (int)abs(distance(e, begin(a) + i)), *e});
-			j++;
-		}
+				outl({i + 1, (int) (e - begin(a)) + 1, *e + (int) (e + i - begin(a)) % 2, *e});
 	}
 }
 
