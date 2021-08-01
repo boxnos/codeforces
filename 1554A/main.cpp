@@ -1,5 +1,5 @@
 #if defined__GNUC__ && !defined __clang__
-#pragma GCC optimize("O3")
+#pragma GCC optimize("Ofast")
 #endif
 #include <cstdio>
 #include <utility>
@@ -19,7 +19,7 @@ using namespace std;
 #define OP_(t) I_ operator t()
 #ifdef IO_
 namespace io {
-	const int s=1<<16;char in[s],*i,*e,out[s],*o=out,*f=o+s-1;
+	const int s=1<<18;char in[s],*i,*e,out[s],*o=out,*f=o+s-1;
 	I_ char get(){return i==e?e=(i=in)+fread(in,1,s,stdin),i==e?EOF:*i++:*i++;}
 	I_ void flush(){fwrite(out,1,o-out,stdout);o=out;}
 	I_ void put(char c){*o++=c;if (o==f)flush();}
@@ -76,7 +76,7 @@ T_ <TN_ T=int> struct range{
 	T e,b=0,s=1;range(T b,T e,T s):e(e),b(b),s(s){} range(T b,T e): e(e), b(b){} range(T e):e(e){}
 	struct it{T v,s; it(T v,T s):v(v),s(s){} operator T()const{return v;} I_ operator T&(){return v;}T operator*()const{return v;}
 		I_ it& operator++(){v+=s;return *this;}}; it begin(){return {b,s};} it end(){return {e,s};}};
-#define Range(b,...)for([[maybe_unused]] auto b:range((int)__VA_ARGS__))
+#define Range(b,...)for([[maybe_unused]] auto b:range<int>((int) __VA_ARGS__))
 #define dbg(...)fprintf(stderr,__VA_ARGS__)
 using LL = long long;
 #define tee(s,v)({dbg(s,v);v;})
@@ -91,10 +91,11 @@ TT_ T tapl(T v){tapp(v);dbg("\n");return v;}
 int main() {
 	Range (t, in) {
 		int n {in};
-		vector<LL> a {in.read<vector<LL>>(n)};
-		LL r {};
-		Range (i, 1, n)
-			r = max(r, a[i - 1] * a[i]);
+		LL p {in}, r {};
+		Range (i, 1, n) {
+			LL c {in};
+			r = max(r, exchange(p, c) * c);
+		}
 		outl(r);
 	}
 }
