@@ -93,9 +93,9 @@ int main() {
 		LL r {};
 		vector<int> A(k), B(k), ca(a), cb(b);
 		for (int &i: A)
-			++ca[i = (int) in - 1];
+			++ca[i = int(in) - 1];
 		for (int &i: B)
-			++cb[i = (int) in - 1];
+			++cb[i = int(in) - 1];
 		Range (i, k)
 			r += k - ca[A[i]] - cb[B[i]] + 1;
 		outl(r / 2);
