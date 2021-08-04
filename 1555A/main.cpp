@@ -7,6 +7,7 @@
 #include <functional>
 #include <array>
 
+#include <algorithm>
 using namespace std;
 #define IO_
 #define I_ inline
@@ -89,7 +90,7 @@ TT_ T tapl(T v){tapp(v);dbg("\n");return v;}
 int main() {
 	Range (t, in) {
 		LL n {in};
-		outl(n < 6 ? 15 : (n + n % 2) * 5 / 2);
+		outl(max(6LL, n + 1) / 2 * 5);
 	}
 }
 
