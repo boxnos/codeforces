@@ -89,13 +89,14 @@ TT_ T tapl(T v){tapp(v);dbg("\n");return v;}
 
 int main() {
 	Range (t, in) {
-		LL A {in}, B {in}, n {in}, m {}, s {};
-		vector<LL> a {in.read<vector<LL>>(n)};
+		int A {in}, B {in}, n {in}, m {};
+		LL s {};
+		vector<int> a {in.read(n)};
 		Range (i, n) {
 			m = max(m, a[i]);
-			s += (int(in) + A - 1) / A * a[i];
+			s += (int(in) + A - 1) / A * LL(a[i]);
 		}
-		outl(B  > (s - m) ? "YES": "NO");
+		outl(LL(B)  > (s - LL(m)) ? "YES": "NO");
 	}
 }
 
