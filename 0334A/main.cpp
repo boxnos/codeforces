@@ -88,16 +88,10 @@ TT_ T tapp(T v){for (auto i: v){tapp(i);dbg(" ");}return v;}
 TT_ T tapl(T v){tapp(v);dbg("\n");return v;}
 
 int main() {
-	int n {in}, j {1}, k {n * n}, sj, sk;
+	int n {in}, j {1}, k {n * n};
 	Range (i, n) {
-		if (i % 2)
-			sk = n / 2, sj = n - sk;
-		else
-			sj = n / 2, sk = n - sj;
-		for (int e {j + sj}; j < e; j++)
-			out(j, ' ');
-		for (int e {k - sk}; k > e; k--)
-			out(k, ' ');
+		Range (l, n / 2)
+			out(j++, ' ', k--, ' ');
 		outl();
 	}
 }
