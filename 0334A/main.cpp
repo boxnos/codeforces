@@ -63,14 +63,14 @@ OUT_(string s){for(char c:s)pcu(c);}
 #endif
 TT_ DEF_(void,OUTX_,T n){if(n<10)pcu(n+'0');else OUTX_(n/10),pcu(n%10+'0');}
 TT_ OUT_(T n){if(n<0)pcu('-'),n=-n;OUTX_(n);}
-TT_ OUT_(initializer_list<T> &v){for(auto i{begin(v)};i!=end(v);++i)out(i==begin(v)?"":" "),out(*i);}
+TT_ OUT_(initializer_list<T> v){for(auto i{begin(v)};i!=end(v);++i)out(i==begin(v)?"":" "),out(*i);}
 #ifdef _GLIBCXX_VECTOR
 TT_ OUT_(vector<T> &v){for(T &x:v)out(&x == &v[0]?"":" "),out(x);}
 #endif
 HT_ OUT_(H &&h,T... t){out(h);out(t...);}
 OUTL_(){out('\n');}
 T_ <TN_... T> OUTL_(T... t){out(t...);outl();}
-T_ <TN_ I,TN_... T> OUTL_(initializer_list<I> i,T... t){out(i);outl(t...);}
+T_ <TN_ I,TN_... T> OUTL_(initializer_list<I> v,T... t){for(auto i{begin(v)};i!=end(v);++i)out(i==begin(v)?"":" "),out(*i);outl(t...);}
 T_ <TN_ T=int> struct range{
 	T e,b=0,s=1;range(T b,T e,T s):e(e),b(b),s(s){} range(T b,T e): e(e), b(b){} range(T e):e(e){}
 	struct it{T v,s; it(T v,T s):v(v),s(s){} operator T()const{return v;} I_ operator T&(){return v;}T operator*()const{return v;}
@@ -91,7 +91,7 @@ int main() {
 	int n {in}, j {1}, k {n * n};
 	Range (i, n) {
 		Range (l, n / 2)
-			out(j++, ' ', k--, ' ');
+			out({j++, k--}), out(' ');
 		outl();
 	}
 }
