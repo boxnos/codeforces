@@ -90,12 +90,12 @@ TT_ T tapl(T v){tapp(v);dbg("\n");return v;}
 int main() {
 	int n {in};
 	vector<int> a;
-	for (int l {1}; n; n /= 10, l *= 10)
-		Range (i, n % 10) {
-			if ((int) size(a) == i)
-				a.push_back(0);
-			a[i] += l;
-		}
+	for (;n;) {
+		a.push_back(0);
+		for (int i {1}, m {n}; m; m /= 10, i *= 10)
+			if (m % 10)
+				a.back() += i, n -= i;
+	}
 	outl(size(a));
 	outl(a);
 }
