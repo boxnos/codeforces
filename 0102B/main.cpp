@@ -88,14 +88,13 @@ TT_ T tapp(T v){for (auto i: v){tapp(i);dbg(" ");}return v;}
 TT_ T tapl(T v){tapp(v);dbg("\n");return v;}
 
 int main() {
-	int n {};
-	string s = in;
-	if (size(s) == 1)
+	int n {}, k {};
+	for (char c; (c = gcu()) != '\n'; k++)
+		n += c - '0';
+	if (k < 2)
 		outl(0);
 	else {
 		int r {1};
-		for (char c: s)
-			n += c - '0';
 		for (int t; n > 9; n = t, r++) {
 			t = 0;
 			for (int m {n}; m; m /= 10)
