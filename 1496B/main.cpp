@@ -90,16 +90,20 @@ TT_ T tapl(T v){tapp(v);dbg("\n");return v;}
 
 int main() {
 	Range (t, in) {
-		int n {in}, k {in}, e {};
-		vector<int> s {in.read(n)};
-		sort(begin(s), end(s));
-		for (int i: s)
-			if (i == e)
+		int n {in}, k {in}, e {}, a {};
+		vector<int> v {in.read(n)};
+		vector<bool> s(n + 1);
+		for (int i: v) {
+			if (i < (int) size(s))
+				s[i] = true;
+			a = max(a, i);
+		}
+		Range (i, size(s))
+			if (s[i])
 				e++;
 			else
 				break;
-		int a = s[n - 1];
-		outl(n + (a < e ? k : k && !binary_search(begin(s), end(s), (a + e + 1) / 2)));
+		outl(n + (a < e ? k : k && find(begin(v), end(v), (a + e + 1) / 2) == end(v)));
 	}
 }
 
