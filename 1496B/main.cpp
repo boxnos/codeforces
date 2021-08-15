@@ -7,7 +7,7 @@
 #include <functional>
 #include <array>
 
-#include <set>
+#include <unordered_set>
 #include <algorithm>
 using namespace std;
 #define IO_
@@ -90,16 +90,18 @@ TT_ T tapl(T v){tapp(v);dbg("\n");return v;}
 
 int main() {
 	Range (t, in) {
-		int n {in}, k {in};
-		set<int> s;
-		Range (i, n)
-			s.insert(int(in));
-		int a = *max_element(begin(s), end(s)), e {};
-		for (int i: s)
-			if (i == e)
-				e++;
-			else
+		int n {in}, k {in}, a {}, e {};
+		unordered_set<int> s;
+		Range (i, n) {
+			int x {in};
+			s.insert(x);
+			a = max(a, x);
+		}
+		Range (i, a + 2)
+			if (!s.count(i)) {
+				e = i;
 				break;
+			}
 		outl(n + (a < e ? k : k && !s.count((a + e + 1) / 2)));
 	}
 }
