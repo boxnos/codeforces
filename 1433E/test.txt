@@ -1,0 +1,16 @@
+# inputCopy
+2
+# outputCopy
+1
+# inputCopy
+4
+# outputCopy
+3
+# inputCopy
+8
+# outputCopy
+1260
+# inputCopy
+20
+# outputCopy
+12164510040883200
