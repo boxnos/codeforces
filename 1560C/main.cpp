@@ -92,8 +92,7 @@ using P = pair<int, int>;
 int main() {
 	Range (t, in) {
 		int k {int(in) - 1}, s = sqrt(k), ss = s * s;
-		auto [r, c] = k < ss + s ? P{k - ss, s} : P{s, ss + 2 * s - k};
-		outl({r + 1, c + 1});
+		outl({min(s, k - ss) + 1, min(s, ss + 2 * s - k) + 1});
 	}
 }
 
