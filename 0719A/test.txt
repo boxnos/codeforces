@@ -1,0 +1,15 @@
+# inputCopy
+5
+3 4 5 6 7
+# outputCopy
+UP
+# inputCopy
+7
+12 13 14 15 14 13 12
+# outputCopy
+DOWN
+# inputCopy
+1
+8
+# outputCopy
+-1
