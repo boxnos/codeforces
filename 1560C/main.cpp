@@ -7,6 +7,7 @@
 #include <functional>
 #include <array>
 
+#include <complex>
 #include <cmath>
 using namespace std;
 #define IO_
@@ -87,12 +88,21 @@ string tapp(string s) {return tee("%s",s.c_str());}
 TT_ T tapp(T v){for (auto i: v){tapp(i);dbg(" ");}return v;}
 TT_ T tapl(T v){tapp(v);dbg("\n");return v;}
 
-using P = pair<int, int>;
+using P = complex<int>;
+
+P pow(P a, int n) {
+	P x {1, 0};
+	for (; n; n--)
+		x *= a;
+	return x;
+}
+
 
 int main() {
 	Range (t, in) {
-		int k {int(in) - 1}, s = sqrt(k), ss = s * s;
-		outl({min(s, k - ss) + 1, min(s, ss + 2 * s - k) + 1});
+		int k {int(in) - 1}, s = sqrt(k), m = s * s + s;
+		P a {P{s + 1, s + 1} - P{0, k - m} * pow(P{0, 1}, int(k < m))};
+		outl({real(a), imag(a)});
 	}
 }
 
