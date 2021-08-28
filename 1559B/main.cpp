@@ -93,8 +93,8 @@ int main() {
 		int n {in};
 		string s{in.read(n, ' ')};
 		auto f = [](auto b, auto e, char c) {
-			for (;b != e && *b == '?'; b++)
-				*b = c ^= 'R' ^ 'B';
+			for (;b != e && *b == '?'; *b++ = c ^= 'R' ^ 'B')
+				;
 			return b;
 		};
 		auto b = find_if(begin(s), end(s), [](char c) {return c != '?';});
