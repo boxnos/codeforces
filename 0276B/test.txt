@@ -1,0 +1,16 @@
+# inputCopy
+aba
+# outputCopy
+First
+# inputCopy
+abca
+# outputCopy
+Second
+# in
+aabb
+# out
+First
+# in
+aabcbaa
+# out
+First
