@@ -92,7 +92,7 @@ TT_ T tapl(T v){tapp(v);dbg("\n");return v;}
 int main() {
 	Range (t, in) {
 		int l {in}, r {in};
-		outl(l > (r + 1) / 2 ? r - l : (r - 1) / 2);
+		outl(r % max(l, r / 2 + 1));
 	}
 }
 
