@@ -91,9 +91,11 @@ TT_ T tapl(T v){tapp(v);dbg("\n");return v;}
 int main() {
 	Range (t, in) {
 		int r {};
-		string s = in;
-		for (size_t i {1}; i < size(s); i++)
-			if (s[i] == s[i - 1] || (i > 1 && s[i] == s[i - 2]))
+		string s {"A"};
+		for (char c;(c = gcu()) != '\n';)
+			s += c;
+		Range(i, 2, size(s))
+			if (s[i] == s[i - 1] || s[i] == s[i - 2])
 				s[i] = ' ', r++;
 		outl(r);
 	}
