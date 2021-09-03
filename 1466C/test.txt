@@ -1,0 +1,17 @@
+# inputCopy
+7
+babba
+abaac
+codeforces
+zeroorez
+abcdcba
+bbbbbbb
+a
+# outputCopy
+1
+1
+0
+1
+1
+4
+0
