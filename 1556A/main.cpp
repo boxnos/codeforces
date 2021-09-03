@@ -90,7 +90,7 @@ TT_ T tapl(T v){tapp(v);dbg("\n");return v;}
 int main() {
 	Range (t, in) {
 		int c {in}, d {in};
-		outl(c == d ? !!c : (c ^ d) & 1 ? -1 : 2);
+		outl(c == d ? !!c : ((c ^ d) & 1) * -3 + 2);
 	}
 }
 
