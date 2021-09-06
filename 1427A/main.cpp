@@ -90,27 +90,19 @@ TT_ T tapl(T v){tapp(v);dbg("\n");return v;}
 int main() {
 	Range (t, in) {
 		int n {in}, s {};
-		vector<int> a {in.read(n)}, b, c;
+		vector<int> a {in.read(n)}, b, c, z;
 		for (int i: a) {
 			s += i;
-			b.push_back(i);
-			if (!s) {
-				sort(begin(b), end(b));
-				c.reserve(b.size() + c.size());
-				copy(b.begin(), b.end(), back_inserter(c));
-				b = {};
-			}
+			(i ? i > 0 ? b : c : z).push_back(i);
 		}
 		if (!s)
 			outl("NO");
 		else {
 			outl("YES");
-			out(b);
-			if (s > 0) {
-				for_each(rbegin(c), rend(c), [](int i) {out(' ', i);});
-				outl();
-			} else
-				outl(' ' , c);
+			if (s > 0)
+				outl(b, ' ', c, ' ', z);
+			else
+				outl(c, ' ', b, ' ', z);
 		}
 	}
 }
