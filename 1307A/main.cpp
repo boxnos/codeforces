@@ -92,13 +92,10 @@ int main() {
 	Range (t, in) {
 		int n {in}, d {in};
 		vector<int> a {in.read(n)};
-		Range (i, 1, n)
-			if (d < i)
-				break;
-			else {
-				int x = min(d / i, a[i]);
-				a[0] += x, d -= x * i;
-			}
+		for (int i {1}; i < min(n, d + 1); i++) {
+			int x = min(d / i, a[i]);
+			a[0] += x, d -= x * i;
+		}
 		outl(a[0]);
 	}
 }
