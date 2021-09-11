@@ -94,7 +94,7 @@ template<int N>
 struct sieve {
 	bool s[N];
 	int v[N], l = -1;
-	constexpr sieve() : s(), v() {
+	constexpr sieve() : s {}, v {} {
 		s[2] = true;
 		for (int i = 3; i < N; i += 2)
 			s[i] = true;
@@ -114,7 +114,7 @@ struct sieve {
 
 
 int main() {
-	constexpr sieve s{sieve<100>()};
+	constexpr sieve<100> s {};
 	Range (t, in) {
 		int k {in};
 		string n = in.read(k, ' ');
