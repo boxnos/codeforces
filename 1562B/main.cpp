@@ -113,7 +113,7 @@ struct sieve {
 };
 
 int main() {
-	constexpr sieve s{sieve<10000>()};
+	constexpr sieve s{sieve<100>()};
 	Range (t, in) {
 		int k {in}, r {INT_MAX};
 		string n = in.read(k, ' ');
@@ -122,7 +122,7 @@ int main() {
 			set<int> b;
 			for (int i: a) {
 				int x = i * 10 + c - '0';
-				if (x < 1000 && s.s[x])
+				if (x < 100 && s.s[x])
 					b.insert(x);
 				else
 					r = min(r, x);
