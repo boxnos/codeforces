@@ -112,30 +112,27 @@ struct sieve {
 	}
 };
 
+
 int main() {
 	constexpr sieve s{sieve<100>()};
 	Range (t, in) {
 		int k {in};
 		string n = in.read(k, ' ');
-		set<int> a;
-		int r = [&] {
-			int r {INT_MAX};
-			for (char c: n) {
-				int d = c - '0';
-				for (int i: a) {
-					int x = i * 10 + d;
-					if (!s.s[x])
-						r = min(r, x);
-				}
-				if (!s.s[d])
-					return d;
-				else
-					a.insert(d);
-			}
-			return r;
-		}();
-		outl(to_string(r).size());
-		outl(r);
+		auto np = [&](int a, int b) {
+			return !s.s[(n[a] - '0') * 10 + (n[b] - '0')];
+		};
+		if (auto x = find_if(begin(n), end(n), [&](char c) {return !s.s[int(c - '0')];}); x != end(n)) {
+			outl(1);
+			outl(*x);
+		} else {
+			outl(2);
+			if (np(0, 1))
+				outl(n[0], n[1]);
+			else if (np(0, 2))
+				outl(n[0], n[2]);
+			else
+				outl(n[1], n[2]);
+		}
 	}
 }
 
