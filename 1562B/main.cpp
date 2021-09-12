@@ -119,19 +119,17 @@ int main() {
 		int k {in};
 		string n = in.read(k, ' ');
 		auto np = [&](int a, int b) {
-			return !s.s[(n[a] - '0') * 10 + (n[b] - '0')];
+			bool r {!s.s[(n[a] - '0') * 10 + (n[b] - '0')]};
+			if (r)
+				outl(n[a], n[b]);
+			return r;
 		};
 		if (auto x = find_if(begin(n), end(n), [&](char c) {return !s.s[int(c - '0')];}); x != end(n)) {
 			outl(1);
 			outl(*x);
 		} else {
 			outl(2);
-			if (np(0, 1))
-				outl(n[0], n[1]);
-			else if (np(0, 2))
-				outl(n[0], n[2]);
-			else
-				outl(n[1], n[2]);
+			np(0, 1) || np(0, 2) || np(1, 2);
 		}
 	}
 }
