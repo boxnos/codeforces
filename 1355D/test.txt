@@ -1,0 +1,32 @@
+# inputCopy
+1 4
+# outputCopy
+YES
+4
+1
+# input
+1 2
+# out
+YES
+2
+1
+# input
+1 1
+# out
+NO
+# inputCopy
+3 4
+# outputCopy
+NO
+# inputCopy
+3 6
+# outputCopy
+YES
+1 1 4
+3
+# inputCopy
+3 8
+# outputCopy
+YES
+2 1 5
+3
