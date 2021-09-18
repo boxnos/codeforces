@@ -91,13 +91,10 @@ int main() {
 	Range (t, in) {
 		int n {in}, r {};
 		vector<int> a {in.read(n)};
-		for (int f {}; f < 2; r++) {
-			f++;
-			for (int i {r % 2}; i < n - 1; i += 2) {
+		for (int f {}; f < 2; r++, f++)
+			for (int i {r % 2}, e {n - 1}; i < e; i += 2)
 				if (a[i] > a[i + 1])
-					swap(a[i], a[i + 1]), f = 0;
-			}
-		}
+					swap(a[i], a[i + 1]), f = -1;
 		outl(r - 2);
 	}
 }
