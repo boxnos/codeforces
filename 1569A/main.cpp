@@ -89,7 +89,7 @@ TT_ T tapl(T v){tapp(v);dbg("\n");return v;}
 
 int main() {
 	Range (t, in) {
-		[&] {
+		[] {
 			int n {in};
 			string s {in.read(n, ' ')};
 			Range (i, n - 1)
