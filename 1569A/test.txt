@@ -1,0 +1,15 @@
+# inputCopy
+4
+1
+a
+6
+abbaba
+7
+aabbaba
+10
+bbabbabbaa
+# outputCopy
+-1 -1
+1 6
+3 6
+2 5
