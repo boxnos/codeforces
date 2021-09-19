@@ -89,18 +89,16 @@ TT_ T tapl(T v){tapp(v);dbg("\n");return v;}
 
 int main() {
 	Range (t, in) {
-		int r = [&] {
+		[&] {
 			int n {in};
 			string s {in.read(n, ' ')};
 			Range (i, n - 1)
-				if ((s[i] != s[i + 1]))
-					return i;
-			return -1;
-		}();
-		if (r < 0)
+				if ((s[i] != s[i + 1])) {
+					outl({i + 1, i + 2});
+					return;
+				}
 			outl("-1 -1");
-		else
-			outl({r + 1, r + 2});
+		}();
 	}
 }
 
