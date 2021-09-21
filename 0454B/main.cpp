@@ -93,7 +93,7 @@ int main() {
 	vector<int> a {in.read(n)};
 	int m = [&] {
 		Range (i, n)
-			if (int t {2 * n - i}; a[t % n] < a[(t - 1) % n])
+			if (int t {n - i}; a[t % n] < a[(t - 1) % n])
 				return t % n;
 		return -1;
 	}();
@@ -101,8 +101,9 @@ int main() {
 		outl(0);
 		return 0;
 	}
-	Range(i, n - 1)
-		if (a[(m + i) % n] > a[(m + i + 1) % n]) {
+	m = m ? m : n;
+	for (int i {}; i < m - 1; i++)
+		if (a[i % n] > a[(i + 1) % n]) {
 			outl(-1);
 			return 0;
 		}
