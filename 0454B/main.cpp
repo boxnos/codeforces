@@ -101,8 +101,7 @@ int main() {
 		outl(0);
 		return 0;
 	}
-	m = m ? m : n;
-	for (int i {}; i < m - 1; i++)
+	for (int i {}, e {(n + m - 1) % n}; i < e; i++)
 		if (a[i % n] > a[(i + 1) % n]) {
 			outl(-1);
 			return 0;
