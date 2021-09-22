@@ -128,10 +128,7 @@ int main() {
 				a--;
 			else if (c == '1')
 				b--;
-		if (a < 0 || b < 0 || !loop(put_if) || !loop(put))
-			outl(-1);
-		else
-			outl(s);
+		outl(a < 0 || b < 0 || !loop(put_if) || !loop(put) ? "-1" : s);
 	}
 }
 
