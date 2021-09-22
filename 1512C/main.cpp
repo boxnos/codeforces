@@ -91,15 +91,6 @@ int main() {
 	Range (t, in) {
 		int a {in}, b {in}, n {a + b};
 		string s {in.read(n, ' ')};
-		for (char c: s)
-			if (c == '0')
-				a--;
-			else if (c == '1')
-				b--;
-		if (a < 0 || b < 0) {
-			outl(-1);
-			continue;
-		}
 		auto put_if = [&] (int i) {
 			char &o = s[n - i - 1];
 			auto f = [&](char &i, char &j) {
@@ -128,7 +119,12 @@ int main() {
 			}
 			return true;
 		};
-		if (!([&] {
+		for (char c: s)
+			if (c == '0')
+				a--;
+			else if (c == '1')
+				b--;
+		if (a < 0 || b < 0 || !([&] {
 			Range (i, (n + 1) / 2)
 				if (!put_if(i))
 					return false;
