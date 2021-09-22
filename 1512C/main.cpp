@@ -102,11 +102,15 @@ int main() {
 		}
 		auto put_if = [&] (int i) {
 			char &o = s[n - i - 1];
+			auto f = [&](char &i, char &j) {
+				int &c = j == '0' ? a : b;
+				return c ? (--c, i = j, true) : false;
+			};
 			if (s[i] != o) {
 				if (s[i] == '?')
-					return (o == '0' ? a : b) ? (--(o == '0' ? a : b), s[i] = o, true): false;
+					return f(s[i], o);
 				else if (o == '?')
-					return (s[i] == '0' ? a : b) ? (--(s[i] == '0' ? a : b), o = s[i], true): false;
+					return f(o, s[i]);
 				else
 					return false;
 			}
@@ -134,9 +138,9 @@ int main() {
 				if (!put(i))
 					return false;
 			return true;
-		}())) {
+		}()))
 			outl(-1);
-		} else
+		else
 			outl(s);
 	}
 }
