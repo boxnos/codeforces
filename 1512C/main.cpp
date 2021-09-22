@@ -119,22 +119,18 @@ int main() {
 			}
 			return true;
 		};
+		auto loop = [&] (auto f) {
+			Range (i, (n + 1) / 2)
+				if (!f(i))
+					return false;
+			return true;
+		};
 		for (char c: s)
 			if (c == '0')
 				a--;
 			else if (c == '1')
 				b--;
-		if (a < 0 || b < 0 || !([&] {
-			Range (i, (n + 1) / 2)
-				if (!put_if(i))
-					return false;
-			return true;
-		}() && [&] {
-			Range (i, (n + 1) / 2)
-				if (!put(i))
-					return false;
-			return true;
-		}()))
+		if (a < 0 || b < 0 || !loop(put_if) || !loop(put))
 			outl(-1);
 		else
 			outl(s);
