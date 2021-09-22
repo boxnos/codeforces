@@ -121,7 +121,7 @@ int main() {
 			if (s[i] == '?') {
 				if (a > e)
 					s[i] = s[o] = '0', a -= 1 + e;
-				else if (b > (i != o))
+				else if (b > e)
 					s[i] = s[o] = '1', b -= 1 + e;
 				else
 					return false;
