@@ -113,19 +113,12 @@ int main() {
 			return true;
 		};
 		auto put = [&] (int i) {
-			int o = n - i - 1;
+			int o = n - i - 1, e = i != o;
 			if (s[i] == '?') {
-				if (i != o) {
-					if (a > 1)
-						s[i] = s[o] = '0', a -= 2;
-					else if (b > 1)
-						s[i] = s[o] = '1', b -= 2;
-					else
-						return false;
-				} else if (a > 0)
-					s[i] = '0', --a;
-				else if (b > 0)
-					s[i] = '1', --b;
+				if (a > e)
+					s[i] = s[o] = '0', a -= 1 + e;
+				else if (b > (i != o))
+					s[i] = s[o] = '1', b -= 1 + e;
 				else
 					return false;
 			}
