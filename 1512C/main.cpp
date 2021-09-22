@@ -92,12 +92,11 @@ int main() {
 		int a {in}, b {in}, n {a + b};
 		string s {in.read(n, ' ')};
 		auto put_if = [&] (int i) {
-			char &o = s[n - i - 1];
 			auto f = [&](char &i, char &j) {
 				int &c = j == '0' ? a : b;
 				return c ? (--c, i = j, true) : false;
 			};
-			if (s[i] != o) {
+			if (char &o = s[n - i - 1]; s[i] != o) {
 				if (s[i] == '?')
 					return f(s[i], o);
 				else if (o == '?')
@@ -108,8 +107,7 @@ int main() {
 			return true;
 		};
 		auto put = [&] (int i) {
-			int o = n - i - 1, e = i != o;
-			if (s[i] == '?') {
+			if (int o = n - i - 1, e = i != o; s[i] == '?') {
 				if (a > e)
 					s[i] = s[o] = '0', a -= 1 + e;
 				else if (b > e)
