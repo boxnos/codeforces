@@ -96,26 +96,12 @@ int main() {
 				int &c = j == '0' ? a : b;
 				return c ? (--c, i = j, true) : false;
 			};
-			if (char &o = s[n - i - 1]; s[i] != o) {
-				if (s[i] == '?')
-					return f(s[i], o);
-				else if (o == '?')
-					return f(o, s[i]);
-				else
-					return false;
-			}
-			return true;
+			char &o {s[n - i - 1]};
+			return s[i] != o ? s[i] == '?' ? f(s[i], o) : o == '?' ? f(o, s[i]) : false : true;
 		};
-		auto put = [&] (int i) {
-			if (int o = n - i - 1, e = i != o; s[i] == '?') {
-				if (a > e)
-					s[i] = s[o] = '0', a -= 1 + e;
-				else if (b > e)
-					s[i] = s[o] = '1', b -= 1 + e;
-				else
-					return false;
-			}
-			return true;
+		auto put = [&] (int i) -> bool {
+			int o {n - i - 1}, e = i != o;
+			return s[i] == '?' ? a > e ? (a -= 1 + e, s[i] = s[o] = '0') : b > e ? (b -= 1 + e, s[i] = s[o] = '1') : false : true;
 		};
 		auto loop = [&] (auto f) {
 			Range (i, (n + 1) / 2)
