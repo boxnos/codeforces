@@ -1,0 +1,19 @@
+# inputCopy
+3
+3
+111
+2
+21
+4
+2122
+# outputCopy
+YES
+X==
+=X=
+==X
+NO
+YES
+X--+
++X++
++-X-
+--+X
