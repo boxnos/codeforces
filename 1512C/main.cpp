@@ -110,10 +110,7 @@ int main() {
 			return 1;
 		};
 		for (char c: s)
-			if (c == '0')
-				a--;
-			else if (c == '1')
-				b--;
+			c == '0' ? a--: c == '1' ? b-- : 0;
 		outl(a < 0 || b < 0 || !loop(put_if) || !loop(put) ? "-1" : s);
 	}
 }
