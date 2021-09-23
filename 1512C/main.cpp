@@ -91,23 +91,23 @@ int main() {
 	Range (t, in) {
 		int a {in}, b {in}, n {a + b};
 		string s {in.read(n, ' ')};
-		auto put_if = [&] (int i) {
+		auto put_if = [&] (int i) -> bool {
 			auto f = [&](char &i, char &j) {
 				int &c = j == '0' ? a : b;
-				return c ? (--c, i = j, true) : false;
+				return c ? (--c, i = j) : 0;
 			};
 			char &o {s[n - i - 1]};
-			return s[i] != o ? s[i] == '?' ? f(s[i], o) : o == '?' ? f(o, s[i]) : false : true;
+			return s[i] != o ? s[i] == '?' ? f(s[i], o) : o == '?' ? f(o, s[i]) : 0 : 1;
 		};
 		auto put = [&] (int i) -> bool {
 			int o {n - i - 1}, e = i != o;
-			return s[i] == '?' ? a > e ? (a -= 1 + e, s[i] = s[o] = '0') : b > e ? (b -= 1 + e, s[i] = s[o] = '1') : false : true;
+			return s[i] == '?' ? a > e ? (a -= 1 + e, s[i] = s[o] = '0') : b > e ? (b -= 1 + e, s[i] = s[o] = '1') : 0 : 1;
 		};
 		auto loop = [&] (auto f) {
 			Range (i, (n + 1) / 2)
 				if (!f(i))
-					return false;
-			return true;
+					return 0;
+			return 1;
 		};
 		for (char c: s)
 			if (c == '0')
