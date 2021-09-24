@@ -104,14 +104,13 @@ int main() {
 		}
 		Range (i, n)
 			v[i][i] = 'X';
-		Range (i, size(w))
-			v[w[i]][w[(i + 1) % size(w)]] = '+', v[w[(i + 1) % size(w)]][w[i]] = '-';
-		outl("YES");
-		for (auto i: v) {
-			for (char c: i)
-				out(c);
-			outl();
+		Range (i, size(w)) {
+			int x {w[(i + 1) % size(w)]};
+			v[w[i]][x] = '+', v[x][w[i]] = '-';
 		}
+		outl("YES");
+		for (auto i: v)
+			outl(i);
 	}
 }
 
