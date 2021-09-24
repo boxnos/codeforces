@@ -96,14 +96,12 @@ int main() {
 		vector<string> v(n, string(n, '='));
 		vector<int> w;
 		Range (i, n)
-			if (s[i] == '2')
+			if (v[i][i] = 'X'; s[i] == '2')
 				w.push_back(i);
 		if (0 < size(w) && size(w) < 3) {
 			outl("NO");
 			continue;
 		}
-		Range (i, n)
-			v[i][i] = 'X';
 		Range (i, size(w)) {
 			int x {w[(i + 1) % size(w)]};
 			v[w[i]][x] = '+', v[x][w[i]] = '-';
