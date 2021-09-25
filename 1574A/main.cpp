@@ -8,8 +8,6 @@
 #include <array>
 
 #include <string>
-#include <vector>
-#include <algorithm>
 using namespace std;
 #define IO_
 #define I_ inline
@@ -91,22 +89,15 @@ TT_ T tapl(T v){tapp(v);dbg("\n");return v;}
 
 int main() {
 	Range (t, in) {
-		int n {in}, m {n};
-		auto f = [&](auto f, string s, int o, int c) {
-			if (!m)
-				return;
-			if (int(size(s)) == 2 * n) {
-				m--;
-				outl(s);
-				return;
-			}
-			if (o < n)
-				f(f, s + '(', o + 1, c);
-			if (c < o)
-				f(f, s + ')', o, c + 1);
-			return;
-		};
-		f(f, "(", 1, 0);
+		int n {in};
+		string s(2 * n, ')');
+		Range (i, n - 1)
+			s[i] = '(';
+		Range (i, n) {
+			Range (j, size(s))
+				out(j == n - 1 + i ? '(' : s[j]);
+			outl();
+		}
 	}
 }
 
