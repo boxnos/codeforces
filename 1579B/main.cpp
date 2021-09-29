@@ -89,10 +89,12 @@ TT_ T tapl(T v){tapp(v);dbg("\n");return v;}
 
 int main() {
 	Range (t, in) {
-		int l[3] {};
-		for (char c; '\n' != (c = gcu());)
-			++l[c - 'A'];
-		outl(l[1] == l[0] + l[2] ? "YES" : "NO");
+		int B {};
+		for (char c; '\n' != (c = gcu());) {
+			bool b {c == 'B'};
+			B += b - !b;
+		}
+		outl(B ? "NO" : "YES");
 	}
 }
 
