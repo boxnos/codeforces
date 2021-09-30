@@ -87,7 +87,7 @@ string tapp(string s) {return tee("%s",s.c_str());}
 TT_ T tapp(T v){for (auto i: v){tapp(i);dbg(" ");}return v;}
 TT_ T tapl(T v){tapp(v);dbg("\n");return v;}
 
-I_ int b_s(bool b){return b - !b;}
+I_ int bsign(bool b){return b - !b;}
 
 int main() {
 	int n {in}, m {};
