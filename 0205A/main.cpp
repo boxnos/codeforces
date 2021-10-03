@@ -8,7 +8,6 @@
 #include <array>
 
 #include <climits>
-#include <algorithm>
 using namespace std;
 #define IO_
 #define I_ inline
@@ -91,12 +90,15 @@ TT_ T tapl(T v){tapp(v);dbg("\n");return v;}
 I_ int bsign(bool b){return b - !b;}
 
 int main() {
-	int n {in}, m {INT_MAX}, r {};
-	vector<int> a(n);
-	Range (i, n)
-		if ((a[i] = int(in)) < m)
-			m = a[i], r = i + 1;
-	if (count(begin(a), end(a), m) > 1)
+	int n {in}, m {INT_MAX}, r {}, c {};
+	Range (i, n) {
+		int a {in};
+		if (a < m)
+			m = a, r = i + 1, c = 0;
+		else if (m == a)
+			++c;
+	}
+	if (c)
 		outl("Still Rozdil");
 	else
 		outl(r);
