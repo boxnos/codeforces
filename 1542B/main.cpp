@@ -86,7 +86,10 @@ string tapp(string s) {return tee("%s",s.c_str());}
 TT_ T tapp(T v){for (auto i: v){tapp(i);dbg(" ");}return v;}
 TT_ T tapl(T v){tapp(v);dbg("\n");return v;}
 
+TT_ T sign(T a) {return (a > 0) - (a < 0);}
 I_ int bsign(bool b){return b - !b;}
+TT_ T eucdiv(T a, T b) {T t = a / b; return a % b ? t + sign(a): t;}
+TT_ T eucmod(T a, T b) {T t = a % b; return t < 0 ? t + abs(b) : t;}
 
 int main() {
 	Range (t, in) {
