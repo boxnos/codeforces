@@ -1,0 +1,15 @@
+# inputCopy
+3 4
+1 2 4
+# outputCopy
+3
+# inputCopy
+3 2
+447 44 77
+# outputCopy
+2
+# tes
+4 2
+194041605 706221269 69909135 257655784
+# out
+3
