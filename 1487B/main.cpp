@@ -94,7 +94,7 @@ TT_ T eucmod(T a, T b) {T t = a % b; return t < 0 ? t + abs(b) : t;}
 int main() {
 	Range (t, in) {
 		LL n {in}, m {n / 2}, k {LL(in) - 1};
-		outl((n % 2 ? (k / m * (m + 1) + k % m) : k) % n + 1);
+		outl((n % 2 ? k / m * (m + 1) + k % m : k) % n + 1);
 	}
 }
 
