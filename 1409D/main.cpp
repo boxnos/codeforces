@@ -101,14 +101,9 @@ int main() {
 			if (!m)
 				return P{0, 0, n, false};
 			auto [t, k, r, b] = f(f, l * 10);
-			if (b)
-				return P{t * 10, 0, r, true};
-			k += m % 10;
-			if (k < s)
-				return P{0, k, n % l, false};
-			if (k == s && !(r % l))
-				return P{0, 0, 0, true};
-			return P{10, 0, r, true};
+			return b ?  P{t * 10, 0, r, true} :
+				(k += m % 10) < s ?  P{0, k, n % l, false} :
+				k == s && !(r % l) ? P{0, 0, 0, true} : P{10, 0, r, true};
 		};
 		auto [u, k, r, b] = f(f, 1);
 		outl(u - r);
