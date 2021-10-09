@@ -91,7 +91,7 @@ I_ int bsign(bool b){return b - !b;}
 TT_ T eucdiv(T a, T b) {T t = a / b; return a % b < 0 ? t + sign(t): t;}
 TT_ T eucmod(T a, T b) {T t = a % b; return t < 0 ? t + abs(b) : t;}
 
-using P = tuple<LL, LL, bool>;
+using P = tuple<LL, LL>;
 
 int main() {
 	Range (t, in) {
@@ -99,14 +99,13 @@ int main() {
 		auto f = [&](auto f, LL l) {
 			LL m {n / l}, r {n % (l * 10)};
 			if (!m)
-				return P{0, 0, false};
-			auto [t, k, b] = f(f, l * 10);
-			return b ?  P{t, 0, true} :
-				(k += m % 10) < s ?  P{0, k, false} :
-				k == s && !(r % l) ? P{0, 0, true} : P{l * 10 - r, 0, true};
+				return P{-1, 0};
+			auto [t, k] = f(f, l * 10);
+			return t >= 0 ?  P{t, 0} :
+				(k += m % 10) < s ?  P{-1, k} :
+				k == s && !(r % l) ? P{0, 0} : P{l * 10 - r, 0};
 		};
-		auto [u, k, b] = f(f, 1);
-		outl(u);
+		outl(get<0>(f(f, 1)));
 	}
 }
 
