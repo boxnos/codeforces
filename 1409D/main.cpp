@@ -96,10 +96,11 @@ using P = tuple<LL, LL, LL, bool>;
 int main() {
 	Range (t, in) {
 		LL n {in}, s {in};
-		auto f = [&](auto f, LL m, LL l) {
+		auto f = [&](auto f, LL l) {
+			LL m {n / l};
 			if (!m)
 				return P{0, 0, n, false};
-			auto [t, k, r, b] = f(f, m / 10, l * 10);
+			auto [t, k, r, b] = f(f, l * 10);
 			if (b)
 				return P{t * 10, 0, r, true};
 			k += m % 10;
@@ -109,7 +110,7 @@ int main() {
 				return P{0, 0, 0, true};
 			return P{10, 0, r, true};
 		};
-		auto [u, k, r, b] = f(f, n, 1);
+		auto [u, k, r, b] = f(f, 1);
 		outl(u - r);
 	}
 }
