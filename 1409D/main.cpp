@@ -105,7 +105,7 @@ int main() {
 				(k += m % 10) < s ?  P{-1, k} :
 				k == s && !(r % l) ? P{0, 0} : P{l * 10 - r, 0};
 		};
-		outl(get<0>(f(f, 1)));
+		outl(max(get<0>(f(f, 1)), 0LL));
 	}
 }
 
