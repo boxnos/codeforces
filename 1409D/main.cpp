@@ -91,7 +91,7 @@ I_ int bsign(bool b){return b - !b;}
 TT_ T eucdiv(T a, T b) {T t = a / b; return a % b < 0 ? t + sign(t): t;}
 TT_ T eucmod(T a, T b) {T t = a % b; return t < 0 ? t + abs(b) : t;}
 
-using P = tuple<LL, LL>;
+using P = pair<LL, LL>;
 
 int main() {
 	Range (t, in) {
@@ -105,7 +105,7 @@ int main() {
 				(k += m % 10) < s ?  P{-1, k} :
 				k == s && !(r % l) ? P{0, 0} : P{l * 10 - r, 0};
 		};
-		outl(max(get<0>(f(f, 1)), 0LL));
+		outl(max(f(f, 1).first, 0LL));
 	}
 }
 
