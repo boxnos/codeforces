@@ -100,13 +100,8 @@ int main() {
 		int r {};
 		for (char c: s) {
 			int b {c - '0'};
-			Range (i, 10) {
-				if (i != b) {
-					d[i][b] += d[i][b] & 1;
-					d[b][i] += !(d[b][i] & 1);
-				} else
-					++d[i][b];
-			}
+			Range (i, 10)
+				d[b][i] = d[i][b] + 1;
 		}
 		Range(i, 10)
 			Range (j, 10)
