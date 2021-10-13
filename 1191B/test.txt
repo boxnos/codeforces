@@ -1,0 +1,12 @@
+# inputCopy
+1s 2s 3s
+# outputCopy
+0
+# inputCopy
+9m 9m 9m
+# outputCopy
+0
+# inputCopy
+3p 9m 2p
+# outputCopy
+1
