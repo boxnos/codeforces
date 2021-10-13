@@ -1,0 +1,8 @@
+# inputCopy
+33
+# outputCopy
+0 A
+# inputCopy
+98
+# outputCopy
+1 B
