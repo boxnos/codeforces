@@ -95,9 +95,8 @@ TT_ T eucmod(T a, T b) {T t = a % b; return t < 0 ? t + abs(b) : t;}
 int main() {
 	Range (t, in) {
 		array<int, 3> a {in.read<3>()};
-		int m = *max_element(begin(a), end(a));
 		Range (i, 3)
-			out(m - a[i] + (a[i] != m || m == a[(i + 1) % 3] || m == a[(i + 2) % 3]), ' ');
+			out(max(0, max(a[(i + 1) % 3], a[(i + 2) % 3]) + 1 - a[i]), ' ');
 		outl();
 	}
 }
