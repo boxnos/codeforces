@@ -98,8 +98,9 @@ int main() {
 		array<int, 3> c {};
 		Range (i, n)
 			++c[int(in) % 3];
-		int m {min(c[1], c[2])};
-		outl(c[0] + m + (max(c[1], c[2]) - m) / 3);
+		if (c[1] > c[2])
+			swap(c[1], c[2]);
+		outl(c[0] + c[1] + (c[2] - c[1]) / 3);
 	}
 }
 
