@@ -99,7 +99,7 @@ int main() {
 		Range (i, n)
 			++c[int(in) % 3];
 		int m {min(c[1], c[2])};
-		outl(c[0] + m + (c[1] - m) / 3 + (c[2] - m) / 3);
+		outl(c[0] + m + (max(c[1], c[2]) - m) / 3);
 	}
 }
 
