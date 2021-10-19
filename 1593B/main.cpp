@@ -6,8 +6,8 @@
 #include <cctype>
 #include <functional>
 #include <array>
+#include <limits>
 
-#include <climits>
 using namespace std;
 #define IO_
 #define I_ inline
@@ -87,20 +87,20 @@ string tapp(string s) {return tee("%s",s.c_str());}
 TT_ T tapp(T v){for (auto i: v){tapp(i);dbg(" ");}return v;}
 TT_ T tapl(T v){tapp(v);dbg("\n");return v;}
 
+TT_ constexpr T inf {numeric_limits<T>::max()};
 TT_ T sign(T a) {return (a > 0) - (a < 0);}
 I_ int bsign(bool b){return b - !b;}
 TT_ T eucdiv(T a, T b) {T t = a / b; return a % b < 0 ? t + sign(t): t;}
 TT_ T eucmod(T a, T b) {T t = a % b; return t < 0 ? t + abs(b) : t;}
-
-#define LM LLONG_MAX
 
 int main() {
 	auto f = [](LL n, LL a, LL b, LL i) {
 		for (LL r {};n ; n /= 10, r++)
 			if (LL t {n % 10}; t == a || t == b)
 				return r + i;
-		return LM;
+		return inf<LL>;
 	};
+	LL LM {inf<LL>};
 	Range (t, in) {
 		LL n {in}, r0 {LM}, r5 {LM};
 		for (LL i {}; n; n /= 10, ++i)
