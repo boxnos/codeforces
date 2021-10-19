@@ -104,10 +104,10 @@ int main() {
 	Range (t, in) {
 		LL n {in}, r0 {LM}, r5 {LM};
 		for (LL i {}; n; n /= 10, ++i)
-			if (r0 == LM && n % 10 == 0)
-				r0 = f(n / 10, 0, 5, i);
-			else if (r5 == LM && n % 10 == 5)
-				r5 = f(n / 10, 2, 7, i);
+			if (LL d {n / 10}, r {n % 10}; r0 == LM && !r)
+				r0 = f(d, 0, 5, i);
+			else if (r5 == LM && r == 5)
+				r5 = f(d, 2, 7, i);
 		outl(min(r0, r5));
 	}
 }
