@@ -96,30 +96,18 @@ TT_ T eucmod(T a, T b) {T t = a % b; return t < 0 ? t + abs(b) : t;}
 
 int main() {
 	Range (t, in) {
-		int n {in}, r {};
-		vector<int> a {in.read(n)};
-		if (a[0]) {
-			out(n + 1, ' ');
-			Range (i, 1, n + 1) out(i, ' ');
-			outl();
-		} else if (!a[n - 1]) {
-			Range (i, 1, n + 1) out(i, ' ');
+		int n {in}, f {};
+		vector<int> a(n + 1);
+		Range (i, 1, n + 1)
+			a[i] = in;
+		Range (i, 1, n + 1) {
+			if (!a[i - 1] && a[i] && !f)
+				out(n + 1, ' '), f = 1;
+			out(i, ' ');
+		}
+		if (!f)
 			out(n + 1);
-			outl();
-		} else if ((r = [&] {
-					Range (i, n - 1)
-						if (!a[i] && a[i + 1])
-							return i;
-					return -1;
-			   }()) != -1) {
-			Range (i, n) {
-				out(i + 1, ' ');
-				if (i == r)
-					out(n + 1, " ");
-			}
-			outl();
-		} else
-			outl("-1");
+		outl();
 	}
 }
 
