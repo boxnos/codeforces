@@ -98,12 +98,12 @@ TT_ T eucmod(T a, T b) {T t = a % b; return t < 0 ? t + abs(b) : t;}
 int main() {
 	Range (t, in) {
 		[[maybe_unused]] int n {in};
-		bool f {};
+		bool f {1};
 		string s = in;
 		for (char c : s)
-			f |= (c & gcu()) == '1';
+			f &= (c & gcu()) ^ '1';
 		gcu();
-		outl(f ? "NO" : "YES");
+		outl(f ? "YES" : "NO");
 	}
 }
 
