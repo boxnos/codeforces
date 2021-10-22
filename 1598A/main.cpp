@@ -8,8 +8,7 @@
 #include <array>
 #include <limits>
 
-#include <vector>
-#include <algorithm>
+#include <string>
 using namespace std;
 using namespace std;
 #define IO_
@@ -99,14 +98,11 @@ TT_ T eucmod(T a, T b) {T t = a % b; return t < 0 ? t + abs(b) : t;}
 int main() {
 	Range (t, in) {
 		int n {in};
-		vector<int> a(n);
+		string s = in;
 		Range (i, n)
-			a[i] = gcu() - '0';
+			s[i] &= gcu();
 		gcu();
-		Range (i, n)
-			a[i] += (gcu() - '0') * 2;
-		gcu();
-		outl(find(begin(a), end(a), 3) == end(a) ? "YES" : "NO");
+		outl(find(begin(s), end(s), '1') != end(s) ? "NO" : "YES");
 	}
 }
 
