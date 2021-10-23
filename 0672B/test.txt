@@ -1,0 +1,15 @@
+# inputCopy
+2
+aa
+# outputCopy
+1
+# inputCopy
+4
+koko
+# outputCopy
+2
+# inputCopy
+5
+murat
+# outputCopy
+0
