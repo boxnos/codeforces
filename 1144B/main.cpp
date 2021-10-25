@@ -10,6 +10,7 @@
 
 #include <vector>
 #include <algorithm>
+#include <numeric>
 using namespace std;
 using namespace std;
 #define IO_
@@ -97,18 +98,17 @@ TT_ T eucdiv(T a, T b) {T t = a / b; return a % b < 0 ? t + sign(t): t;}
 TT_ T eucmod(T a, T b) {T t = a % b; return t < 0 ? t + abs(b) : t;}
 
 int main() {
-	int n {in}, r {};
+	int n {in};
 	vector<int> o, e;
 	Range (i, n) {
 		int a {in};
 		(a % 2 ? o : e).push_back(a);
 	}
 	if (size(o) < size(e))
-			swap(o, e);
-	sort(begin(o), end(o));
-	Range (i, max(0, int(size(o) - size(e) - 1)))
-		r += o[i];
-	outl(r);
+		swap(o, e);
+	auto m = begin(o) + max(0, int(size(o) - size(e) - 1));
+	nth_element(begin(o), m, end(o));
+	outl(accumulate(begin(o), m, 0));
 }
 
 /* vim: set ts=4 noet: */
