@@ -98,8 +98,13 @@ TT_ T eucmod(T a, T b) {T t = a % b; return t < 0 ? t + abs(b) : t;}
 int main() {
 	Range (t, in) {
 		outl([] {
-			LL n {in};
-			for (;; n++) {
+			LL n {in}, l {1};
+			for (LL m {n / 100000}; m; m /= 10)
+				if (LL d {m % 10}; d)
+					l = lcm(l, m % 10);
+			if (n % 100000 + l > 100000)
+				l = 1;
+			for (n = (n + l - 1)/ l * l;; n += l) {
 				LL a {n};
 				for (; a; a /= 10)
 					if (LL b {a % 10}; b && n % b)
