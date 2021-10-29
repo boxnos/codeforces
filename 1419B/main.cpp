@@ -98,8 +98,8 @@ TT_ T eucmod(T a, T b) {T t = a % b; return t < 0 ? t + abs(b) : t;}
 int main() {
 	array<LL, 40> d {};
 	Range (i, 1, 40) {
-		LL x  {(1LL << i) - 1};
-		d[i] = d[i - 1] + x * (x + 1) / 2;
+		LL x  {1LL << i};
+		d[i] = d[i - 1] + (x - 1) * x / 2;
 	}
 	Range (t, in)
 		outl(upper_bound(begin(d), end(d), LL(in)) - begin(d) - 1);
