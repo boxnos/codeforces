@@ -101,12 +101,15 @@ int main() {
 	Range (t, in) {
 		int n {in};
 		vector<int> a {in.read(n)}, b, c {a};
-		Range (i, n) {
-			int g = max_element(begin(c) + i, end(c)) - begin(c);
-			swap(c[i], c[g]);
-			swap(a[i], a[g]);
-			Range (j, i + 1, n)
-				c[j] = gcd(c[i], c[j]);
+		for (int i {}; i < n;) {
+			int m = *max_element(begin(c) + i, end(c));
+			for (int j {i}; j < n; j++)
+				if (c[j] == m)
+					swap(c[i], c[j]), swap(a[i], a[j]), i++;
+				else if (c[j] == 1)
+					swap(c[n - 1], c[j]), swap(a[n - 1], a[j]), n--;
+			for (int j {i}; j < n; j++)
+				c[j] = gcd(m, c[j]);
 		}
 		outl(a);
 	}
