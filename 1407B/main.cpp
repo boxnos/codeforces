@@ -106,10 +106,11 @@ int main() {
 			for (int j {i}; j < n; j++)
 				if (c[j] == m)
 					swap(c[i], c[j]), swap(a[i], a[j]), i++;
-				else if (c[j] == 1)
-					swap(c[n - 1], c[j]), swap(a[n - 1], a[j]), n--;
-			for (int j {i}; j < n; j++)
-				c[j] = gcd(m, c[j]);
+				else {
+					if (c[j] == 1)
+						swap(c[n - 1], c[j]), swap(a[n - 1], a[j]), n--;
+					c[j] = gcd(m, c[j]);
+				}
 		}
 		outl(a);
 	}
