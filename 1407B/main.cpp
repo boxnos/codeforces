@@ -102,7 +102,7 @@ int main() {
 		int n {in};
 		vector<int> a {in.read(n)}, b, c {a};
 		for (int i {}; i < n;) {
-			int m = *max_element(begin(c) + i, end(c));
+			int m = *max_element(begin(c) + i, begin(c) + n);
 			for (int j {i}; j < n; j++)
 				if (c[j] == m)
 					swap(c[i], c[j]), swap(a[i], a[j]), i++;
