@@ -11,7 +11,7 @@
 #include <vector>
 #include <cmath>
 using namespace std;
-// #define IO_
+#define IO_
 #define I_ inline
 #define T_ template
 #define TN_ typename
@@ -102,7 +102,7 @@ inline double dist(double x, double y) {
 int main() {
 	Range (t, in) {
 		int n {in};
-		double r {}, s {};
+		double r {};
 		vector<int> m, d;
 		Range (i, n * 2) {
 			int x {in}, y {in};
@@ -113,11 +113,9 @@ int main() {
 		}
 		sort(begin(m), end(m));
 		sort(begin(d), end(d));
-		Range (i, n) {
+		Range (i, n)
 			r += dist(m[i], d[i]);
-			s += dist(m[i], d[n - i - 1]);
-		}
-		printf("%.18f\n", min(s, r));
+		printf("%.12f\n", r);
 	}
 }
 
