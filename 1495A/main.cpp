@@ -95,25 +95,29 @@ I_ int bsign(bool b){return b - !b;}
 TT_ T eucdiv(T a, T b) {T t = a / b; return a % b < 0 ? t + sign(t): t;}
 TT_ T eucmod(T a, T b) {T t = a % b; return t < 0 ? t + abs(b) : t;}
 
+inline double dist(double x, double y) {
+	return sqrt(x * x + y * y);
+}
+
 int main() {
 	Range (t, in) {
 		int n {in};
 		double r {}, s {};
-		vector<double> m, d;
+		vector<int> m, d;
 		Range (i, n * 2) {
 			int x {in}, y {in};
 			if (x)
-				d.push_back(double(x) * x);
+				d.push_back(abs(x));
 			else
-				m.push_back(double(y) * y);
+				m.push_back(abs(y));
 		}
 		sort(begin(m), end(m));
 		sort(begin(d), end(d));
 		Range (i, n) {
-			r += sqrt(m[i] + d[i]);
-			s += sqrt(m[i] + d[n - i - 1]);
+			r += dist(m[i], d[i]);
+			s += dist(m[i], d[n - i - 1]);
 		}
-		printf("%.20f\n", min(s, r));
+		printf("%.18f\n", min(s, r));
 	}
 }
 
