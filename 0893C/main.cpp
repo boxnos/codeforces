@@ -94,28 +94,54 @@ I_ int bsign(bool b){return b - !b;}
 TT_ T eucdiv(T a, T b) {T t = a / b; return a % b < 0 ? t + sign(t): t;}
 TT_ T eucmod(T a, T b) {T t = a % b; return t < 0 ? t + abs(b) : t;}
 
+struct union_find {
+	struct node {int p, r = 1;};
+	vector<node> nodes;
+
+	union_find(int n) : nodes(n) {
+		int i = 0;
+		for (node &n: nodes)
+			n.p = i++;
+	}
+	int find(int x) {
+		int &p = nodes[x].p;
+		if (p != x)
+			p = find(p);
+		return p;
+	}
+	void unite(int a, int b) {
+		int ar = find(a), br = find(b);
+		node &an = nodes[ar], &bn = nodes[br];
+		if (an.r > bn.r)
+			bn.p = ar;
+		else {
+			an.p = br;
+			if (an.r == bn.r)
+				bn.r++;
+		}
+	}
+	bool equal(int a, int b) {
+		return find(a) == find(b);
+	}
+};
+
 int main() {
 	int n {in}, m {in};
 	LL r {};
 	vector<int> c {in.read(n)};
-	vector<bool> v(n);
-	vector<vector<int>> t(n);
+	vector<int> v(n, inf<int>);
+	union_find u(n);
 	Range (i, m) {
 		int x {int(in) - 1}, y {int(in) - 1};
-		t[x].push_back(y);
-		t[y].push_back(x);
+		u.unite(x, y);
 	}
-	function<int(int)> f = [&](int i) {
-		int r {c[i]};
-		v[i] = 1;
-		for (int j : t[i])
-			if (!v[j])
-				r = min(r, f(j));
-		return r;
-	};
-	Range (i, n)
-		if (!v[i])
-			r += f(i);
+	Range (i, n) {
+		int j = u.find(i);
+		v[j] = min(v[j], c[i]);
+	}
+	for (int i: v)
+		if (i != inf<int>)
+			r += i;
 	outl(r);
 }
 
