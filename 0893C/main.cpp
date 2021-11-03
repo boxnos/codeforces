@@ -105,17 +105,17 @@ int main() {
 		t[x].push_back(y);
 		t[y].push_back(x);
 	}
-	auto f = [&](auto f, int i) -> int {
+	function<int(int)> f = [&](int i) {
 		int r {c[i]};
 		v[i] = 1;
 		for (int j : t[i])
 			if (!v[j])
-				r = min(r, f(f, j));
+				r = min(r, f(j));
 		return r;
 	};
 	Range (i, n)
 		if (!v[i])
-			r += f(f, i);
+			r += f(i);
 	outl(r);
 }
 
