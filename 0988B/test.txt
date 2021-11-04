@@ -1,0 +1,33 @@
+# inputCopy
+5
+a
+aba
+abacaba
+ba
+aba
+# outputCopy
+YES
+a
+ba
+aba
+aba
+abacaba
+# inputCopy
+5
+a
+abacaba
+ba
+aba
+abab
+# outputCopy
+NO
+# inputCopy
+3
+qwerty
+qwerty
+qwerty
+# outputCopy
+YES
+qwerty
+qwerty
+qwerty
