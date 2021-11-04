@@ -11,7 +11,6 @@
 #include <vector>
 #include <string>
 #include <algorithm>
-#include <regex>
 using namespace std;
 #define IO_
 #define I_ inline
@@ -104,7 +103,7 @@ int main() {
 		i = (const string) in;
 	sort(begin(s), end(s), [](string &a, string &b) {return a.size() < b.size();});
 	Range (i, 1, n)
-		if (!regex_search(s[i], regex(s[i - 1]))) {
+		if (s[i].find(s[i - 1]) == string::npos) {
 			outl("NO");
 			return 0;
 		}
