@@ -1,0 +1,18 @@
+# inputCopy
+5
+abcdefghijklmnopqrstuvwxyz
+hello
+abcdefghijklmnopqrstuvwxyz
+i
+abcdefghijklmnopqrstuvwxyz
+codeforces
+qwertyuiopasdfghjklzxcvbnm
+qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq
+qwertyuiopasdfghjklzxcvbnm
+abacaba
+# outputCopy
+13
+0
+68
+0
+74
