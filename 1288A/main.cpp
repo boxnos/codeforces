@@ -95,13 +95,9 @@ TT_ T eucdiv(T a, T b) {T t = a / b; return a % b < 0 ? t + sign(t): t;}
 TT_ T eucmod(T a, T b) {T t = a % b; return t < 0 ? t + abs(b) : t;}
 
 int main() {
-	auto f = [] (int x, int d) {
-		return x + (d + x) / (x + 1);
-	};
 	Range (t, in) {
-		int n {in}, d {in};
-		double s {sqrt(d)};
-		outl(f(s - 1, d) <= n || f(s, d) <= n ? "YES" : "NO");
+		int n {in}, d {in}, s = sqrt(d) - 1;
+		outl(s + (d + s) / (s + 1) <= n ? "YES" : "NO");
 	}
 }
 
