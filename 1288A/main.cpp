@@ -8,7 +8,7 @@
 #include <array>
 #include <limits>
 
-#include <string>
+#include <cmath>
 using namespace std;
 #define IO_
 #define I_ inline
@@ -100,15 +100,8 @@ int main() {
 	};
 	Range (t, in) {
 		int n {in}, d {in};
-		outl([&] {
-			int p = inf<int>;
-			for (int i {0}, m; i < d; i++, p = m)
-				if ((m = f(i, d)) <= n)
-					return "YES";
-				else if (p < m)
-					return "NO";
-			return "NO";
-		}());
+		double s {sqrt(d)};
+		outl(f(s - 1, d) <= n || f(s, d) <= n ? "YES" : "NO");
 	}
 }
 
