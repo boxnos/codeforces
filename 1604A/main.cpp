@@ -8,7 +8,6 @@
 #include <array>
 #include <limits>
 
-#include <vector>
 using namespace std;
 #define IO_
 #define I_ inline
@@ -96,10 +95,9 @@ TT_ T eucmod(T a, T b) {T t = a % b; return t < 0 ? t + abs(b) : t;}
 
 int main() {
 	Range (t, in) {
-		LL n {in}, r {};
-		for (int i {}, m {1}; i < n; i++, m++)
-			if (int a {in}; m < a)
-				r += a - exchange(m, a);
+		int n {in}, r {};
+		Range (i, 1, n + 1)
+			r = max(r, int(in) - i);
 		outl(r);
 	}
 }
