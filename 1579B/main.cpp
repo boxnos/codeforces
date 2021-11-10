@@ -6,8 +6,11 @@
 #include <cctype>
 #include <functional>
 #include <array>
+#include <limits>
 
-#include <string>
+#include <vector>
+#include <deque>
+#include <algorithm>
 using namespace std;
 #define IO_
 #define I_ inline
@@ -87,14 +90,33 @@ string tapp(string s) {return tee("%s",s.c_str());}
 TT_ T tapp(T v){for (auto i: v){tapp(i);dbg(" ");}return v;}
 TT_ T tapl(T v){tapp(v);dbg("\n");return v;}
 
-I_ int b_s(bool b){return b - !b;}
+TT_ constexpr T inf {numeric_limits<T>::max()};
+TT_ T sign(T a) {return (a > 0) - (a < 0);}
+I_ int bsign(bool b){return b - !b;}
+TT_ T eucdiv(T a, T b) {T t = a / b; return a % b < 0 ? t + sign(t): t;}
+TT_ T eucmod(T a, T b) {T t = a % b; return t < 0 ? t + abs(b) : t;}
 
 int main() {
 	Range (t, in) {
-		int B {};
-		for (char c; '\n' != (c = gcu()); B += b_s(c == 'B'))
-			;
-		outl(B ? "NO" : "YES");
+		int n {in};
+		deque<int> a(n);
+		for (int &i: a)
+			i = in;
+		vector<tuple<int, int, int>> r;
+		Range (i, n - 1) {
+			auto j = min_element(begin(a), end(a));
+			if (j != begin(a)) {
+				r.push_back({i + 1, n, j - begin(a)});
+				for (auto k {begin(a)}; k != j; k++) {
+					a.push_back(a.front());
+					a.pop_front();
+				}
+			}
+			a.pop_front();
+		}
+		outl(size(r));
+		for (auto i: r)
+			outl({get<0>(i), get<1>(i), get<2>(i)});
 	}
 }
 
