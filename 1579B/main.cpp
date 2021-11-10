@@ -98,21 +98,18 @@ TT_ T eucmod(T a, T b) {T t = a % b; return t < 0 ? t + abs(b) : t;}
 
 int main() {
 	Range (t, in) {
-		int n {in};
+		int n {in}, s {};
 		deque<int> a(n);
 		for (int &i: a)
 			i = in;
 		vector<tuple<int, int, int>> r;
 		Range (i, n - 1) {
-			auto j = min_element(begin(a), end(a));
-			if (j != begin(a)) {
-				r.push_back({i + 1, n, j - begin(a)});
-				for (auto k {begin(a)}; k != j; k++) {
-					a.push_back(a.front());
-					a.pop_front();
-				}
-			}
-			a.pop_front();
+			auto m = min_element(begin(a), end(a));
+			int j = m - begin(a);
+			if (s != j)
+				r.push_back({i + 1, n, (j - s + size(a)) % size(a)});
+			a.erase(m);
+			s = j % size(a);
 		}
 		outl(size(r));
 		for (auto i: r)
