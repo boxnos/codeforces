@@ -97,10 +97,13 @@ T_ <TN_ P, TN_ O> I_ constexpr int len(P p, O o) {return distance(begin(p), o);}
 TT_ I_ constexpr int len(T p) {return size(p);}
 
 int main() {
-	outl([] {
-		array<bool, 256> l {};
+	constexpr auto l = [] {
+		array<bool, 256> l{};
 		for (char c: "aeiou")
 			l[c] = 1;
+		return l;
+	}();
+	outl([&] {
 		string s = in, t = in;
 		if (len(s) != len(t))
 			return 0;
