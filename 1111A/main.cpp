@@ -93,8 +93,8 @@ TT_ T sign(T a) {return (a > 0) - (a < 0);}
 I_ int bsign(bool b){return b - !b;}
 TT_ T eucdiv(T a, T b) {T t = a / b; return a % b < 0 ? t + sign(t): t;}
 TT_ T eucmod(T a, T b) {T t = a % b; return t < 0 ? t + abs(b) : t;}
-T_ <TN_ P, TN_ O> I_ int len(P p, O o) {return distance(begin(p), o);}
-TT_ I_ int len(T p) {return size(p);}
+T_ <TN_ P, TN_ O> I_ constexpr int len(P p, O o) {return distance(begin(p), o);}
+TT_ I_ constexpr int len(T p) {return size(p);}
 
 int main() {
 	outl([] {
