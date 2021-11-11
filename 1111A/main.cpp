@@ -93,6 +93,7 @@ TT_ T sign(T a) {return (a > 0) - (a < 0);}
 I_ int bsign(bool b){return b - !b;}
 TT_ T eucdiv(T a, T b) {T t = a / b; return a % b < 0 ? t + sign(t): t;}
 TT_ T eucmod(T a, T b) {T t = a % b; return t < 0 ? t + abs(b) : t;}
+TT_ I_ int len(T l) {return size(l);}
 
 int main() {
 	outl([] {
@@ -100,9 +101,9 @@ int main() {
 		for (char c: "aeiou")
 			l[c] = 1;
 		string s = in, t = in;
-		if (size(s) != size(t))
+		if (len(s) != len(t))
 			return 0;
-		Range(i, size(s))
+		Range(i, len(s))
 			if (l[s[i]] != l[t[i]])
 				return 0;
 		return 1;
