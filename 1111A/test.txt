@@ -1,0 +1,20 @@
+# inputCopy
+a
+u
+# outputCopy
+Yes
+# inputCopy
+abc
+ukm
+# outputCopy
+Yes
+# inputCopy
+akm
+ua
+# outputCopy
+No
+# input
+abc
+uab
+# output
+No
