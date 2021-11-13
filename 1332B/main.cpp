@@ -102,7 +102,7 @@ int main() {
 		int n {in}, o {};
 		array<int, 11> m {};
 		vector<int> a(n);
-		for (int &i: a) {
+		for (int &i: a)
 			i = [&] {
 				int x {in};
 				Range (j, 11)
@@ -110,7 +110,6 @@ int main() {
 						return m[j] ? m[j] : (m[j] = ++o);
 				return 0;
 			}();
-		}
 		outl(o);
 		outl(a);
 	}
