@@ -107,7 +107,7 @@ int main() {
 				int x {in};
 				Range (j, 11)
 					if (!(x % g[j]))
-						return m[j] ? m[j] : (m[j] = ++o);
+						return m[j] ?: (m[j] = ++o);
 				return 0;
 			}();
 		outl(o);
