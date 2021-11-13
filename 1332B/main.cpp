@@ -106,12 +106,8 @@ int main() {
 			i = [&] {
 				int x {in};
 				Range (j, 11)
-					if (!(x % g[j])) {
-						if (m[j])
-							return m[j];
-						else
-							return m[j] = ++o;
-					}
+					if (!(x % g[j]))
+						return m[j] ? m[j] : (m[j] = ++o);
 				return 0;
 			}();
 		}
