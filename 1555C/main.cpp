@@ -102,7 +102,7 @@ int main() {
 		vector<int> a(n + 1);
 		Range (i, n) a[i + 1] = a[i] + int(in);
 		Range (i, 1, n + 1)
-			r = min(r, max(a[n] -  a[i], b)), b += int(in);
+			r = min(r, max(a[n] -  a[i], exchange(b, b + int(in))));
 		outl(r);
 	}
 }
