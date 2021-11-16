@@ -8,7 +8,6 @@
 #include <array>
 #include <limits>
 
-#include <vector>
 using namespace std;
 #define IO_
 #define I_ inline
@@ -99,7 +98,7 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 int main() {
 	constexpr auto f = [] {
 		array<bool, 1001> a {};
-		for (auto i: {1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987})
+		for (int i {1}, j {1}, t {}; i < len(a); t = i, i = j, j += t)
 			a[i] = 1;
 		return a;
 	}();
