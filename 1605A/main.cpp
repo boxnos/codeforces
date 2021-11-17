@@ -98,7 +98,7 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 int main() {
 	Range (t, in) {
 		int a1 {in}, a2 {in}, a3 {in};
-		outl(min(1, eucmod(a1 + a2 - 2 * a3, 3)));
+		outl((a1 + a3 - 2 * a2) % 3 != 0);
 	}
 }
 
