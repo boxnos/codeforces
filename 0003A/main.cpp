@@ -8,6 +8,7 @@
 #include <array>
 #include <limits>
 
+#include <string>
 using namespace std;
 #define IO_
 #define I_ inline
@@ -97,10 +98,10 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 
 int main() {
 	int sx = gcu() - 'a', sy = gcu() - '1', tx = (gcu(), gcu() - 'a'), ty = gcu() - '1';
+	const string lr[] {"L", "", "R"}, du[] {"D", "", "U"};
 	outl(max(abs(sx - tx), abs(sy - ty)));
-	for (; sx != tx || sy != ty; sx -= sign(sx - tx), sy -= sign(sy - ty))
-		outl(sx > tx ? "L" : sx < tx ? "R" : "",
-			 sy > ty ? "D" : sy < ty ? "U" : "");
+	for (int x, y; sx != tx || sy != ty; sx += x, sy += y)
+		outl(lr[(x = sign(tx - sx)) + 1], du[(y = sign(ty - sy)) + 1]);
 }
 
 /* vim: set ts=4 noet: */
