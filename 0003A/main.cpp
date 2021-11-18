@@ -99,9 +99,10 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 int main() {
 	int sx = gcu() - 'a', sy = gcu() - '1', tx = (gcu(), gcu() - 'a'), ty = gcu() - '1';
 	const string lr[] {"L", "", "R"}, du[] {"D", "", "U"};
+	const auto plr {lr + 1}, pdu {du + 1};
 	outl(max(abs(sx - tx), abs(sy - ty)));
 	for (int x, y; sx != tx || sy != ty; sx += x, sy += y)
-		outl(lr[(x = sign(tx - sx)) + 1], du[(y = sign(ty - sy)) + 1]);
+		outl(plr[x = sign(tx - sx)], pdu[y = sign(ty - sy)]);
 }
 
 /* vim: set ts=4 noet: */
