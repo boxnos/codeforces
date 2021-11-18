@@ -1,0 +1,23 @@
+# inputCopy
+a8
+h1
+# outputCopy
+7
+RD
+RD
+RD
+RD
+RD
+RD
+RD
+# tes
+h1
+b6
+# tes
+6
+LU
+LU
+LU
+LU
+LU
+L
