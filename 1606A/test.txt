@@ -1,0 +1,11 @@
+# inputCopy
+4
+b
+aabbbabaa
+abbb
+abbaab
+# outputCopy
+b
+aabbbabaa
+bbbb
+bbbaab
