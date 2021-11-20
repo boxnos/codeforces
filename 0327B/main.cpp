@@ -98,7 +98,7 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 
 int main() {
 	int n {in};
-	Range (i, n + 1, n * 2 + 1)
+	Range (i, n, n * 2)
 		out(i, ' ');
 	outl();
 }
