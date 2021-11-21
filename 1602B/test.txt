@@ -1,9 +1,0 @@
-# inputCopy
-3
-fc
-aaaa
-thebrightboiler
-# outputCopy
-c f
-a aaa
-b therightboiler
