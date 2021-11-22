@@ -1,0 +1,13 @@
+# inputCopy
+3 5
+1 2
+3 4
+1 3
+# outputCopy
+1.66666667
+# inputCopy
+2 1
+99 100
+98 99
+# outputCopy
+0.98989899
