@@ -99,12 +99,11 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 
 int main() {
 	int n {in}, m {in};
-	double d {inf<double>};
-	Range (i, n) {
-		int a {in}, b {in};
-		d = min(d, double(a) / b);
-	}
-	printf("%.10f\n", d * m);
+	pair<int, int> d {in, in};
+	Range (i, n - 1)
+		if (int a {in}, b {in}; d.first * b > d.second * a)
+			d = {a, b};
+	printf("%.10f\n", double(d.first) * m / d.second);
 }
 
 /* vim: set ts=4 noet: */
