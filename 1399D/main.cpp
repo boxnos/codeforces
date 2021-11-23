@@ -101,17 +101,17 @@ int main() {
 		int n {in}, m {};
 		stack<int> o, z;
 		vector<int> a(n);
+		auto f = [&] (int i, auto &o, auto &z) {
+			if (z.empty())
+				o.push(a[i] = ++m);
+			else
+				a[i] = z.top(), z.pop(), o.push(a[i]);
+		};
 		Range (i, n)
 			if (gcu() - '0')
-				if (z.empty())
-					o.push(a[i] = ++m);
-				else
-					a[i] = z.top(), z.pop(), o.push(a[i]);
+				f(i, o, z);
 			else
-				if (o.empty())
-					z.push(a[i] = ++m);
-				else
-					a[i] = o.top(), o.pop(), z.push(a[i]);
+				f(i, z, o);
 		gcu();
 		outl(m);
 		outl(a);
