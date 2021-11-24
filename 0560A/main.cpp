@@ -97,10 +97,12 @@ T_ <TN_ P, TN_ O> I_ constexpr int len(P p, O o) {return distance(begin(p), o);}
 TT_ I_ constexpr int len(T p) {return size(p);}
 
 int main() {
-	int n {in}, m {inf<int>};
-	Range (i, n)
-		m = min(m, int(in));
-	outl(m == 1 ? -1 : 1);
+	Range (i, in)
+		if (int(in) == 1) {
+			outl(-1);
+			return 0;
+		}
+	outl(1);
 }
 
 /* vim: set ts=4 noet: */
