@@ -99,11 +99,10 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 int main() {
 	Range (i, in) {
 		int n {in}, w {};
-		vector<int> a {in.read(n)}, l(n);
-		Range (i, n - 1, -1, -1)
-			if (w = max(w - 1, a[i]); w)
-				l[i] = 1;
-		outl(l);
+		vector<int> a {in.read(n)};
+		for_each(rbegin(a), rend(a),
+				 [&] (int &a){a = bool(w = max(w - 1, a));});
+		outl(a);
 	}
 }
 
