@@ -78,6 +78,7 @@ T_ <TN_ T=int> struct range{
 	struct it{T v,s; it(T v,T s):v(v),s(s){} operator T()const{return v;} I_ operator T&(){return v;}T operator*()const{return v;}
 		I_ it& operator++(){v+=s;return *this;}}; it begin(){return {b,s};} it end(){return {e,s};}};
 #define Range(b,...)for([[maybe_unused]] auto b:range<int>((int) __VA_ARGS__))
+#define Test Range(test_cases_, in)
 #define dbg(...)fprintf(stderr,__VA_ARGS__)
 using LL=long long;
 #define tee(s,v)({dbg(s,v);v;})
@@ -99,7 +100,7 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 
 int main() {
 	auto f = [](char c) {return c % 2;};
-	Range (i, in) {
+	Test {
 		string s = in;
 		outl(f(s.back()) ? f(s.front()) ? all_of(begin(s), end(s), f) ? -1 : 2 : 1 : 0);
 	}
