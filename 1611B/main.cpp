@@ -100,11 +100,8 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 
 int main() {
 	Test {
-		int a {in}, b {in}, r {};
-		if (a < b)
-			swap(a, b);
-		r = min((a - b) / 2, b);
-		outl((b - r) / 2 + r);
+		int a {in}, b {in};
+		outl(min({a, b, (a + b) / 4}));
 	}
 }
 
