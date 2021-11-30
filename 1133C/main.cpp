@@ -8,7 +8,7 @@
 #include <array>
 #include <limits>
 
-#include <vector>
+#include <map>
 #include <algorithm>
 using namespace std;
 #define IO_
@@ -99,12 +99,14 @@ T_ <TN_ P, TN_ O> I_ constexpr int len(P p, O o) {return distance(begin(p), o);}
 TT_ I_ constexpr int len(T p) {return size(p);}
 
 int main() {
-	int n {in}, r {};
-	vector<int> a {in.read(n)};
-	sort(begin(a), end(a));
-	for (int i {}, j {1}; i < n; r = max(r, j - i++))
-		for (;j < n && a[i] + 5 >= a[j] ; ++j)
-			;
+	int n {in}, r {}, s {};
+	map<int, int> m;
+	Range (i, n) {
+		int a {in};
+		m[a]++, m[a + 6]--;
+	}
+	for (auto [x, y] : m)
+		r = max(r, s += y);
 	outl(r);
 }
 
