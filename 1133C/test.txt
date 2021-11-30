@@ -1,0 +1,15 @@
+# inputCopy
+7
+1 10 17 12 15 2 16
+# outputCopy
+4
+# inputCopy
+10
+1337 1337 1337 1337 1337 1337 1337 1337 1337 1337
+# outputCopy
+10
+# inputCopy
+6
+1 1000 10000 10 100 1000000000
+# outputCopy
+1
