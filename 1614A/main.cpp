@@ -102,16 +102,13 @@ int main() {
 	Test {
 		auto [n, l, r, k] {in.read<4>()};
 		int s {}, c {};
-		vector<int> a;
+		vector<int> a(n);
+		auto e {begin(a)};
 		Range (i, n)
 			if (int t {in}; l <= t && t <= r)
-				a.push_back(t);
-		sort(begin(a), end(a));
-		for (int i: a)
-			if ((s += i) > k)
-				break;
-			else
-				c++;
+				*e++ = t;
+		sort(begin(a), e);
+		all_of(begin(a), e, [&](int i) {return (s += i) > k ? 0 : ++c;});
 		outl(c);
 	}
 }
