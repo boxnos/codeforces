@@ -99,8 +99,8 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 
 int main() {
 	Test {
-		int a {in}, b {in}, c {in}, t {c % 2 ? b ? 1 : 3 : b % 2 * 2};
-		outl(t > a ? t - a : (a - t) % 2);
+		int a {in}, b {in}, c {in};
+		outl((a + c) % 2);
 	}
 }
 
