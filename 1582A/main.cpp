@@ -8,6 +8,7 @@
 #include <array>
 #include <limits>
 
+#include <numeric>
 using namespace std;
 #define IO_
 #define I_ inline
@@ -100,8 +101,8 @@ int main() {
 	Test {
 		int n {in};
 		Range (i, n / 2) {
-			int a {in}, b {in};
-			out(-b, ' ', a, ' ');
+			int a {in}, b {in}, g {gcd(a, b)};
+			out(-b / g, ' ', a / g, ' ');
 		}
 		outl();
 	}
