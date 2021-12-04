@@ -8,7 +8,6 @@
 #include <array>
 #include <limits>
 
-#include <algorithm>
 using namespace std;
 #define IO_
 #define I_ inline
@@ -99,8 +98,12 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 
 int main() {
 	Test {
-		int a {in}, b {in}, c {in};
-		outl((a + c) % 2);
+		int n {in};
+		Range (i, n / 2) {
+			int a {in}, b {in};
+			out(-b, ' ', a, ' ');
+		}
+		outl();
 	}
 }
 
