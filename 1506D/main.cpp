@@ -98,25 +98,15 @@ TT_ T eucmod(T a, T b) {T t = a % b; return t < 0 ? t + abs(b) : t;}
 T_ <TN_ P, TN_ O> I_ constexpr int len(P p, O o) {return distance(begin(p), o);}
 TT_ I_ constexpr int len(T p) {return size(p);}
 
-struct custom_hash {
-    size_t operator()(size_t x) const {
-        static const size_t FIXED_RANDOM = chrono::steady_clock::now().time_since_epoch().count();
-        x += 0x9e3779b97f4a7c15 + FIXED_RANDOM;
-        x = (x ^ (x >> 30)) * 0xbf58476d1ce4e5b9;
-        x = (x ^ (x >> 27)) * 0x94d049bb133111eb;
-        return x ^ (x >> 31);
-    }
-};
-
 int main() {
 	Test {
-		int n {in};
-		unordered_map<int, int, custom_hash> a;
-		Range (i, n)
-			++a[in];
-		int m {max_element(begin(a), end(a), [](auto a, auto b){return a.second < b.second;})
-			->second * 2 - n};
-		outl(m < 0 ? n % 2 : m);
+		int n {in}, m {}, t {1};
+		vector<int> a {in.read(n)};
+		sort(begin(a), end(a));
+		for (auto i {begin(a) + 1}; i != end(a); ++i)
+			t = *(i - 1) != *i ? m = max(m, t), 1 : t + 1;
+		m = max(m, t);
+		outl(max(m * 2 - n, n % 2));
 	}
 }
 
