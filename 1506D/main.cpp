@@ -98,15 +98,18 @@ TT_ T eucmod(T a, T b) {T t = a % b; return t < 0 ? t + abs(b) : t;}
 T_ <TN_ P, TN_ O> I_ constexpr int len(P p, O o) {return distance(begin(p), o);}
 TT_ I_ constexpr int len(T p) {return size(p);}
 
+int mode(vector<int> &a) {
+	int c {}, t {};
+	for (int i: a)
+		t = c == i ? t + 1 : t ? t - 1 : (c = i, 1);
+	return c;
+}
+
 int main() {
 	Test {
-		int n {in}, m {}, t {1};
+		int n {in};
 		vector<int> a {in.read(n)};
-		sort(begin(a), end(a));
-		for (auto i {begin(a) + 1}; i != end(a); ++i)
-			t = *(i - 1) != *i ? m = max(m, t), 1 : t + 1;
-		m = max(m, t);
-		outl(max(m * 2 - n, n % 2));
+		outl(max(int(count(begin(a), end(a), mode(a))) * 2 - n, n % 2));
 	}
 }
 
