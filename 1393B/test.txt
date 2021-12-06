@@ -1,0 +1,17 @@
+# inputCopy
+6
+1 1 1 2 1 1
+6
++ 2
++ 1
+- 1
++ 2
+- 1
++ 2
+# outputCopy
+NO
+YES
+NO
+NO
+NO
+YES
