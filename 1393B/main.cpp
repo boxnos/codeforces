@@ -9,6 +9,7 @@
 #include <limits>
 
 #include <vector>
+#include <unordered_map>
 using namespace std;
 #define IO_
 #define I_ inline
@@ -89,6 +90,10 @@ string tapp(string s) {return tee("%s",s.c_str());}
 TT_ T tapp(T v){for (auto i: v){tapp(i);dbg(" ");}return v;}
 TT_ T tapl(T v){tapp(v);dbg("\n");return v;}
 
+#ifdef _FUNCTIONAL_HASH_H
+#include <chrono>
+struct custom_hash{size_t operator()(size_t x)const{static const size_t FIXED_RANDOM = chrono::steady_clock::now().time_since_epoch().count(); x += 0x9e3779b97f4a7c15 + FIXED_RANDOM; x = (x ^ (x >> 30)) * 0xbf58476d1ce4e5b9; x = (x ^ (x >> 27)) * 0x94d049bb133111eb; return x ^ (x >> 31); } };
+#endif
 TT_ constexpr T inf {numeric_limits<T>::max()};
 TT_ T sign(T a) {return (a > 0) - (a < 0);}
 I_ int bsign(bool b){return b - !b;}
@@ -98,6 +103,7 @@ T_ <TN_ P, TN_ O> I_ constexpr int len(P p, O o) {return distance(begin(p), o);}
 TT_ I_ constexpr int len(T p) {return size(p);}
 
 int main() {
+	unordered_map<int, int, custom_hash> uom;
 	int n {in}, m4 {}, m2 {};
 	vector<int> m(100001);
 	auto add = [&](int a, int p) {
