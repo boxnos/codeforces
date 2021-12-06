@@ -9,7 +9,6 @@
 #include <limits>
 
 #include <vector>
-#include <unordered_map>
 using namespace std;
 #define IO_
 #define I_ inline
@@ -103,7 +102,6 @@ T_ <TN_ P, TN_ O> I_ constexpr int len(P p, O o) {return distance(begin(p), o);}
 TT_ I_ constexpr int len(T p) {return size(p);}
 
 int main() {
-	unordered_map<int, int, custom_hash> uom;
 	int n {in}, m4 {}, m2 {};
 	vector<int> m(100001);
 	auto add = [&](int a, int p) {
