@@ -8,8 +8,7 @@
 #include <array>
 #include <limits>
 
-#include <chrono>
-#include <unordered_map>
+#include <vector>
 using namespace std;
 #define IO_
 #define I_ inline
@@ -98,66 +97,22 @@ TT_ T eucmod(T a, T b) {T t = a % b; return t < 0 ? t + abs(b) : t;}
 T_ <TN_ P, TN_ O> I_ constexpr int len(P p, O o) {return distance(begin(p), o);}
 TT_ I_ constexpr int len(T p) {return size(p);}
 
-struct custom_hash {
-    size_t operator()(size_t x) const {
-        static const size_t FIXED_RANDOM = chrono::steady_clock::now().time_since_epoch().count();
-        x += 0x9e3779b97f4a7c15 + FIXED_RANDOM;
-        x = (x ^ (x >> 30)) * 0xbf58476d1ce4e5b9;
-        x = (x ^ (x >> 27)) * 0x94d049bb133111eb;
-        return x ^ (x >> 31);
-    }
-};
-
 int main() {
-	int n {in};
-	unordered_map<int, int, custom_hash> m4, m2, m1;
-	auto add = [&](int a) {
-		if (m4.count(a)) ++m4[a];
-		else if (m2.count(a)) {
-			if (m2[a] == 3)
-				m4[a] = 4, m2.erase(a);
-			else
-				++m2[a];
-		} else if (m1.count(a))
-			m2[a] = 2, m1.erase(a);
-		else
-			++m1[a];
-	};
-	auto sub = [&](int a) {
-		if (m4.count(a)) {
-			if (m4[a] == 4)
-				m2[a] = 3, m4.erase(a);
-			else
-				--m4[a];
-		} else if (m2.count(a)) {
-			if (m2[a] == 2)
-				m1[a] = 1, m2.erase(a);
-			else
-				--m2[a];
-		} else if (m1.count(a))
-			m1.erase(a);
+	int n {in}, m4 {}, m2 {};
+	vector<int> m(100001);
+	auto add = [&](int a, int p) {
+		m4 -= m[a] / 4;
+		m2 -= m[a] / 2;
+		m[a] += p;
+		m4 += m[a] / 4;
+		m2 += m[a] / 2;
 	};
 	Range (i, n)
-		add(in);
+		add(in, 1);
 	Range (i, in) {
 		char c = gcu(); gcu();
-		if (c == '+')
-			add(in);
-		else
-			sub(in);
-		if (size(m4) > 1)
-			outl("YES");
-		else if (size(m4)) {
-			if (begin(m4)->second >= 8)
-				outl("YES");
-			else if (begin(m4)->second >= 6 && size(m2))
-				outl("YES");
-			else if (size(m2) > 1)
-				outl("YES");
-			else
-				outl("NO");
-		} else
-			outl("NO");
+		add(in, c == '+' ? 1 : -1);
+		outl(m4 && m2 >= 4 ? "YES" : "NO");
 	}
 }
 
