@@ -1,0 +1,15 @@
+# inputCopy
+10
+rocesfedoc
+# outputCopy
+codeforces
+# inputCopy
+16
+plmaetwoxesisiht
+# outputCopy
+thisisexampletwo
+# inputCopy
+1
+z
+# outputCopy
+z
