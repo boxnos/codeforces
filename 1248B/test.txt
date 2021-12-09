@@ -1,0 +1,10 @@
+# inputCopy
+3
+1 2 3
+# outputCopy
+26
+# inputCopy
+4
+1 1 2 2
+# outputCopy
+20
