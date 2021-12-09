@@ -12,7 +12,7 @@
 #include <algorithm>
 #include <numeric>
 using namespace std;
-using namespace std;
+#define MINUS_ 0
 #define IO_
 #define I_ inline
 #define T_ template
@@ -44,8 +44,11 @@ struct in_ {
 #ifndef IO_
 	OP_(double){double d; scanf("%lf",&d); gcu();return d;}
 #endif
-	//TT_ OP_(T){T n{},c=gcu();do{n=10*n+(c-'0'),c=gcu();}while(c>='0'&&c<='9');return n;}
+#if MINUS_
 	TT_ OP_(T){T n{},m{1},c=gcu();if(c=='-')m=-1,c=gcu();do{n=10*n+(c-'0'),c=gcu();}while(c>='0'&&c<='9');return m*n;}
+#else
+	TT_ OP_(T){T n{},c=gcu();do{n=10*n+(c-'0'),c=gcu();}while(c>='0'&&c<='9');return n;}
+#endif
 	//TT_ OP_(T){T n{},m{1},c;while(isspace(c=gcu()));if(c=='-')m=-1,c=gcu();do{n=10*n+(c-'0'),c=gcu();}while(c>='0'&&c<='9');return m*n;}
 #ifdef _GLIBCXX_VECTOR
 #define TI_ T_<TN_ T=vector<int>, TN_ I=TN_ T::value_type>
@@ -66,7 +69,11 @@ OUT_(char c){pcu(c);}
 OUT_(string s){for(char c:s)pcu(c);}
 #endif
 TT_ DEF_(void,OUTX_,T n){if(n<10)pcu(n+'0');else OUTX_(n/10),pcu(n%10+'0');}
+#ifdef MINUS_
 TT_ OUT_(T n){if(n<0)pcu('-'),n=-n;OUTX_(n);}
+#else
+TT_ OUT_(T n){OUTX_(n);}
+#endif
 TT_ OUT_(initializer_list<T> v){for(auto i{begin(v)};i!=end(v);++i)out(i==begin(v)?"":" "),out(*i);}
 #ifdef _GLIBCXX_VECTOR
 TT_ OUT_(vector<T> &v){if(auto i{begin(v)},e{end(v)};i!=e){out(*i++);for(;i!=e;++i)out(' '),out(*i);}}
@@ -107,8 +114,8 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 int main() {
 	int n {in};
 	vector<int> a {in.read(n)};
-	sort(begin(a), end(a));
 	auto h {begin(a) + n / 2};
+	nth_element(begin(a), h, end(a));
 	LL x = accumulate(begin(a), h, 0),
 	   y = accumulate(h, end(a), 0);
 	outl(x * x + y * y);
