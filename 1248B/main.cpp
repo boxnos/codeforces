@@ -69,11 +69,11 @@ OUT_(char c){pcu(c);}
 OUT_(string s){for(char c:s)pcu(c);}
 #endif
 TT_ DEF_(void,OUTX_,T n){if(n<10)pcu(n+'0');else OUTX_(n/10),pcu(n%10+'0');}
+TT_ OUT_(T n){
 #ifdef MINUS_
-TT_ OUT_(T n){if(n<0)pcu('-'),n=-n;OUTX_(n);}
-#else
-TT_ OUT_(T n){OUTX_(n);}
+	if(n<0)pcu('-'),n=-n;
 #endif
+	OUTX_(n);}
 TT_ OUT_(initializer_list<T> v){for(auto i{begin(v)};i!=end(v);++i)out(i==begin(v)?"":" "),out(*i);}
 #ifdef _GLIBCXX_VECTOR
 TT_ OUT_(vector<T> &v){if(auto i{begin(v)},e{end(v)};i!=e){out(*i++);for(;i!=e;++i)out(' '),out(*i);}}
