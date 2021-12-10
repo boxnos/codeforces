@@ -1,5 +1,6 @@
 #if defined__GNUC__ && !defined __clang__
-#pragma GCC optimize("Ofast")
+#pragma GCC optimize("Ofast,unroll-loops")
+#pragma GCC target("avx2,bmi,bmi2,lzcnt,popcnt")
 #endif
 #include <cstdio>
 #include <utility>
