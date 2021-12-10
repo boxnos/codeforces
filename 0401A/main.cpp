@@ -9,8 +9,9 @@
 #include <limits>
 
 using namespace std;
-#define MINUS_ 1
+#define MINUS_
 #define IO_
+// #define PCK_
 #define I_ inline
 #define T_ template
 #define TN_ typename
@@ -43,13 +44,16 @@ struct in_ {
 #endif
 	TT_ I_ T RI_(char c){T n{};do{n=10*n+(c-'0'),c=gcu();}while(c>='0'&&c<='9');return n;}
 	TT_ OP_(T){
-#if MINUS_
-		char c=gcu();return c=='-'?~(RI_<T>(gcu())-1):RI_<T>(c);
+		char c=gcu();
+#ifdef PCK_
+		for(;isspace(c);c=gcu());
+#endif
+#ifdef MINUS_
+		return c=='-'?~(RI_<T>(gcu())-1):RI_<T>(c);
 #else
-		return RI_<T>(gcu());
+		return RI_<T>(c);
 #endif
 	}
-	//TT_ OP_(T){T n{},m{1},c;while(isspace(c=gcu()));if(c=='-')m=-1,c=gcu();do{n=10*n+(c-'0'),c=gcu();}while(c>='0'&&c<='9');return m*n;}
 #ifdef _GLIBCXX_VECTOR
 #define TI_ T_<TN_ T=vector<int>, TN_ I=TN_ T::value_type>
 	TI_ I_ T read(int n) {T v(n);for(I &i:v)i=*this;return v;}
