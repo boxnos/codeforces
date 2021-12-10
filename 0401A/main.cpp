@@ -42,11 +42,13 @@ struct in_ {
 	OP_(double){double d; scanf("%lf",&d); gcu();return d;}
 #endif
 	TT_ I_ T RI_(char c){T n{};do{n=10*n+(c-'0'),c=gcu();}while(c>='0'&&c<='9');return n;}
+	TT_ OP_(T){
 #if MINUS_
-	TT_ OP_(T){char c=gcu();return c=='-'?~(RI_<T>(gcu())-1):RI_<T>(c);}
+		char c=gcu();return c=='-'?~(RI_<T>(gcu())-1):RI_<T>(c);
 #else
-	TT_ OP_(T){return RI_<T>(gcu());}
+		return RI_<T>(gcu());
 #endif
+	}
 	//TT_ OP_(T){T n{},m{1},c;while(isspace(c=gcu()));if(c=='-')m=-1,c=gcu();do{n=10*n+(c-'0'),c=gcu();}while(c>='0'&&c<='9');return m*n;}
 #ifdef _GLIBCXX_VECTOR
 #define TI_ T_<TN_ T=vector<int>, TN_ I=TN_ T::value_type>
