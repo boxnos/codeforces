@@ -112,7 +112,7 @@ int main() {
 	int n {in}, x {in}, s {};
 	Range (i, n)
 		s += int(in);
-	outl(abs(s / x) + bool(s % x));
+	outl((abs(s) + x - 1) / x);
 }
 
 /* vim: set ts=4 noet: */
