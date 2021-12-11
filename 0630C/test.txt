@@ -1,0 +1,12 @@
+# inputCopy
+2
+# outputCopy
+6
+# my
+1
+# out
+2
+# my
+3
+# out
+14
