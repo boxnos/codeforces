@@ -124,11 +124,11 @@ int main() {
 		sort(begin(a), end(a));
 		auto r {lower_bound(begin(a), end(a), s)};
 		auto f = [&] (auto b, auto e, int p) -> int {
-			auto i {b};
-			for (; i + p != e; i += p)
-				if (*i + p != *(i + p))
-					return abs(i + p - b);
-			return *i == (p > 0 ? n : 1) ? inf<int> : abs(i + p - b);
+			int r {};
+			for (; b + r != e; r += p)
+				if (*b + r != *(b + r))
+					return abs(r);
+			return *(e - p) == (p > 0 ? n : 1) ? inf<int> : abs(r);
 		};
 		outl(r == end(a) || *r != s ? 0 :
 			 min(f(r, end(a), 1), f(r, begin(a) - 1, -1)));
