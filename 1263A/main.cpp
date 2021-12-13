@@ -118,10 +118,13 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 
 int main() {
 	Test {
-		array<int, 3> a {in.read<3>()};
-		sort(rbegin(a), rend(a));
-		int t {a[1] + a[2]};
-		outl(a[0] > t ? t : (a[0] + t) / 2);
+		int s {}, m {};
+		Range (i, 3) {
+			int a {in};
+			s += a;
+			m = max(m, a);
+		}
+		outl(s < 2 * m ? s - m : s / 2);
 	}
 }
 
