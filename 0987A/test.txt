@@ -1,0 +1,20 @@
+# inputCopy
+4
+red
+purple
+yellow
+orange
+# outputCopy
+2
+Space
+Time
+# inputCopy
+0
+# outputCopy
+6
+Time
+Mind
+Soul
+Power
+Reality
+Space
