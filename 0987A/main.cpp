@@ -118,11 +118,13 @@ TT_ T eucmod(T a, T b) {T t = a % b; return t < 0 ? t + abs(b) : t;}
 T_ <TN_ P, TN_ O> I_ constexpr int len(P &p, O o) {return distance(begin(p), o);}
 TT_ I_ constexpr int len(T p) {return size(p);}
 
+TT_ using A = array<T, 6>;
+
 int main() {
 	int n {in};
-	array<char, 6> c {'b', 'g', 'o', 'p', 'r', 'y'};
-	array<bool, 6> b {};
-	array<string, 6> w {"Space", "Time", "Soul", "Power", "Reality", "Mind"};
+	A<char> c {'b', 'g', 'o', 'p', 'r', 'y'};
+	A<bool> b {};
+	A<string> w {"Space", "Time", "Soul", "Power", "Reality", "Mind"};
 	Range (i, n) {
 		b[len(c, lower_bound(begin(c), end(c), gcu()))] = 1;
 		while (gcu() != '\n')
