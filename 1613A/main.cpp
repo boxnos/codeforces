@@ -10,6 +10,7 @@
 #include <limits>
 
 #include <cmath>
+#include <string>
 using namespace std;
 //#define MINUS_
 #define IO_
@@ -121,9 +122,7 @@ int main() {
 	Test {
 		auto [x1, p1, x2, p2] {in.read<4, LL>()};
 		if (LL d {abs(p1 - p2)}; d < 7) {
-			LL &t {p1 > p2 ? x1 : x2};
-			Range (i, d)
-				t *= 10;
+			(p1 > p2 ? x1 : x2) *= pow(10, d);
 			outl("<=>"[sign(x1 - x2) + 1]);
 		} else
 			outl(p1 > p2 ? '>' : '<');
