@@ -118,18 +118,11 @@ T_ <TN_ P, TN_ O> I_ constexpr int len(P &p, O o) {return distance(begin(p), o);
 TT_ I_ constexpr int len(T p) {return size(p);}
 
 int main() {
-	auto k = [] (int n) {
-		int k {};
-		for (; n; n/=10)
-			++k;
-		return k;
-	};
 	Test {
-		auto [x1, p1, x2, p2] {in.read<4>()};
-		int k1 {k(x1)}, k2 {k(x2)};
-		if ((p1 += k1) == (p2 += k2)) {
-			int &t (k1 > k2 ? x2: x1);
-			Range (i, abs(k1 - k2))
+		auto [x1, p1, x2, p2] {in.read<4, LL>()};
+		if (LL d {abs(p1 - p2)}; d < 7) {
+			LL &t {p1 > p2 ? x1 : x2};
+			Range (i, d)
 				t *= 10;
 			outl("<=>"[sign(x1 - x2) + 1]);
 		} else
