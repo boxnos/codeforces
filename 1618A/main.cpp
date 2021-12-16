@@ -9,8 +9,6 @@
 #include <array>
 #include <limits>
 
-#include <cmath>
-#include <string>
 using namespace std;
 //#define MINUS_
 #define IO_
