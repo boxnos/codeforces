@@ -8,6 +8,7 @@
 #include <functional>
 #include <array>
 #include <limits>
+#include <iostream>
 
 #include <string>
 using namespace std;
@@ -118,6 +119,8 @@ T_ <TN_ P, TN_ O> I_ constexpr int len(P &p, O o) {return distance(begin(p), o);
 TT_ I_ constexpr int len(T p) {return size(p);}
 
 int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
 	Test {
 		int n {in}, j {2};
 		string s(n, ' ');
@@ -132,7 +135,7 @@ int main() {
 		}
 		if (j != n)
 			s.back() = 'a';
-		outl(s);
+		cout << s << '\n';
 	}
 }
 
