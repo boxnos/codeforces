@@ -27,6 +27,12 @@ namespace io {
 	I_ char get(){return i==e?e=(i=in)+fread(in,1,s,stdin),i==e?EOF:*i++:*i++;}
 	I_ void flush(){fwrite(out,1,o-out,stdout);o=out;}
 	I_ void put(char c){*o++=c;if (o==f)flush();}
+#ifdef _GLIBCXX_STRING
+#define S_
+	I_ void put_string([[maybe_unused]] string &s) {
+		// TODO;
+	};
+#endif
 	struct flush_{~flush_(){flush();}} flush__;}
 #define gcu io::get
 #define pcu io::put
@@ -35,10 +41,9 @@ namespace io {
 #define pcu putchar
 #endif
 struct in_ {
-#ifdef _GLIBCXX_STRING
-#define S_
 	OP_(string){string s;for(char c;c=gcu(),c!=' '&&c!='\n';)s+=c;return s;}
 	//OP_(string){string s;char c;while(isspace(c = gcu()));do{s+=c;}while(c=gcu(),c!=' '&&c!='\n'&&c!=EOF);return s;}
+#ifdef S_
 	I_ string read(int n,char c) {string v(n,c);for(char &i:v)i=gcu();gcu();return v;}
 #endif
 	OP_(char){char c=gcu();gcu();return c;}
