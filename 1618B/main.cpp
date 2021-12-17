@@ -125,8 +125,7 @@ int main() {
 		s[1] = gcu();
 		gcu();
 		Range(i, n - 3) {
-			char x {gcu()};
-			if (s[j - 1] != x)
+			if (char x {gcu()}; s[j - 1] != x)
 				s[j++] = x;
 			s[j++] = gcu();
 			gcu();
