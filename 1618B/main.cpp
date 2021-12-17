@@ -8,8 +8,8 @@
 #include <functional>
 #include <array>
 #include <limits>
-#include <iostream>
 
+#include <iostream>
 #include <string>
 using namespace std;
 //#define MINUS_
@@ -72,7 +72,7 @@ OUT_(bool b){pcu('0'+b);}
 OUT_(const char *s){while(*s)pcu(*s++);}
 OUT_(char c){pcu(c);}
 #ifdef S_
-OUT_(string &s){for(char c:s)pcu(c);}
+//OUT_(string &s){for(char c:s)pcu(c);}
 //OUT_(string s){for(char c:s)pcu(c);}
 #endif
 TT_ DEF_(void,OUTX_,T n){if(n<10)pcu(n+'0');else OUTX_(n/10),pcu(n%10+'0');}
@@ -106,6 +106,9 @@ string tapp(string s) {return tee("%s",s.c_str());}
 TT_ T tapp(T v){for (auto i: v){tapp(i);dbg(" ");}return v;}
 TT_ T tapl(T v){tapp(v);dbg("\n");return v;}
 
+#ifdef _GLIBCXX_IOSTREAM
+void fast_io() {ios::sync_with_stdio(false);cin.tie(nullptr);}
+#endif
 #ifdef _FUNCTIONAL_HASH_H
 #include <chrono>
 struct custom_hash{size_t operator()(size_t x)const{static const size_t FIXED_RANDOM = chrono::steady_clock::now().time_since_epoch().count(); x += 0x9e3779b97f4a7c15 + FIXED_RANDOM; x = (x ^ (x >> 30)) * 0xbf58476d1ce4e5b9; x = (x ^ (x >> 27)) * 0x94d049bb133111eb; return x ^ (x >> 31); } };
@@ -119,8 +122,7 @@ T_ <TN_ P, TN_ O> I_ constexpr int len(P &p, O o) {return distance(begin(p), o);
 TT_ I_ constexpr int len(T p) {return size(p);}
 
 int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
+	fast_io();
 	Test {
 		int n {in}, j {2};
 		string s(n, ' ');
