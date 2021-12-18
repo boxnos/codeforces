@@ -29,8 +29,10 @@ namespace io {
 	I_ void put(char c){*o++=c;if (o==f)flush();}
 #ifdef _GLIBCXX_STRING
 #define S_
-	I_ void put_string([[maybe_unused]] string &s) {
-		// TODO;
+	I_ void put_string(string &s) {
+		if (o != out)
+			flush();
+		fwrite(&s[0],1,s.size(),stdout);
 	};
 #endif
 	struct flush_{~flush_(){flush();}} flush__;}
@@ -77,7 +79,13 @@ OUT_(bool b){pcu('0'+b);}
 OUT_(const char *s){while(*s)pcu(*s++);}
 OUT_(char c){pcu(c);}
 #ifdef S_
-//OUT_(string &s){for(char c:s)pcu(c);}
+OUT_(string &s){
+#ifdef IO_
+	io::put_string(s);
+#else
+	for(char c:s)pcu(c);
+#endif
+}
 //OUT_(string s){for(char c:s)pcu(c);}
 #endif
 TT_ DEF_(void,OUTX_,T n){if(n<10)pcu(n+'0');else OUTX_(n/10),pcu(n%10+'0');}
@@ -142,7 +150,7 @@ int main() {
 		}
 		if (j != n)
 			s.back() = 'a';
-		cout << s << '\n';
+		outl(s);
 	}
 }
 
