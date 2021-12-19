@@ -3,6 +3,7 @@
 #pragma GCC target("avx2,bmi,bmi2,lzcnt,popcnt")
 #endif
 #include <cstdio>
+#include <cstring>
 #include <utility>
 #include <cctype>
 #include <functional>
@@ -21,16 +22,17 @@ using namespace std;
 #define OP_(t) I_ operator t()
 #ifdef IO_
 namespace io {
-	const int s=1<<18;char in[s],*i,*e,out[s],*o=out,*f=o+s-1;
+	const size_t s=1<<18;char in[s],*i,*e,out[s],*o=out,*f=o+s-1;
 	I_ char get(){return i==e?e=(i=in)+fread(in,1,s,stdin),i==e?EOF:*i++:*i++;}
 	I_ void flush(){fwrite(out,1,o-out,stdout);o=out;}
 	I_ void put(char c){*o++=c;if (o==f)flush();}
 #ifdef _GLIBCXX_STRING
 #define S_
-	I_ void put_string(string &s) {
-		if (o != out)
-			flush();
-		fwrite(&s[0],1,s.size(),stdout);
+	I_ void put_string(string &str) {
+		if (str.size() > size_t(f - o))
+			flush(),fwrite(&str[0], 1, str.size(), stdout);
+		else
+			memcpy(o, &str[0], str.size()), o+=str.size();
 	};
 #endif
 	struct flush_{~flush_(){flush();}} flush__;}
@@ -78,11 +80,11 @@ OUT_(const char *s){while(*s)pcu(*s++);}
 OUT_(char c){pcu(c);}
 #ifdef S_
 OUT_(string &s){
-#ifdef IO_
-	io::put_string(s);
-#else
+//#ifdef IO_
+//	io::put_string(s);
+//#else
 	for(char c:s)pcu(c);
-#endif
+//#endif
 }
 //OUT_(string s){for(char c:s)pcu(c);}
 #endif
