@@ -30,10 +30,10 @@ namespace io {
 #ifdef _GLIBCXX_STRING
 #define S_
 	I_ void put_string(string &str) {
-		if (100 < str.size() || str.size() <= size_t(f - o))
-			memcpy(o, &str[0], str.size()), o+=str.size();
-		else
+		if (str.size() > size_t(f - o))
 			flush(),fwrite(&str[0], 1, str.size(), stdout);
+		else
+			memcpy(o, &str[0], str.size()), o+=str.size();
 	};
 #endif
 	struct flush_{~flush_(){flush();}} flush__;}
