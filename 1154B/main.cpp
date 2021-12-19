@@ -160,19 +160,11 @@ int main() {
 			return 0;
 		}
 	}
-	outl([&] {
-		if (s.size() == 1)
-			return 0;
-		else {
-			if (int b {*begin(s)}, e {*rbegin(s)};
-				s.size() == 3 && b + e != *++begin(s) * 2)
-				return -1;
-			else if (s.size() == 2 && !((b + e) % 2))
-				return (e - b) / 2;
-			else
-				return *++begin(s) - b;
-		}
-	}());
+	auto l {s.size()};
+	int b {*begin(s)}, e {*rbegin(s)};
+	outl(l == 1 ? 0 :
+		 l == 2 && !((b + e) % 2) ? (e - b) / 2 :
+		 l == 3 && b + e != *++begin(s) * 2 ? -1 : *++begin(s) - b);
 }
 
 /* vim: set ts=4 noet: */
