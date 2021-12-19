@@ -8,8 +8,8 @@
 #include <functional>
 #include <array>
 #include <limits>
+#include <cstring>
 
-#include <iostream>
 #include <string>
 using namespace std;
 //#define MINUS_
@@ -23,16 +23,17 @@ using namespace std;
 #define OP_(t) I_ operator t()
 #ifdef IO_
 namespace io {
-	const int s=1<<18;char in[s],*i,*e,out[s],*o=out,*f=o+s-1;
+	const size_t s=1<<18;char in[s],*i,*e,out[s],*o=out,*f=o+s-1;
 	I_ char get(){return i==e?e=(i=in)+fread(in,1,s,stdin),i==e?EOF:*i++:*i++;}
 	I_ void flush(){fwrite(out,1,o-out,stdout);o=out;}
 	I_ void put(char c){*o++=c;if (o==f)flush();}
 #ifdef _GLIBCXX_STRING
 #define S_
-	I_ void put_string(string &s) {
-		if (o != out)
-			flush();
-		fwrite(&s[0],1,s.size(),stdout);
+	I_ void put_string(string &str) {
+		if (100 < str.size() || str.size() <= size_t(f - o))
+			memcpy(o, &str[0], str.size()), o+=str.size();
+		else
+			flush(),fwrite(&str[0], 1, str.size(), stdout);
 	};
 #endif
 	struct flush_{~flush_(){flush();}} flush__;}
@@ -135,18 +136,14 @@ T_ <TN_ P, TN_ O> I_ constexpr int len(P &p, O o) {return distance(begin(p), o);
 TT_ I_ constexpr int len(T p) {return size(p);}
 
 int main() {
-	fast_io();
 	Test {
 		int n {in}, j {2};
 		string s(n, ' ');
-		s[0] = gcu();
-		s[1] = gcu();
-		gcu();
+		s[0] = gcu(), s[1] = gcu(), gcu();
 		Range(i, n - 3) {
 			if (char x {gcu()}; s[j - 1] != x)
 				s[j++] = x;
-			s[j++] = gcu();
-			gcu();
+			s[j++] = gcu(), gcu();
 		}
 		if (j != n)
 			s.back() = 'a';
