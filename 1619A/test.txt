@@ -1,0 +1,23 @@
+# inputCopy
+10
+a
+aa
+aaa
+aaaa
+abab
+abcabc
+abacaba
+xxyy
+xyyx
+xyxy
+# outputCopy
+NO
+YES
+NO
+YES
+YES
+YES
+NO
+NO
+NO
+YES
