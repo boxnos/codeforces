@@ -10,7 +10,7 @@
 #include <array>
 #include <limits>
 
-#include <vector>
+#include <array>
 #include <cmath>
 #include <algorithm>
 using namespace std;
@@ -153,9 +153,12 @@ T_ <TN_ P, TN_ O> I_ constexpr int len(P &p, O o) {return distance(begin(p), o);
 TT_ I_ constexpr int len(T p) {return size(p);}
 
 int main() {
-	vector<int> s {};
-	Range(i, 1, 33)
-		s.push_back(i * i * i * i * i * i);;
+	auto s {[] () constexpr {
+		array<int, 33> s {};
+		for (int i {1}; i <= 33; ++i)
+			s[i - 1] = (i * i * i * i * i * i);
+		return s;
+	}()};
 	Test {
 		int n {in};
 		outl(int(sqrt(n)) + int(cbrt(n)) - (upper_bound(begin(s), end(s), n) - begin(s)));
