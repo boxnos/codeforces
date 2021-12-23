@@ -153,15 +153,9 @@ T_ <TN_ P, TN_ O> I_ constexpr int len(P &p, O o) {return distance(begin(p), o);
 TT_ I_ constexpr int len(T p) {return size(p);}
 
 int main() {
-	auto s {[] () constexpr {
-		array<int, 33> s {};
-		for (int i {1}; i <= 33; ++i)
-			s[i - 1] = (i * i * i * i * i * i);
-		return s;
-	}()};
 	Test {
 		int n {in};
-		outl(int(sqrt(n)) + int(cbrt(n)) - (upper_bound(begin(s), end(s), n) - begin(s)));
+		outl(int(sqrt(n)) + int(cbrt(n)) - int(cbrt(sqrt(n))));
 	}
 }
 
