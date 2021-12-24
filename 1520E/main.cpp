@@ -12,6 +12,7 @@
 
 #include <string>
 #include <vector>
+#include <numeric>
 using namespace std;
 // #define MINUS_
 #define IO_
@@ -154,17 +155,15 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 int main() {
 	Test {
 		int n {in};
-		LL r {};
 		vector<int> a;
 		a.reserve(n);
 		Range (i, n)
 			if (gcu() == '*')
 				a.push_back(i);
 		gcu();
-		int s = size(a);
-		Range (i, s / 2)
-			r += a[s - i - 1] - a[i] - (s - i * 2 - 1);
-		outl(r);
+		LL h = size(a) / 2;
+		outl(accumulate(begin(a) + size(a) - h, end(a),
+						-accumulate(begin(a), begin(a) + h, h * (h + size(a) % 2))));
 	}
 }
 
