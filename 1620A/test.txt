@@ -1,0 +1,11 @@
+# inputCopy
+4
+EEE
+EN
+ENNEENE
+NENN
+# outputCopy
+YES
+NO
+YES
+YES
