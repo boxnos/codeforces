@@ -42,6 +42,12 @@ namespace io {
 			memcpy(&str[0], i, str.size()), i+=str.size(), get();
 		}
 	};
+	I_ string get_string() {
+		for (char *j = i; j != e; ++j)
+			if (*j == ' ' || *j == '\n')
+				return string(exchange(i, j + 1), j);
+		string s;for(char c;c=get(),c!=' '&&c!='\n';)s+=c;return s;
+	}
 #endif
 	struct flush_{~flush_(){flush();}} flush__;}
 #define gcu io::get
@@ -52,7 +58,13 @@ namespace io {
 #endif
 struct in_ {
 #ifdef S_
-	OP_(string){string s;for(char c;c=gcu(),c!=' '&&c!='\n';)s+=c;return s;}
+	OP_(string){
+#ifdef IO_
+		return io::get_string();}
+#else
+		string s;for(char c;c=get(),c!=' '&&c!='\n';)s+=c;return s;}
+#endif
+
 	//OP_(string){string s;char c;while(isspace(c = gcu()));do{s+=c;}while(c=gcu(),c!=' '&&c!='\n'&&c!=EOF);return s;}
 	I_ string read(int n,char c) {
 		string v(n,c);
