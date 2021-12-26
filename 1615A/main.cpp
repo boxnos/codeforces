@@ -10,7 +10,7 @@
 #include <array>
 #include <limits>
 
-#include <string>
+#include <numeric>
 using namespace std;
 // #define MINUS_
 #define IO_
@@ -135,6 +135,20 @@ T_ <TN_ T=int> struct range{
 	struct it{T v,s; it(T v,T s):v(v),s(s){} operator T()const{return v;} I_ operator T&(){return v;}T operator*()const{return v;}
 		I_ it& operator++(){v+=s;return *this;}}; it begin(){return {b,s};} it end(){return {e,s};}};
 #define Range(b,...)for([[maybe_unused]] auto b:range<int>((int) __VA_ARGS__))
+T_ <TN_ T=int>
+struct os {
+	int n;
+	os(int _n) : n(_n) {};
+	struct it {
+		int p;
+		it(int _p) : p(_p) {};
+		I_ T operator *() const {return T(in);};
+		I_ bool operator !=(const it& v) {return p != v.p;};
+		I_ it & operator ++() {++p; return *this;};
+	};
+	I_ it begin() {return {0};};
+	I_ it end() {return {n};};
+};
 #define Test Range(test_cases_, in)
 #define dbg(...)fprintf(stderr,__VA_ARGS__)
 using LL=long long;
@@ -164,10 +178,9 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 
 int main() {
 	Test {
-		int n {in}, s {};
-		Range (i, n)
-			s += int(in);
-		outl(bool(s % n));
+		int n {in};
+		auto o {os(n)};
+		outl(bool(accumulate(o.begin(), o.end(), 0) % n));
 	}
 }
 
