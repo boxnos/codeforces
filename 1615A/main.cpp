@@ -173,7 +173,7 @@ int main() {
 	Test {
 		int n {in};
 		auto o {os(n)};
-		outl(bool(accumulate(o.begin(), o.end(), 0) % n));
+		outl(bool(accumulate(begin(o), end(o), 0) % n));
 	}
 }
 
