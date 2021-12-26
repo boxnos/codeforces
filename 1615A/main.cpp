@@ -137,17 +137,10 @@ T_ <TN_ T=int> struct range{
 #define Range(b,...)for([[maybe_unused]] auto b:range<int>((int) __VA_ARGS__))
 T_ <TN_ T=int>
 struct os {
-	int n;
-	os(int _n) : n(_n) {};
-	struct it {
-		int p;
-		it(int _p) : p(_p) {};
-		I_ T operator *() const {return T(in);};
-		I_ bool operator !=(const it& v) {return p != v.p;};
-		I_ it & operator ++() {++p; return *this;};
-	};
-	I_ it begin() {return {0};};
-	I_ it end() {return {n};};
+	int n; os(int _n) : n(_n) {};
+	struct it { int p; it(int _p) : p(_p) {}; I_ T operator *() const {return T(in);};
+		I_ bool operator !=(const it& v) {return p != v.p;}; I_ it & operator ++() {++p; return *this;}; };
+	I_ it begin() {return {0};}; I_ it end() {return {n};};
 };
 #define Test Range(test_cases_, in)
 #define dbg(...)fprintf(stderr,__VA_ARGS__)
