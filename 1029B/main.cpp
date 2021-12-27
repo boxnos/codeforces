@@ -172,15 +172,13 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 int main() {
 	int n {in}, r {};
 	vector<int> a {in.read(n)};
-	for (auto i {begin(a)}, e {i + 1}; i != end(a);
-		 r = max(r, int(e - exchange(i, e)))) {
-		for(auto j {i};; ++j) {
-			for (; e != end(a) && *j * 2 >= *e; ++e)
-				;
-			if (j + 1 == e)
-				break;
-		}
+	for (auto i {begin(a)}; i != end(a); ++i) {
+		auto j {i};
+		for (; j + 1 != end(a) && *j * 2 >= *(j + 1); ++j)
+			;
+		r = max(r, int(j - exchange(i, j) + 1));
 	}
+
 	outl(r);
 }
 
