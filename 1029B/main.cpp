@@ -64,7 +64,6 @@ struct in_ {
 #else
 		string s;for(char c;c=get(),c!=' '&&c!='\n';)s+=c;return s;}
 #endif
-
 	//OP_(string){string s;char c;while(isspace(c = gcu()));do{s+=c;}while(c=gcu(),c!=' '&&c!='\n'&&c!=EOF);return s;}
 	I_ string read(int n,char c) {
 		string v(n,c);
@@ -172,13 +171,10 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 int main() {
 	int n {in}, r {};
 	vector<int> a {in.read(n)};
-	for (auto i {begin(a)}; i != end(a); ++i) {
-		auto j {i};
-		for (; j + 1 != end(a) && *j * 2 >= *(j + 1); ++j)
+	for (auto i {begin(a)}, j {i + 1}; i != end(a);
+		r = max(r, int(j - i)), i = j++)
+		for (; j != end(a) && *(j - 1) * 2 >= *j; ++j)
 			;
-		r = max(r, int(j - exchange(i, j) + 1));
-	}
-
 	outl(r);
 }
 
