@@ -169,7 +169,7 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 
 int main() {
 	Test {
-		int x {in}, y {in}, s {x + y};
+		int &&x {in}, &&y {in}, &&s {x + y};
 		if (s % 2)
 			x = y = -1;
 		else
