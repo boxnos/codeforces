@@ -11,8 +11,9 @@
 #include <limits>
 
 #include <algorithm>
+#include <string>
 using namespace std;
-#define MINUS_
+// #define MINUS_
 #define IO_
 // #define PCK_
 #define I_ inline
@@ -23,10 +24,10 @@ using namespace std;
 #define OP_(t) I_ operator t()
 #ifdef IO_
 namespace io {
-	const size_t s=1<<18;char in[s],*i {},*e {},out[s],*o=out,*f=o+s-1;
+	const size_t s=1<<16;char in[s],*i {},*e {},out[s],*o=out,*f=o+s-1;
 	I_ char get(){return i==e?e=(i=in)+fread(in,1,s,stdin),i==e?EOF:*i++:*i++;}
 	I_ void flush(){fwrite(out,1,o-out,stdout);o=out;}
-	I_ void put(char c){*o++=c;if (o==f)flush();}
+	I_ void put(const char c){if(*o++=c;o==f)flush();}
 #ifdef _GLIBCXX_STRING
 #define S_
 	I_ void put_string(string &str) {
@@ -37,10 +38,10 @@ namespace io {
 	};
 	I_ void get_string(string &str) {
 		if (str.size() > size_t(e - i)) {
-			for(char &i:str){i=get();}get();
-		} else {
+			for(char &i:str)i=get();
+			get();
+		} else
 			memcpy(&str[0], i, str.size()), i+=str.size(), get();
-		}
 	};
 	I_ string get_string() {
 		for (char *j = i; j != e; ++j)
@@ -177,8 +178,8 @@ int main() {
 			Range (i, 3)
 				if (!(l[i] + l[i + 1] - l[i + 2] &&
 					(l[i] % 2 || l[i + 1] - l[i + 2])))
-					return "YES";
-		return "NO";}());
+					return 1;
+		return 0;}() ? "YES" : "NO");
 	}
 }
 
