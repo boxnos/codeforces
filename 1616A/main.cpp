@@ -95,16 +95,15 @@ struct in_ {
 	TI_ I_ T read(int n,function<int(TN_ T::value_type)>f){T v(n);for(I &i:v)i=f(*this);return v;}
 	TI_ I_ T read(int n,function<void(TN_ T::value_type&,TN_ T::value_type)>f){T v(n);for(I &i:v)f(i,*this);return v;}
 #endif
-	T_ <int N, TN_ T=int> array<T, N> read() {array<T, N> a;for (T &i: a)i=*this;return a;}
+	T_ <int N, TN_ T=int> array<T, N> read(){array<T, N>a;for(T &i:a)i=*this;return a;}
 } in;
-T_ <TN_ T=int>
-struct os {
+T_ <TN_ T=int> struct os {
 	int n; os(int _n) : n(_n) {};
 	struct it { int p; it(int _p) : p(_p) {}; I_ T operator *() const {return T(in);};
 		I_ bool operator !=(const it& v) {return p != v.p;}; I_ it & operator ++() {++p; return *this;}; };
 	I_ it begin() {return {0};}; I_ it end() {return {n};};
 };
-#define DEF_(r, n, ...) I_ r n(__VA_ARGS__) noexcept
+#define DEF_(r, n, ...) I_ r n(__VA_ARGS__)
 #define OUT_(...) DEF_(void,out,__VA_ARGS__)
 #define OUTL_(...) DEF_(void,outl,__VA_ARGS__)
 OUT_(bool b){pcu('0'+b);}
@@ -139,7 +138,7 @@ T_ <TN_ T=int> struct range{
 	struct it{T v,s; it(T v,T s):v(v),s(s){} operator T()const{return v;} I_ operator T&(){return v;}T operator*()const{return v;}
 		I_ it& operator++(){v+=s;return *this;}}; it begin(){return {b,s};} it end(){return {e,s};}};
 #define Range(b,...)for([[maybe_unused]] auto b:range<int>((int) __VA_ARGS__))
-#define Test Range(test_cases_, in)
+#define Test for(int test_cases_ {in};test_cases_--;)
 #define dbg(...)fprintf(stderr,__VA_ARGS__)
 using LL=long long;
 #define tee(s,v)({dbg(s,v);v;})
@@ -171,14 +170,12 @@ int main() {
 		array<bool, 201> T {};
 		auto t = begin(T) + 100;
 		int n {in}, r {};
-		Range (i, n) {
-			int a {in};
-			if (t[a]) {
-				if (!t[-a])
-					t[-a] = ++r;
+		for (int i: os(n))
+			if (t[i]) {
+				if (!t[-i])
+					t[-i] = ++r;
 			} else
-				t[a] = ++r;
-		}
+				t[i] = ++r;
 		outl(r);
 	}
 }
