@@ -5,13 +5,10 @@
 #include <cstdio>
 #include <cstring>
 #include <utility>
-#include <cctype>
 #include <functional>
 #include <array>
 #include <limits>
 
-#include <algorithm>
-#include <string>
 using namespace std;
 // #define MINUS_
 #define IO_
@@ -24,14 +21,14 @@ using namespace std;
 #define OP_(t) I_ operator t()
 #ifdef IO_
 namespace io {
-	const size_t s=1<<16;char in[s],*i {},*e {},out[s],*o=out,*f=o+s-1;
+	const size_t s=1<<18;char in[s],*i {},*e {},out[s],*o=out,*f=o+s-1;
 	I_ char get(){return i==e?e=(i=in)+fread(in,1,s,stdin),i==e?EOF:*i++:*i++;}
 	I_ void flush(){fwrite(out,1,o-out,stdout);o=out;}
 	I_ void put(const char c){if(*o++=c;o==f)flush();}
 #ifdef _GLIBCXX_STRING
 #define S_
 	I_ void put_string(string &str) {
-		if (str.size() > size_t(f - o))
+		if (str.size() >= size_t(f - o))
 			flush(),fwrite(&str[0], 1, str.size(), stdout);
 		else
 			memcpy(o, &str[0], str.size()), o+=str.size();
@@ -80,7 +77,7 @@ struct in_ {
 #ifndef IO_
 	OP_(double){double d; scanf("%lf",&d); gcu();return d;}
 #endif
-	TT_ I_ T RI_(char c){T n{};do{n=10*n+(c-'0'),c=gcu();}while(c>='0'&&c<='9');return n;}
+	TT_ I_ T RI_(char c){T n{};do{n=10*n+(c-'0'),c=gcu();}while('0'<=c&&c<='9');return n;}
 	TT_ OP_(T){
 		char c=gcu();
 #ifdef PCK_
@@ -170,16 +167,12 @@ T_ <TN_ P, TN_ O> I_ constexpr int len(P &p, O o) {return distance(begin(p), o);
 TT_ I_ constexpr int len(T p) {return size(p);}
 
 int main() {
+	auto f = [] (int a, int b, int c) {
+		return a + b - c && (a % 2 || c - b);
+	};
 	Test {
-		outl([] {
-			array<int, 6> l;
-			Range (i, 3)
-				l[i] = l[i + 3] = in;
-			Range (i, 3)
-				if (!(l[i] + l[i + 1] - l[i + 2] &&
-					(l[i] % 2 || l[i + 1] - l[i + 2])))
-					return 1;
-		return 0;}() ? "YES" : "NO");
+		int a {in}, b {in}, c {in};
+		outl(!(f(a, b, c) && f(b, c, a) && f(c, a, b)) ? "YES" : "NO");
 	}
 }
 
