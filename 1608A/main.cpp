@@ -24,7 +24,7 @@ namespace io {
 	const size_t s=1<<18;char in[s],*i {},*e {},out[s],*o=out,*f=o+s-1;
 	I_ char get(){return i==e?e=(i=in)+fread(in,1,s,stdin),i==e?EOF:*i++:*i++;}
 	I_ void flush(){fwrite(out,1,o-out,stdout);o=out;}
-	I_ void put(char c){if(*o++=c;o==f)flush();}
+	I_ void put(char c){*o++=c;if(o==f)flush();}
 #ifdef _GLIBCXX_STRING
 #define S_
 	I_ void put_string(string &str) {
@@ -77,7 +77,7 @@ struct in_ {
 #ifndef IO_
 	OP_(double){double d; scanf("%lf",&d); gcu();return d;}
 #endif
-	TT_ I_ T RI_(char c){T n{};do{n=10*n+(c-'0'),c=gcu();}while('0'<=c&&c<='9');return n;}
+	TT_ I_ T RI_(char c){T n{};do{n=10*n+(c-'0'),c=gcu();}while(c>='0'&&c<='9');return n;}
 	TT_ OP_(T){
 		char c=gcu();
 #ifdef PCK_
