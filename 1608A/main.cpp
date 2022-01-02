@@ -11,7 +11,7 @@
 
 using namespace std;
 // #define MINUS_
-#define IO_
+// #define IO_
 // #define PCK_
 #define I_ inline
 #define T_ template
@@ -51,8 +51,14 @@ namespace io {
 #define gcu io::get
 #define pcu io::put
 #else
-#define gcu getchar
-#define pcu putchar
+#ifdef __linux
+#define _U(s) s##_unlocked
+#else
+#define _U(s) _##s##_nolock
+#define _CRT_DISABLE_PERFCRIT_LOCKS
+#endif
+#define gcu _U(getchar)
+#define pcu _U(putchar)
 #endif
 struct in_ {
 #ifdef S_
@@ -151,7 +157,7 @@ TT_ T tapp(T v){for (auto i: v){tapp(i);dbg(" ");}return v;}
 TT_ T tapl(T v){tapp(v);dbg("\n");return v;}
 
 #ifdef _GLIBCXX_IOSTREAM
-void fast_io() {ios::sync_with_stdio(false);cin.tie(nullptr);}
+void fast_io() {ios::sync_with_stdio(0);cin.tie(0);cout.tie(0);}
 #endif
 #ifdef _FUNCTIONAL_HASH_H
 #include <chrono>
