@@ -181,7 +181,7 @@ int main() {
 		}
 		Range (i, n) {
 			Range(j, n)
-				out(i == j && !(i % 2) && k-- > 0 ? 'R' : '.');
+				out(i == j && !(i % 2) && k && k-- ? 'R' : '.');
 			outl();
 		}
 	}
