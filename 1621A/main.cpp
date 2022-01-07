@@ -180,10 +180,9 @@ int main() {
 			continue;
 		}
 		Range (i, n) {
-			string s(n, '.');
-			if (!(i % 2) && k-- > 0)
-				s[i] = 'R';
-			outl(s);
+			Range(j, n)
+				out(i == j && !(i % 2) && k-- > 0 ? 'R' : '.');
+			outl();
 		}
 	}
 }
