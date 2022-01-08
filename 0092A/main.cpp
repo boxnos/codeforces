@@ -175,7 +175,7 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 
 int main() {
 	auto f = [](int n) {return (1 + n) * n / 2;};
-	int n {in}, m {in}, s {f(n)}, r {m % s};
+	int n {in}, m {in}, r {m % f(n)};
 	outl(r - f((sqrt(1 + 4 * 2 * r) - 1) / 2));
 }
 
