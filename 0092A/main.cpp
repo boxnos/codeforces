@@ -176,7 +176,7 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 int main() {
 	auto f = [](int n) {return (1 + n) * n / 2;};
 	int n {in}, m {in}, s {f(n)}, r {m % s};
-	outl(r - f((-1 + sqrt(1 + 4 * 2 * r)) / 2));
+	outl(r - f((sqrt(1 + 4 * 2 * r) - 1) / 2));
 }
 
 /* vim: set ts=4 noet: */
