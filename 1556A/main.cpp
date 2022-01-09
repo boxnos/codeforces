@@ -89,8 +89,8 @@ TT_ T tapl(T v){tapp(v);dbg("\n");return v;}
 
 int main() {
 	Range (t, in) {
-		int c {in}, d {in};
-		outl(c == d ? !!c : ((c ^ d) & 1) * -3 + 2);
+		int c {in}, d {in}, e {c - d};
+		outl(e ? (e & 1) * -3 + 2 : c > 0);
 	}
 }
 
