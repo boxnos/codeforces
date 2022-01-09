@@ -95,9 +95,9 @@ TT_ T eucmod(T a, T b) {T t = a % b; return t < 0 ? t + abs(b) : t;}
 
 int main() {
 	Range (t, in) {
-		int n {in}, r {};
+		LL n {in}, r {};
 		Range (i, 1, n + 1)
-			r = max(r, int(in) - i);
+			r = max(r, LL(in) - i);
 		outl(r);
 	}
 }
