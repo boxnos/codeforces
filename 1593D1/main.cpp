@@ -179,9 +179,7 @@ int main() {
 		int n {in};
 		vector<int> a {in.read(n)};
 		sort(begin(a), end(a));
-		auto e {unique(begin(a), end(a))};
-		a.erase(e, end(a));
-		if (a.size() == 1) {
+		if (a.front() == a.back()) {
 			outl(-1);
 			continue;
 		}
