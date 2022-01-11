@@ -12,7 +12,7 @@
 #include <vector>
 #include <numeric>
 using namespace std;
-#define MINUS_
+// #define MINUS_
 #define IO_
 // #define PCK_
 #define I_ inline
@@ -176,19 +176,18 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 int main() {
 	Test {
 		LL n {in}, o {}, e {};
-		bool f {1}, g {1};
-		vector<LL> a(n);
+		vector<LL> a {in.read<vector<LL>>(n)};
+		auto f = [&] (int i, LL o) {
+			for (; i < n; i += 2)
+				if (!(a[i] % o))
+					return 0;
+			return 1;
+		};
 		Range (i, n) {
-			a[i] = in;
 			auto &x {i % 2 ? o : e};
 			x = gcd(x, a[i]);
 		}
-		Range (i, n)
-			if (i % 2)
-				g &= bool(a[i] % e);
-			else
-				f &= bool(a[i] % o);
-		outl(f ? o : g ? e : 0);
+		outl(f(0, o) ? o : f(1, e) ? e : 0);
 	}
 }
 
