@@ -105,8 +105,8 @@ struct in_ {
 #endif
 	T_ <int N, TN_ T=int> array<T, N> read(){array<T, N>a;for(T &i:a)i=*this;return a;}
 } in;
-T_ <TN_ T=int> struct os {
-	int n; os(int _n) : n(_n) {};
+T_ <TN_ T=int> struct ist {
+	int n; ist(int _n) : n(_n) {};
 	struct it { int p; it(int _p) : p(_p) {}; I_ T operator *() const {return T(in);};
 		I_ bool operator !=(const it& v) {return p != v.p;}; I_ it & operator ++() {++p; return *this;}; };
 	I_ it begin() {return {0};}; I_ it end() {return {n};};
@@ -176,7 +176,7 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 int main() {
 	Test {
 		int m {inf<int>}, M {};
-		for (int i: os(int(in)))
+		for (int i: ist(int(in)))
 			m = min(m, i), M = max(M, i);
 		outl(M - m);
 	}
