@@ -175,9 +175,9 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 
 int main() {
 	Test {
-		array<int, 3> a {in.read<3>()};
+		array<int, 3> a;
 		for (int &i: a)
-			i *= 2;
+			i = int(in) * 2;
 		auto f = [&](int i, int j, int k) {
 			int d {a[i] + (a[j] - a[i]) / (j - i) * (k - i)};
 			return d > 0 && !(d % a[k]);
