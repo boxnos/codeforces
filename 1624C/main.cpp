@@ -176,19 +176,17 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 int main() {
 	Test {
 		int n {in};
-		array<pair<int, int>, 64> m {};
-		Range (i, n) {
-			int a {in};
-			a >>= max(0, 26 - __builtin_clz(a));
-			for (; a > 0; a /= 2)
-				m[a].first++;
-		}
+		vector<int> a(in.read(n)), u (n + 1);
+		sort(rbegin(a), rend(a));
 		outl([&] {
-			 Range (i, n, 0, -1)
-				if (m[i].first - m[i].second > 0)
-					m[i / 2].second += m[i].second + 1;
-				else
+			for (int i: a) {
+				i >>= max(0, 26 - __builtin_clz(i));
+				for (; i > n || u[i]; i /= 2)
+					;
+				if (!i)
 					return "NO";
+				u[i] = 1;
+			}
 			return "YES";
 		}());
 	}
