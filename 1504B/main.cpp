@@ -182,7 +182,7 @@ int main() {
 				c[i] = a[i] == gcu();
 			gcu();
 			Range (i, n)
-				if (f += a[i] == '0' ? -1 : 1; c[i] != c[i + 1] && f)
+				if ((f += a[i] == '0' ? -1 : 1) && c[i] != c[i + 1])
 					return "NO";
 			return "YES";
 		}());
