@@ -175,24 +175,17 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 int main() {
 	Test {
 		outl([] {
-			int n {in};
-			string a {in.read(n, ' ')}, b {in.read(n, ' ')};
-			auto g = [&] (int i){
-				return a[i] == '0' ? -1 : 1;
-			};
-			bool c {a[0] == b[0]};
-			for (int i {1}, f {g(0)}; i < n; i++) {
-				if ((a[i] == b[i]) != c)
-					return false;
-				if (!(f += g(i))) {
-					if (++i == n)
-						c = 1;
-					else
-						c = a[i] == b[i], f += g(i);
-				}
-			}
-			return c;
-		}() ? "YES" : "NO");
+			int n {in}, f {};
+			string a {in.read(n, ' ')};
+			vector<bool> c(n + 1, 1);
+			Range (i, n)
+				c[i] = a[i] == gcu();
+			gcu();
+			Range (i, n)
+				if (f += a[i] == '0' ? -1 : 1; c[i] != c[i + 1] && f)
+					return "NO";
+			return "YES";
+		}());
 	}
 }
 
