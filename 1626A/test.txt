@@ -1,0 +1,9 @@
+# inputCopy
+3
+oelhl
+abcdcba
+ac
+# outputCopy
+hello
+ababcdc
+ac
