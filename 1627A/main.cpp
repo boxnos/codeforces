@@ -179,10 +179,11 @@ int main() {
 		bool f {}, a {}, o {};
 		Range (i, n) {
 			Range (j, m) {
-				bool x {gcu() == 'B'};
-				f |= (i == r || j == c) && x;
-				o |= i == r && j == c && x;
-				a |= x;
+				if (gcu() == 'B') {
+					f |= i == r || j == c;
+					o |= i == r && j == c;
+					a = 1;
+				}
 			}
 			gcu();
 		}
