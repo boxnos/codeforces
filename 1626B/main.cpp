@@ -177,8 +177,8 @@ int main() {
 		[] {
 			string x = in;
 			Range (i, size(x), 0, -1) {
-				if (int d {x[i] - '0' + x[i - 1] - '0'}; d > 9) {
-					x[i] = '0' + d % 10, x[i - 1] = '0' + d / 10;
+				if (int d {x[i] + x[i - 1] - ('0' + '0')}; d > 9) {
+					x[i] = '0' + d % 10, x[i - 1] = '1';
 					outl(x);
 					return;
 				}
