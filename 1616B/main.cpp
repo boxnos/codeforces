@@ -179,6 +179,7 @@ int main() {
 		if (n > 1 && s[0] <= s[1])
 			outl(s[0], s[0]);
 		else {
+			r.reserve(n);
 			for (int i {1}; i < n && s[i - 1] >= s[i]; i++)
 				r.push_back(s[i]);
 			out(r);
