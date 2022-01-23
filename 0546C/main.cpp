@@ -10,6 +10,7 @@
 #include <limits>
 
 #include <deque>
+#include <set>
 using namespace std;
 #define MINUS_
 #define IO_
@@ -175,14 +176,16 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 int main() {
 	[[maybe_unused]] int  n {in}, k1 {in}, r1 {}, r2;
 	deque<int> K1(k1);
-	for (int &i: K1)
+	for (int &i: K1) {
 		if (i = in; i == n)
 			r2 = 1;
+	}
 	int k2 {in};
 	deque<int> K2(k2);
 	for (int &i: K2)
 		if (i = in; i == n)
 			r2 = 2;
+	set<deque<int>> s1, s2;
 	auto f = [] (auto &w, auto &l) {
 			w.push_back(l.front());
 			w.push_back(w.front());
@@ -190,11 +193,12 @@ int main() {
 			l.pop_front();
 	};
 	do {
+		s1.insert(K1), s2.insert(K2);
 		if (K1.front() > K2.front())
 			f(K1, K2);
 		else
 			f(K2, K1);
-		if (r1++; r1 > 200) {
+		if (r1++; s1.count(K1) && s2.count(K2)) {
 			outl(-1);
 			return 0;
 		}
