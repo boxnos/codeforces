@@ -175,9 +175,8 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 int main() {
 	Test {
 		int n {in}, k {in};
-		for (int i {}; i < n;)
-			for (char j {}; i < n && j < k; j++, i++)
-				out(char('a' + j));
+		Range (i, n)
+			out(char('a' + i % k));
 		outl();
 	}
 }
