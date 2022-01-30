@@ -175,13 +175,13 @@ T_ <TN_ P, TN_ O> I_ constexpr int len(P &p, O o) {return distance(begin(p), o);
 TT_ I_ constexpr int len(T p) {return size(p);}
 
 int main() {
-	int y {in}, k {in}, n {in}, t {eucmod(k - y, k)};
-	if (n - y - t - !t * k < 0) {
+	int y {in}, k {in}, n {in}, t {k - y % k};
+	if (n - y - t < 0) {
 		outl("-1");
 		return 0;
 	}
-	for (int i {!t}; i * k + t <= n - y; ++i)
-		out(i * k + t, ' ');
+	for (; t <= n - y; t += k)
+		out(t, ' ');
 	outl();
 }
 
