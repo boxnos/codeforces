@@ -177,28 +177,28 @@ int main() {
 	Test {
 		int n {in}, m {}, mi {};
 		vector<int> a {in.read(n)};
-		[&] {
-			Range (i, n) {
+		auto f = [&](int i) {
 				if (m - 1 < a[i])
 					mi = i;
 				m = max(m - 1, a[i]);
 				if(m - a[i] > 0) {
 					outl("YES");
+					return 1;
+				}
+			return 0;
+		};
+		[&] {
+			Range (i, n)
+				if (f(i)) {
 					outl({mi + 1, i + 1});
 					return;
 				}
-			}
 			m = 0;
-			Range (i, n - 1, -1, -1) {
-				if (m - 1 < a[i])
-					mi = i;
-				m = max(m - 1, a[i]);
-				if(m - a[i] > 0) {
-					outl("YES");
+			Range (i, n - 1, -1, -1)
+				if(f(i)) {
 					outl({i + 1, mi + 1});
 					return;
 				}
-			}
 			outl("NO");
 			return;
 		}();
