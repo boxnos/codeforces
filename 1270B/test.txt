@@ -1,0 +1,20 @@
+# inputCopy
+3
+5
+1 2 3 4 5
+4
+2 0 1 9
+2
+2019 2020
+# outputCopy
+NO
+YES
+1 2
+NO
+# tes
+1
+4
+0 0 2 3
+# tes
+YES
+2 4
