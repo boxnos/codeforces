@@ -175,9 +175,9 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 
 int main() {
 	auto f = [] {
-		[[maybe_unused]] int n {in}, r {in}, t;
+		int n {in}, r {in};
 		Range (i, n - 2)
-			t = in;
+			(int) in;
 		return int(in) - r;
 	};
 	Test {
