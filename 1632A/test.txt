@@ -1,0 +1,33 @@
+# inputCopy
+4
+1
+1
+2
+10
+2
+01
+4
+1010
+# outputCopy
+YES
+YES
+YES
+NO
+# my
+5
+1
+0
+2
+00
+2
+11
+3
+101
+3
+100
+# my
+YES
+NO
+NO
+NO
+NO
