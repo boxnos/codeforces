@@ -1,0 +1,34 @@
+# inputCopy
+9
+1 1 0
+3 5 1
+13 13 0
+4 4 0
+3 7 4
+4 10 3
+2 4 0
+1 7 3
+1 5 3
+# outputCopy
+NO
+NO
+YES
+YES
+YES
+YES
+NO
+NO
+YES
+# my
+5
+2 4 1
+3 5 1
+3 5 2
+3 6 1
+3 6 2
+# my
+YES
+NO
+YES
+NO
+YES
