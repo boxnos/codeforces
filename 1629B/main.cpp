@@ -175,7 +175,7 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 int main() {
 	Test {
 		int l {in}, r {in}, k {in}, n {r - l + 1};
-		outl((n - k == 1 ? r != 1 : n / 2 + (n % 2 && l % 2) <= k) ? "YES" : "NO");
+		outl((n == 1 ? r != 1 : n / 2 + (n % 2 && l % 2) <= k) ? "YES" : "NO");
 	}
 }
 
