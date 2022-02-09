@@ -178,7 +178,7 @@ int main() {
 		int n {in}, s {1}, r {};
 		vector<int> a {in.read(n)};
 		for (int i {n - 1}; i >= 0; r += bool(i), i -= s, s *= 2)
-			for (; i - 1 < n && a[i - 1] == a.back(); --i, ++s)
+			for (; i - 1 >= 0 && a[i - 1] == a.back(); --i, ++s)
 				;
 		outl(r);
 	}
