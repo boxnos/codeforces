@@ -177,11 +177,9 @@ int main() {
 	Test {
 		int n {in}, s {1}, r {};
 		vector<int> a {in.read(n)};
-		for (int i {n - 1}; i >= 0; i -= s, s *= 2) {
+		for (int i {n - 1}; i >= 0; r += bool(i), i -= s, s *= 2)
 			for (; i - 1 < n && a[i - 1] == a.back(); --i, ++s)
 				;
-			r += bool(i);
-		}
 		outl(r);
 	}
 }
