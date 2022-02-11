@@ -178,10 +178,8 @@ int main() {
 		outl([] () -> string {
 			string r {};
 			for (LL a {in}, s {in}; (a || s) && a != s; a /= 10, s /= 10)
-				if (char t = s % 10 - a % 10; t >= 0)
+				if (char t = s % 10 - a % 10; t >= 0 || ((t += s % 100 - s % 10) < 10 && t >= 0 && (s /= 10, 1)))
 					r = char(t + '0') + r;
-				else if ((t = s % 100 - a % 10) < 10 && t >= 0)
-					r = char(t + '0') + r, s /= 10;
 				else
 					return "-1";
 			return r;
