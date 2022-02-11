@@ -178,9 +178,7 @@ int main() {
 		outl([] () -> string {
 			string r {};
 			for (LL a {in}, s {in}; (a || s) && a != s; a /= 10, s /= 10)
-				if (int t; !s)
-					return "-1";
-				else if ((t = s % 10 - a % 10) >= 0)
+				if (char t = s % 10 - a % 10; t >= 0)
 					r = char(t + '0') + r;
 				else if ((t = s % 100 - a % 10) < 10 && t >= 0)
 					r = char(t + '0') + r, s /= 10;
