@@ -11,7 +11,6 @@
 #include <limits>
 
 #include <string>
-#include <map>
 using namespace std;
 //#define MINUS_
 #define IO_
@@ -176,18 +175,18 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 
 int main() {
 	Test {
-		map<char, int> S;
+		array<int, 26> S {};
 		for (char c;(c = gcu()) != '\n';)
-			S[c]++;
+			S[c - 'a']++;
 		string T = in;
-		if (T == "abc" && S.count('a') && S.count('b') && S.count('c'))
-			for (char c: "acbdefghijklmnopqrstuvwxyz")
-				Range (j, S[c])
-					out(c);
+		if (T == "abc" && S[0] && S[1] && S[2])
+			Range (i, 26)
+				Range (j, S[i = i == 1 ? 2 : i == 2 ? 1 : i])
+					out(char(i + 'a'));
 		else
-			for (auto i: S)
-				Range (j, i.second)
-					out(i.first);
+			Range (i, 26)
+				Range (j, S[i])
+					out(char(i + 'a'));
 		outl();
 	}
 }
