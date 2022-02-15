@@ -1,0 +1,22 @@
+# inputCopy
+6
+3 2
+aab
+3 3
+aab
+7 1
+abacaba
+2 0
+ab
+1 20
+a
+3 10
+aba
+1
+# outputCopy
+2
+2
+1
+1
+1
+1
