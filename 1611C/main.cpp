@@ -10,8 +10,7 @@
 #include <array>
 #include <limits>
 
-#include <deque>
-#include <algorithm>
+#include <vector>
 using namespace std;
 //#define MINUS_
 #define IO_
@@ -177,24 +176,12 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 int main() {
 	Test {
 		int n {in};
-		deque<int> a(n), p {n};
-		Range (i, n)
-			a[i] = in;
-		if (a.front() == n)
-			a.pop_front();
-		else if (a.back() == n)
-			a.pop_back();
-		else {
+		vector<int> a {in.read(n)};
+		if (a.front() != n && a.back() != n) {
 			outl("-1");
 			continue;
 		}
-		for (;a.size();)
-			if (a.front() > a.back())
-				p.push_back(a.back()), a.pop_back();
-			else
-				p.push_front(a.front()), a.pop_front();
-		for (int i: p)
-			out(i, ' ');
+		for_each(rbegin(a), rend(a), [](int i) {out(i, ' ');});
 		outl();
 	}
 }
