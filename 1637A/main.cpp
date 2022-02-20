@@ -178,12 +178,7 @@ int main() {
 	Test {
 		int n {in};
 		vector<int> a {in.read(n)};
-		outl([&] {
-			Range (i, n - 1)
-				if (a[i] > a[i + 1])
-					return "YES";
-			return "NO";
-			}());
+		outl(is_sorted(begin(a), end(a)) ? "NO" : "YES");
 
 	}
 }
