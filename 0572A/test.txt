@@ -1,0 +1,28 @@
+# inputCopy
+3 3
+2 1
+1 2 3
+3 4 5
+# outputCopy
+YES
+# inputCopy
+3 3
+3 3
+1 2 3
+3 4 5
+# outputCopy
+NO
+# inputCopy
+5 2
+3 1
+1 1 1 1 1
+2 2
+# outputCopy
+YES
+# tes
+3 3
+1 1
+1 2 3
+1 2 3
+# tes
+YES
