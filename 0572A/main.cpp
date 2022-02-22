@@ -63,6 +63,7 @@ namespace io {
 #define pcu _U(putchar)
 #endif
 struct in_ {
+	I_ operator void *(){char c;do{c=gcu();}while(c!=' '&&c!='\n');return NULL;}
 #ifdef S_
 	OP_(string){
 #ifdef IO_
@@ -179,13 +180,13 @@ int main() {
 		if (i == k)
 			a = in;
 		else
-			(const string) in;
+			[[maybe_unused]] void *t {in};
 	Range (i, nb)
 		if (i == m) {
 			b = in;
 			break;
 		} else
-			(const string) in;
+			[[maybe_unused]] void *t {in};
 	outl(a < b ? "YES" : "NO");
 }
 
