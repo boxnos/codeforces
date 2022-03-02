@@ -181,8 +181,9 @@ int main() {
 		else {
 			outl("YES");
 			Range (i, n) {
+				int &t = i % 2 ? e : o;
 				Range (j, k)
-					out((i % 2 ? e : o) += 2, ' ');
+					out(t += 2, ' ');
 				outl();
 			}
 		}
