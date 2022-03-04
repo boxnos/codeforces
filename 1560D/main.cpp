@@ -175,29 +175,26 @@ T_ <TN_ P, TN_ O> I_ constexpr int len(P &p, O o) {return distance(begin(p), o);
 TT_ I_ constexpr int len(T p) {return size(p);}
 
 int main() {
-	vector<string> T;
+	vector<string> T(63);
 	LL b {1};
-	Range (i, 64) {
-		string t {};
-		for (LL i {b}; i; i /= 10)
-			t = char('0' + i % 10) + t;
+	for (auto &i: T) {
+		i = to_string(b);
 		b *= 2;
-		T.push_back(t);
 	}
 	Test {
-		int r {inf<int>};
+		int r {inf<int> / 2};
 		string n = in;
 		for (auto t: T) {
-			int x {}, f {};
+			if (size(T) + r < size(n) * 2)
+				break;
+			int x {};
 			auto i {begin(t)}, j {begin(n)};
-			for (; i != end(t) && j != end(n); ++i) {
-				f = false;
-				for (;j != end(n) && *i != *j; ++j)
-					x++;
-				if (j != end(n))
-					j++, f = true;
+			for (; i != end(t) && j != end(n);) {
+				if (*i == *j)
+					i++, x++;
+				j++;
 			}
-			r = min(r, x + int(end(t) - i) + int(end(n) - j) + !f);
+			r = min(r, int(size(t) + size(n)) - x * 2);
 		}
 		outl(r);
 	}
