@@ -178,14 +178,12 @@ int main() {
 		array<int, 3> a {in.read<3>()};
 		sort(rbegin(a), rend(a));
 		int r {};
-		for (int &i : a)
-			if (i)
-				--i, ++r;
-		Range (i, 3)
-			if (a[i] && a[(i + 1) % 3])
-				--a[i], --a[(i + 1) % 3], ++r;
-		if (a[0] && a[1] && a[2])
-			++r;
+		for (int t: {1, 2, 4, 3, 6, 5, 7}) {
+			auto f {[&](int i) {return !(t & 1 << i) || a[i];}};
+			auto g {[&](int i) {a[i] -= t >> i & 1;}};
+			if ((f(0) && f(1) && f(2)))
+				g(0), g(1), g(2), ++r;
+		}
 		outl(r);
 	}
 }
