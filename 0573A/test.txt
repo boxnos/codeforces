@@ -1,0 +1,15 @@
+# inputCopy
+4
+75 150 75 50
+# outputCopy
+Yes
+# inputCopy
+3
+100 150 250
+# outputCopy
+No
+# tes
+7
+34 34 68 34 34 68 34
+# tes
+Yes
