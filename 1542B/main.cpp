@@ -88,7 +88,7 @@ TT_ T tapl(T v){tapp(v);dbg("\n");return v;}
 
 TT_ T sign(T a) {return (a > 0) - (a < 0);}
 I_ int bsign(bool b){return b - !b;}
-TT_ T eucdiv(T a, T b) {T t = a / b; return a % b ? t + sign(a): t;}
+TT_ T eucdiv(T a, T b) {T t = a / b; return a % b < 0 ? t + sign(t): t;}
 TT_ T eucmod(T a, T b) {T t = a % b; return t < 0 ? t + abs(b) : t;}
 
 int main() {
