@@ -1,0 +1,11 @@
+# inputCopy
+4
+rgbBRG
+RgbrBG
+bBrRgG
+rgRGBb
+# outputCopy
+YES
+NO
+YES
+NO
