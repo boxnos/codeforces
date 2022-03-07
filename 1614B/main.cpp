@@ -184,7 +184,7 @@ int main() {
 			LL u {i * 2}, j {i + 1};
 			r += a[t[u]] * j;
 			x[t[u]] = j;
-			if (LL u {i * 2 + 1}; u < n) {
+			if (++u < n) {
 				r += a[t[u]] * j;
 				x[t[u]] = -j;
 			}
