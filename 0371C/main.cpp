@@ -184,7 +184,7 @@ int main() {
 		int n {in};
 		if (i[2]) {
 			i[0] = n / i[2];
-			i[1] = (i[2] - n % i[2]) % i[2];
+			i[1] = (i[2] - n % i[2] ?: i[2]);
 		}
 	}
 	for (auto &i: a)
@@ -196,17 +196,17 @@ int main() {
 		Range (i, 3) {
 			auto &o {a[i]};
 			if (o[1]) {
-				if (r < o[1] * o[3] + c)
+				if (LL t {o[1] * o[3] + c}; r < t)
 					return o[0];
 				else
 					++o[0], r -= o[1] * o[3] + c;
 			}
 			c += o[2] * o[3];
 			if (i < 2) {
-				if (r < (a[i + 1][0] - o[0]) * c)
+				if (LL t {(a[i + 1][0] - o[0]) * c}; r < t)
 					return o[0] + r / c;
 				else
-					r -= (a[i + 1][0] - o[0]) * c;
+					r -= t;
 			} else
 				return o[0] + r / c;
 		}
