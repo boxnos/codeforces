@@ -10,8 +10,8 @@
 #include <array>
 #include <limits>
 
-#include <tuple>
 #include <string>
+#include <numeric>
 using namespace std;
 //#define MINUS_
 #define IO_
@@ -176,41 +176,21 @@ T_ <TN_ P, TN_ O> I_ constexpr int len(P &p, O o) {return distance(begin(p), o);
 TT_ I_ constexpr int len(T p) {return size(p);}
 
 int main() {
-	array<array<LL, 4>, 3> a {};
+	array<array<LL, 3>, 3> a {};
 	string s = in;
 	for (char c: s)
-		++a[c == 'C' ? 2 : c == 'S'][2];
-	for (auto &i: a) {
-		int n {in};
-		if (i[2]) {
-			i[0] = n / i[2];
-			i[1] = i[2] - n % i[2] ?: i[2];
-		}
-	}
+		++a[c == 'C' ? 2 : c == 'S'][0];
 	for (auto &i: a)
-		i[3] = in;
-	LL r {in};
-	sort(begin(a), end(a));
-	LL c {};
+		i[1] = in;
+	for (auto &i: a)
+		i[2] = in;
 	outl([&] {
-		Range (i, 3) {
-			auto &o {a[i]};
-			if (o[1]) {
-				if (LL t {o[1] * o[3] + c}; r < t)
-					return o[0];
-				else
-					++o[0], r -= o[1] * o[3] + c;
-			}
-			c += o[2] * o[3];
-			if (i < 2) {
-				if (LL t {(a[i + 1][0] - o[0]) * c}; r < t)
-					return o[0] + r / c;
-				else
-					r -= t;
-			} else
-				return o[0] + r / c;
+		LL r {in}, t {}, f {r + (*max_element(begin(a), end(a), [](auto a, auto b) {return a[1] > b[1];}))[1] + 1LL};
+		for (; f - t > 1;) {
+			LL m = (t + f) / 2;
+			(r < accumulate(begin(a), end(a), 0LL, [&](LL n, auto a) {return n + max(0LL, a[0] * m - a[1]) * a[2];}) ? f : t) = m;
 		}
-		return -1LL;
+		return t;
 	}());
 }
 
