@@ -1,0 +1,42 @@
+# inputCopy
+BBBSSC
+6 4 1
+1 2 3
+4
+# outputCopy
+2
+# inputCopy
+BBC
+1 10 1
+1 10 1
+21
+# outputCopy
+7
+# inputCopy
+BSC
+1 1 1
+1 1 3
+1000000000000
+# outputCopy
+200000000001
+# input
+BBBBSSSCC
+10 10 9
+1 2 3
+6
+# out
+3
+# in
+BSC
+100 1 1
+100 1 1
+100
+# out
+51
+# in
+BBBBCCCCCCCCCCCCCCCCCCCCSSSSBBBBBBBBSS
+100 100 100
+1 1 1
+3628800
+# out
+95502
