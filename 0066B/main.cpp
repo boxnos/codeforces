@@ -175,15 +175,15 @@ T_ <TN_ P, TN_ O> I_ constexpr int len(P &p, O o) {return distance(begin(p), o);
 TT_ I_ constexpr int len(T p) {return size(p);}
 
 int main() {
-	int n {in}, l {}, r {-1}, x {};
+	int n {in}, l {}, r {}, x {};
 	vector<int> a {in.read(n)};
 	Range (i, n) {
 		if (i > 0 && a[i - 1] > a[i])
 			l = i;
-		if (i > r)
-			for (r = i; r + 1 < n && a[r] >= a[r + 1] ; ++r)
+		if (i >= r)
+			for (r = i + 1; r + 1 <= n && a[r - 1] >= a[r] ; ++r)
 				;
-		x = max(x, r + 1 - l);
+		x = max(x, r - l);
 	}
 	outl(x);
 }
