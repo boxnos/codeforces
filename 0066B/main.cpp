@@ -181,7 +181,7 @@ int main() {
 		if (i > 0 && a[i - 1] > a[i])
 			l = i;
 		if (i >= r)
-			for (r = i + 1; r + 1 <= n && a[r - 1] >= a[r] ; ++r)
+			for (r = i + 1; r < n && a[r - 1] >= a[r] ; ++r)
 				;
 		x = max(x, r - l);
 	}
