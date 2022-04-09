@@ -178,8 +178,8 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 int main() {
 	Test {
 		int n {in};
-		for (int d {n % 3 == 1}; n > 0; n -= 2 - exchange(d, !d))
-			out(2 - d);
+		for (int d {2 - (n % 3 == 1)}; n > 0; n -= exchange(d, d ^ 3))
+			out(d);
 		outl();
 	}
 }
