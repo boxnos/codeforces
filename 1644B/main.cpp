@@ -180,18 +180,12 @@ int main() {
 	Test {
 		int n {in};
 		vector<int> a(n);
-		Range (i, n)
-			a[i] = n - i;
-		Range (i, n) {
-			for (; [&]{
-					for (int j = 2; j < n; j++)
-						if (a[j - 2] + a[j - 1] == a[j])
-							return true;
-					return false;
-				 }(); next_permutation(begin(a), end(a), greater<int>()))
-				;
-			outl(a);
-			next_permutation(begin(a), end(a), greater<int>());
+		Range (i, 1, n + 1) {
+			out(i);
+			Range (j, n, 0, -1)
+				if (i != j)
+					out(' ', j);
+			outl();
 		}
 	}
 }
