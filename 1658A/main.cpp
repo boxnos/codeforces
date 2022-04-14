@@ -179,10 +179,10 @@ int main() {
 		int n {in}, r {};
 		string s {in.read(n, ' ')};
 		Range (i, n) {
-			if (s[i] == '0') {
-				if (i + 1 < n && s[i + 1] == '0')
+			if (s[i] == '0' && i + 1 < n) {
+				if (s[i + 1] == '0')
 					r += 2;
-				else if (i + 2 < n && s[i + 1] == '1' && s[i + 2] == '0')
+				else if (i + 2 < n && s[i + 2] == '0')
 					r++;
 			}
 		}
