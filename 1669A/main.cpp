@@ -174,9 +174,10 @@ T_ <TN_ P, TN_ O> I_ constexpr int len(P &p, O o) {return distance(begin(p), o);
 TT_ I_ constexpr int len(T p) {return size(p);}
 
 int main() {
+	array<int, 3> t {1400, 1600, 1900};
 	Test {
 		int r {in};
-		outl("Division ", r < 1400 ? 4 : r < 1600 ? 3 : r < 1900 ? 2 : 1);
+		outl("Division ", 4 - len(t, upper_bound(begin(t), end(t), r)));
 	}
 }
 
