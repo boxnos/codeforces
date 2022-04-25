@@ -180,12 +180,10 @@ int main() {
 		for (int &i : a)
 			i = int(in) % 2;
 		outl([&] {
-			for (int i {2}; i < n; i += 2)
-				if (a[i - 2] ^ a[i])
-					return false;
-			for (int i {3}; i < n; i += 2)
-				if (a[i - 2] ^ a[i])
-					return false;
+			for (int i: {2, 3})
+				for (; i < n; i += 2)
+					if (a[i - 2] ^ a[i])
+						return false;
 			return true;
 			}() ? "YES" : "NO");
 	}
