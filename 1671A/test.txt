@@ -1,0 +1,19 @@
+# inputCopy
+8
+aaaabbb
+bbaaaaabbb
+aaaaaa
+abab
+a
+b
+aaaab
+bbaaa
+# outputCopy
+YES
+YES
+YES
+NO
+NO
+NO
+NO
+YES
