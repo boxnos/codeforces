@@ -177,13 +177,13 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 
 int main() {
 	Test {
-		LL n {in}, h {in}, c {};
-		vector<int> a {in.read(n)};
-		vector<LL> d(n - 1);
-		Range (i, n - 1)
-			d[i] = a[i + 1] - a[i];
-		sort(begin(d), end(d));
-		outl([&] {
+		outl([] {
+			LL n {in}, h {in}, c {};
+			vector<int> a {in.read(n)};
+			vector<LL> d(n - 1);
+			Range (i, n - 1)
+				d[i] = a[i + 1] - a[i];
+			sort(begin(d), end(d));
 			Range (i, n - 1) {
 				if (int t = n - i; c + t * d[i] >= h)
 					return (h - c + t - 1) / t;
