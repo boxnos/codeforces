@@ -175,7 +175,7 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 
 int main() {
 	Test {
-		auto [a, b, c, x, y] = in.read<5>();
+		auto [a, b, c, x, y] {in.read<5>()};
 		outl(max(x - a, 0) + max(y - b, 0) - c > 0 ? "NO" : "YES");
 	}
 }
