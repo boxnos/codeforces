@@ -177,6 +177,8 @@ int main() {
 	Test {
 		outl([] {
 			int x {in};
+			if (11 * 1111 < x)
+				return "YES";
 			for (int i {}; i < 11 && i * 111 <= x; ++i)
 				if (!((x - i) % 11))
 					return "YES";
