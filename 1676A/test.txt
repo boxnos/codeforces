@@ -1,0 +1,13 @@
+# inputCopy
+5
+213132
+973894
+045207
+000000
+055776
+# outputCopy
+YES
+NO
+YES
+YES
+NO
