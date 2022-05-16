@@ -1,0 +1,7 @@
+# inputCopy
+2
+2 2
+100000 20
+# outputCopy
+4
+226732710
