@@ -179,12 +179,15 @@ int main() {
 		outl([] {
 			int n {in}, r {};
 			vector<int> a {in.read(n)};
-			Range (i, n - 1, 0, -1)
-				if (a[i])
-					for (; a[i - 1] >= a[i]; r++, a[i - 1] /= 2)
-						;
-				else
+			Range (i, n - 2, -1, -1)
+				if (a[i + 1]) {
+					if (int t {__builtin_clz(a[i + 1]) - __builtin_clz(a[i])}; t > 0)
+						a[i] >>= t, r += t;
+					if (a[i] >= a[i + 1])
+						a[i] /= 2, r++;
+				} else
 					return -1;
+			tapl(a);
 			return r;
 			}());
 	}
