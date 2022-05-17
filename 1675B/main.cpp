@@ -10,7 +10,6 @@
 #include <array>
 #include <limits>
 
-#include <vector>
 using namespace std;
 #define MINUS_
 #define IO_
@@ -175,10 +174,12 @@ T_ <TN_ P, TN_ O> I_ constexpr int len(P &p, O o) {return distance(begin(p), o);
 TT_ I_ constexpr int len(T p) {return size(p);}
 
 int main() {
+	array<int, 35> a {};
 	Test {
-		outl([] {
+		outl([&] {
 			int n {in}, r {};
-			vector<int> a {in.read(n)};
+			Range (i, n)
+				a[i] = in;
 			Range (i, n - 2, -1, -1)
 				if (a[i + 1]) {
 					if (int t {__builtin_clz(a[i + 1]) - __builtin_clz(a[i])}; t > 0)
