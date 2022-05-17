@@ -178,14 +178,13 @@ int main() {
 	Test {
 		outl([&] {
 			int n {in}, r {};
-			Range (i, n)
-				a[i] = in;
-			Range (i, n - 2, -1, -1)
-				if (a[i + 1]) {
-					if (int t {__builtin_clz(a[i + 1]) - __builtin_clz(a[i])}; t > 0)
-						a[i] >>= t, r += t;
-					if (a[i] >= a[i + 1])
-						a[i] /= 2, r++;
+			for_each(begin(a), begin(a) + n, [](int &a) {a = in;});
+			for (auto i {rend(a) - n + 1}; i != rend(a); ++i)
+				if (*(i - 1)) {
+					if (int t {__builtin_clz(*(i - 1)) - __builtin_clz(*i)}; t > 0)
+						*i >>= t, r += t;
+					if (*i >= *(i - 1))
+						*i /= 2, r++;
 				} else
 					return -1;
 			return r;
