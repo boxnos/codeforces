@@ -177,7 +177,7 @@ int main() {
 	Test {
 		LL n {in}, k {in}, r {1};
 		Range (i, k)
-			r = r * n % 1000000007;
+			r = r * n % int(1e9 + 7);
 		outl(r);
 	}
 }
