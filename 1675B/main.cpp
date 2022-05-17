@@ -187,7 +187,6 @@ int main() {
 						a[i] /= 2, r++;
 				} else
 					return -1;
-			tapl(a);
 			return r;
 			}());
 	}
