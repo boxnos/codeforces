@@ -1,0 +1,13 @@
+# inputCopy
+5
+aba
+abc
+cba
+n
+codeforces
+# outputCopy
+Alice 2
+Alice 4
+Alice 4
+Bob 14
+Alice 93
