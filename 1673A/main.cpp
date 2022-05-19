@@ -180,9 +180,8 @@ using P = pair<int, int>;
 int main() {
 	Test {
 		string s = in;
-		int a {accumulate(begin(s), end(s), -int(size(s) * '`'))},
-			m {size(s) % 2 ? (min(s[0], s[size(s) - 1]) - '`') * 2 : 0};
-		outl(a > m ? "Alice " : "Bob ", abs(a - m));
+		int a {accumulate(begin(s), end(s), -int(size(s) * '`') - (size(s) % 2 ? (min(s[0], s[size(s) - 1]) - '`') * 2 : 0))};
+		outl(a > 0 ? "Alice " : "Bob ", abs(a));
 	}
 }
 
