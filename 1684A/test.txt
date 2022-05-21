@@ -1,0 +1,9 @@
+# inputCopy
+3
+12
+132
+487456398
+# outputCopy
+2
+1
+3
