@@ -1,0 +1,18 @@
+# inputCopy
+3
+aaaa
+a
+aa
+abc
+a
+b
+# outputCopy
+1
+-1
+2
+# my
+1
+aaa
+cd
+# my
+8
