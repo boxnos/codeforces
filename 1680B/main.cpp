@@ -177,19 +177,18 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 
 int main() {
 	Test {
-		int n {in}, m {in};
-		pair<int, int> t {inf<int>, inf<int>}, l {t};
+		int n {in}, m {in}, p {-1};
 		Range (i, n) {
 			Range(j, m)
 				if (gcu() == 'R') {
-					if (i < t.first)
-						t = {i, j};
-					if (j < l.second)
-						l = {i, j};
+					if (p == -1)
+						p = j;
+					else if (j < p)
+						p = -2;
 				}
 			gcu();
 		}
-		outl(t == l ? "YES" : "NO");
+		outl(p < 0 ? "NO" : "YES");
 	}
 }
 
