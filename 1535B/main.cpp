@@ -177,7 +177,18 @@ TT_ T eucmod(T a, T b) {T t = a % b; return t < 0 ? t + abs(b) : t;}
 T_ <TN_ P, TN_ O> I_ constexpr int len(P &p, O o) {return distance(begin(p), o);}
 TT_ I_ constexpr int len(T p) {return size(p);}
 
+
+
 int main() {
+	auto spf {[]() constexpr {
+		array<int, 100001> a {};
+		iota(begin(a), end(a), 0);
+		for (int i {2}, e = sqrt(size(a)); i <= e; i++)
+			if (i == a[i])
+				for (int j {i + i}; j < int(size(a)); j += i)
+					a[j] = i;
+		return a;
+	}()};
 	Test {
 		int n {in}, r {}, e {};
 		vector<int> a;
@@ -188,15 +199,9 @@ int main() {
 				r += n - ++e;
 		Range (i, size(a)) {
 			vector<int> f;
-			for (int k {3}, s = sqrt(a[i]); k <= s; k += 2)
-				if (!(a[i] % k)) {
-					f.push_back(k);
-					do {
-						a[i] /= k;
-					} while (!(a[i] % k));
-				}
-			if (a[i] != 1)
-				f.push_back(a[i]);
+			for (int t {a[i]}; t != 1; t = t / spf[t])
+				if (!size(f) || f.back() != t)
+					f.push_back(spf[t]);
 			Range (j, i + 1, size(a))
 				Range (k, f.size())
 					if (!(a[j] % f[k])) {
