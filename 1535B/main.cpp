@@ -13,6 +13,7 @@
 #include <algorithm>
 #include <vector>
 #include <numeric>
+#include <cmath>
 using namespace std;
 //#define MINUS_
 #define IO_
@@ -185,9 +186,24 @@ int main() {
 				a.push_back(t);
 			else
 				r += n - ++e;
-		Range (i, size(a))
+		Range (i, size(a)) {
+			vector<int> f;
+			for (int k {3}, s = sqrt(a[i]); k <= s; k += 2)
+				if (!(a[i] % k)) {
+					f.push_back(k);
+					do {
+						a[i] /= k;
+					} while (!(a[i] % k));
+				}
+			if (a[i] != 1)
+				f.push_back(a[i]);
 			Range (j, i + 1, size(a))
-				r += gcd(a[i], a[j]) > 1;
+				Range (k, f.size())
+					if (!(a[j] % f[k])) {
+						r++;
+						break;
+					}
+		}
 		outl(r);
 	}
 }
