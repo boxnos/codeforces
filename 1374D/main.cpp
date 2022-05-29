@@ -177,7 +177,7 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 
 int main() {
 	Test {
-		int n {in}, k {in}, m {-1}, l {};
+		int n {in}, k {in}, m {}, l {};
 		vector<int> a(n);
 		for (int &i: a)
 			i = int(in) % k;
@@ -192,7 +192,7 @@ int main() {
 				i = j;
 			} else
 				++i;
-		outl(m != -1 ? LL(m) * k - l + 1 : 0LL);
+		outl(m ? LL(m) * k - l + 1 : 0LL);
 	}
 }
 
