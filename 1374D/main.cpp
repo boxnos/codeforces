@@ -192,7 +192,7 @@ int main() {
 				i = j;
 			} else
 				++i;
-		outl(m != -1 ? (m - 1LL) * k + k - l + 1 : 0LL);
+		outl(m != -1 ? LL(m) * k - l + 1 : 0LL);
 	}
 }
 
