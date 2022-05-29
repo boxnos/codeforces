@@ -10,7 +10,8 @@
 #include <array>
 #include <limits>
 
-#include <map>
+#include <vector>
+#include <algorithm>
 using namespace std;
 //#define MINUS_
 #define IO_
@@ -176,13 +177,22 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 
 int main() {
 	Test {
-		int n {in}, k {in};
-		unordered_map<int, int, custom_hash> m {};
-		Range (i, n)
-			if (int a {int(in) % k}; a)
-				++m[a];
-		auto e {max_element(begin(m), end(m), [](auto a, auto b) {return a.second == b.second ? a.first > b.first : a.second < b.second;})};
-		outl(e != end(m) ? (e->second - 1LL) * k + k - e->first + 1 : 0LL);
+		int n {in}, k {in}, m {-1}, l {};
+		vector<int> a(n);
+		for (int &i: a)
+			i = int(in) % k;
+		sort(begin(a), end(a));
+		for (int i {}; i < n;)
+			if (a[i]) {
+				int j {i + 1};
+				for (; j < n && a[i] == a[j]; ++j)
+					;
+				if (m < j - i)
+					m = j - i, l = a[i];
+				i = j;
+			} else
+				++i;
+		outl(m != -1 ? (m - 1LL) * k + k - l + 1 : 0LL);
 	}
 }
 
