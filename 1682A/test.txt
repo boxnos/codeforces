@@ -1,0 +1,12 @@
+# inputCopy
+3
+3
+aba
+8
+acaaaaca
+2
+dd
+# outputCopy
+1
+4
+2
