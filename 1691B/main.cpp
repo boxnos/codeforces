@@ -177,9 +177,9 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 int main() {
 	Test {
 		int n {in};
-		vector<int> s {in.read(n)}, r(n);
-		sort(begin(s), end(s));
+		vector<int> s {in.read(n)};
 		outl([&] () -> vector<int> {
+			vector<int> r(n);
 			for (int i {}; i < n;)
 				if (i + 1 == n || s[i] != s[i + 1]) {
 					out("-1");
