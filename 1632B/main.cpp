@@ -132,7 +132,10 @@ TT_ OUT_(T n){
 #ifdef MINUS_
 	if(n<0)pcu('-'),n=-n;
 #endif
-	OUTX_(n);}
+//	static char b[20];char *p=b;
+//	if(!n)*p++='0';else while(n)*p++=n%10+'0',n/=10;while(p!=b)pcu(*--p);
+	OUTX_(n);
+}
 TT_ OUT_(initializer_list<T> v){for(auto i{begin(v)};i!=end(v);++i)out(i==begin(v)?"":" "),out(*i);}
 #ifdef _GLIBCXX_VECTOR
 TT_ OUT_(vector<T> &v){if(auto i{begin(v)},e{end(v)};i!=e){out(*i++);for(;i!=e;++i)out(' '),out(*i);}}
@@ -176,11 +179,11 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 int main() {
 	Test {
 		int n {in}, b {1 << (31 - __builtin_clz(n - 1))};
-		Range (i, 1, n) {
-			if (i == b)
-				out("0 ");
+		Range (i, 1, b)
 			out(i, ' ');
-		}
+		out("0 ");
+		Range (i, b, n)
+			out(i, ' ');
 		outl();
 	}
 }
