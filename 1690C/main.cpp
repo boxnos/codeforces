@@ -178,10 +178,10 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 
 int main() {
 	Test {
-		int n {in};
+		int n {in}, t {};
 		vector<int> s {in.read(n)}, f {in.read(n)};
 		Range (i, n)
-			out(f[i] - (i > 0 && f[i - 1] > s[i] ? f[i - 1]: s[i]), ' ');
+			out(f[i] - max(exchange(t, f[i]), s[i]), ' ');
 		outl();
 	}
 }
