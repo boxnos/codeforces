@@ -10,7 +10,7 @@
 #include <array>
 #include <limits>
 
-#include <string>
+#include <vector>
 using namespace std;
 #define MINUS_
 #define IO_
@@ -180,13 +180,15 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 int main() {
 	Test {
 		int n {in}, k {in}, t {}, r {};
-		string s {in.read(n, ' ')};
-		auto c = [&] (int i) {return s[i] == 'W';};
+		vector<bool> a(n);
+		Range (i, n)
+			a[i] = gcu() == 'W';
+		gcu();
 		Range (i, k)
-			t += c(i);
+			t += a[i];
 		r = t;
 		for (int i {k}; i < n; i++)
-			r = min(r, t += c(i) - c(i - k));
+			r = min(r, t += a[i] - a[i - k]);
 		outl(r);
 	}
 }
