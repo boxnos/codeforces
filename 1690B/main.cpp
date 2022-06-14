@@ -11,6 +11,7 @@
 #include <limits>
 
 #include <vector>
+#include <string>
 using namespace std;
 //#define MINUS_
 #define IO_
@@ -180,7 +181,7 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 
 int main() {
 	Test {
-		outl([] {
+		outl([] () -> string {
 			int n {in}, d {-inf<int>};
 			vector<int> a {in.read(n)}, b {in.read(n)};
 			Range (i, n) {
