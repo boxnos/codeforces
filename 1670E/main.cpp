@@ -184,10 +184,10 @@ int main() {
 		int n {in}, q {in}, s {};
 		vector<int> a {in.read(n)};
 		sort(rbegin(a), rend(a));
-		Range (i, n)
-			s = a[i] += s;
+		for (int &i: a)
+			s = i += s;
 		Range (i, q)
-			if (auto r = lower_bound(begin(a), end(a), int(in)); r == end(a))
+			if (auto r {lower_bound(begin(a), end(a), int(in))}; r == end(a))
 				outl("-1");
 			else
 				outl(len(a, r) + 1);
