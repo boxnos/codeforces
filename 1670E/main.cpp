@@ -28,6 +28,12 @@ namespace io {
 	I_ char get(){return i==e?e=(i=in)+fread(in,1,s,stdin),i==e?EOF:*i++:*i++;}
 	I_ void flush(){fwrite(out,1,o-out,stdout);o=out;}
 	I_ void put(char c){*o++=c;if(o==f)flush();}
+	I_ void put_string(char *b, char *e) {
+		if (size_t l = e - b; l >= size_t(f - o))
+			flush(),fwrite(b, 1, l, stdout);
+		else
+			memcpy(o, b, l), o+=l;
+	};
 #ifdef _GLIBCXX_STRING
 #define S_
 	I_ void put_string(string &str) {
@@ -134,8 +140,14 @@ TT_ OUT_(T n){
 #ifdef MINUS_
 	if(n<0)pcu('-'),n=-n;
 #endif
-	static char b[20];char *p=b;
-	if(n)while(n)*p++=n%10+'0',n/=10;else*p++='0';while(p!=b)pcu(*--p);
+	static char b[20], *a=b+20;
+	char *p=a;
+	if(n)while(n)*--p=n%10+'0',n/=10;else*--p='0';
+#ifdef IO_
+	io::put_string(p, a);
+#else
+	while(p!=a)pcu(*p++);
+#endif
 	//OUTX_(n);
 }
 TT_ OUT_(initializer_list<T> v){for(auto i{begin(v)};i!=end(v);++i)out(i==begin(v)?"":" "),out(*i);}
