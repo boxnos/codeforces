@@ -192,14 +192,12 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 
 int main() {
 	Test {
-		int n {in}, c {};
+		int n {in};
 		unordered_set<int, custom_hash> s;
 		Range (i, n)
-			if (int a {in}; s.count(a))
-				++c;
-			else
+			if (int a {in}; !s.count(a))
 				s.insert(a);
-		outl(s.size() - c % 2);
+		outl(s.size() - (n - s.size()) % 2);
 	}
 }
 
