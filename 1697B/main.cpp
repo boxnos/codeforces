@@ -93,7 +93,7 @@ struct in_ {
 #ifndef IO_
 	OP_(double){double d; scanf("%lf",&d); gcu();return d;}
 #endif
-	TT_ I_ T RI_(char c){T n{};do{n=10*n+(c-'0'),c=gcu();}while(c>='0'&&c<='9');return n;}
+	TT_ I_ T RI_(char c){T n{};do{n=10*n+(c-'0'),c=gcu();}while(c>='0'/* &&c<='9' */);return n;}
 	TT_ OP_(T){
 		char c=gcu();
 #ifdef PCK_
