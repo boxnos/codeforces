@@ -193,11 +193,12 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 
 int main() {
 	int n {in}, q {in};
-	vector<int> a {in.read(n)};
 	vector<LL> s(n + 1);
-	sort(rbegin(a), rend(a));
-	Range (i, n)
-		s[i + 1] = s[i] + a[i];
+	for (auto i {begin(s) + 1}; i != end(s); ++i)
+		*i = in;
+	sort(rbegin(s), rend(s) - 1);
+	for (auto i {begin(s) + 1}; i != end(s); ++i)
+		*i += *(i - 1);
 	Range (i, q) {
 		int x {in}, y {in};
 		outl(s[x] - s[x - y]);
