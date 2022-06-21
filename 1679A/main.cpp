@@ -197,7 +197,7 @@ int main() {
 		if (n % 2 || n == 2)
 			outl("-1");
 		else
-			outl({n / 6 + bool(n % 6), n / 4});
+			outl({(n + 5) / 6, n / 4});
 	}
 }
 
