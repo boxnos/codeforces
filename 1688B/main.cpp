@@ -194,8 +194,8 @@ int main() {
 	Test {
 		int n {in}, m {inf<int>}, e {};
 		Range (i, n)
-			if (int a {in}; !(a % 2))
-				++e, m = min(m , __builtin_ctz(a));
+			if (int a {__builtin_ctz(in)}; a)
+				++e, m = min(m , a);
 		outl(e == n ? e + m - 1 : e);
 	}
 }
