@@ -196,7 +196,7 @@ int main() {
 		int n {in}, r {};
 		for (int i {}, m {}; i < n;) {
 			for (; i++ < n;)
-				if (int a {in}; m && a < m) {
+				if (int a {in}; a < m) {
 					m = 0, ++r;
 					break;
 				} else
