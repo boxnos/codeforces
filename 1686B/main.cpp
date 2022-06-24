@@ -194,13 +194,11 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 int main() {
 	Test {
 		int n {in}, r {};
-		for (int i {}, m {}; i < n;) {
-			for (; i++ < n;)
-				if (int a {in}; a < m) {
-					m = 0, ++r;
-					break;
-				} else
-					m = a;
+		for (int i {1}, p {in}; i < n; ++i) {
+			int a {in};
+			if (p > a && (++r, ++i) < n)
+				a = in;
+			p = a;
 		}
 		outl(r);
 	}
