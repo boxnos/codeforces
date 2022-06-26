@@ -198,7 +198,7 @@ int main() {
 			outl("-1");
 		else {
 			m -= n;
-			outl((n - 1) * 2LL + m / 2 * 4LL + m % 2);
+			outl((n - 1) * 2LL + m * 2LL - m % 2);
 		}
 	}
 }
