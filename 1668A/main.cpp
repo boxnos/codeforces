@@ -196,10 +196,8 @@ int main() {
 			swap(n, m);
 		if (n == 1 && m > 2)
 			outl("-1");
-		else {
-			m -= n;
-			outl((n - 1) * 2LL + m * 2LL - m % 2);
-		}
+		else
+			outl((m - 1) * 2 - (m - n) % 2);
 	}
 }
 
