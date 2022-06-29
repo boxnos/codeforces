@@ -201,12 +201,10 @@ int main() {
 		}
 	function<void(int, int)> f = [&] (int i, int g) {
 		(g ? vb : va)[i] = 1;
-		auto &x {g ? b[i] : a[i]};
 		auto &vx {g ? va : vb};
-		Range (j, size(x)) {
-			if (!vx[x[j]])
-				f(x[j], !g);
-		}
+		for (int j: g ? b[i] : a[i])
+			if (!vx[j])
+				f(j, !g);
 	};
 	Range (i, n)
 		if (!va[i]) {
