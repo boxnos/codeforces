@@ -191,25 +191,24 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 
 int main() {
 	int n {in}, m {in}, c {}, d {};
-	vector<vector<int>> a(n), b(m);
-	vector<bool> va(n), vb(m);
+	vector<vector<int>> a(n + m);
+	vector<bool> v(n + m);
 	Range (i, n)
 		Range (j, in) {
-			int t {int(in) - 1};
+			int t {n + int(in) - 1};
 			a[i].push_back(t);
-			b[t].push_back(i);
+			a[t].push_back(i);
 		}
-	function<void(int, int)> f = [&] (int i, int g) {
-		(g ? vb : va)[i] = 1;
-		auto &vx {g ? va : vb};
-		for (int j: g ? b[i] : a[i])
-			if (!vx[j])
-				f(j, !g);
+	function<void(int)> f = [&] (int i) {
+		v[i] = 1;
+		for (int j: a[i])
+			if (!v[j])
+				f(j);
 	};
 	Range (i, n)
-		if (!va[i]) {
+		if (!v[i]) {
 			if (size(a[i]))
-				f(i, 0), c++;
+				f(i), c++;
 			else
 				++d;
 		}
