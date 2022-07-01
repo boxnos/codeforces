@@ -193,17 +193,9 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 
 int main() {
 	Test {
-		int n {in}, d {3};
+		int n {in};
 		vector<int> x {in.read(n)};
-		outl([&] () -> string {
-			Range (i, n - 1) {
-				if (int t {x[i + 1] - x[i]}; t > d)
-					return "NO";
-				else if (t > 1)
-					d -= t - 1;
-			}
-			return "YES";
-		}());
+		outl(string(x.back() - x.front() < n + 2 ? "YES" : "NO"));
 	}
 }
 
