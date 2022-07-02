@@ -197,9 +197,10 @@ int main() {
 			int a {}, b {};
 			Range (i, 5) {
 				int d {i * 2};
-				if ((a += s[d] != '0') > 5 - i || (b -= s[d] == '1') > 4 - i)
+				char *c {&s[d]};
+				if ((a += *c != '0') > 5 - i || (b -= *c == '1') > 4 - i)
 					return d + 1;
-				if ((a -= s[d + 1] == '1') > 4 - i || (b += s[d + 1] != '0') > 4 - i)
+				if ((a -= c[1] == '1') > 4 - i || (b += c[1] != '0') > 4 - i)
 					return d + 2;
 			};
 			return 10;
