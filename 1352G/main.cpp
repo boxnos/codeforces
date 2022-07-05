@@ -197,10 +197,10 @@ int main() {
 			outl(string("-1"));
 			continue;
 		}
-		Range (i, 1, n - 3 + n % 2, 2)
+		Range (i, n - !(n % 2), -1, -2)
 			out(i, ' ');
-		out({n - 2, n, n - 3, n - 1});
-		Range (i, n - 4 - n % 2, 0, -2)
+		out("4 2");
+		for (int i {6}; i <= n; i += 2)
 			out(' ', i);
 		outl();
 	}
