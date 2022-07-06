@@ -201,8 +201,10 @@ int main() {
 			if (!l)
 				return int(*b != c);
 			auto m = b + l;
-			return int(min(l - count(b, m, c) + f(m, e, c + 1),
-						   l - count(m, e, c) + f(b, m, c + 1)));
+			int x = l - count(b, m, c), y = l - count(m, e, c);
+			return x ? y ? int(min(x + f(m, e, c + 1), y + f(b, m, c + 1)))
+				: f(b, m, c + 1)
+				: f(m, e, c + 1);
 		};
 		outl(f(begin(s), end(s), 'a'));
 	}
