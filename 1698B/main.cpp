@@ -193,13 +193,18 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 int main() {
 	Test {
 		int n {in}, k {in}, r {};
-		vector<int> a {in.read(n)};
-		if (k == 1)
+		if (k == 1) {
 			r = (n - 1) / 2;
-		else
-			Range (i, 1, n - 1)
-				if (a[i - 1] + a[i + 1] < a[i])
+			Range (i, n)
+				(int) in;
+		} else {
+			int a {in}, b {in}, c;
+			Range (i, n - 2) {
+				if (a + (c = in) < b)
 					++r;
+				a = b, b = c;
+			}
+		}
 		outl(r);
 	}
 }
