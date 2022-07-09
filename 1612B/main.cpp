@@ -190,12 +190,15 @@ TT_ I_ T ceil(T a, T b) {return (a + b - 1) / b;}
 T_ <TN_ P, TN_ O> I_ constexpr int len(P &p, O o) {return distance(begin(p), o);}
 TT_ I_ constexpr int len(T p) {return size(p);}
 
+#define ly(x) __builtin_expect(x, 1)
+#define un(x) __builtin_expect(x, 0)
+
 int main() {
 	Test {
 		int n {in}, a {in}, b {in};
 		if (a <= n / 2 && b > n / 2)
 			Range (i, n, 0, -1)
-				out(i == b ? a : i == a ? b : i, ' ');
+				out(un(i == b) ? a : un(i == a) ? b : i, ' ');
 		else if (a - b == 1 && b == n / 2)
 			Range (i, n, 0, -1)
 				out(i, ' ');
