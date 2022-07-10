@@ -199,7 +199,7 @@ int main() {
 	Test {
 		int n {in};
 		vector<int> a {in.read(n)};
-		if ((n == 3 && a[1] % 2) || all_of(begin(a) + 1, end(a) - 1, [] (int a) {return a == 1;}))
+		if ((n == 3 && a[1] % 2) || all_of(begin(a) + 1, end(a) - 1, bind(equal_to<int>(), 1, placeholders::_1)))
 			outl("-1");
 		else
 			outl(accumulate(begin(a) + 1, end(a) - 1, 0LL, [] (LL a, LL i) {return a + (i + 1) / 2;}));
