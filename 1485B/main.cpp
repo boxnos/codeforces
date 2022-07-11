@@ -195,13 +195,10 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 
 int main() {
 	int n {in}, q {in}, k {in};
-	vector<int> a {in.read(n)}, b(n - 1);
-	if (n > 2)
-		Range (i, 1, n - 1)
-			b[i] = b[i - 1] + a[i + 1] - a[i - 1] - 2;
+	vector<int> a {in.read(n)};
 	Range (i, q) {
 		int l {in}, r {in};
-		outl(r - l? a[l] - 3LL + b[r - 2] - b[l - 1] + k - a[r - 2] : k - 1);
+		outl(k + a[r - 1] - a[l - 1] + 1 - 2 * (r - l + 1));
 	}
 }
 
