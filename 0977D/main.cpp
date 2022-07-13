@@ -10,7 +10,8 @@
 #include <array>
 #include <limits>
 
-#include <unordered_set>
+#include <vector>
+#include <algorithm>
 using namespace std;
 //#define MINUS_
 #define IO_
@@ -194,27 +195,16 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 #define un(x) __builtin_expect(x, 0)
 
 int main() {
-	LL n {in}, d2 {inf<LL>}, d3 {}, b {};
-	unordered_set<LL, custom_hash> s;
-	Range (i, n) {
-		LL a {in}, c2 {}, c3 {};
-		for (LL t {a}; !(t % 3); t /= 3, ++c3);
-		if (c3 >= d3) {
-			for (LL t {a}; !(t % 2); t /= 2, ++c2);
-			if (c2 <= d2)
-				b = a, d3 = c3, d2 = c2;
-		}
-		s.insert(a);
+	int n {in};
+	vector<pair<LL, LL>> a(n);
+	for (auto &i: a) {
+		i.second = LL(in);
+		for (LL t {i.second}; !(t % 3); t /= 3, i.first++);
+		i.first *= -1;
 	}
-	for (;;) {
-		out(b, ' ');
-		if (!(b % 3) && s.count(b / 3))
-			b /= 3;
-		else if (s.count(b * 2))
-			b *= 2;
-		else
-			break;
-	}
+	sort(begin(a), end(a));
+	for (auto i: a)
+		out(i.second, ' ');
 	outl();
 }
 
