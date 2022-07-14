@@ -195,9 +195,8 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 #define un(x) __builtin_expect(x, 0)
 
 int main() {
-	array<LL, 3> a {in.read<3, LL>()};
-	sort(rbegin(a), rend(a));
-	outl(a[0] > (a[1] + a[2]) * 2 ? a[1] + a[2]: (a[0] + a[1] + a[2]) / 3);
+	LL r {in}, g {in}, b {in}, m {max({r, g, b})}, s {r + g + b};
+	outl(m > (s - m) * 2 ? s - m: s / 3);
 }
 
 /* vim: set ts=4 noet: */
