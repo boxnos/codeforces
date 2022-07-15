@@ -194,10 +194,18 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 #define ly(x) __builtin_expect(x, 1)
 #define un(x) __builtin_expect(x, 0)
 
+int pow(int a, int n) {
+	int r {1};
+	for (; n; a *= a, n /= 2)
+		if (n % 2)
+			r *= a;
+	return r;
+}
+
 int main() {
 	Test {
 		string s = in;
-		outl(stoi(s) - int(pow(10, size(s) - 1)));
+		outl(stoi(s) - pow(10, int(size(s) - 1)));
 	}
 }
 
