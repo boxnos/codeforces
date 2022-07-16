@@ -194,8 +194,9 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 #define ly(x) __builtin_expect(x, 1)
 #define un(x) __builtin_expect(x, 0)
 
-int pow(int a, int n) {
-	int r {1};
+T_ <TN_ T=int>
+T pow(T a, int n) {
+	T r {1};
 	for (; n; a *= a, n /= 2)
 		if (n % 2)
 			r *= a;
