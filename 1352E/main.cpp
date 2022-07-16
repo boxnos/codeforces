@@ -197,20 +197,20 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 int main() {
 	Test {
 		int n {in}, r {};
-		vector<int> a {in.read(n)};
+		vector<int> a(n), b(n + 1);
+		for (int &i: a) {
+			i = in;
+			++b[i];
+		}
 		int m {*max_element(begin(a), end(a))};
-		vector<bool> b(m + 1);
 		Range (i, n - 1) {
 			int s {a[i]};
 			Range (j, i + 1, n)
-				if (int t {s += a[j]}; t <= m)
-					b[t] = 1;
+				if (s += a[j]; s <= m)
+					r += exchange(b[s], 0);
 				else
 					break;
 		}
-		for (int i: a)
-			if (b[i])
-				++r;
 		outl(r);
 	}
 }
