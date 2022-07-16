@@ -196,13 +196,12 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 
 int main() {
 	Test {
-		int n {in}, r {};
+		int n {in}, r {}, m {};
 		vector<int> a(n), b(n + 1);
 		for (int &i: a) {
-			i = in;
+			m = max(m, i = in);
 			++b[i];
 		}
-		int m {*max_element(begin(a), end(a))};
 		Range (i, n - 1) {
 			int s {a[i]};
 			Range (j, i + 1, n)
