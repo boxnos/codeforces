@@ -74,7 +74,7 @@ int main() {
 		int n {in};
 		for (int i: range(n)) {
 			for (int j: range(n))
-				out(i == j || (i - j + n) % n == 1, ' ');
+				out((i - j + n) % n < 2, ' ');
 			outl();
 		}
 	}
