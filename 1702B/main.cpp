@@ -198,8 +198,8 @@ int main() {
 		string s = in, v {"   "};
 		int r {1};
 		for (size_t i {}, j {}; i < size(s); ++i)
-			if (auto f {[&](size_t x){return j > x && v[x] == s[i];}};
-				!(f(0) || f(1) || f(2))) {
+			if (auto f {[&](size_t x){return j <= x || v[x] != s[i];}};
+				f(0) && f(1) && f(2)) {
 				if (j < 3)
 					v[j++] = s[i];
 				else
