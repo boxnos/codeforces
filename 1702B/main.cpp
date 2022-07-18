@@ -197,14 +197,14 @@ int main() {
 	Test {
 		string s = in, v {"   "};
 		int r {1};
-		for (size_t i {}, j {}; i < size(s); ++i) {
-			if (char c {s[i]}; !((j > 0 && v[0] == c) || (j > 1 && v[1] == c) || (j > 2 && v[2] == c))) {
+		for (size_t i {}, j {}; i < size(s); ++i)
+			if (auto f {[&](size_t x){return j > x && v[x] == s[i];}};
+				!(f(0) || f(1) || f(2))) {
 				if (j < 3)
-					v[j++] = c;
+					v[j++] = s[i];
 				else
-					j = 1, v[0] = c, ++r;
+					j = 1, v[0] = s[i], ++r;
 			}
-		}
 		outl(r);
 	}
 }
