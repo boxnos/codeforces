@@ -198,12 +198,7 @@ int main() {
 		string s = in, v {"   "};
 		int r {1};
 		for (size_t i {}, j {}; i < size(s); ++i) {
-			if (char c {s[i]}; [&] {
-					Range (k, j)
-						if (v[k] == c)
-							return false;
-					return true;
-				}()) {
+			if (char c {s[i]}; !((j > 0 && v[0] == c) || (j > 1 && v[1] == c) || (j > 2 && v[2] == c))) {
 				if (j < 3)
 					v[j++] = c;
 				else
