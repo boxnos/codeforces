@@ -195,12 +195,10 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 int main() {
 	Test {
 		int n {in};
-		vector<char> d(n + 1);
 		outl("2");
-		for (int i {1}; i <= n; ++i)
-			if (!d[i])
-				for (int j {i}; j <= n; j *= 2)
-					out(j, ' '), d[j] = 1;
+		for (int i {1}; i <= n; i += 2)
+			for (int j {i}; j <= n; j *= 2)
+				out(j, ' ');
 		outl();
 	}
 }
