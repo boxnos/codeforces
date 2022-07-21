@@ -1,0 +1,23 @@
+# inputCopy
+10
+YES
+yES
+yes
+Yes
+YeS
+Noo
+orZ
+yEz
+Yas
+XES
+# outputCopy
+YES
+YES
+YES
+YES
+YES
+NO
+NO
+NO
+NO
+NO
