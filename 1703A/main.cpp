@@ -194,10 +194,15 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 #define un(x) __builtin_expect(x, 0)
 
 int main() {
+	string y("YES");
 	Test {
-		string s {in.read(3, ' ')};
-		auto f = [&](int i, char c) {return s[i] == c || s[i] == c - 'a' + 'A';};
-		outl(f(0, 'y') && f(1, 'e') && f(2, 's') ? string("YES") : string("NO"));
+		outl([&] {
+			string s {in.read(3, ' ')};
+			for (auto i {begin(y)}, j {begin(s)}; i != end(y); ++i, ++j)
+				if (*i != *j && *i != *j - 'a' + 'A')
+					return 0;
+			return 1;
+			}()? y : string("NO"));
 	}
 }
 
