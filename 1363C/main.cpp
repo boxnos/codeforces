@@ -10,7 +10,7 @@
 #include <array>
 #include <limits>
 
-#include <vector>
+#include <string>
 using namespace std;
 //#define MINUS_
 #define IO_
@@ -196,11 +196,9 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 int main() {
 	Test {
 		int n {in}, x {in}, r {};
-		Range (i, n - 1) {
-			int u {in}, v {in};
-			r += (u == x) + (v == x);
-		}
-		outl(r < 2 || !(n % 2) ? "Ayush" : "Ashish");
+		Range (i, n - 1)
+			r += (int(in) == x) + (int(in) == x);
+		outl(r > 1 && n % 2 ? string("Ashish") : string("Ayush"));
 	}
 }
 
