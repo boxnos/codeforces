@@ -195,15 +195,15 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 
 int main() {
 	Test {
-		outl([] () -> string {
+		outl([] {
 			int n {in}, a0 {in};
 			Range (i, 1, n)
 				if (int(in) % a0) {
 					Range (j, n - i - 1)
 						[[maybe_unused]] int x {in};
-					return "NO";
+					return string("NO");
 				}
-			return "YES";
+			return string("YES");
 		}());
 	}
 }
