@@ -28,10 +28,14 @@ namespace io {
 	I_ void flush(){fwrite(out,1,o-out,stdout);o=out;}
 	I_ void put(char c){*o++=c;if(o==f)flush();}
 	I_ void put_string(char *b, char *e) {
-		if (size_t l = e - b; l >= size_t(f - o))
-			flush(),fwrite(b, 1, l, stdout);
-		else
+		if (size_t l = e - b, r = f - o + 1; l < r)
 			memcpy(o, b, l), o+=l;
+		else {
+			memcpy(o, b, r), o+=r;
+			flush();
+			if (l > r)
+				put_string(b - r, e);
+		}
 	};
 #ifdef _GLIBCXX_STRING
 #define S_
