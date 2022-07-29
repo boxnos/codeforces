@@ -204,7 +204,7 @@ int main() {
 			array<int, 3> a {in.read<3>()};
 			Range (i, 2)
 				if (a[x])
-					x = exchange(a[x], 0) - 1;
+					x = a[x] - 1;
 				else
 					return "NO";
 			return "YES";
