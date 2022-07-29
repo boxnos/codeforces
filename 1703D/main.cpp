@@ -12,7 +12,6 @@
 
 #include <string>
 #include <algorithm>
-#include <set>
 using namespace std;
 //#define MINUS_
 #define IO_
@@ -203,20 +202,23 @@ int main() {
 	Test {
 		int n {in};
 		vector<string> s(n);
-		array<set<string>, 9> t;
+		array<vector<string>, 9> t;
 		Range (i, n) {
 			string u = in;
 			s[i] = u;
-			t[size(u)].insert(u);
+			t[size(u)].push_back(u);
 		}
-		for (auto i: s) {
+		for (auto &i: t)
+			sort(begin(i), end(i));
+		for (auto i: s)
 			out([&] {
 				for (size_t j {1}; j < size(i); ++j)
-					if (t[j].count(i.substr(0, j)) && t[size(i) - j].count(i.substr(j)))
+					if (binary_search(begin(t[j]), end(t[j]), i.substr(0, j))
+						&& binary_search(begin(t[size(i) - j]), end(t[size(i) - j]), i.substr(j)))
 						return '1';
+
 				return '0';
 				}());
-		}
 		outl();
 	}
 }
