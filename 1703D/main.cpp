@@ -202,21 +202,16 @@ int main() {
 	Test {
 		int n {in};
 		vector<string> s(n);
-		array<vector<string>, 9> t;
-		Range (i, n) {
-			string u = in;
-			s[i] = u;
-			t[size(u)].push_back(u);
-		}
-		for (auto &i: t)
-			sort(begin(i), end(i));
+		for (auto &i: s)
+			i = (const string) in;
+		auto t {s};
+		sort(begin(t), end(t));
 		for (auto i: s)
 			out([&] {
 				for (size_t j {1}; j < size(i); ++j)
-					if (binary_search(begin(t[j]), end(t[j]), i.substr(0, j))
-						&& binary_search(begin(t[size(i) - j]), end(t[size(i) - j]), i.substr(j)))
+					if (binary_search(begin(t), end(t), i.substr(0, j))
+						&& binary_search(begin(t), end(t), i.substr(j)))
 						return '1';
-
 				return '0';
 				}());
 		outl();
