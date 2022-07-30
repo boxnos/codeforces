@@ -12,6 +12,7 @@
 
 #include <string>
 #include <algorithm>
+#include <unordered_set>
 using namespace std;
 //#define MINUS_
 #define IO_
@@ -202,19 +203,17 @@ int main() {
 	Test {
 		int n {in};
 		vector<string> s(n);
-		for (auto &i: s)
+		array<unordered_set<string>, 9> t;
+		string r(n, '0');
+		for (auto &i: s) {
 			i = (const string) in;
-		auto t {s};
-		sort(begin(t), end(t));
-		for (auto i: s)
-			out([&] {
-				for (size_t j {1}; j < size(i); ++j)
-					if (binary_search(begin(t), end(t), i.substr(0, j))
-						&& binary_search(begin(t), end(t), i.substr(j)))
-						return '1';
-				return '0';
-				}());
-		outl();
+			t[size(i)].insert(i);
+		}
+		Range (i, n)
+			for (size_t j {1}; j < size(s[i]); ++j)
+				if (t[j].count(s[i].substr(0, j)) && t[size(s[i]) - j].count(s[i].substr(j)))
+					r[i] = '1';
+		outl(r);
 	}
 }
 
