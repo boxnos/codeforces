@@ -28,7 +28,8 @@ namespace io {
 	I_ void flush(){fwrite(out,1,o-out,stdout);o=out;}
 	I_ void put(char c){*o++=c;if(o==f)flush();}
 	I_ void put_string(char *b, char *e) {
-		if (size_t l = e - b, r = f - o + 1; l < r)
+		static char *g {f + 1};
+		if (size_t l = e - b, r = g - o; l < r)
 			memcpy(o, b, l), o+=l;
 		else {
 			memcpy(o, b, r), o+=r;
@@ -200,10 +201,11 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 int main() {
 	int n {in}, m {in};
 	vector<LL> a {in.read<vector<LL>>(n)}, b(n), c(n);
-	Range (i, 1, n)
+	Range (i, 1, n) {
 		b[i] = b[i - 1] + max(a[i - 1] - a[i], 0LL);
-	Range (i, n - 1, 0, -1)
-		c[i - 1] = c[i] + max(a[i] - a[i - 1], 0LL);
+		int j {n - i};
+		c[j - 1] = c[j] + max(a[j] - a[j - 1], 0LL);
+	}
 	Range (i, m) {
 		int s {in}, t {in};
 		auto &x {s < t ? b : c};
