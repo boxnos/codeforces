@@ -202,18 +202,22 @@ int main() {
 	Test {
 		array<int, 26> d {};
 		string s = in;
-		int p {in};
+		int p {in}, l {};
 		for (char c: s)
 			++d[c - 'a'];
 		Range (i, 26) {
-			if (d[i] * (i + 1) > p)
-				d[i] = p / (i + 1);
-			p -= d[i] * (i + 1);
+			int &x {d[i]}, j {i + 1};
+			if (x * j > p)
+				x = p / j;
+			p -= x * j;
+			l += x;
 		}
+		string t(l, ' ');
+		auto j {begin(t)};
 		for (char c: s)
 			if (d[c - 'a']-- > 0)
-				out(c);
-		outl();
+				*j++ = c;
+		outl(t);
 	}
 }
 
