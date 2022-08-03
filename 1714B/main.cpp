@@ -201,11 +201,8 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 
 int main() {
 	Test {
-		int n {in}, m {};
-		vector<int> a(n);
-		for (int &i: a)
-			m = max(m, i = in);
-		vector<char> t(m + 1);
+		int n {in};
+		vector<int> a {in.read(n)}, t(n + 1);
 		auto i {rbegin(a)};
 		for (; i != rend(a); ++i)
 			if (t[*i])
