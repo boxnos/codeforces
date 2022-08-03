@@ -199,17 +199,16 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 #define un(x) __builtin_expect(x, 0)
 
 int main() {
-	array<int, 10> t {0, 9, 17, 24, 30, 35, 39, 42, 44, 45};
-	string a {"123456789"};
-	Test {
-		int n {in};
-		auto i {lower_bound(begin(t), end(t), n) - 1};
-		auto j {begin(a) + 9 - (i - begin(t))};
-		out(n - *i);
-		for (;j != end(a); ++j)
-			out(char(*j));
-		outl();
-	}
+	function<void(int, int)> f = [&] (int n, int d) {
+		if (n <= d)
+			out(n);
+		else {
+			f(n - d, d - 1);
+			out(d);
+		}
+	};
+	Test
+		f(in, 9), outl();
 }
 
 /* vim: set ts=4 noet: */
