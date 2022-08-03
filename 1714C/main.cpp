@@ -199,9 +199,9 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 #define un(x) __builtin_expect(x, 0)
 
 int main() {
+	array<int, 10> t {0, 9, 17, 24, 30, 35, 39, 42, 44, 45};
+	string a {"123456789"};
 	Test {
-		array<int, 10> t {0, 9, 17, 24, 30, 35, 39, 42, 44, 45};
-		string a {"123456789"};
 		int n {in};
 		auto i {lower_bound(begin(t), end(t), n) - 1};
 		auto j {begin(a) + 9 - (i - begin(t))};
