@@ -200,12 +200,7 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 
 int main() {
 	function<void(int, int)> f = [&] (int n, int d) {
-		if (n <= d)
-			out(n);
-		else {
-			f(n - d, d - 1);
-			out(d);
-		}
+		out(n <= d ? n : (f(n - d, d - 1), d));
 	};
 	Test
 		f(in, 9), outl();
