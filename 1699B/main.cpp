@@ -198,14 +198,13 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 #define ly(x) __builtin_expect(x, 1)
 #define un(x) __builtin_expect(x, 0)
 
-using A = array<int, 4>;
 int main() {
-	array<A, 4> a {A{1,0,0,1}, A{0,1,1,0}, A{0,1,1,0}, A{1,0,0,1}};
+	auto f = [] (int i) {return abs(i % 4 * 2 - 3);};
 	Test {
 		int n {in}, m {in};
 		Range (i, n) {
 			Range (j, m)
-				out(a[i % 4][j % 4], ' ');
+				out(f(i) == f(j), ' ');
 			outl();
 		}
 	}
