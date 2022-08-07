@@ -10,6 +10,9 @@
 #include <array>
 #include <limits>
 
+#include <ext/pb_ds/assoc_container.hpp>
+using namespace __gnu_pbds;
+
 #include <string>
 #include <unordered_map>
 using namespace std;
@@ -199,21 +202,24 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 #define ly(x) __builtin_expect(x, 1)
 #define un(x) __builtin_expect(x, 0)
 
+using P = pair<int, int>;
+P z = {0, 0};
+
 int main() {
 	Test {
 		gcu();
 		int n {in}, k {in};
-		unordered_map<int, pair<int, int>, custom_hash> m;
-		Range (i, n) {
+		gp_hash_table<int, P, custom_hash> m;
+		Range (i, 1, n + 1) {
 			int u {in};
-			if (!m.count(u))
+			if (m[u] == z)
 				m[u] = {i, i};
 			else
 				m[u].second = i;
 		}
 		Range (i, k) {
 			int a {in}, b {in};
-			outl(m.count(a) && m.count(b) && m[a].first < m[b].second ? string("YES") : string("NO"));
+			outl(m[a] != z && m[b] != z && m[a].first < m[b].second ? string("YES") : string("NO"));
 		}
 	}
 }
