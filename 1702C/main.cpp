@@ -203,16 +203,17 @@ int main() {
 	Test {
 		gcu();
 		int n {in}, k {in};
-		unordered_map<int, int, custom_hash> v, w;
+		unordered_map<int, pair<int, int>, custom_hash> m;
 		Range (i, n) {
 			int u {in};
-			if (!v.count(u))
-				v[u] = i;
-			w[u] = i;
+			if (!m.count(u))
+				m[u] = {i, i};
+			else
+				m[u].second = i;
 		}
 		Range (i, k) {
 			int a {in}, b {in};
-			outl(v.count(a) && w.count(b) && v[a] < w[b] ? string("YES") : string("NO"));
+			outl(m.count(a) && m.count(b) && m[a].first < m[b].second ? string("YES") : string("NO"));
 		}
 	}
 }
