@@ -10,6 +10,12 @@
 #include <array>
 #include <limits>
 
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/trie_policy.hpp>
+#include <ext/pb_ds/tag_and_trait.hpp>
+
+using namespace __gnu_pbds;
+
 #include <string>
 #include <algorithm>
 #include <unordered_set>
@@ -199,19 +205,22 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 #define ly(x) __builtin_expect(x, 1)
 #define un(x) __builtin_expect(x, 0)
 
+typedef trie<string, null_type, trie_string_access_traits<>, pat_trie_tag,
+	     trie_prefix_search_node_update> trie_type;
+
 int main() {
 	Test {
 		int n {in};
 		vector<string> s(n);
-		array<unordered_set<string>, 9> t;
+		trie_type t;
 		string r(n, '0');
 		for (auto &i: s) {
-			i = (const string) in;
-			t[size(i)].insert(i);
+			t.insert(i = (const string) in);
 		}
 		Range (i, n)
 			for (size_t j {1}; j < size(s[i]); ++j)
-				if (t[j].count(s[i].substr(0, j)) && t[size(s[i]) - j].count(s[i].substr(j)))
+				if (t.find(s[i].substr(0, j)) != end(t)
+					&& t.find(s[i].substr(j)) != end(t))
 					r[i] = '1';
 		outl(r);
 	}
