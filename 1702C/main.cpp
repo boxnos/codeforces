@@ -202,24 +202,20 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 #define ly(x) __builtin_expect(x, 1)
 #define un(x) __builtin_expect(x, 0)
 
-using P = pair<int, int>;
-P z = {0, 0};
 
 int main() {
 	Test {
 		gcu();
 		int n {in}, k {in};
-		gp_hash_table<int, P, custom_hash> m;
-		Range (i, 1, n + 1) {
-			int u {in};
-			if (m[u] == z)
+		gp_hash_table<int, pair<int, int>, custom_hash> m;
+		Range (i, n)
+			if (int u {in}; m.find(u) == end(m))
 				m[u] = {i, i};
 			else
 				m[u].second = i;
-		}
 		Range (i, k) {
 			int a {in}, b {in};
-			outl(m[a] != z && m[b] != z && m[a].first < m[b].second ? string("YES") : string("NO"));
+			outl(m.find(a) != end(m) && m.find(b) != end(m) && m[a].first < m[b].second ? string("YES") : string("NO"));
 		}
 	}
 }
