@@ -25,6 +25,8 @@ using namespace std;
 #define TT_ T_ <TN_ T>
 #define HT_ T_ <TN_ H,TN_... T>
 #define OP_(t) I_ operator t()
+#define ly(x) __builtin_expect(x, 1)
+#define un(x) __builtin_expect(x, 0)
 #ifdef IO_
 namespace io {
 	const size_t s=1<<18;char in[s],*i {},*e {},out[s],*o=out,*f=o+s-1;
@@ -33,7 +35,7 @@ namespace io {
 	I_ void put(char c){*o++=c;if(o==f)flush();}
 	I_ void put_string(char *b, char *e) {
 		static char *g {f + 1};
-		if (size_t l = e - b, r = g - o; l < r)
+		if (size_t l = e - b, r = g - o; ly(l < r))
 			memcpy(o, b, l), o+=l;
 		else {
 			memcpy(o, b, r), o+=r;
@@ -45,8 +47,9 @@ namespace io {
 #ifdef _GLIBCXX_STRING
 #define S_
 	I_ void put_string(string &str) {
-		if (str.size() >= size_t(f - o))
-			flush(),fwrite(&str[0], 1, str.size(), stdout);
+		static char *g {f + 1};
+		if (un(str.size() >= size_t(g - o)))
+			put_string(&str[0], &str[str.size()]);
 		else
 			memcpy(o, &str[0], str.size()), o+=str.size();
 	};
@@ -198,9 +201,6 @@ TT_ T eucmod(T a, T b) {T t = a % b; return t < 0 ? t + abs(b) : t;}
 TT_ I_ T ceil(T a, T b) {return (a + b - 1) / b;}
 T_ <TN_ P, TN_ O> I_ constexpr int len(P &p, O o) {return distance(begin(p), o);}
 TT_ I_ constexpr int len(T p) {return size(p);}
-
-#define ly(x) __builtin_expect(x, 1)
-#define un(x) __builtin_expect(x, 0)
 
 
 int main() {
