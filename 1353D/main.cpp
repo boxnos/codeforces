@@ -12,7 +12,7 @@
 #include <string>
 
 #include <vector>
-#include <numeric>
+#include <queue>
 //#include <ext/pb_ds/assoc_container.hpp>
 //using namespace __gnu_pbds;
 using namespace std;
@@ -207,18 +207,18 @@ int main() {
 	Test {
 		int n {in};
 		vector<int> r(n);
-		vector<vector<pair<int, int>>> p(n + 1);
-		p[n].push_back({0, n - 1});
-		for (int i {n}, c {1}; i; i--) {
-			sort(begin(p[i]), end(p[i]));
-			for (auto k: p[i]) {
-				int m {(k.second - k.first) / 2 + k.first};
-				r[m] = c++;
-				if (int d {m - k.first}; d > 0)
-					p[d].push_back({k.first, m - 1});
-				if (int d {k.second - m}; d > 0)
-					p[d].push_back({m + 1, k.second});
-			}
+		priority_queue<tuple<int, int, int>> q;
+		q.push({n, 0, n - 1});
+		for (int c {1}; !q.empty();) {
+			auto [l, b, e] {q.top()};
+			q.pop();
+			b *= -1;
+			int m {(e - b) / 2 + b};
+			r[m] = c++;
+			if (int d {m - b}; d > 0)
+				q.push({d, -b, m - 1});
+			if (int d {e - m}; d > 0)
+				q.push({d, - m - 1, e});
 		}
 		outl(r);
 	}
