@@ -207,17 +207,17 @@ int main() {
 	Test {
 		int n {in};
 		vector<int> r(n);
-		priority_queue<tuple<int, int, int>> q;
-		q.push({n, 0, n - 1});
+		priority_queue<pair<int, int>> q;
+		q.push({n, 0});
 		for (int c {1}; !q.empty();) {
-			auto [l, b, e] {q.top()};
+			auto [l, b] {q.top()};
 			q.pop();
-			int m {(e + b) / 2 - b};
+			int m {--l / 2 - b}, d {m + b};
 			r[m] = c++;
-			if (int d {m + b}; d > 0)
-				q.push({d, b, m - 1});
-			if (int d {e - m}; d > 0)
-				q.push({d, - m - 1, e});
+			if (d > 0)
+				q.push({d, b});
+			if ((d = l - d) > 0)
+				q.push({d, -m - 1});
 		}
 		outl(r);
 	}
