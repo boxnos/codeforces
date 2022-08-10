@@ -212,11 +212,10 @@ int main() {
 		for (int c {1}; !q.empty();) {
 			auto [l, b, e] {q.top()};
 			q.pop();
-			b *= -1;
-			int m {(e - b) / 2 + b};
+			int m {(e + b) / 2 - b};
 			r[m] = c++;
-			if (int d {m - b}; d > 0)
-				q.push({d, -b, m - 1});
+			if (int d {m + b}; d > 0)
+				q.push({d, b, m - 1});
 			if (int d {e - m}; d > 0)
 				q.push({d, - m - 1, e});
 		}
