@@ -207,10 +207,14 @@ int main() {
 		int xm {}, xM {}, ym {}, yM {};
 		Range (i, in) {
 			int x {in}, y {in};
-			xm = min(xm, x);;
-			xM = max(xM, x);;
-			ym = min(ym, y);;
-			yM = max(yM, y);;
+			if (x > xM)
+				xM = x;
+			else if (x < xm)
+				xm = x;
+			if (y > yM)
+				yM = y;
+			else if (y < ym)
+				ym = y;
 		}
 		outl((yM - ym + xM - xm) * 2);
 	}
