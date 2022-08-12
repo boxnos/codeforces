@@ -204,13 +204,13 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 
 int main() {
 	Test {
-		int n {in}, r {};
+		int n {in}, r {}, s {}, m {};
 		vector<int> a {in.read(n)};
-		for (int i {}, j {n}, s {}, m {}; i != j;) {
-			if (a[i] + s > m)
-				m += a[--j];
+		for (auto i {begin(a)}, j {end(a)}; i != j;) {
+			if (*i + s > m)
+				m += *--j;
 			else
-				s += a[i++];
+				s += *i++;
 			if (m == s)
 				r = i + n - j;
 		}
