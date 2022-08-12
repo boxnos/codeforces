@@ -206,13 +206,13 @@ int main() {
 	Test {
 		int n {in}, r {};
 		vector<int> a {in.read(n)};
-		for (int i {-1}, j {n}, s {}, m {}; i + 1 != j;) {
-			if (a[i + 1] + s > m)
+		for (int i {}, j {n}, s {}, m {}; i != j;) {
+			if (a[i] + s > m)
 				m += a[--j];
 			else
-				s += a[++i];
+				s += a[i++];
 			if (m == s)
-				r = i + 1 + n - j;
+				r = i + n - j;
 		}
 		outl(r);
 	}
