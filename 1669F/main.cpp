@@ -206,17 +206,14 @@ int main() {
 	Test {
 		int n {in}, r {};
 		vector<int> a {in.read(n)};
-		gp_hash_table<int, int> m;
-		int s {};
-		for (auto i {rbegin(a)}; i != rend(a); ++i)
-			m[s += *i] = i - rbegin(a) + 1;
-		int c = s / 2;
-		s = 0;
-		Range (i, n)
-			if (s += a[i]; c < s)
-				break;
-			else if (m.find(s) != end(m))
-				r = i + 1 + m[s];
+		for (int i {-1}, j {n}, s {}, m {}; i + 1 != j;) {
+			if (a[i + 1] + s > m)
+				m += a[--j];
+			else
+				s += a[++i];
+			if (m == s)
+				r = i + 1 + n - j;
+		}
 		outl(r);
 	}
 }
