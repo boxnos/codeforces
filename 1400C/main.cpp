@@ -210,11 +210,11 @@ int main() {
 				if (s[i] == '0') {
 					if (i + x < n)
 						o[i + x] = '0';
-					if (i - x >= 0)
+					if (i >= x)
 						o[i - x] = '0';
 				}
 			Range (i, n)
-				if (s[i] == '1' && (i + x >= n || o[i + x] != '1') && (i - x < 0 || o[i - x] != '1'))
+				if (s[i] == '1' && (i + x >= n || o[i + x] != '1') && (i < x || o[i - x] != '1'))
 					return "-1";
 			return o;
 			}());
