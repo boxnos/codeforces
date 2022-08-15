@@ -202,14 +202,16 @@ T_ <TN_ P, TN_ O> I_ constexpr int len(P &p, O o) {return distance(begin(p), o);
 TT_ I_ constexpr int len(T p) {return size(p);}
 
 int main() {
-	int n {in};
-	set<int> s;
+	int n {in}, f {inf<int>}, s {inf<int>};
 	Range (i, n)
-		s.insert(int(in));
-	if (auto i {next(begin(s))}; i == end(s))
+		if (int a {in}; f > a)
+			s = f, f = a;
+		else if (f != a && s > a)
+			s = a;
+	if (s == inf<int>)
 		outl("NO");
 	else
-		outl(*i);
+		outl(s);
 }
 
 /* vim: set ts=4 noet: */
