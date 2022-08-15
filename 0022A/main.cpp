@@ -32,7 +32,7 @@ namespace io {
 	I_ char get(){return i==e?e=(i=in)+fread(in,1,s,stdin),i==e?EOF:*i++:*i++;}
 	I_ void flush(){fwrite(out,1,o-out,stdout);o=out;}
 	I_ void put(char c){*o++=c;if(o==f)flush();}
-	I_ void put_string(char *b, char *e) {
+	I_ void puts(char *b, char *e) {
 		static char *g {f + 1};
 		if (size_t l = e - b, r = g - o; ly(l < r))
 			memcpy(o, b, l), o+=l;
@@ -40,26 +40,26 @@ namespace io {
 			memcpy(o, b, r), o+=r;
 			flush();
 			if (l > r)
-				put_string(b + r, e);
+				puts(b + r, e);
 		}
 	};
 #ifdef _GLIBCXX_STRING
 #define S_
-	I_ void put_string(string &str) {
+	I_ void puts(string &t) {
 		static char *g {f + 1};
-		if (un(str.size() >= size_t(g - o)))
-			put_string(&str[0], &str[str.size()]);
+		if (un(t.size() >= size_t(g - o)))
+			puts(&t[0], &t[t.size()]);
 		else
-			memcpy(o, &str[0], str.size()), o+=str.size();
+			memcpy(o, &t[0], t.size()), o+=t.size();
 	};
-	I_ void get_string(string &str) {
-		if (str.size() > size_t(e - i)) {
-			for(char &i:str)i=get();
+	I_ void gets(string &t) {
+		if (t.size() > size_t(e - i)) {
+			for(char &i:t)i=get();
 			get();
 		} else
-			memcpy(&str[0], i, str.size()), i+=str.size(), get();
+			memcpy(&t[0], i, t.size()), i+=t.size(), get();
 	};
-	I_ string get_string() {
+	I_ string gets() {
 		for (char *j = i; j != e; ++j)
 			if (*j == ' ' || *j == '\n')
 				return string(exchange(i, j + 1), j);
@@ -84,7 +84,7 @@ struct in_ {
 #ifdef S_
 	OP_(string){
 #ifdef IO_
-		return io::get_string();}
+		return io::gets();}
 #else
 		string s;for(char c;c=get(),c!=' '&&c!='\n';)s+=c;return s;}
 #endif
@@ -92,7 +92,7 @@ struct in_ {
 	I_ string read(int n,char c) {
 		string v(n,c);
 #ifdef IO_
-		io::get_string(v);
+		io::gets(v);
 #else
 		for(char &i:v)i=gcu();gcu();
 #endif
@@ -138,7 +138,7 @@ OUT_(char c){pcu(c);}
 #ifdef S_
 OUT_(string &s){
 #ifdef IO_
-	io::put_string(s);
+	io::puts(s);
 #else
 	for(char c:s)pcu(c);
 #endif
@@ -154,7 +154,7 @@ TT_ OUT_(T n){
 	char *p=a;
 	if(n)while(n)*--p=n%10+'0',n/=10;else*--p='0';
 #ifdef IO_
-	io::put_string(p, a);
+	io::puts(p, a);
 #else
 	while(p!=a)pcu(*p++);
 #endif
