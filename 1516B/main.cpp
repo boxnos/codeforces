@@ -11,6 +11,7 @@
 #include <limits>
 
 #include <vector>
+#include <string>
 //#include <ext/pb_ds/assoc_container.hpp>
 //using namespace __gnu_pbds;
 using namespace std;
@@ -210,13 +211,16 @@ int main() {
 			outl("YES");
 			continue;
 		}
-		for (auto i {begin(a)}; i != end(a);)
-			for (LL x = 0; i != end(a);)
-				if ((x ^= *i++) == t) {
-					c++;
-					break;
-				}
-		outl(c > 2 ? "YES" : "NO");
+		outl([&] () -> string {
+			for (auto i {begin(a)}; i != end(a);)
+				for (LL x = 0; i != end(a);)
+					if ((x ^= *i++) == t) {
+						if (c++)
+							return "YES";
+						break;
+					}
+			return "NO";
+		}());
 	}
 }
 
