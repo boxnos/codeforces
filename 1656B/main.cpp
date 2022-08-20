@@ -207,9 +207,13 @@ int main() {
 		vector<int> a {in.read(n)};
 		sort(begin(a), end(a));
 		outl([&] {
-			Range(i, n)
-				if (binary_search(begin(a), begin(a) + i, a[i] - k))
+			 for (int i {}, j {1}; j < n;)
+				if (a[i] + k == a[j])
 					return "YES";
+				else if (a[i] + k > a[j])
+					++j;
+				else
+					++i;
 			return "NO";
 			}());
 	}
