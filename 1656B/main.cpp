@@ -207,8 +207,8 @@ int main() {
 		vector<int> a {in.read(n)};
 		sort(begin(a), end(a));
 		outl([&] {
-			for (int i: a)
-				if (binary_search(begin(a), end(a), i - k))
+			Range(i, n)
+				if (binary_search(begin(a), begin(a) + i, a[i] - k))
 					return "YES";
 			return "NO";
 			}());
