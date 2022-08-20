@@ -10,7 +10,8 @@
 #include <array>
 #include <limits>
 
-#include <unordered_set>
+#include <vector>
+#include <algorithm>
 //#include <ext/pb_ds/assoc_container.hpp>
 //using namespace __gnu_pbds;
 using namespace std;
@@ -204,12 +205,10 @@ int main() {
 	Test {
 		int n {in}, k {in};
 		vector<int> a {in.read(n)};
-		unordered_set<int, custom_hash> s;
-		for (int i: a)
-			s.insert(i);
+		sort(begin(a), end(a));
 		outl([&] {
 			for (int i: a)
-				if (s.count(i - k))
+				if (binary_search(begin(a), end(a), i - k))
 					return "YES";
 			return "NO";
 			}());
