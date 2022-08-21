@@ -203,22 +203,18 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 int main() {
 	Test {
 		int n {in};
-		if (char c {gcu()}; c == '9') {
-			string s {c + in.read(n - 1, ' ')}, r (n, ' ');
+		string s {in.read(n, ' ')};
+		if (s[0] == '9') {
 			int t {1};
-			Range (i, n - 1, -1, -1) {
-				t += 10  - (s[i] - '0');
-				r[i] = t % 10 + '0';
+			for (auto i {rbegin(s)}; i != rend(s); ++i) {
+				t += 10  + '0' - *i;
+				*i = t % 10 + '0';
 				t /= 10;
 			}
-			outl(r);
-		} else {
-			out(char('9' + '0' - c));
-			Range (i, n - 1)
-				out(char('9' + '0' - gcu()));
-			gcu();
-			outl();
-		}
+		} else
+			for (char &c: s)
+				c = '9' + '0' - c;
+		outl(s);
 	}
 }
 
