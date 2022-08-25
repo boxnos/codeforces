@@ -210,15 +210,11 @@ int main() {
 				(int) in;
 			continue;
 		}
-		pair<int, int> m {inf<int>, 0}, j {inf<int>, 0};
-		Range (i, n / 2) {
-			int a {in}, b {in};
-			if (m.first > a)
-				m = {a , i};
-			if (j.first > b)
-				j = {b, i};
-		}
-		outl(m > j ? M : J);
+		int j {}, m {inf<int>};
+		Range (i, n)
+			if (int a {in}; a < m)
+				m = a, j = i;
+		outl(j % 2 ? M : J);
 	}
 }
 
