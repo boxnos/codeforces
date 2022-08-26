@@ -205,10 +205,9 @@ int main() {
 	for (int &i: t)
 		i = i * 60 + i % 10 * 10 + i / 10;
 	Test {
-		int c {(gcu() - '0') * 600};
-		c +=(gcu() - '0') * 60;
-		c +=(gcu(), gcu() - '0') * 10;
-		c +=(gcu() - '0');
+		int c {};
+		for (int i: {600, 60, 0, 10, 1})
+			c += (gcu() - '0') * i;
 		gcu();
 		int x {in}, r {}, g {gcd(x, 1440)}, h {c % g};
 		for (int i: t)
