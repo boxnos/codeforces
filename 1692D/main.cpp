@@ -201,9 +201,12 @@ T_ <TN_ P, TN_ O> I_ constexpr int len(P &p, O o) {return distance(begin(p), o);
 TT_ I_ constexpr int len(T p) {return size(p);}
 
 int main() {
-	array<int, 16> t {0, 1, 2, 3, 4, 5, 10, 11, 12, 13, 14, 15, 20, 21, 22, 23};
-	for (int &i: t)
-		i = i * 60 + i % 10 * 10 + i / 10;
+	constexpr auto t {[] {
+		array<int, 16> t {0, 1, 2, 3, 4, 5, 10, 11, 12, 13, 14, 15, 20, 21, 22, 23};
+		for (int &i: t)
+			i = i * 60 + i % 10 * 10 + i / 10;
+		return t;
+	}()};
 	Test {
 		int c {};
 		for (int i: {600, 60, 0, 10, 1})
