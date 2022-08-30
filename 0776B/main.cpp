@@ -201,13 +201,13 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 
 
 int main() {
-	int n {in};
-	vector<char> p(n + 2);
-	for (int i {2}; i * i <= n + 2; ++i)
-		for (int j {i + i}; j < n + 2; j += i)
+	int n {in}, e {n + 2};
+	vector<char> p(e);
+	for (int i {2}; i * i <= e; ++i)
+		for (int j {i + i}; j < e; j += i)
 			p[j] = 1;
 	outl(1 + (n > 2));
-	Range (i, 2, n + 2)
+	Range (i, 2, e)
 		out(char('1' + p[i]), ' ');
 	outl();
 }
