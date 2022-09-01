@@ -10,7 +10,7 @@
 #include <array>
 #include <limits>
 
-#include <map>
+#include <vector>
 //#include <ext/pb_ds/assoc_container.hpp>
 //using namespace __gnu_pbds;
 using namespace std;
@@ -204,13 +204,16 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 int main() {
 	Test {
 		LL n {in}, x {in}, r {n};
-		map<LL, LL> m;
-		Range (i, n)
-			++m[in];
-		for (auto i: m)
-			if (LL j {i.first * x}; i.second && m.find(j) != end(m)) {
-				LL t {min(i.second, m[j])};
-				r -= t * 2, m[j] -= t;
+		auto a {in.read<vector<LL>>(n)};
+		sort(begin(a), end(a));
+		for (LL i {}, j {}; i < n; ++i)
+			if (a[i]) {
+				for (;j < n && a[i] * x > a[j]; ++j)
+					;
+				if (j >= n)
+					break;
+				if (a[i] * x == a[j])
+					r -= 2, a[j] = 0;
 			}
 		outl(r);
 	}
