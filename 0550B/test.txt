@@ -1,0 +1,20 @@
+# inputCopy
+3 5 6 1
+1 2 3
+# outputCopy
+2
+# inputCopy
+4 40 50 10
+10 20 30 25
+# outputCopy
+2
+# inputCopy
+5 25 35 10
+10 10 20 10 20
+# outputCopy
+6
+# my
+15 17 17 0
+16 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+# my
+14
