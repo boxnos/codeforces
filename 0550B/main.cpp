@@ -202,18 +202,14 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 
 
 int main() {
-	int n {in}, l {in}, r {in}, x {in}, c {};
+	int n {in}, l {in}, r {in}, x {in};
 	vector<int> a {in.read(n)};
-	vector<tuple<int, int, int>> t(1 << n, {0, inf<int>, 0});
-	Range (i, n)
-		Range (j, 1 << i, 1 << (i + 1)) {
-			auto [g0, g1, g2] {t[j % (1 << i)]};
-			t[j] = {g0 + a[i], min(g1, a[i]), max(g2, a[i])};
-		}
-	for (auto [g0, g1, g2]: t)
-		if (l <= g0 && g0 <= r && g2 - g1 >= x)
-			++c;
-	outl(c);
+	function<int(vector<int>::iterator, int, int, int)> f = [&](auto i, int s, int m, int M) -> int{
+		if (i == end(a))
+			return l <= s && s <= r && M - m >= x;
+		return s <= r ? f(i + 1, s, m, M) + f(i + 1, s + *i, min(m, *i), max(M, *i)) : 0;
+	};
+	outl(f(begin(a), 0, inf<int>, 0));
 }
 
 /* vim: set ts=4 noet: */
