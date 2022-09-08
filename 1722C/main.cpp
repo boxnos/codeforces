@@ -205,17 +205,17 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 int main() {
 	Test {
 		int n {in};
-		array<vector<string>, 3> a {vector<string>(n), vector<string>(n), vector<string>(n)};
+		array<vector<array<int, 3>>, 3> a {vector<array<int, 3>>(n), vector<array<int, 3>>(n), vector<array<int, 3>>(n)};
 		array<array<array<int, 26>, 26>, 26> t {};
 		for (auto &i : a)
 			for (auto &j: i) {
-				j = in.read(3, ' ');
-				++t[j[0] - 'a'][j[1] - 'a'][j[2] - 'a'];
+				++t[j[0] = gcu() - 'a'][j[1] = gcu() - 'a'][j[2] = gcu() - 'a'];
+				gcu();
 			}
 		for (auto i: a) {
 			int r {};
 			for (auto j: i) {
-				int c {t[j[0] - 'a'][j[1] - 'a'][j[2] - 'a']};
+				int c {t[j[0]][j[1]][j[2]]};
 				r += c == 1 ? 3 : c == 2 ? 1 : 0;
 			}
 			out(r, ' ');
