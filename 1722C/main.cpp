@@ -205,15 +205,19 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 int main() {
 	Test {
 		int n {in};
-		array<vector<string>, 3> s {vector<string>(n), vector<string>(n), vector<string>(n)};
-		gp_hash_table<string, int> t;
-		for (auto &i: s)
-			for (auto &j: i)
-				++t[j = in.read(3, ' ')];
-		for (auto i: s) {
+		array<vector<string>, 3> a {vector<string>(n), vector<string>(n), vector<string>(n)};
+		array<array<array<int, 26>, 26>, 26> t {};
+		for (auto &i : a)
+			for (auto &j: i) {
+				j = in.read(3, ' ');
+				++t[j[0] - 'a'][j[1] - 'a'][j[2] - 'a'];
+			}
+		for (auto i: a) {
 			int r {};
-			for (auto j: i)
-				r += t[j] == 1 ? 3 : t[j] == 2 ? 1 : 0;
+			for (auto j: i) {
+				int c {t[j[0] - 'a'][j[1] - 'a'][j[2] - 'a']};
+				r += c == 1 ? 3 : c == 2 ? 1 : 0;
+			}
 			out(r, ' ');
 		}
 		outl();
