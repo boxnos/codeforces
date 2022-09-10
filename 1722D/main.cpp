@@ -203,26 +203,24 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 
 int main() {
 	Test {
-		int n {in};
+		int n {in}, j {};
 		string s {in.read(n, ' ')};
 		LL S {};
-		vector<LL> t(n), r(n);
+		vector<int> t(n);
 		Range (i, n) {
 			int h {i / 2};
-			t[i] = (i % 2 ? s[n - h - 1] == 'R' : s[h] == 'L') ? h : n - h - 1;
-			S += t[i];
+			S += t[i] = (i % 2 ? s[n - h - 1] == 'R' : s[h] == 'L') ? h : n - h - 1;
 		}
-		int j {};
-		for (int i {}; ; ++i) {
+		for (int i {}; ; ++i, ++j) {
 			for (; i < n && t[i] != i / 2; ++i)
 				;
 			if (i == n)
 				break;
-			r[j++] = S += n - i / 2 * 2 - 1;
+			out(S += n - i / 2 * 2 - 1, ' ');
 		}
 		for ( ; j < n; ++j)
-			r[j] = S;
-		outl(r);
+			out(S, ' ');
+		outl();
 	}
 }
 
