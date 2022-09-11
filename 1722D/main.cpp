@@ -216,10 +216,10 @@ int main() {
 				;
 			if (i == n)
 				break;
-			out(S += n - i / 2 * 2 - 1, ' ');
+			out(S += n - i / 2 * 2 - 1), out(' ');
 		}
 		for ( ; j < n; ++j)
-			out(S, ' ');
+			out(S), out(' ');
 		outl();
 	}
 }
