@@ -202,11 +202,10 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 
 int main() {
 	Test {
-		int n {in}, m {}, r {};
-		Range (i, n)
-			if (int a {in}; m < a)
-				m = a, r = i;
-		outl(r + 1);
+		pair<int, int> m {};
+		Range (i, in)
+			m = max(m, {in, i});
+		outl(m.second + 1);
 	}
 }
 
