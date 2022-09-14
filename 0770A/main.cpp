@@ -10,6 +10,7 @@
 #include <array>
 #include <limits>
 
+#include <string>
 //#include <ext/pb_ds/assoc_container.hpp>
 //using namespace __gnu_pbds;
 using namespace std;
@@ -202,9 +203,10 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 
 int main() {
 	int n {in}, k {in};
+	string s (n, ' ');
 	Range (i, n)
-		out(char('a' + i % k));
-	outl();
+		s[i] = 'a' + i % k;
+	outl(s);
 }
 
 /* vim: set ts=4 noet: */
