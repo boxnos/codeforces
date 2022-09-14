@@ -1,0 +1,12 @@
+# inputCopy
+4 3
+# outputCopy
+abca
+# inputCopy
+6 6
+# outputCopy
+abcdef
+# inputCopy
+5 2
+# outputCopy
+ababa
