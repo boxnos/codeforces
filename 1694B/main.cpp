@@ -202,12 +202,12 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 
 int main() {
 	Test {
-		LL n {in}, r {};
+		LL n {in}, r {n};
 		string s {in.read(n, ' ')};
 		Range (i, 1, n)
-			if (s[i - 1] == s[i])
+			if (s[i - 1] != s[i])
 				r += i;
-		outl(n * (n + 1) / 2 - r);
+		outl(r);
 	}
 }
 
