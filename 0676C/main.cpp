@@ -204,25 +204,22 @@ int main() {
 	int n {in}, k {in};
 	string s {in.read(n, ' ')};
 	auto f = [&] (char c) {
-		int a {s[0] != c}, b {!a}, r {1};
-		for (int i {}, j {1}; i < n; ++i) {
-			for (; j < n && (s[j] != c || b < k); j++)
-				r = max(r, (s[j] == c ? ++b : ++a, a + b));
+		int r {};
+		for (int i {}, j {}, a {}, b {}; i < n; ++i) {
+			for (;b <= k && j < n;) {
+				if (s[j++] == c) {
+					if (++b > k)
+						break;
+				} else
+					++a;
+				if (b <= k)
+					r = max(r, a + b);
+			}
 			s[i] == c ? --b : --a;
 		}
 		return r;
 	};
-	if (k)
-		outl(max(f('b'), f('a')));
-	else {
-		int t {1}, r {1};
-		Range (i, n - 1)
-			if (s[i] == s[i + 1])
-				r = max(++t, r);
-			else
-				t = 1;
-		outl(r);
-	}
+	outl(max(f('b'), f('a')));
 }
 
 /* vim: set ts=4 noet: */
