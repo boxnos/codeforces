@@ -1,0 +1,25 @@
+# inputCopy
+4 2
+abba
+# outputCopy
+4
+# inputCopy
+8 1
+aabaabaa
+# outputCopy
+5
+# my
+10 3
+aaaaabbbbb
+# my
+8
+# my
+10 10
+aabaababbb
+# my
+10
+# my
+10 1
+bbabbabbba
+# my
+6
