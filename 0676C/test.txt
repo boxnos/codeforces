@@ -23,3 +23,13 @@ aabaababbb
 bbabbabbba
 # my
 6
+# Input
+1 0
+a
+# Answer
+1
+# Input
+10 0
+baaaaaaaaa
+# Answer
+9
