@@ -204,11 +204,14 @@ int main() {
 	auto f = [](char c){return c - '0';};
 	Test {
 		int n {in};
-		string s {in.read(n, ' ')}, r {};
-		for (auto i {rbegin(s)}; i != rend(s); ++i)
-			r += (*i == '0' ? f(*++i) + f(*++i) * 10: f(*i)) + '`';
-		reverse(begin(r), end(r));
-		outl(r);
+		string t {in.read(n, ' ')};
+		function<void(string::reverse_iterator)> g = [&](auto i) {
+			if (i == rend(t))
+				return;
+			out(char((*i == '0' ? (g(i + 3), f(*(i + 1)) + f(*(i + 2)) * 10): (g(i + 1), f(*i))) + '`'));
+		};
+		g(rbegin(t));
+		outl();
 	}
 }
 
