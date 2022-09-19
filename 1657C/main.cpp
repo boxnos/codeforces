@@ -202,19 +202,22 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 
 int main() {
 	Test {
-		int n {in}, c {}, i {}, j {1};
+		int n {in}, c {}, i {};
 		string s {in.read(n, ' ')};
-		for (;j < n;) {
-			if (s[i] == ')' && s[j] == '(') {
+		for (; i + 1 < n;) {
+			if (s[i] == ')' && s[i + 1] == '(') {
+				int j = i + 1;
 				for (; j < n && s[j] == '('; ++j)
 					;
 				if (j != n || s[j - 1] == ')')
-					c++, i = j + 1, j = i + 1;
+					c++, i = j + 1;
+				else
+					break;
 			}
 			else
-				c++, i += 2, j += 2;
+				c++, i += 2;
 		}
-		outl(c, ' ', min(j, n) - i);
+		outl(c, ' ', n - min(i, n));
 	}
 }
 
