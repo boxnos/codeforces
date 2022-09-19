@@ -204,20 +204,18 @@ int main() {
 	Test {
 		int n {in}, c {}, i {};
 		string s {in.read(n, ' ')};
-		for (; i + 1 < n;) {
+		for (; i + 1 < n; ++c) {
 			if (s[i] == ')' && s[i + 1] == '(') {
 				int j = i + 1;
 				for (; j < n && s[j] == '('; ++j)
 					;
-				if (j != n || s[j - 1] == ')')
-					c++, i = j + 1;
-				else
+				if (j == n)
 					break;
-			}
-			else
-				c++, i += 2;
+				i = j + 1;
+			} else
+				i += 2;
 		}
-		outl(c, ' ', n - min(i, n));
+		outl(c, ' ', n - i);
 	}
 }
 
