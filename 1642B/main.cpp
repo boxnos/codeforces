@@ -209,7 +209,7 @@ int main() {
 			if (a[i - 1] == a[i])
 				--c;
 		Range (i, 1, n + 1)
-			out(i > c ? i : c, ' ');
+			out(max(i, c), ' ');
 		outl();
 	}
 }
