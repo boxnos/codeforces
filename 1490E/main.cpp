@@ -216,15 +216,10 @@ int main() {
 			s += t;
 		}
 		outl(n - x - 1);
-		if (x < 0)
-			Range (i, 1, n + 1)
-				out(i, ' ');
-		else {
-			int t {a[b[x]]};
-			Range (i, n)
-				if (a[i] > t)
-					out(i + 1, ' ');
-		}
+		int t {x < 0 ? 0 : a[b[x]]};
+		Range (i, n)
+			if (a[i] > t)
+				out(i + 1, ' ');
 		outl();
 	}
 }
