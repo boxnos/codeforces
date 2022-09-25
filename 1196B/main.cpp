@@ -211,13 +211,11 @@ int main() {
 			continue;
 		}
 		outl("YES");
-		if (k > 1)
-			Range (i, n) {
-				if (a[i] % 2) {
-					out(i + 1, ' ');
-					if (--k < 2)
-						break;
-				}
+		Range (i, n)
+			if (a[i] % 2) {
+				if (!--k)
+					break;
+				out(i + 1, ' ');
 			}
 		outl(n);
 	}
