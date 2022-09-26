@@ -207,13 +207,15 @@ int main() {
 		string a {in.read(n ,' ')}, b {in.read(m, ' ')};
 		sort(begin(a), end(a));
 		sort(begin(b), end(b));
-		for (auto i {begin(a[0] < b[0] ? a : b)}, j {begin(i == begin(a) ? b : a)};; swap(i, j)) {
-				out(*i++);
-				for (int l {1}; l < k && i != end(a) && i != end(b) && *i < *j; ++i, ++l)
-					out(*i);
-				if (i == end(a) || i == end(b))
-					break;
-		}
+		auto i {begin(a)}, j {begin(b)};
+		if (a[0] > b[0])
+			swap(i, j);
+		do {
+			out(*i++);
+			for (int l {1}; l < k && i != end(a) && i != end(b) && *i < *j; ++i, ++l)
+				out(*i);
+			swap(i, j);
+		} while (j != end(a) && j != end(b));
 		outl();
 	}
 }
