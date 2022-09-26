@@ -207,16 +207,12 @@ int main() {
 		string a {in.read(n ,' ')}, b {in.read(m, ' ')};
 		sort(begin(a), end(a));
 		sort(begin(b), end(b));
-		for (int i {}, j {}, f {a[0] > b[0]}; i < n && j < m; f ^= 1)
-			if (f) {
-				out(b[j++]);
-				for (int l {1}; l < k && j < m && b[j] < a[i]; ++j, ++l)
-					out(b[j]);
-			} else {
-				out(a[i++]);
-				for (int l {1}; l < k && i < n && a[i] < b[j]; ++i, ++l)
-					out(a[i]);
-			}
+		for (auto i {begin(a[0] < b[0] ? a : b)}, j {begin(a[0] < b[0] ? b : a)};
+			 i != end(a) && i != end(b) && j != end(a) && j != end(b); swap(i, j)) {
+				out(*i++);
+				for (int l {1}; l < k && i != end(a) && i != end(b) && *i < *j; ++i, ++l)
+					out(*i);
+		}
 		outl();
 	}
 }
