@@ -202,12 +202,12 @@ T_ <TN_ P, TN_ O> I_ constexpr int len(P &p, O o) {return distance(begin(p), o);
 TT_ I_ constexpr int len(T p) {return size(p);}
 
 int main() {
+	vector<int> b(150001, -1);
 	Test {
 		int n {in}, m {}, d {inf<int>};
-		vector<int> a {in.read(n, [&](int a){m = max(m, a); return a;})};
-		vector<int> b(m + 1, -1);
 		Range (i, n) {
-			auto &t {b[a[i]]};
+			int a {in}, &t {b[a]};
+			m = max(m, a);
 			if (t >= 0)
 				d = min(d, i - t);
 			t = i;
@@ -216,6 +216,7 @@ int main() {
 			outl("-1");
 		else
 			outl(n - d);
+		fill(begin(b), begin(b) + m + 1, -1);
 	}
 }
 
