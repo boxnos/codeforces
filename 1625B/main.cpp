@@ -204,10 +204,10 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 int main() {
 	vector<int> b(150001, -1);
 	Test {
-		int n {in}, m {}, d {inf<int>};
+		int n {in}, d {inf<int>};
+		vector<int> a {in.read(n)};
 		Range (i, n) {
-			int a {in}, &t {b[a]};
-			m = max(m, a);
+			int &t {b[a[i]]};
 			if (t >= 0)
 				d = min(d, i - t);
 			t = i;
@@ -216,7 +216,8 @@ int main() {
 			outl("-1");
 		else
 			outl(n - d);
-		fill(begin(b), begin(b) + m + 1, -1);
+		for (int i: a)
+			b[i] = -1;
 	}
 }
 
