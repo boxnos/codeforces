@@ -203,13 +203,14 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 int main() {
 	int n {in}, k {in}, s {}, m {};
 	vector<int> a {in.read(n)}, t {in.read(n)};
-	Range (i, n)
-		s += t[i] ? a[i] : 0;
-	Range (i, k)
-		s += t[i] ? 0 : a[i];
+	for (auto i {begin(a)}, j {begin(t)}; i != end(a); ++i, ++j)
+		if (*j)
+			s += exchange(*i, 0);
+	for (auto i {begin(a)}, e {begin(a) + k}; i != e; ++i)
+		s += *i;
 	m = s;
-	Range (i, k, n)
-		m = max(m, s += (t[i] ? 0 : a[i]) - (t[i - k] ? 0 : a[i - k]));
+	for (auto i {begin(a) + k}, j {begin(a)}; i != end(a); ++i, ++j)
+		m = max(m, s += *i - *j);
 	outl(m);
 }
 
