@@ -201,10 +201,10 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 
 int main() {
 	Test {
-		int r {};
-		Range (i, in)
-			r ^= ~int(in);
-		outl(r & 1 ? "errorgorn" : "maomao90");
+		int n {in}, r {};
+		Range (i, n)
+			r ^= int(in);
+		outl((r ^ n) & 1 ? "errorgorn" : "maomao90");
 	}
 }
 
