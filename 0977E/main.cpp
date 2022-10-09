@@ -209,16 +209,17 @@ int main() {
 		v[a].push_back(b);
 		v[b].push_back(a);
 	}
-	function<bool(int, int, int)> f = [&] (int s, int p, int i) {
+	function<bool(int)> f = [&] (int i) {
 		b[i] = 1;
-		return size(v[i]) == 2 &&
-			(v[i][0] == p ?
-			 (v[i][1] == s || (b[v[i][1]] ? 0 : f(s, i, v[i][1]))):
-			 (v[i][0] == s || (b[v[i][0]] ? 0 : f(s, i, v[i][0]))));
+		bool r {1};
+		for (int j: v[i])
+			if (!b[j])
+				r &= f(j);
+		return size(v[i]) == 2 && r;
 	};
 	Range (i, n)
 		if (!b[i])
-			r += f(i, -1, i);
+			r += f(i);
 	outl(r);
 }
 
