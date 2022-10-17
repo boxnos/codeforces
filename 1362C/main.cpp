@@ -93,10 +93,8 @@ TT_ T eucmod(T a, T b) {T t = a % b; return t < 0 ? t + abs(b) : t;}
 
 int main() {
 	Range (t, in) {
-		LL n {in}, r {};
-		for (; n; n /= 2)
-			r += n;
-		outl(r);
+		LL n {in};
+		outl(2 * n - __builtin_popcountll(n));
 	}
 }
 
