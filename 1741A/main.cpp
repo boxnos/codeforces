@@ -202,12 +202,9 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 
 int main() {
 	auto c {[] (string &s) {
-		if (s[0] == 'M')
+		if (s.back() == 'M')
 			return 0;
-		int t {};
-		for (; s[t] == 'X'; ++t)
-			;
-		return (t + 1) * bsign(s.back() == 'L');
+		return int(size(s)) * bsign(s.back() == 'L');
 	}};
 	Test {
 		string a = in, b = in;
