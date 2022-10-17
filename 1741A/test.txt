@@ -1,0 +1,15 @@
+# inputCopy
+6
+XXXS XS
+XXXL XL
+XL M
+XXL XXL
+XXXXXS M
+L M
+# outputCopy
+<
+>
+>
+=
+<
+>
