@@ -69,13 +69,14 @@ struct range{
 
 int main() {
 	Range(t, in) {
-		int n {in};
+		int n {in}, k {};
 		vector<int> p {in.read(n, [](int &a, int b){a = b - 1;})}, g(n, -1), c;
 		for (int i: range(n))
 			if (g[i] < 0) {
 				c.push_back(0);
 				for (int j {i}; g[j] < 0; j = p[j])
-					g[j] = c.size() - 1, c.back()++;
+					g[j] = k, c.back()++;
+				k++;
 			}
 		for (int i: g)
 			out(c[i], ' ');
