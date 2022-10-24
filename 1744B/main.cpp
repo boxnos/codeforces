@@ -208,9 +208,11 @@ int main() {
 			o += a & 1;
 		}
 		Range (i, q) {
-			LL t {in}, x {in};
+			int t {gcu() == '1'};
+			gcu();
+			LL x {in};
 			outl(s += (t ? o : n - o) * x);
-			if (x % 2)
+			if (x & 1)
 				o = t ? 0 : n;
 		}
 	}
