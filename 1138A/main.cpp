@@ -209,10 +209,10 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 int main() {
 	int n {in}, s {}, p {}, r {};
 	char T {gcu()}; gcu();
-	Range (i, n - 1) {
+	Range (i, 1, n) {
 		char t {gcu()}; gcu();
 		if (t != T) {
-			int c {i + 1 - exchange(s, i + 1)};
+			int c {i - exchange(s, i)};
 			r = max(r, min(exchange(p, c), c));
 		}
 		T = t;
