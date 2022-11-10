@@ -11,6 +11,8 @@
 #include <limits>
 
 #include <vector>
+#include <string>
+#include <algorithm>
 //#include <ext/pb_ds/assoc_container.hpp>
 //using namespace __gnu_pbds;
 using namespace std;
@@ -210,24 +212,27 @@ int main() {
 	Test {
 		outl([] {
 			int n {in};
-			if (n == 3) {
-				LL a {in}, b {in}, c {in}, s {a + b + c};
-				return s == a || s == b || s == c;
-			} else if (n == 4) {
+			if (n < 5) {
 				vector<LL> a {in.read<vector<LL>>(n)};
-				Range (i, 2)
-					Range (j, i + 1, 3)
-						Range (k, j + 1, 4)
-							if (LL s {a[i] + a[j] + a[k]}; s != a[0] && s != a[1] && s != a[2] && s != a[3])
+				sort(begin(a), end(a));
+				Range (i, n - 2)
+					Range (j, i + 1, n - 1)
+						Range (k, j + 1, n)
+							if (!binary_search(begin(a), end(a), a[i] + a[j] + a[k]))
 								return false;
 				return true;
 			}
 			vector<int> a {in.read(n)};
-			int c = count_if(begin(a), end(a), [](int x){return x;});
-			return c < 3 && (c != 2 || [&] {
-				auto e {minmax_element(begin(a), end(a))};
-				return *e.first == -*e.second;}());
-		}() ? "YES" : "NO");
+			int c {}, m {}, M {};
+			for (int i: a)
+				if (i) {
+					if (++c > 2)
+						return false;
+					else
+						(c == 1 ? m : M) = i;
+				}
+			return c < 2 || m == -M;
+		}() ? string("YES") : string("NO"));
 	}
 }
 
