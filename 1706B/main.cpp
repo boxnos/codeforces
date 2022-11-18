@@ -214,9 +214,8 @@ int main() {
 		Range (i, n) {
 			int c {int(in) - 1},
 				x {max(i % 2 ? e[c] : o[c], i > 0 && pc == c ? p : 0) + 1},
-				&t {(i % 2 ? e : o)[pc]};
+				&t {(i % 2 ? e : o)[exchange(pc, c)]};
 			t = max(exchange(p, x), t);
-			pc = c;
 		}
 		o[pc] = max(p, o[pc]);
 		Range (i, n)
