@@ -210,16 +210,15 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 int main() {
 	Test {
 		int n {in}, p {}, pc {};
-		vector<int> a {in.read(n)}, o(n), e(n);
+		vector<int> o(n), e(n);
 		Range (i, n) {
-			int c {a[i] - 1},
-				x {max(i % 2 ? e[c] : o[c], i > 0 && a[i - 1] - 1 == c ? p : 0) + 1},
+			int c {int(in) - 1},
+				x {max(i % 2 ? e[c] : o[c], i > 0 && pc == c ? p : 0) + 1},
 				&t {(i % 2 ? e : o)[pc]};
 			t = max(exchange(p, x), t);
 			pc = c;
 		}
-		auto &t {((n - 1) % 2 ? e : o)[pc]};
-		t = max(p, t);
+		o[pc] = max(p, o[pc]);
 		Range (i, n)
 			out(max(o[i], e[i]), ' ');
 		outl();
