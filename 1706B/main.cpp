@@ -212,9 +212,10 @@ int main() {
 		int n {in}, p {}, pc {};
 		vector<int> o(n), e(n);
 		Range (i, n) {
+			auto &q {i % 2 ? e : o};
 			int c {int(in) - 1},
-				x {max(i % 2 ? e[c] : o[c], i > 0 && pc == c ? p : 0) + 1},
-				&t {(i % 2 ? e : o)[exchange(pc, c)]};
+				x {max(q[c], i > 0 && pc == c ? p : 0) + 1},
+				&t {q[exchange(pc, c)]};
 			t = max(exchange(p, x), t);
 		}
 		o[pc] = max(p, o[pc]);
