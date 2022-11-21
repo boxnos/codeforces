@@ -216,7 +216,7 @@ int main() {
 		for (;i < n && s[i] == '1'; ++i)
 			r += a[i];
 		for (; i < n;)
-			if (s[i - 1] == '0' && s[i] == '1') {
+			if (s[i] == '1') {
 				int t {a[i - 1]}, m {t};
 				for (; i < n && s[i] == '1'; ++i)
 					t += a[i], m = min(m, a[i]);
