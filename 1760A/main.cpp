@@ -209,7 +209,7 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 int main() {
 	Test {
 		array<int, 3> a {in, in, in};
-		sort(begin(a), end(a));
+		nth_element(begin(a), begin(a) + 1, end(a));
 		outl(a[1]);
 	}
 }
