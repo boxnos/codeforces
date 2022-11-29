@@ -11,6 +11,7 @@
 #include <limits>
 
 #include <cmath>
+#include <string>
 //#include <ext/pb_ds/assoc_container.hpp>
 //using namespace __gnu_pbds;
 using namespace std;
@@ -215,7 +216,7 @@ int main() {
 			x = max(x, b);
 		}
 		int d {1 + 8 * s}, r = sqrt(d);
-		outl(r * r == d && r % 2 && (r - 1) / 2 >= x ? "YES" : "NO");
+		outl(r * r == d && (r - 1) / 2 >= x ? string("YES") : string("NO"));
 	}
 }
 
