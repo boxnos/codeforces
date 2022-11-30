@@ -1,0 +1,15 @@
+# inputCopy
+10:00
+11:00
+# outputCopy
+10:30
+# inputCopy
+11:10
+11:12
+# outputCopy
+11:11
+# inputCopy
+01:02
+03:02
+# outputCopy
+02:02
