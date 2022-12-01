@@ -1,0 +1,28 @@
+# inputCopy
+14
+# outputCopy
+4 4
+# inputCopy
+2
+# outputCopy
+0 2
+# in
+5
+# out
+0 2
+# in
+6
+# out
+1 2
+# in
+7
+# out
+2 2
+# in
+8
+# out
+2 3
+# in
+9
+# out
+2 4
