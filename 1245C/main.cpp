@@ -208,10 +208,11 @@ T_ <TN_ P, TN_ O> I_ constexpr int len(P &p, O o) {return distance(begin(p), o);
 TT_ I_ constexpr int len(T p) {return size(p);}
 
 int main() {
+	auto f = [] (char c){return c == 'w' || c == 'm';};
 	string s = in;
 	int M {1000000007}, n = size(s), e {n - 1}, r {1};
 	for (int i {}; i < e; ++i)
-		if (char c {s[i]}; c == 'w' || c == 'm') {
+		if (char c {s[i]}; f(c)) {
 			outl('0');
 			return 0;
 		} else if (c == 'u' || c == 'n') {
@@ -220,7 +221,7 @@ int main() {
 				t = (t + exchange(p, t)) % M;
 			r = LL(r) * t % M;
 		}
-	outl(s[n - 1] == 'w' || s[n - 1] == 'm' ? 0 : r);
+	outl(f(s[n - 1]) ? 0 : r);
 }
 
 /* vim: set ts=4 noet: */
