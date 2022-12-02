@@ -208,23 +208,19 @@ T_ <TN_ P, TN_ O> I_ constexpr int len(P &p, O o) {return distance(begin(p), o);
 TT_ I_ constexpr int len(T p) {return size(p);}
 
 int main() {
-	int M {1000000007};
 	string s = in;
-	if (find_if(begin(s), end(s), [](char c) {return c == 'w' || c == 'm';}) != end(s)) {
-		outl('0');
-		return 0;
-	}
-	int n = size(s), r {1};
-	for (int i {}; i < n - 1;)
-		if (s[i] == 'u' || s[i] == 'n') {
-			char c {s[i]};
+	int M {1000000007}, n = size(s), e {n - 1}, r {1};
+	for (int i {}; i < e; ++i)
+		if (char c {s[i]}; c == 'w' || c == 'm') {
+			outl('0');
+			return 0;
+		} else if (c == 'u' || c == 'n') {
 			int p {1}, t {1};
-			for (++i; i < n && s[i] == c; i++)
+			for (; i < e && s[i + 1] == c; ++i)
 				t = (t + exchange(p, t)) % M;
-			r = 1LL * r * t % M;
-		} else
-			++i;
-	outl(r);
+			r = LL(r) * t % M;
+		}
+	outl(s[n - 1] == 'w' || s[n - 1] == 'm' ? 0 : r);
 }
 
 /* vim: set ts=4 noet: */
