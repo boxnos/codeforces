@@ -1,0 +1,20 @@
+# inputCopy
+ouuokarinn
+# outputCopy
+4
+# inputCopy
+banana
+# outputCopy
+1
+# inputCopy
+nnn
+# outputCopy
+3
+# inputCopy
+amanda
+# outputCopy
+0
+# input
+uuuuuannnn
+# output
+40
