@@ -1,0 +1,11 @@
+# inputCopy
+4
+AABAB
+ABB
+AAAAAAAAB
+A
+# outputCopy
+YES
+NO
+YES
+NO
