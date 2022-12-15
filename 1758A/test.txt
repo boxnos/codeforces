@@ -1,0 +1,11 @@
+# inputCopy
+4
+a
+sururu
+errorgorn
+anutforajaroftuna
+# outputCopy
+aa
+suurruurruus
+rgnororerrerorongr
+aannuuttffoorraajjaarrooffttuunnaa
