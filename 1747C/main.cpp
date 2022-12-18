@@ -209,9 +209,10 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 
 int main() {
 	Test {
-		int n {in};
-		vector<int> a (in.read(n));
-		outl(a.front() > *min_element(begin(a) + 1, end(a)) ? "Alice" : "Bob");
+		int n {in}, a {in}, b {inf<int>};
+		Range (i, n - 1)
+			b = min(b, int(in));
+		outl(a > b ? "Alice" : "Bob");
 	}
 }
 
