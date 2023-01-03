@@ -213,16 +213,8 @@ int main() {
 		vector<int> a {in.read(n)};
 		if (accumulate(begin(a), end(a), 0) % 2) {
 			int r {inf<int>};
-			for (int i: a) {
-				int t {};
-				if (i % 2)
-					for (; i % 2; i >>= 1)
-						++t;
-				else
-					for (; !(i % 2); i >>= 1)
-						++t;
-				r = min(r, t);
-			}
+			for (int i: a)
+				r = min(r, __builtin_ffs(i % 2 ? ~i : i) - 1);
 			outl(r);
 		} else
 			outl("0");
