@@ -210,14 +210,14 @@ int main() {
 	Test {
 		int n {in};
 		string s {in.read(n, ' ')};
-		array<array<int, 26>, 26> t {};
+		array<int, 26> t {};
 		outl([&] {
-			Range (i, 1, n)
-				if (int &u {t[s[i - 1] - 'a'][s[i] - 'a']}; u) {
-					if (i - u > 1)
-						return "YES";
-				} else
-					u = i;
+			Range (i, n - 1) {
+				if (t[s[i] - 'a'] >> (s[i + 1] - 'a') & 1)
+					return "YES";
+				if (i > 0)
+					t[s[i - 1] - 'a'] |= 1 << (s[i] - 'a');
+			}
 			return "NO";
 		}());
 	}
