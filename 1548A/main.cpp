@@ -208,44 +208,24 @@ T_ <TN_ P, TN_ O> I_ constexpr int len(P &p, O o) {return distance(begin(p), o);
 TT_ I_ constexpr int len(T p) {return size(p);}
 
 int main() {
-	int n {in}, m {in}, r {n};
-	vector<set<int>> a(n);
-	vector<int> f(n, 1);
-	Range (i, m) {
-		int u {int(in) - 1}, v {int(in) - 1};
-		a[u].insert(v);
-		if (f[u] && u < *rbegin(a[u]))
-			--r, f[u] = 0;
-		a[v].insert(u);
-		if (f[v] && v < *rbegin(a[v]))
-			--r, f[v] = 0;
-	}
-	Range (i, in) {
+	int n {in}, r {n};
+	vector<int> a(n);
+	Range (i, in)
+		if (++a[min(int(in), int(in))] == 1)
+			--r;
+	Range (i, in)
 		switch (int(in)) {
-		case 1: {
-			int u {int(in) - 1}, v {int(in) - 1};
-			a[u].insert(v);
-			if (f[u] && u < *rbegin(a[u]))
-				--r, f[u] = 0;
-			a[v].insert(u);
-			if (f[v] && v < *rbegin(a[v]))
-				--r, f[v] = 0;
+		case 1:
+			if (++a[min(int(in), int(in))] == 1)
+				--r;
 			break;
-		}
-		case 2: {
-			int u {int(in) - 1}, v {int(in) - 1};
-			a[u].erase(v);
-			if (!f[u] && u > *rbegin(a[u]))
-				++r, f[u] = 1;
-			a[u].erase(v);
-			if (!f[v] && v > *rbegin(a[v]))
-				++r, f[v] = 1;
+		case 2:
+			if (!--a[min(int(in), int(in))])
+				++r;
 			break;
-		}
 		default:
 			outl(r);
 		}
-	}
 }
 
 /* vim: set ts=4 noet: */
