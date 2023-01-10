@@ -209,7 +209,7 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 
 int main() {
 	int n {in}, r {n};
-	vector<int> a(n);
+	vector<int> a(n + 1);
 	Range (i, in)
 		if (++a[min(int(in), int(in))] == 1)
 			--r;
