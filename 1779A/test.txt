@@ -1,0 +1,21 @@
+# inputCopy
+6
+2
+LL
+2
+LR
+2
+RL
+2
+RR
+7
+LLRLLLR
+7
+RRLRRRL
+# outputCopy
+-1
+1
+0
+-1
+2
+0
