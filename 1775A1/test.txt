@@ -1,0 +1,17 @@
+# inputCopy
+7
+bbba
+aba
+aaa
+abba
+abbb
+baaa
+aaab
+# outputCopy
+b bb a
+a b a
+a a a
+a bb a
+a bb b
+b a aa
+a a ab
