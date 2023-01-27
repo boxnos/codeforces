@@ -209,16 +209,15 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 int main() {
 	Test {
 		int n {in}, q {in};
-		vector<LL> a {in.read<vector<LL>>(n)}, b(n);
-		b[0] = a[0];
+		vector<LL> a(n + 1), b(n);
+		a[1] = b[0] = in;
 		Range (i, 1, n) {
-			b[i] = max(a[i], b[i - 1]);
-			a[i] += a[i - 1];
+			LL x {in};
+			b[i] = max(x, b[i - 1]);
+			a[i + 1] = x + a[i];
 		}
-		Range (i, q) {
-			int r = upper_bound(begin(b), end(b), int(in)) - begin(b);
-			out(!r ? 0 : a[r - 1], ' ');
-		}
+		Range (i, q)
+			out(a[upper_bound(begin(b), end(b), int(in)) - begin(b)], ' ');
 		outl();
 	}
 }
