@@ -11,6 +11,7 @@
 #include <limits>
 
 #include <vector>
+#include <numeric>
 //#include <ext/pb_ds/assoc_container.hpp>
 //using namespace __gnu_pbds;
 using namespace std;
@@ -210,12 +211,13 @@ int main() {
 	Test {
 		int n {in};
 		vector<int> a {in.read(n)};
+		int S {accumulate(begin(a), end(a), 0)};
 		for (int i {}, s {}; i < n; ++i) {
-			s += a[i];
 			if (i == n - 1) {
 				outl(i);
 				break;
-			}
+			} else if (S % (s += a[i]))
+				continue;
 			if (int r {[&] {
 				int c {};
 				for (int j {i + 1}, t {}; j < n; t = 0) {
