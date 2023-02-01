@@ -206,18 +206,16 @@ TT_ I_ T ceil(T a, T b) {return (a + b - 1) / b;}
 T_ <TN_ P, TN_ O> I_ constexpr int len(P &p, O o) {return distance(begin(p), o);}
 TT_ I_ constexpr int len(T p) {return size(p);}
 
+using A = array<int, 100000>;
+
 int main() {
-	vector<int> t;
-	for (LL m {2}; m * m <= 1000000000; ++m)
-		for (LL n {1}; m > n && m * m + n * n <= 1000000000; ++n) {
-			if (LL a {m * m - n * n}, b {2 * m * n}, c {m * m + n * n}; a * a == b + c || b * b == a + c) {
-				t.push_back(c);
-			}
-		}
-	sort(begin(t), end(t));
+	A t {};
+	int s {};
+	for (LL i {1}, x {}; (x = i * i + (i + 1) * (i + 1)) <= 1000000000; ++i)
+		t[s++] = x;
 	Test {
 		int n {in};
-		outl(upper_bound(begin(t), end(t), n) - begin(t));
+		outl(upper_bound(begin(t), begin(t) + s, n) - begin(t));
 	}
 }
 
