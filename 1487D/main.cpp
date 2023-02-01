@@ -206,16 +206,18 @@ TT_ I_ T ceil(T a, T b) {return (a + b - 1) / b;}
 T_ <TN_ P, TN_ O> I_ constexpr int len(P &p, O o) {return distance(begin(p), o);}
 TT_ I_ constexpr int len(T p) {return size(p);}
 
-using A = array<int, 100000>;
+using A = array<int, 23000>;
 
 int main() {
-	A t {};
-	int s {};
-	for (LL i {1}; i <= 23000; ++i)
-		t[s++] = i * i + (i + 1) * (i + 1);
+	constexpr auto t = [] {
+		A t {};
+		for (LL i {}; i < 23000; ++i)
+			t[i] = (i + 1) * (i + 1) + (i + 2) * (i + 2);
+		return t;
+	}();
 	Test {
 		int n {in};
-		outl(upper_bound(begin(t), begin(t) + s, n) - begin(t));
+		outl(upper_bound(begin(t), end(t), n) - begin(t));
 	}
 }
 
