@@ -211,8 +211,8 @@ using A = array<int, 100000>;
 int main() {
 	A t {};
 	int s {};
-	for (LL i {1}, x {}; (x = i * i + (i + 1) * (i + 1)) <= 1000000000; ++i)
-		t[s++] = x;
+	for (LL i {1}; i <= 23000; ++i)
+		t[s++] = i * i + (i + 1) * (i + 1);
 	Test {
 		int n {in};
 		outl(upper_bound(begin(t), begin(t) + s, n) - begin(t));
