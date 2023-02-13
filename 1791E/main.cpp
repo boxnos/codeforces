@@ -209,14 +209,16 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 
 int main() {
 	Test {
-		int n {in};
-		vector<LL> a {in.read<vector<LL>>(n)}, b(n), c(n);
-		c[0] = -inf<int>;
-		Range (i, n - 1) {
-			b[i + 1] = max(b[i] + a[i], c[i] - a[i]);
-			c[i + 1] = max(b[i] - a[i], c[i] + a[i]);
+		int n {in}, c {}, m {inf<int>};
+		LL s {};
+		vector<int> a {in.read(n)};
+		for (int &i: a) {
+			if (i < 0)
+				++c, i = -i;
+			m = min(m, i);
+			s += i;
 		}
-		outl(max(b.back() + a.back(), c.back() - a.back()));
+		outl(s - (c % 2 ? m * 2 : 0));
 	}
 }
 
