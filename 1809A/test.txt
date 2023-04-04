@@ -1,0 +1,9 @@
+# inputCopy
+3
+9546
+0000
+3313
+# outputCopy
+4
+-1
+6
