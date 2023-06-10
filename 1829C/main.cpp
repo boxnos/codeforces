@@ -207,17 +207,15 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 
 int main() {
 	Test {
-		int n {in}, f {inf<int>}, a[4] {f, f, f, f};
+		int n {in}, f {inf<int> / 4}, a[4] {f, f, f, f};
 		Range (i, n) {
 			int m {in}, s {(gcu() - '0') << 1};
 			s += gcu() - '0';
 			gcu();
 			a[s] = min(a[s], m);
 		}
-		if (a[1] != f && a[2] != f)
-				outl(a[3] == f || a[1] + a[2] < a[3] ? a[1] + a[2]: a[3]);
-		else if (a[3] != f)
-			outl(a[3]);
+		if (a[1] + a[2] < f || a[3] < f)
+				outl(min(a[1] + a[2], a[3]));
 		else
 			outl("-1");
 	}
