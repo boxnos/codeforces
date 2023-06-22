@@ -1,0 +1,9 @@
+# inputCopy
+3
+codedoc
+gg
+aabaa
+# outputCopy
+YES
+NO
+NO
