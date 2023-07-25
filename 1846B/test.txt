@@ -1,0 +1,23 @@
+# inputCopy
+5
++X+
+OXO
+OX.
+O+.
++OX
+X+O
+.XO
+OX.
++++
+O.+
+X.O
++..
+.++
+X.O
++..
+# outputCopy
+X
+O
++
+DRAW
+DRAW
