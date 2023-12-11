@@ -12,6 +12,7 @@
 
 #include <vector>
 #include <algorithm>
+#include <numeric>
 //#include <ext/pb_ds/assoc_container.hpp>
 //using namespace __gnu_pbds;
 using namespace std;
@@ -210,25 +211,9 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 int main() {
 	Test {
 		int t {in};
-		vector<int> a {in.read(t)}, k = {1};
+		vector<int> a {in.read(t)};
 		*min_element(a.begin(), a.end()) += 1;
-		Range (i, t) {
-			int c {};
-			Range (j, k.size()) {
-				if (!a[i]) {
-					k = {0};
-					break;
-				}
-				int T = k[j] * a[i] + c;
-				k[j] = T % 10;
-				c = T / 10;
-			}
-			if (c)
-				k.push_back(c);
-		}
-		Range (i, k.size())
-			pcu(k[k.size() - i - 1] + '0');
-		outl();
+		outl(accumulate(a.begin(), a.end(), 1, multiplies<int>()));
 	}
 }
 
