@@ -208,7 +208,7 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 int main() {
 	Test {
 		int a {in}, b {in}, c {in};
-		outl(a == b ? c : b == c ? a : b);
+		outl(a ^ b ^ c);
 	}
 }
 
