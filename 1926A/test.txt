@@ -1,0 +1,19 @@
+# inputCopy
+8
+ABABB
+ABABA
+BBBAB
+AAAAA
+BBBBB
+BABAA
+AAAAB
+BAAAA
+# outputCopy
+B
+A
+B
+A
+B
+A
+A
+A
