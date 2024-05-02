@@ -9,7 +9,7 @@
 #include <functional>
 #include <array>
 #include <limits>
-#include <string>
+#include <vector>
 
 //#include <ext/pb_ds/assoc_container.hpp>
 //using namespace __gnu_pbds;
@@ -208,13 +208,14 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 
 int main() {
 	Test {
+		vector<int> r(3);
 		Range (i, 3) {
-			string s {in.read(3, ' ')};
-			if (s.find('?') != string::npos) {
-				sort(begin(s), end(s));
-				outl(s[1] != 'A' ? 'A' : s[2] != 'B' ? 'B' : 'C');
-			}
+			Range (j, 3)
+				if (char c {gcu()}; c != '?')
+					r[c - 'A']++;
+			gcu();
 		}
+		outl((char)('A' + (find(begin(r), end(r), 2) - begin(r))));
 	}
 }
 
