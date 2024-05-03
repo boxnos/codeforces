@@ -1,0 +1,15 @@
+# inputCopy
+6
+1
+3
+5
+100
+999
+1000
+# outputCopy
+First
+Second
+First
+First
+Second
+First
