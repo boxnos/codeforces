@@ -201,7 +201,7 @@ TT_ constexpr T inf {numeric_limits<T>::max()};
 TT_ T sign(T a) {return (a > 0) - (a < 0);}
 I_ int bsign(bool b){return b - !b;}
 TT_ T eucdiv(T a, T b) {T t = a / b; return a % b < 0 ? t - 1: t;}
-TT_ T eucmod(T a, T b) {T t = a % b; return t < 0 ? t + abs(b) : t;}
+TT_ T eucmod(T a, T b) {return (a % b + b) % b;}
 TT_ I_ T ceil(T a, T b) {return (a + b - 1) / b;}
 T_ <TN_ P, TN_ O> I_ constexpr int len(P &p, O o) {return distance(begin(p), o);}
 TT_ I_ constexpr int len(T p) {return size(p);}
