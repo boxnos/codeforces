@@ -1,0 +1,18 @@
+# inputCopy
+1
+d5
+# outputCopy
+a5
+d1
+b5
+d2
+c5
+d3
+d4
+e5
+f5
+d6
+g5
+d7
+h5
+d8
