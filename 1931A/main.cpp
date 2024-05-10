@@ -206,15 +206,20 @@ TT_ I_ T ceil(T a, T b) {return (a + b - 1) / b;}
 T_ <TN_ P, TN_ O> I_ constexpr int len(P &p, O o) {return distance(begin(p), o);}
 TT_ I_ constexpr int len(T p) {return size(p);}
 
+void solve(int t, int n) {
+	if (t) {
+		if (n < 25)
+			solve(t - 1, 0), out((char)('a' + n));
+		else
+			solve(t - 1, n - 25), out('z');
+	}
+}
+
 int main() {
 	Test {
 		int n {in - 3};
-		if (n < 25)
-			outl("aa", (char)('a' + n));
-		else if (n < 50)
-			outl('a', (char)('a' + n - 25), 'z');
-		else
-			outl((char)('a' + n - 50), "zz");
+		solve(3, n);
+		outl();
 	}
 }
 
