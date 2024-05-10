@@ -207,19 +207,12 @@ TT_ I_ T ceil(T a, T b) {return (a + b - 1) / b;}
 T_ <TN_ P, TN_ O> I_ constexpr int len(P &p, O o) {return distance(begin(p), o);}
 TT_ I_ constexpr int len(T p) {return size(p);}
 
-using P = pair<int, char>;
-
-string solve(int t, int n) {
-	if (!t)
-		return "";
-	auto [a, b] = n < 25 ? P{0, 'a' + n} : P{n - 25, 'z'};
-	return solve(t - 1, a) + b;
-}
-
 int main() {
 	Test {
-		int n {in - 3};
-		outl(solve(3, n));
+		int n {78 - in};
+		Range (i, 3)
+			out(char(n > 25 ? (n -= 25, 'a'): 'z' - exchange(n, 0)));
+		outl();
 	}
 }
 
