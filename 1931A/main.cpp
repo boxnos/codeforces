@@ -9,7 +9,8 @@
 #include <functional>
 #include <array>
 #include <limits>
-#include <vector>
+
+#include <string>
 
 //#include <ext/pb_ds/assoc_container.hpp>
 //using namespace __gnu_pbds;
@@ -206,20 +207,19 @@ TT_ I_ T ceil(T a, T b) {return (a + b - 1) / b;}
 T_ <TN_ P, TN_ O> I_ constexpr int len(P &p, O o) {return distance(begin(p), o);}
 TT_ I_ constexpr int len(T p) {return size(p);}
 
-void solve(int t, int n) {
-	if (t) {
-		if (n < 25)
-			solve(t - 1, 0), out((char)('a' + n));
-		else
-			solve(t - 1, n - 25), out('z');
-	}
+using P = pair<int, char>;
+
+string solve(int t, int n) {
+	if (!t)
+		return "";
+	auto [a, b] = n < 25 ? P{0, 'a' + n} : P{n - 25, 'z'};
+	return solve(t - 1, a) + b;
 }
 
 int main() {
 	Test {
 		int n {in - 3};
-		solve(3, n);
-		outl();
+		outl(solve(3, n));
 	}
 }
 
