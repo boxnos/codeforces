@@ -1,0 +1,13 @@
+# inputCopy
+5
+24
+70
+3
+55
+48
+# outputCopy
+aav
+rzz
+aaa
+czz
+auz
