@@ -207,13 +207,12 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 
 int main() {
 	Test {
-		int n {in}, k {in}, r {}, c {};
-		auto count = [&](int &c) {if (++c == k) c = 0;};
+		int n {in}, k {in}, r {}, c {}, f {};
 		Range (i, n) {
-			if (char p {gcu()}; p == 'B' && !c)
-				r++, count(c);
-			else if (c)
-				count(c);
+			if (char p {gcu()}; p == 'B' && !f)
+				r++, f = 1;
+			if (f && ++c == k)
+				f = c = 0;
 		}
 		gcu();
 		outl(r);
