@@ -216,8 +216,8 @@ int main() {
 		Range (i, n) {
 			int a {in};
 			auto it {m.find(a)};
-			out((*it).second);
-			m.emplace((*it).first + 1, (*it).second);
+			out(it->second);
+			m.emplace(it->first + 1, it->second);
 			m.erase(it);
 		}
 		outl();
