@@ -1,0 +1,21 @@
+# inputCopy
+6
+9
+mmapnapie
+9
+azabazapi
+8
+mappppie
+18
+mapmapmapmapmapmap
+1
+p
+11
+pppiepieeee
+# outputCopy
+2
+0
+2
+6
+0
+2
