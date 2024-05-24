@@ -83,7 +83,8 @@ _TT T tapl(T v){tapp(v);dbg("\n");return v;}
 
 int main() {
 	auto [x, y, z] = in.read<3>();
-	outl(x == y && !z ? "0" : x - y - z > 0 ? "+" : x - y + z < 0 ? "-" : "?");
+	int t = x - y;
+	outl("0+-?"[!(t || z) ? 0 : t > z ? 1 : t < -z ? 2 : 3]);
 }
 
 /* vim: set ts=4 noet: */
