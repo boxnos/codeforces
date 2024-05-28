@@ -9,6 +9,7 @@
 #include <functional>
 #include <array>
 #include <limits>
+#include <algorithm>
 
 #include <string>
 #include <string_view>
@@ -153,6 +154,11 @@ OUT_(string &s){
 }
 //OUT_(string s){for(char c:s)pcu(c);}
 #endif
+#ifdef _GLIBCXX_STRING_VIEW
+OUT_(string_view v){
+	for_each(begin(v), end(v), [](char c) {out(c);});
+}
+#endif
 //TT_ DEF_(void,OUTX_,T n){if(n<10)pcu(n+'0');else OUTX_(n/10),pcu(n%10+'0');}
 TT_ OUT_(T n){
 #ifdef MINUS_
@@ -214,9 +220,7 @@ int main() {
 		string s = in;
 		if (ranges::adjacent_find(s, not_equal_to<char>()) != end(s)) {
 			outl("YES");
-			for (int i: views::iota(1, (int) size(s)))
-				out(s[i]);
-			outl(s[0]);
+			outl(string_view(s).substr(1, size(s)), s[0]);
 		} else
 			outl("NO");
 	}
