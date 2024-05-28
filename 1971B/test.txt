@@ -1,0 +1,24 @@
+# inputCopy
+8
+codeforces
+aaaaa
+xxxxy
+co
+d
+nutdealer
+mwistht
+hhhhhhhhhh
+# outputCopy
+YES
+forcodesec
+NO
+YES
+xxyxx
+YES
+oc
+NO
+YES
+undertale
+YES
+thtsiwm
+NO
