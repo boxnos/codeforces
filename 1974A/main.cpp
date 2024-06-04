@@ -214,8 +214,8 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 
 int main() {
 	Test {
-		int x {in}, y {in}, y2 {y / 2}, y1 {y % 2};
-		outl(y2 + y1 + ceil(max(0, x - 7 * y2 - 11 * y1), 15));
+		int x {in}, y {in}, c {ceil(y, 2)};
+		outl(c + ceil(max(0, x - c * 15 + y * 4), 15));
 	}
 }
 
