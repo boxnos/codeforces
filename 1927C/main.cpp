@@ -11,7 +11,7 @@
 #include <limits>
 #include <algorithm>
 
-#include <unordered_set>
+#include <vector>
 
 //#include <ext/pb_ds/assoc_container.hpp>
 //using namespace __gnu_pbds;
@@ -216,15 +216,17 @@ int main() {
 	Test {
 		outl([] () {
 			int n {in}, m {in}, k {in}, ca {}, cb {}, cc {};
-			unordered_set<int> a {}, b {};
+			vector<int> a(k + 1), b(k + 1);
 			for (int i: ist(n))
-				a.insert(i);
+				if (i <= k)
+					a[i]++;
 			for (int i: ist(m))
-				b.insert(i);
+				if (i <= k)
+					b[i]++;
 			Range (i, 1, k + 1)
-				if (a.count(i))
-					(b.count(i) ? cc : ca)++;
-				else if (b.count(i))
+				if (a[i])
+					(b[i] ? cc : ca)++;
+				else if (b[i])
 					cb++;
 				else
 					return "NO";
