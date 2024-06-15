@@ -215,22 +215,20 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 int main() {
 	Test {
 		outl([] () {
-			int n {in}, m {in}, k {in}, ca {}, cb {}, cc {};
-			vector<int> a(k + 1), b(k + 1);
+			int n {in}, m {in}, k {in};
+			vector<int> a(k + 1), c(4);
 			for (int i: ist(n))
 				if (i <= k)
-					a[i]++;
+					a[i] |= 1;
 			for (int i: ist(m))
 				if (i <= k)
-					b[i]++;
+					a[i] |= 2;
 			Range (i, 1, k + 1)
 				if (a[i])
-					(b[i] ? cc : ca)++;
-				else if (b[i])
-					cb++;
+					c[a[i]]++;
 				else
 					return "NO";
-			return ca > k / 2 || cb > k / 2 ? "NO" : "YES";
+			return c[1] > k / 2 || c[2] > k / 2 ? "NO" : "YES";
 			}());
 	}
 }
