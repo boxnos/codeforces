@@ -212,22 +212,14 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 
 int main() {
 	Test {
-		int n {in}, m {}, M {}, c {}, p {' '};
+		int n {in}, m {}, c {}, p {};
 		Range (i, n) {
-			int s = gcu();
-			if (s == '>') {
-				if (s != p)
-					c = M;
-				m = min(m, --c);
-			} else {
-				if (s != p)
-					c = m;
-				M = max(M, ++c);
-			}
-			p = s;
+			if (int s = gcu(); s != exchange(p, s))
+				c = 1;
+			m = max(m, ++c);
 		}
 		gcu();
-		outl(M - m + 1);
+		outl(m);
 	}
 }
 
