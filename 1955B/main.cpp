@@ -11,7 +11,8 @@
 #include <limits>
 #include <algorithm>
 
-#include <unordered_map>
+#include <vector>
+#include <ranges>
 
 //#include <ext/pb_ds/assoc_container.hpp>
 //using namespace __gnu_pbds;
@@ -214,22 +215,14 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 
 int main() {
 	Test {
-		outl([] () {
-			int n {in}, c {in}, d {in}, m {inf<int>};
-			unordered_map<int, int> b {};
-			for (int i: ist(n * n)) {
-				b[i]++;
-				m = min(m, i);
-			}
-			Range (i, n)
-				Range (j, n) {
-					if (int a = m + i * c + j * d; b.count(a) && b[a])
-						b[a]--;
-					else
-						return "NO";
-				}
-			return "YES";
-		}());
+		int n {in}, c {in}, d {in};
+		vector<int> b {in.read(n * n)}, a(n * n);
+		ranges::sort(b);
+		Range (i, n)
+			Range (j, n)
+				a[i * n + j] = b[0] + i * c + j * d;
+		ranges::sort(a);
+		outl(a == b ? "YES" : "NO");
 	}
 }
 
