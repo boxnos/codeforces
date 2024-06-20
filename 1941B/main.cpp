@@ -16,7 +16,7 @@
 //#include <ext/pb_ds/assoc_container.hpp>
 //using namespace __gnu_pbds;
 using namespace std;
-#define MINUS_
+//#define MINUS_
 #define IO_
 //#define PCGK_
 #define I_ inline
@@ -29,7 +29,7 @@ using namespace std;
 #define un(x) __builtin_expect(x, 0)
 #ifdef IO_
 namespace io {
-	const size_t s=1<<18;char in[s],*i {},*e {},out[s],*o=out,*f=o+s-1;
+	const size_t s=1<<15;char in[s],*i {},*e {},out[s],*o=out,*f=o+s-1;
 	I_ char get(){
 		if (i==e) {
 			e=(i=in)+fread(in,1,s,stdin);
@@ -214,16 +214,14 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 
 int main() {
 	Test {
-		outl([] () {
-			int n {in};
-			vector<LL> a = {in.read<vector<LL>>(n)};
-			Range (i, n - 2)
-				if (a[i + 1] -= a[i] * 2, a[i + 2] -= a[i]; a[i + 1] < 0 || a[i + 2] < 0)
-					return "NO";
-			if (a[n - 2] + a[n - 1])
-				return "NO";
-			return "YES";
-		}());
+		LL n {in}, f {0}, a {in}, b {in};
+		Range (i, n - 2) {
+			LL c = in;
+			if (b -= a * 2, c -= a; b < 0 || c < 0)
+				f = 1;
+			a = b, b = c;
+		}
+		outl(f || a + b ? "NO" : "YES");
 	}
 }
 
