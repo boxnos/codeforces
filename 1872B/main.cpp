@@ -218,14 +218,9 @@ using P = pair<int, int>;
 int main() {
 	Test {
 		int n {in}, r {inf<int>};
-		vector<P> t(n);
-		Range (i, n)
-			t[i] = {in, in};
-		ranges::sort(t);
-		for (P i: t) {
-			if (i.first > r)
-				break;
-			r = min(i.first + (i.second - 1) / 2, r);
+		Range (i, n) {
+			int d {in}, s {in};
+			r = min(d + (s - 1) / 2, r);
 		}
 		outl(r);
 	}
