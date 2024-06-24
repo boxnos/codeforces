@@ -210,13 +210,14 @@ TT_ I_ T ceil(T a, T b) {return (a + b - 1) / b;}
 T_ <TN_ P, TN_ O> I_ constexpr int len(P &p, O o) {return distance(begin(p), o);}
 TT_ I_ constexpr int len(T p) {return size(p);}
 
+bool calc (int n, int m) {
+	return n == m ? 1 : (n % 3 || n < m) ? 0 : calc(n / 3 * 2, m) || calc(n / 3, m);
+}
+
 int main() {
 	Test {
 		int n {in}, m {in};
-		function<bool(int)> calc = [&] (int n) {
-			return n == m ? 1 : (n % 3 || n < m) ? 0 : calc(n / 3 * 2) || calc(n / 3);
-		};
-		outl(calc(n) ? "YES" : "NO");
+		outl(calc(n, m) ? "YES" : "NO");
 	}
 }
 
