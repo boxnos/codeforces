@@ -11,6 +11,8 @@
 #include <limits>
 #include <algorithm>
 
+#include <numeric>
+
 //#include <ext/pb_ds/assoc_container.hpp>
 //using namespace __gnu_pbds;
 using namespace std;
@@ -210,13 +212,18 @@ TT_ I_ T ceil(T a, T b) {return (a + b - 1) / b;}
 T_ <TN_ P, TN_ O> I_ constexpr int len(P &p, O o) {return distance(begin(p), o);}
 TT_ I_ constexpr int len(T p) {return size(p);}
 
+int k (int n, int b) {
+	int r {};
+	for (;n > 1; r++, n /= b)
+		if (n % b)
+			return -1;
+	return r;
+}
+
 int main() {
 	Test {
-		int n {in}, m {in};
-		auto calc = [&] (auto calc, int n) -> int {
-			return n == m ? 1 : (n % 3 || n < m) ? 0 : calc(calc, n / 3 * 2) || calc(calc ,n / 3);
-		};
-		outl(calc(calc, n) ? "YES" : "NO");
+		int n {in}, m {in}, g {gcd(n, m)}, nr {k(n / g, 3)}, mr {k(m / g, 2)};
+		outl(nr < 0 || mr < 0 || nr < mr ? "NO" : "YES");
 	}
 }
 
