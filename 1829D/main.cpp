@@ -11,6 +11,8 @@
 #include <limits>
 #include <algorithm>
 
+#include <unordered_map>
+
 //#include <ext/pb_ds/assoc_container.hpp>
 //using namespace __gnu_pbds;
 using namespace std;
@@ -210,14 +212,14 @@ TT_ I_ T ceil(T a, T b) {return (a + b - 1) / b;}
 T_ <TN_ P, TN_ O> I_ constexpr int len(P &p, O o) {return distance(begin(p), o);}
 TT_ I_ constexpr int len(T p) {return size(p);}
 
-bool calc (int n, int m) {
-	return n == m ? 1 : (n % 3 || n < m) ? 0 : calc(n / 3 * 2, m) || calc(n / 3, m);
-}
-
 int main() {
 	Test {
 		int n {in}, m {in};
-		outl(calc(n, m) ? "YES" : "NO");
+		unordered_map<int, int> M;
+		auto calc = [&] (auto calc, int n) -> int {
+			return M.count(n) ? M[n] : n == m ? (M[n] = 1) : (n % 3 || n < m) ? (M[n] = 0) : calc(calc, n / 3 * 2) || calc(calc ,n / 3);
+		};
+		outl(calc(calc, n) ? "YES" : "NO");
 	}
 }
 
