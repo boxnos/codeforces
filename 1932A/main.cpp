@@ -16,7 +16,7 @@
 using namespace std;
 //#define MINUS_
 #define IO_
-//#define PCGK_
+//#define PCK_
 #define I_ inline
 #define T_ template
 #define TN_ typename
