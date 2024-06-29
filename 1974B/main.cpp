@@ -215,10 +215,13 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 int main() {
 	Test {
 		int n {in};
-		string b {in.read(n, ' ')}, r = b;
-		vector<char> t(256);
-		ranges::sort(r);
-		r.erase(unique(begin(r), end(r)), end(r));
+		string b {in.read(n, ' ')}, r;
+		vector<int> v(26), t(256);
+		for (char c: b)
+			v[c - 'a']++;
+		Range (i, 26)
+			if (v[i])
+				r += i + 'a';
 		Range (i, size(r))
 			t[r[i]] = r[size(r) - i - 1];
 		for (char c: b)
