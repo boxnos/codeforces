@@ -10,6 +10,8 @@
 #include <array>
 #include <limits>
 
+#include <numeric>
+
 //#include <ext/pb_ds/assoc_container.hpp>
 //using namespace __gnu_pbds;
 using namespace std;
@@ -209,17 +211,10 @@ TT_ I_ T ceil(T a, T b) {return (a + b - 1) / b;}
 T_ <TN_ P, TN_ O> I_ constexpr int len(P &p, O o) {return distance(begin(p), o);}
 TT_ I_ constexpr int len(T p) {return size(p);}
 
-int min_div(int n) {
-	for (int i = 2; i * i <= n; i++)
-		if (!(n % i))
-			return i;
-	return n;
-}
-
 int main() {
 	Test {
 		int a {in}, b {in};
-		outl(a == 1 ? b * b : min(min_div(a), min_div(b)) * b);
+		outl(b % a ? a / gcd(a, b) * b: b / a * b);
 	}
 }
 
