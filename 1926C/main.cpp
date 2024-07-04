@@ -209,21 +209,16 @@ TT_ I_ T ceil(T a, T b) {return (a + b - 1) / b;}
 T_ <TN_ P, TN_ O> I_ constexpr int len(P &p, O o) {return distance(begin(p), o);}
 TT_ I_ constexpr int len(T p) {return size(p);}
 
+int sum(int n) {
+	return n * (n + 1) / 2;
+}
+
 int main() {
 	Test {
-		int n {in}, k {in},r {inf<int>};
-		if (k != 4)
-			for (int i: ist(n))
-				r = min(r, (k - i % k) % k);
-		else {
-			int c {2};
-			r = 2;
-			for (int i:ist(n))
-				if (i % 4 == 3)
-					r = min(r, 1);
-				else
-					for (;i % 2 == 0; i /= 2)
-						r = min(r, max(0, --c));
+		int n {in}, r {};
+		for (int t {1}; n / t; t *= 10) {
+			int k {n / t % 10};
+			r += n / (t * 10) * 45 * t + sum(k - 1) * t + k * (n % t + 1);
 		}
 		outl(r);
 	}
