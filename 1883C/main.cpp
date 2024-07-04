@@ -216,14 +216,13 @@ int main() {
 			for (int i: ist(n))
 				r = min(r, (k - i % k) % k);
 		else {
-			int c {2};
 			r = 2;
 			for (int i:ist(n))
 				if (i % 4 == 3)
 					r = min(r, 1);
-				else if (c)
+				else if (r)
 					for (;i % 2 == 0; i /= 2)
-						r = min(r, max(0, --c));
+						r = max(0, r - 1);
 		}
 		outl(r);
 	}
