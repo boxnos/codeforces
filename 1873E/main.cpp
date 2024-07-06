@@ -213,24 +213,16 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 
 int main() {
 	Test {
-		outl([] {
-			int n {in}, x {in};
-			vector<int> a {in.read(n)};
-			ranges::sort(a);
-			for (int i {}; i < n - 1;) {
-				int j {i + 1};
-				for (; j < n && a[i] == a[j]; j++)
-					;
-				if (j == n)
-					break;
-				if (LL dh {a[j] - a[i]}; dh * j < x)
-					x -= dh * j;
-				else
-					return x / j + a[i];
-				i = j;
-			}
-			return x / n + a[n - 1];
-		}());
+		int n {in}, x {in};
+		vector<int> a {in.read(n)};
+		LL l {}, h {ranges::max(a) + x / n + 1};
+		for (; h - l > 1;) {
+			LL m {(h - l) / 2 + l}, t {};
+			for (int i: a)
+				t += max(0LL, m - i);
+			(t > x ? h : l) = m;
+		}
+		outl(l);
 	}
 }
 
