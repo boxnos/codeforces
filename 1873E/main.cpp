@@ -215,7 +215,8 @@ int main() {
 	Test {
 		int n {in}, x {in};
 		vector<int> a {in.read(n)};
-		LL l {}, h {ranges::max(a) + x / n + 1};
+		auto m {ranges::minmax(a)};
+		LL l {m.min + x/n}, h {m.max + x / n + 1};
 		for (; h - l > 1;) {
 			LL m {(h - l) / 2 + l}, t {};
 			for (int i: a)
