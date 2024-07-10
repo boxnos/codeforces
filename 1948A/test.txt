@@ -1,0 +1,11 @@
+# inputCopy
+3
+6
+1
+2
+# outputCopy
+YES
+AAABAACC
+NO
+YES
+MM
