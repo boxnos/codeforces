@@ -217,7 +217,7 @@ int main() {
 		int n {in}, k {in};
 		vector<int> a {in.read(n)}, b(n);
 		for (int &i : a)
-			i = i % k ? i % k : k;
+			i = i % k ?: k;
 		Range (i, n)
 			b[i] = i;
 		stable_sort(begin(b), end(b), [&](int x, int y){return a[x] > a[y];});
