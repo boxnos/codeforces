@@ -214,10 +214,8 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 int main() {
 	Test {
 		auto a {in.read<3>()};
-		Range (i, 5) {
-			ranges::sort(a);
-			a[0]++;
-		}
+		Range (i, 5)
+			++*ranges::min_element(begin(a), end(a));
 		outl(a[0] * a[1] * a[2]);
 	}
 }
