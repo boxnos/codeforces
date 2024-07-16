@@ -219,9 +219,8 @@ int main() {
 		outl([] () {
 			string s = in, t = s;
 			int z {}, o {}, n = size(s);
-			Range (i, n - 1) {
-				auto [p, c] = s[i] == '0' ? P{o, '0'} : P{z, '1'};
-				if (s[i] == c && t[i] == c) {
+			Range (i, n - 1)
+				if (auto [p, c] = s[i] == '0' ? P{o, '0'} : P{z, '1'}; s[i] == c && t[i] == c) {
 					for (p = max(i, p) + 1; p < n && t[p] == c; p++)
 						;
 					if (p < n)
@@ -229,7 +228,6 @@ int main() {
 					else
 						return n - i;
 				}
-			}
 			return int(s[n - 1] == t[n - 1]);
 		}());
 	}
