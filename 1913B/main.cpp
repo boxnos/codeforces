@@ -217,18 +217,12 @@ using P = pair<int &, char>;
 int main() {
 	Test {
 		outl([] () {
-			string s = in, t = s;
-			int z {}, o {}, n = size(s);
-			Range (i, n - 1)
-				if (auto [p, c] = s[i] == '0' ? P{o, '0'} : P{z, '1'}; s[i] == c && t[i] == c) {
-					for (p = max(i, p) + 1; p < n && t[p] == c; p++)
-						;
-					if (p < n)
-						swap(t[i], t[p]);
-					else
-						return n - i;
-				}
-			return int(s[n - 1] == t[n - 1]);
+			string s = in;
+			int n = size(s), z = ranges::count(s, '0'), o {n - z};
+			Range (i, n)
+				if (!(s[i] == '0' ? o : z)--)
+					return n - i;
+			return 0;
 		}());
 	}
 }
