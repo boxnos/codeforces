@@ -10,6 +10,8 @@
 #include <array>
 #include <limits>
 
+#include <algorithm>
+
 //#include <ext/pb_ds/assoc_container.hpp>
 //using namespace __gnu_pbds;
 using namespace std;
@@ -211,16 +213,9 @@ TT_ I_ constexpr int len(T p) {return size(p);}
 
 int main() {
 	Test {
-		int n {in}, m {in};
-		auto a {vector(n + 2, vector<int>(m + 2))};
-		Range (i, 1, n + 1)
-			Range (j, 1, m + 1)
-				a[i][j] = in;
-		Range (i, 1, n + 1) {
-			Range (j, 1, m + 1)
-				out(min(a[i][j], max({a[i - 1][j], a[i][j + 1], a[i + 1][j], a[i][j - 1]})), ' ');
-			outl();
-		}
+		auto x {in.read<3>()};
+		auto m {ranges::minmax(x)};
+		outl(m.max - m.min);
 	}
 }
 
