@@ -216,7 +216,7 @@ int main() {
 		string s = in;
 		int r {1}, f {};
 		Range (i, size(s) - 1)
-			r += s[i] != s[i + 1] && (f |= s[i] == '0' && s[i + 1] == '1', 1);
+			r += s[i] != s[i + 1] && (f |= s[i] == '0', 1);
 		outl(r - f);
 	}
 }
