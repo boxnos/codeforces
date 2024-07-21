@@ -215,13 +215,8 @@ int main() {
 	Test {
 		string s = in;
 		int r {1}, f {};
-		Range (i, size(s) - 1) {
-			if (s[i] != s[i + 1]) {
-				r++;
-				if (s[i] == '0' && s[i + 1] == '1')
-					f |= 1;
-			}
-		}
+		Range (i, size(s) - 1)
+			r += s[i] != s[i + 1] && (f |= s[i] == '0' && s[i + 1] == '1', 1);
 		outl(r - f);
 	}
 }
