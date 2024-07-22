@@ -1,0 +1,28 @@
+# inputCopy
+5
+1
+a
+b
+c
+2
+aa
+bb
+aa
+10
+mathforces
+luckforces
+adhoccoder
+3
+acc
+abd
+abc
+4
+izzi
+izzz
+ziiz
+# outputCopy
+YES
+NO
+YES
+NO
+YES
