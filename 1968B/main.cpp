@@ -216,7 +216,7 @@ int main() {
 		int n {in}, m {in}, k {};
 		string a {in.read(n, ' ')}, b {in.read(m, ' ')};
 		for (int i {}, j {}; i < n && j < m; i++, j++)
-			for (;j < m && (a[i] != b[j] || (++k, 0)); j++)
+			for (;j < m && (a[i] != b[j] || !++k); j++)
 				;
 		outl(k);
 	}
