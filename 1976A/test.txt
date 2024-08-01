@@ -1,0 +1,18 @@
+# inputCopy
+5
+4
+12ac
+5
+123wa
+9
+allllmost
+5
+ac123
+6
+011679
+# outputCopy
+YES
+NO
+YES
+NO
+YES
