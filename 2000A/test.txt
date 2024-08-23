@@ -1,0 +1,21 @@
+# InputCopy
+9
+100
+1010
+101
+105
+2033
+1019
+1002
+10
+1
+# OutputCopy
+NO
+YES
+NO
+YES
+NO
+YES
+NO
+NO
+NO
