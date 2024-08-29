@@ -216,15 +216,11 @@ int main() {
 	Test {
 		int n {in};
 		vector<int> r(4);
-		Range (i, n)
-			Range (j, 4) {
-				if (int c {gcu()}; c != '?') {
-					int x {c - 'A'};
-					r[x] = min(r[x] + 1, n);
-				}
-			}
+		Range (i, n * 4)
+			if (int c {gcu()}; c != '?')
+				r[c - 'A']++;
 		gcu();
-		outl(accumulate(begin(r), end(r), 0));
+		outl(accumulate(begin(r), end(r), 0, [n](int a, int b){return a + min(b, n);}));
 	}
 }
 
