@@ -1,0 +1,11 @@
+# InputCopy
+4
+a
+aaa
+abb
+password
+# OutputCopy
+wa
+aada
+abcb
+pastsword
