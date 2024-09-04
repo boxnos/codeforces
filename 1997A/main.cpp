@@ -211,8 +211,8 @@ TT_ I_ T ceil(T a, T b) {return (a + b - 1) / b;}
 T_ <TN_ P, TN_ O> I_ constexpr int len(P &p, O o) {return distance(begin(p), o);}
 TT_ I_ constexpr int len(T p) {return size(p);}
 
-char calc(char c) {
-	return (c - 'a' + 1) % 26 + 'a';
+char calc(int c) {
+	return 'a' + 'z' - c;
 }
 
 int main() {
