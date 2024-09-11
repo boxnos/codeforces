@@ -1,0 +1,9 @@
+# InputCopy
+3
+1 2
+3 10
+5 5
+# OutputCopy
+1
+7
+0
