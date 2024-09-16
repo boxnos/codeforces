@@ -1,0 +1,13 @@
+# InputCopy
+4
+10
+4
+15
+9
+# OutputCopy
+YES
+1 2 7
+NO
+YES
+1 4 10
+NO
